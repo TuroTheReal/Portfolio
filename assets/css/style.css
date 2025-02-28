@@ -1,0 +1,392 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Variables */
+:root {
+	/* Colors */
+	--color-primary: #F8F9FA; /*F5F5F5*/ /*FAFAFA*/
+	--color-secondary: #121212; /*181A1B*/
+	--color-gradient1: #52B4FF;
+	--color-gradient2: #332F94;
+	--color-gradient3: #8A4FBB;
+	--color-gradient4: #E26EE2;
+
+	/* Fonts */
+	--font-title: "Poppins", sans-serif;
+	--font-text: "DM Sans", sans-serif;
+
+	/* Pour effets galerie, à adapter*/
+	--total-items: 4;
+	--transition-time: 0.5s;
+	--slide-duration: 8s; /* Durée d'affichage de chaque slide */
+}
+
+/* Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+	width: 100%;
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	background-color:var(--color-secondary);
+	box-sizing: border-box;
+}
+
+h1, h2, h3 {
+	color: var(--color-primary);
+	line-height: 120%;
+	text-decoration: none;
+	text-align: center; /* Centre les titres */
+}
+
+h1 {
+	font-family: var(--font-title);
+	font-size: 1.75rem;
+	font-weight: 400;
+	letter-spacing: -0.0625rem;
+}
+
+h2 {
+	font-family: var(--font-text);
+	font-size: 1rem;
+	font-weight: 300;
+	letter-spacing: -0.028rem;
+}
+
+h3 {
+	font-family: var(--font-text);
+	font-size: 1rem;
+	font-weight: 200;
+	letter-spacing: -0.028rem;
+}
+
+.gradient {
+	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2)40%, var(--color-gradient3), var(--color-gradient4)); /* Dégradé bleu -> violet -> rose */
+	background-size: 400% 400%; /* Augmente la taille du fond pour permettre le mouvement */
+	-webkit-background-clip: text; /* Applique le fond uniquement à la forme du texte (Safari, Chrome) */
+	background-clip: text; /* Même chose pour les autres navigateurs */
+	color: transparent; /* Rend la couleur du texte transparente pour voir le fond */
+	animation: gradientMove 5s ease-in-out infinite; /* Animation */
+}
+
+.black {
+	color: var(--color-secondary);
+}
+
+@keyframes gradientMove {
+	0% {background-position: 100% 100%;}
+	25% {background-position: 25% 25%;}
+	50% {background-position: 0% 0%;}
+	75% {background-position: 25% 25%;}
+	100% {background-position: 100% 100%;}
+}
+
+/* Components */
+.home {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 14rem;
+	overflow: hidden; /* Empêche la vidéo de déborder en dehors de la section */
+	justify-content: center;
+	gap: 0.165rem;
+	padding: 0 0.625rem;
+}
+
+.home_video {
+	position: absolute; /* Positionner la vidéo derrière le contenu */
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover; /* Assure que la vidéo couvre tout l'écran sans distorsion */
+	z-index: -1; /* Place la vidéo derrière le contenu */
+	filter: blur(0.0625rem) brightness(80%) contrast(100%) grayscale(0%); /* Applique un filtre */}
+
+.home_title, .home_subtitle {
+	text-align: center; /* Centre les titres */
+	z-index: 1; /* Met les titres au-dessus de la vidéo */
+}
+
+.about {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 2rem 0; /* Ajoute de l'espace vertical sans affecter le centrage */
+	gap: 1rem;
+}
+
+.about_title {
+	margin-bottom: 1rem; /* Réduit l'espace entre h1 et le texte */
+	text-align: center;
+}
+
+.about_description {
+	margin: 0 auto; /* Centre horizontalement */
+	max-width: 85%; /* Limite la largeur du texte */
+	text-align: center;
+}
+
+.about_link {
+	margin-top: 1rem; /* Ajoute de l'espace au-dessus du lien */
+	text-align: center;
+}
+
+.about_link a {
+	font-family: var(--font-text);
+	font-size: 1rem;
+	font-weight: 400;
+	color: var(--color-primary);
+	letter-spacing: -0.0175rem;
+	text-decoration: underline;
+	display: inline-block; /* Assure que le lien occupe toute la largeur de son conteneur */
+	text-align: center;
+}
+
+.work {
+	padding: 2rem 1rem;
+	overflow: hidden;
+}
+
+.work_title {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.work_gallery {
+	display: flex; /* Aligne les éléments horizontalement */
+	overflow-x: auto; /* Permet le défilement horizontal manuel */
+	scroll-snap-type: x mandatory; /* Assure un alignement précis lors du défilement */
+	scroll-behavior: smooth; /* Rend le défilement plus fluide */
+	scrollbar-width: none; /* Cache la barre de défilement pour plus d'esthétique */
+	position: relative; /* Établit un contexte de positionnement pour les éléments enfants */
+}
+
+.work_gallery::-webkit-scrollbar {
+	display: none; /* Cache la navbar sur les navigateurs basés sur WebKit (Chrome, Safari) */
+
+}
+
+.work_item {
+	position: relative;
+	width: 100%; /* Largeur de chaque projet */
+	height: 14rem; /* Hauteur des projets */
+	flex-shrink: 0; /* Empêche la réduction de la taille */
+	scroll-snap-align: start; /* Positionnement du projet à l'alignement du scroll */
+	overflow: hidden;
+	animation: auto-scroll calc(var(--total-items) * var(--slide-duration)) linear infinite;
+}
+
+/* Animation pour le défilement automatique*/
+@keyframes auto-scroll {
+	0% {transform: translateX(0);}
+	20% {transform: translateX(0);}
+	25% {transform: translateX(-100%);}
+	45% {transform: translateX(-100%);}
+	50% {transform: translateX(-200%);}
+	70% {transform: translateX(-200%);}
+	75% {transform: translateX(-300%);}
+	95% {transform: translateX(-300%);}
+	100% {transform: translateX(0);}
+}
+
+.work_content {
+	position: absolute; /* Positionnement absolu par rapport à work_item */
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0; /* Initialement caché */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+}
+
+.work_content.photo {
+	opacity: 1;
+}
+
+.work_content img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 3px;
+}
+
+.work_card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2)40%, var(--color-gradient3), var(--color-gradient4)); /* Dégradé bleu -> violet -> rose */
+	padding: 1.5rem;
+	border-radius: 3px;
+	text-align: center;
+	box-shadow: 0 5px 15px rgba(255, 255, 255, 0.06);
+}
+
+.work_card h1 {
+	font-size: 1.25rem;
+	margin-bottom: 0.625rem;
+}
+
+/* Pause des animations lors d'interactions */
+.work_gallery:active .work_item,
+.work_gallery:focus .work_item,
+.work_gallery:active .work_content,
+.work_gallery:focus .work_content {
+	animation-play-state: paused;
+}
+
+/* Animations synchronisées pour chaque élément */
+.work_item:nth-child(odd) .work_content.photo {
+	animation: slide-fade var(--slide-duration) ease-in-out infinite;
+	animation-delay: 0s;
+}
+
+.work_item:nth-child(odd) .work_content:not(.photo) {
+	animation: slide-fade-reverse var(--slide-duration) ease-in-out infinite;
+	animation-delay: 0s;
+}
+
+.work_item:nth-child(even) .work_content.photo {
+	animation: slide-fade var(--slide-duration) ease-in-out infinite;
+	animation-delay: calc(var(--slide-duration) / 2);
+}
+
+.work_item:nth-child(even) .work_content:not(.photo) {
+	animation: slide-fade-reverse var(--slide-duration) ease-in-out infinite;
+	animation-delay: calc(var(--slide-duration) / 2);
+}
+
+@keyframes slide-fade-reverse {
+	0%, 40% {
+		opacity: 0;
+		transform: translateY(10px) scale(0.95);
+	}
+	50%, 90% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(10px) scale(0.95);
+	}
+}
+
+@keyframes slide-fade {
+	0%, 40% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+	50%, 90% {
+		opacity: 0;
+		transform: translateY(-10px) scale(0.95);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-10px) scale(0.95);
+	}
+}
+
+.footer {
+	width: 100%;
+	background: linear-gradient(105deg, var(--color-gradient1), var(--color-gradient2)40%, var(--color-gradient3), var(--color-gradient4)); /* Dégradé bleu -> violet -> rose */
+	padding: 1rem;
+}
+
+.contact_links{
+	display: flex;
+	padding: 0.625rem;
+	flex-direction: column;
+	gap: 0.3125rem;
+}
+
+.footer a {
+	font-family: var(--font-text);
+	height: 100%;
+	font-size: 1rem;
+	font-weight: 300;
+	color: var(--color-primary);
+	display: flex;
+	justify-content: center;
+}
+
+.header {
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 4rem;
+	display: flex;
+	justify-content: center;
+	background-color: rgba(18, 18, 18, 0.85);
+	backdrop-filter: blur(2rem);
+	z-index: 1000;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.menu {
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	gap: 1.25rem;
+	padding: 0rem 1.25rem;
+	margin: 0;
+}
+
+.menu a {
+	font-family: var(--font-title);
+	height: 100%;
+	font-size: 0.875rem;
+	color: inherit;
+	color: var(--color-primary);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1; /* Chaque lien prend une part égale de l'espace */
+	text-align: center;
+}
+
+#lang_switch {
+	display: none;
+}
+
+.logo {
+	display: none;
+}
+
+/* .img,
+.picture,
+.video {
+max-width: 100%;
+} */
+
+/* Computer */
+/* @media screen and (min-width: 1024px) {
+
+} */
+
+/* Tablet ??? */
+/* @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+} */
+
+/* Mobile */
+/* @media screen and (max-width: 767px) {
+
+} */
