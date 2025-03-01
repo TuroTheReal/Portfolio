@@ -1,0 +1,9 @@
+const translations = {
+	fr: {
+
+	},
+
+	en: {
+
+	},
+}:
