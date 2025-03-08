@@ -213,7 +213,7 @@ h2 {
 	padding: 1.5rem;
 	border-radius: 3px;
 	text-align: center;
-	box-shadow: 0 5px 15px rgba(255, 255, 255, 0.06);
+	box-shadow: 0px 0px 18px rgba(40, 57, 183, 0.485);
 }
 
 .work_card h1 {
@@ -311,9 +311,9 @@ h2 {
 	height: 4rem;
 	display: flex;
 	justify-content: center;
-	background-color: rgba(18, 18, 18, 0.85);
+	background-color: rgba(18, 18, 18, 0.25);
 	backdrop-filter: blur(2rem);
-	z-index: 1000;
+	z-index: 10;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -346,6 +346,10 @@ h2 {
 	display: none;
 }
 
+#color_switch {
+	display: none;
+}
+
 .logo {
 	display: none;
 }
@@ -365,9 +369,9 @@ h2 {
 		padding-top: 4rem;
 	}
 
-	/* Ajustement pour le scroll aux ancres - augmenter le padding */
+	/* A Refaire au propre pour responsive */
 	html {
-		scroll-padding-top: 20rem; /* Valeur plus grande pour mieux centrer */
+		scroll-padding-top: 10rem; /* Valeur plus grande pour mieux centrer */
 		scroll-behavior: smooth;
 	}
 
@@ -378,8 +382,22 @@ h2 {
 		bottom: auto;
 		height: 4rem;
 	}
+/*
+	#lang_switch, #color_switch {
+		display: inline-block;
+	}
 
-	/* Ajuster le menu */
+	.logo {
+		display: inline-block;
+		position: relative;
+		z-index: 1000;
+	}
+
+	.logo img {
+		height: 100%;
+		padding: 0.375rem;
+	} */
+
 	.menu {
 		width: 80%;
 		max-width: 1200px;
@@ -390,7 +408,6 @@ h2 {
 		font-size: 1rem;
 		position: relative;
 		padding: 0.5rem 1rem;
-		/* display: inline-block; Important pour le positionnement du trait */
 		transition: transform 0.3s ease; /* Ajout pour l'effet de surélévation */
 	}
 
@@ -427,7 +444,6 @@ h2 {
 		width: 28%;
 	}
 
-	/* Section home plus grande */
 	.home {
 		height: 34rem;
 		display: flex;
@@ -437,7 +453,7 @@ h2 {
 	}
 
 	.home h1, h2{
-		max-width:50%;
+		max-width:54%;
 	}
 
 	.home_video {
@@ -450,13 +466,11 @@ h2 {
 		padding: 4rem 10rem;
 	}
 
-	/* Largeur limitée pour une meilleure lisibilité */
 	.about_description {
-		max-width: 55%;
+		max-width: 70%;
 		font-size: 1.2rem;
 	}
 
-	/* Effets de survol pour les liens */
 	.about_link a {
 		position: relative;
 		transition: all 0.3s ease;
@@ -468,7 +482,6 @@ h2 {
 		transform: translateY(-2px);
 	}
 
-	/* Pour la galerie a faire */
 	.work {
 		padding: 4rem 2rem;
 		overflow: visible;
@@ -497,7 +510,7 @@ h2 {
 
 	.work_item {
 		flex: 0 0 calc(33.33% - 2rem); /* Calcule la largeur pour 3 colonnes avec gap */
-		height: 22rem;
+		height: 28rem;
 		position: relative;
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
 		border-radius: 3px;
@@ -663,3 +676,10 @@ h2 {
 		font-size: 1.1rem;
 	}
 }
+
+/* Inclusion du logo a la bonne taille
+animation des liens go to
+inclusion des boutons Dark Light et En FR dans le header
+coder En / FR
+coder Dark / Light ne pas oublier changer logo
+coder page internet pour cv au lieu de pdf */
