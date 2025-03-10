@@ -331,7 +331,7 @@ h2 {
 .menu a {
 	font-family: var(--font-title);
 	height: 100%;
-	font-size: 0.875rem;
+	font-size: 0.770rem;
 	color: inherit;
 	color: var(--color-primary);
 	text-decoration: none;
@@ -340,6 +340,11 @@ h2 {
 	justify-content: center;
 	flex: 1; /* Chaque lien prend une part égale de l'espace */
 	text-align: center;
+}
+
+html[lang="fr"] .menu {
+	gap: 1rem;
+	padding: 0rem 1rem;
 }
 
 .lang-switch-wrapper {
@@ -375,14 +380,9 @@ h2 {
 	}
 
 	section {
-		min-height: calc(100vh - 4rem); /* Chaque section prend au moins la hauteur de l'écran */
-		padding-top: 4rem; /* Espace pour le menu fixe */
-		padding-bottom: 2rem;
+		min-height: calc(100vh - 4rem);
 	}
 
-	section:last-of-type {
-		padding-bottom: 10rem;
-	}
 
 	/* Modifier le header pour qu'il soit en haut plutôt qu'en bas */
 	.header {
@@ -665,9 +665,8 @@ h2 {
 	}
 
 	.work {
-		padding: 0rem 4rem;
-		padding-top: 4rem;
-		overflow: visible;
+		padding: 2rem 4rem;
+		padding-top: 2rem;
 	}
 
 	.swipe {
@@ -687,22 +686,22 @@ h2 {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 3rem;
-		overflow: visible;
+		overflow: visible; /* Garde rebord avec animation hover vers le haut*/
 		justify-content: center;
-	}
-
-	.work_item {
-		flex: 0 0 calc(33.33% - 2rem); /* Calcule la largeur pour 3 colonnes avec gap */
-		height: 26rem;
-		position: relative;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		border-radius: 3px;
-		overflow: hidden; /* Assure que l'image et la carte ne débordent pas */
 	}
 
 	/* Pour cacher le 3ème élément (n+n pour n'avoir que n éléments affichés) */
 	.work_item:nth-child(3) {
 		display: none;
+	}
+
+	.work_item {
+		flex: 0 0 calc(33.33% - 2rem); /* Calcule la largeur pour 3 colonnes avec gap */
+		height: 28rem;
+		position: relative;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		border-radius: 3px;
+		overflow: hidden; /* Assure que l'image et la carte ne débordent pas */
 	}
 
 	.work_item:hover {
