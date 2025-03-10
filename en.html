@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Portfolio Website of Arthur - Web Developer & Creator of Digital Experience">
+	<meta name="author" content="Arthur">
+	<meta name="robots" content="index, follow">
+
+	<title>Arthur's Portfolio</title>
+
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="icon" type="image/png" href="assets/logo/withoutBG/favWhite.png">
+
+</head>
+
+
+<body>
+	<main>
+		<section class="home">
+			<video class="home_video" autoplay loop muted playsinline>
+				<source src="assets/illu/VideoHome.mp4" type="video/mp4" alt="Illustration's video.">
+				You navigator can't support the video.
+			</video>
+			<h1 id="Home" class="home_title">
+				Web Developer & Creator of Digital Experience
+			</h1>
+			<h2 class="home_subtitle">
+				Vision. Design. Code.<br/>Let’s create together.
+			</h2>
+		</section>
+
+		<section class="about">
+			<h1 id="About" class="about_title">
+				Who is <span class="gradient">Arthur?</span>
+			</h1>
+			<h2 class="about_description">
+				Based in Paris & trained at 42, I'm a passionate web developer and architect specializing in crafting tailored digital experience.<br/>I design highly efficient and elegant solutions, blending technical expertise with creativity.
+			</h2>
+			<div class="about_link">
+				<a href="assets/link/Arthur Bernard CV.pdf" target="_blank" rel="noopener noreferrer" alt="Arthur's CV">
+					Know more about me and my journey.
+				</a>
+			</div>
+		</section>
+
+		<section class="work">
+			<h1 id="Work" class="work_title">
+				<span class="swipe">Swipe</span>
+				<span class="click">Click</span>
+				to see some of the best <span class="gradient">projects.</span>
+			</h1>
+			<div class="work_gallery">
+
+				<div class="work_item">
+					<a href="https://github.com/TuroTheReal/minishell" target="_blank" rel="noopener noreferrer">
+						<div class="work_content photo">
+							<img src="assets/illu/FinanceGraphicsV2.jpg" alt="Illustration's image.">
+						</div>
+						<div class="work_content card">
+							<div class="work_card">
+								<h1>Minishell</h1>
+								<h2>Reprodrucing a simplified shell interface.</h2>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="work_item">
+					<a href="https://github.com/TuroTheReal/cub3D" target="_blank" rel="noopener noreferrer">
+						<div class="work_content photo">
+							<img src="assets/illu/Clavier.jpg" alt="Illustration's image.">
+						</div>
+						<div class="work_content card">
+							<div class="work_card">
+								<h1>Cub3D</h1>
+								<h2>Graphics projetcs about ray-casting.</h2>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="work_item">
+					<a href="https://github.com/TuroTheReal/inception" target="_blank" rel="noopener noreferrer">
+						<div class="work_content photo">
+							<img src="assets/illu/Bitcoin.jpg" alt="Illustration's image.">
+						</div>
+						<div class="work_content card">
+							<div class="work_card">
+								<h1>Inception</h1>
+								<h2>Introduction to Docker technology.</h2>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="work_item">
+					<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer">
+						<div class="work_content photo">
+							<img src="assets/illu/MainAI.jpg" alt="Illustration's image.">
+						</div>
+						<div class="work_content card">
+							<div class="work_card">
+								<h1>More Projects</h1>
+								<h2>Feel free to check my GitHub.</h2>
+							</div>
+						</div>
+					</a>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<h1 id="Contact" class="footer_title">
+			Bring your project to <span class="black">life.</span>
+		</h1>
+		<div class="contact_links">
+			<div class="mail">
+				<a href="mailto:arthurbernard.dev@gmail.com" target="_blank" rel="noopener noreferrer">Feel free to reach me out by mail.</a>
+			</div>
+			<div class="linkedin">
+				<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer">Or we can discuss on LinkedIn.</a>
+			</div>
+		</div>
+	</footer>
+
+	<header class="header">
+		<div class="logo">
+			<a href="#Home" class="menuScroll1">
+				<img src="assets/logo/withoutBG/white.png" alt="Logo of Arthur's Portfolio.">
+			</a>
+		</div>
+		<nav class="menu">
+			<a href="#Home" class="menuScroll1">HOME</a>
+			<a href="#About" class="menuScroll2">ABOUT</a>
+			<a href="#Work" class="menuScroll3">WORK</a>
+			<a href="#Contact" class="menuScroll4">CONTACT</a>
+		</nav>
+		<div class="lang-switch-wrapper">
+			<input type="checkbox" id="lang-switch" class="lang-switch" aria-label="Changer de thème" checked>
+			<label for="lang-switch" class="lang-switch-label">
+				<div class="english"><h1>EN</h1></div>
+				<div class="separator">|</div>
+				<div class="french"><h1>FR</h1></div>
+			</label>
+		</div>
+		<div class="theme-switch-wrapper">
+			<input type="checkbox" id="theme-switch" class="theme-switch" aria-label="Changer de thème">
+			<label for="theme-switch" class="theme-switch-label">
+				<svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+				</svg>
+				<svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+					<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+				</svg>
+			</label>
+		</div>
+	</header>
+	<script src="assets/script.js" defer></script>
+</body>

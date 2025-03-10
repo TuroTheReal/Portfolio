@@ -387,9 +387,12 @@ h1.light-theme, h2.light-theme {
 	/* Modifier le header pour qu'il soit en haut plutôt qu'en bas */
 	.header {
 		position: fixed;
+		display: flex;
+		justify-content: space-around;
 		top: 0;
 		bottom: auto;
 		height: 4rem;
+		padding: 0 0.625rem;
 	}
 
 	#lang_switch, #color_switch {
@@ -407,9 +410,9 @@ h1.light-theme, h2.light-theme {
 	}
 
 	.menu {
-		width: 80%;
+		width: 100%;
 		max-width: 1200px;
-		margin: 0 8rem;
+		margin: 0 2rem;
 	}
 
 	.menu a {
@@ -436,40 +439,43 @@ h1.light-theme, h2.light-theme {
 		transform: translateY(-2px); /* Effet de surélévation au survol */
 	}
 
-	.menu a[href="#Home"]:hover::after {
-		width: 17%;
+	html[lang="fr"] .menu a[href="#Home"]:hover::after {
+		width: 4rem;
 	}
 
-	.menu a[href="#About"]:hover::after {
-		width: 20%;
+	html[lang="fr"] .menu a[href="#About"]:hover::after {
+		width: 4.7rem;
 	}
 
-	.menu a[href="#Work"]:hover::after {
-		width: 19%;
+	html[lang="fr"] .menu a[href="#Work"]:hover::after {
+		width: 4rem;
 	}
 
-	.menu a[href="#Contact"]:hover::after {
-		width: 28%;
+	html[lang="fr"] .menu a[href="#Contact"]:hover::after {
+		width: 4.5rem;
 	}
 
+	html[lang="en"] .menu a[href="#Home"]:hover::after {
+		width: 2.8rem;
+	}
 
+	html[lang="en"] .menu a[href="#About"]:hover::after {
+		width: 3.2rem;
+	}
 
+	html[lang="en"] .menu a[href="#Work"]:hover::after {
+		width: 2.9rem;
+	}
 
-
-
-
-
-
-
-
-
-
+	html[lang="en"] .menu a[href="#Contact"]:hover::after {
+		width: 4.5rem;
+	}
 
 	.theme-switch-wrapper {
 		display: flex;
 		align-items: center;
-		margin-left: auto;
-		margin-right: 1rem;
+		justify-content: center;
+		padding: 0.375rem;
 	}
 
 	/* Cacher l'input checkbox tout en le gardant accessible */
@@ -525,6 +531,7 @@ h1.light-theme, h2.light-theme {
 		height: 1.1rem;
 		z-index: 1;
 		fill: rgb(255, 253, 128);
+		transition: opacity 0.3s ease;
 	}
 
 	.moon-icon {
@@ -533,13 +540,11 @@ h1.light-theme, h2.light-theme {
 		z-index: 1;
 		padding-right: 0.1rem;
 		fill: var(--color-primary);
+		opacity: 0;
+		transition: opacity 0.3s ease;
 	}
 
 	/* Afficher/cacher les icônes en fonction de l'état du switch */
-	.moon-icon {
-		opacity: 0;
-	}
-
 	.theme-switch:checked + .theme-switch-label .sun-icon {
 		opacity: 0;
 	}
@@ -548,68 +553,67 @@ h1.light-theme, h2.light-theme {
 		opacity: 1;
 	}
 
-
-
-
-
-
-
-
-
-
-
-	.lang-switch-label h1{
+	.lang-switch-label h1 {
 		font-size: 1rem;
 		letter-spacing: -0.0175rem;
-	}
+		transition: color 0.3s ease;
+		padding: 0.2rem 0.4rem;
+		border-radius: 50px;
+		margin: 0;
+	  }
 
-	.lang-switch-wrapper {
+	  .lang-switch-wrapper {
 		display: flex;
 		align-items: center;
 		margin-left: auto;
 		margin-right: 1rem;
-	}
+	  }
 
-	.lang-switch {
+	  .lang-switch {
 		position: absolute;
 		opacity: 0;
 		width: 0;
 		height: 0;
-	}
+	  }
 
-	.lang-switch-label {
+	  .lang-switch-label {
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
 		position: relative;
-		width: 3.3rem;
+		width: 5rem;
 		cursor: pointer;
-	}
+	  }
 
-	.lang-switch-label .english h1 {
-		color: rgb(255, 255, 255);
-	}
+	  .separator {
+		color: #888;
+		padding: 0 0.3rem;
+	  }
 
-	.lang-switch:checked + .lang-switch-label .french h1 {
-		color: var(--color-gradient3); /* FR devient actif */
-	}
+	  /* État par défaut: EN actif (violet) */
+	  .lang-switch-label .english h1 {
+		color: var(--color-gradient3); /* Violet pour EN par défaut */
+	  }
 
-	.lang-switch-label:hover h1{
-		box-shadow: 0px 0px 16px rgba(40, 57, 183, 0.485),
-		0px 0px 50px rgba(40, 57, 183, 0.164) inset;
-	}
+	  .lang-switch-label .french h1 {
+		color: var(--color-primary); /* Blanc pour FR par défaut */
+	  }
 
+	  /* État après clic: FR actif (violet) */
+	  .lang-switch:checked + .lang-switch-label .english h1 {
+		color: var(--color-primary); /* EN devient blanc */
+	  }
 
+	  .lang-switch:checked + .lang-switch-label .french h1 {
+		color: var(--color-gradient3); /* FR devient violet */
+	  }
 
-
-
-
-
-
-
-
-
-
+	  /* Effet de survol */
+	  .lang-switch-label .english:hover h1,
+	  .lang-switch-label .french:hover h1 {
+		box-shadow: 0px 0px 15px rgba(40, 57, 183, 0.485),
+		0px 0px 60px rgba(52, 71, 212, 0.182) inset;
+	  }
 
 	.home {
 		height: 34rem;
@@ -845,7 +849,6 @@ h1.light-theme, h2.light-theme {
 }
 
 /*
-soulignement menu pas responsive
 animation des liens go to
 inclusion des boutons Dark Light et En FR dans le header
 coder JS / HTML? En / FR
