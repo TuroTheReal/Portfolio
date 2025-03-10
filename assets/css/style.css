@@ -380,8 +380,18 @@ h1.light-theme, h2.light-theme {
 
 	/* A Refaire au propre pour responsive */
 	html {
-		scroll-padding-top: 10rem; /* Valeur plus grande pour mieux centrer */
+		scroll-padding-top: 4rem;
 		scroll-behavior: smooth;
+	}
+
+	section {
+		min-height: calc(100vh - 4rem); /* Chaque section prend au moins la hauteur de l'écran */
+		padding-top: 4rem; /* Espace pour le menu fixe */
+		padding-bottom: 2rem;
+	}
+
+	section:last-of-type {
+		padding-bottom: 10rem;
 	}
 
 	/* Modifier le header pour qu'il soit en haut plutôt qu'en bas */
@@ -469,6 +479,12 @@ h1.light-theme, h2.light-theme {
 
 	html[lang="en"] .menu a[href="#Contact"]:hover::after {
 		width: 4.5rem;
+	}
+
+	/* Style pour le lien actif */
+	.menu a.active {
+		color: var(--color-gradient3);
+		font-weight: 600; /* Gras pour plus de visibilité */
 	}
 
 	.theme-switch-wrapper {
@@ -560,60 +576,64 @@ h1.light-theme, h2.light-theme {
 		padding: 0.2rem 0.4rem;
 		border-radius: 50px;
 		margin: 0;
-	  }
+	}
 
-	  .lang-switch-wrapper {
+	.lang-switch-wrapper {
 		display: flex;
 		align-items: center;
 		margin-left: auto;
 		margin-right: 1rem;
-	  }
+	}
 
-	  .lang-switch {
+	.lang-switch {
 		position: absolute;
 		opacity: 0;
 		width: 0;
 		height: 0;
-	  }
+	}
 
-	  .lang-switch-label {
+	.lang-switch-label {
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
 		position: relative;
 		width: 5rem;
 		cursor: pointer;
-	  }
+	}
 
-	  .separator {
+	.separator {
 		color: #888;
 		padding: 0 0.3rem;
-	  }
+	}
 
-	  /* État par défaut: EN actif (violet) */
-	  .lang-switch-label .english h1 {
+	/* État par défaut: EN actif (violet) */
+	.lang-switch-label .english h1 {
 		color: var(--color-gradient3); /* Violet pour EN par défaut */
-	  }
+		font-weight: 600; /* Gras pour plus de visibilité */
+	}
 
-	  .lang-switch-label .french h1 {
+	.lang-switch-label .french h1 {
 		color: var(--color-primary); /* Blanc pour FR par défaut */
-	  }
+		font-weight: 400;
+	}
 
-	  /* État après clic: FR actif (violet) */
-	  .lang-switch:checked + .lang-switch-label .english h1 {
+	/* État après clic: FR actif (violet) */
+	.lang-switch:checked + .lang-switch-label .english h1 {
 		color: var(--color-primary); /* EN devient blanc */
-	  }
+		font-weight: 400;
+	}
 
-	  .lang-switch:checked + .lang-switch-label .french h1 {
+	.lang-switch:checked + .lang-switch-label .french h1 {
 		color: var(--color-gradient3); /* FR devient violet */
-	  }
+		font-weight: 600; /* Gras pour plus de visibilité */
+	}
 
-	  /* Effet de survol */
-	  .lang-switch-label .english:hover h1,
-	  .lang-switch-label .french:hover h1 {
+	/* Effet de survol */
+	.lang-switch-label .english:hover h1,
+	.lang-switch-label .french:hover h1 {
 		box-shadow: 0px 0px 15px rgba(40, 57, 183, 0.485),
 		0px 0px 60px rgba(52, 71, 212, 0.182) inset;
-	  }
+	}
 
 	.home {
 		height: 34rem;
@@ -654,7 +674,8 @@ h1.light-theme, h2.light-theme {
 	}
 
 	.work {
-		padding: 4rem 2rem;
+		padding: 2.5rem 3rem;
+		margin-bottom: 0rem;
 		overflow: visible;
 	}
 
@@ -674,14 +695,14 @@ h1.light-theme, h2.light-theme {
 	.work_gallery {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 2rem;
+		gap: 3rem;
 		overflow: visible;
 		justify-content: center;
 	}
 
 	.work_item {
 		flex: 0 0 calc(33.33% - 2rem); /* Calcule la largeur pour 3 colonnes avec gap */
-		height: 28rem;
+		height: 26rem;
 		position: relative;
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
 		border-radius: 3px;
@@ -847,11 +868,3 @@ h1.light-theme, h2.light-theme {
 		font-size: 1.1rem;
 	}
 }
-
-/*
-animation des liens go to
-inclusion des boutons Dark Light et En FR dans le header
-coder JS / HTML? En / FR
-coder JS / CSS Dark / Light ne pas oublier changer logo
-coder page internet pour cv au lieu de pdf
-*/
