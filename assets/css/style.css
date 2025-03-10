@@ -60,15 +60,6 @@ h2 {
 	letter-spacing: -0.028rem;
 }
 
-body.light-theme {
-	--background-color:var(--color-primary);
-	--text-color: var(--color-secondary);
-}
-
-h1.light-theme, h2.light-theme {
-	color:  var(--color-secondary);
-}
-
 .gradient {
 	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2)40%, var(--color-gradient3), var(--color-gradient4)); /* Dégradé bleu -> violet -> rose */
 	background-size: 400% 400%; /* Augmente la taille du fond pour permettre le mouvement */
@@ -378,7 +369,6 @@ h1.light-theme, h2.light-theme {
 		padding-top: 4rem;
 	}
 
-	/* A Refaire au propre pour responsive */
 	html {
 		scroll-padding-top: 4rem;
 		scroll-behavior: smooth;
@@ -509,7 +499,7 @@ h1.light-theme, h2.light-theme {
 		position: relative;
 		width: 3.3rem;
 		height: 1.6rem;
-		background-color: rgb(79, 158, 214);
+		background-color: rgb(83, 27, 139);
 		border-radius: 1rem;
 		padding: 0.2rem;
 		cursor: pointer;
@@ -521,7 +511,8 @@ h1.light-theme, h2.light-theme {
 	.theme-switch-label::after {
 		content: "";
 		position: absolute;
-		left: 0.3em;
+		right: 0.3em;
+		left: auto;
 		width: 1.3rem;
 		height: 1.3rem;
 		border-radius: 50%;
@@ -533,12 +524,12 @@ h1.light-theme, h2.light-theme {
 
 	/* Lorsque le switch est activé, déplacer le curseur */
 	.theme-switch:checked + .theme-switch-label::after {
-		transform: translateX(1.4rem);
+		transform: translateX(-1.4rem);
 	}
 
 	/* Lorsque le thème sombre est activé, on change le fond */
 	.theme-switch:checked + .theme-switch-label {
-		background-color: rgb(83, 27, 139);
+		background-color: rgb(79, 158, 214);
 	}
 
 	/* Style des icônes */
@@ -548,6 +539,7 @@ h1.light-theme, h2.light-theme {
 		z-index: 1;
 		fill: rgb(255, 253, 128);
 		transition: opacity 0.3s ease;
+		opacity: 0;
 	}
 
 	.moon-icon {
@@ -556,17 +548,16 @@ h1.light-theme, h2.light-theme {
 		z-index: 1;
 		padding-right: 0.1rem;
 		fill: var(--color-primary);
-		opacity: 0;
 		transition: opacity 0.3s ease;
 	}
 
 	/* Afficher/cacher les icônes en fonction de l'état du switch */
 	.theme-switch:checked + .theme-switch-label .sun-icon {
-		opacity: 0;
+		opacity: 1;
 	}
 
 	.theme-switch:checked + .theme-switch-label .moon-icon {
-		opacity: 1;
+		opacity: 0;
 	}
 
 	.lang-switch-label h1 {
@@ -674,8 +665,8 @@ h1.light-theme, h2.light-theme {
 	}
 
 	.work {
-		padding: 2.5rem 3rem;
-		margin-bottom: 0rem;
+		padding: 0rem 4rem;
+		padding-top: 4rem;
 		overflow: visible;
 	}
 

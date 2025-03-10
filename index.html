@@ -1,64 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" type="image/png" href="assets/logo/withoutBG/favWhite.png">
+	<link rel="stylesheet" href="assets/css/style-index.css">
 	<meta charset="UTF-8">
-	<title>Bienvenue | Welcome</title>
-	<style>
-		body {
-			background-color: #121212;
-			font-family: Arial, sans-serif;
-			color: #F8F9FA;
-			text-align: center;
-			margin-top: 50px;
-		}
-		.language-links {
-			margin-top: 20px;
-		}
-		.language-links a {
-			display: inline-block;
-			padding: 10px 15px;
-			margin: 0 10px;
-			text-decoration: none;
-			color: #F8F9FA;
-			background-color: #3498db;
-			border-radius: 5px;
-			transition: background-color 0.3s;
-		}
-		.language-links a:hover {
-			background-color: #2980b9;
-		}
-	</style>
-	<script>
-		// Détecte la langue préférée du navigateur
-		document.addEventListener('DOMContentLoaded', () => {
-			const userLang = navigator.language || navigator.userLanguage;
 
-			// Redirige après un court délai pour permettre de voir la page si nécessaire
-			// setTimeout(() => {
-			// 	if (userLang.startsWith('fr')) {
-			// 		window.location.href = 'fr.html';
-			// 	} else {
-			// 		window.location.href = 'en.html';
-			// 	}
-			// }, 1500);
-		});
-	</script>
+	<title>Welcome. | Bienvenue.</title>
+
+	<script src="assets/script.js" defer></script>
 </head>
 <body>
-	<h1>Bienvenue | Welcome</h1>
-	<p>Redirection automatique en cours... | Automatic redirection in progress...</p>
-	<div class="language-links">
-		<a href="fr.html">Français</a>
-		<a href="en.html">English</a>
+	<div class="landing">
+		<div class="animated-text">
+			<div id="animated-text">Welcome.</div>
+		</div>
+		<div class="language-links">
+			<a href="fr.html">Français</a>
+			<a href="en.html">English</a>
+		</div>
 	</div>
 </body>
 </html>
 
 
 <!-- /*
-animation des liens go to
-page d'accueil avec choix langue ? si oui coder design + adapter code JS bouton EN FR
-coder en JS / HTML :  En / FR
+ PROBLEME WORK BOTTO PAD MARG OU HEIGHT
+page d'accueil avec choix langue en cours degrade sur mot et non lettre
+
+coder en JS / HTML : En / FR
+bouton pas sur la bonne langue apres le clique via page d'accueil
++ synchro le bouton selon la langue
+
 coder en JS / CSS : Dark / Light, ne pas oublier changer logo , FAV?
+
 coder page internet pour cv au lieu de pdf
 */ -->

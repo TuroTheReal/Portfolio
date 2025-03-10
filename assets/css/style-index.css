@@ -1,0 +1,118 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+	/* Colors */
+	--color-primary: #F8F9FA; /*F5F5F5*/ /*FAFAFA*/
+	--color-secondary: #121212; /*181A1B*/
+	--color-gradient1: #52B4FF;
+	--color-gradient2: #332F94;
+	--color-gradient3: #8A4FBB;
+	--color-gradient4: #E26EE2;
+
+	/* Fonts */
+	--font-title: "Poppins", sans-serif;
+	--font-text: "DM Sans", sans-serif;
+}
+
+body {
+	background-color: var(--color-secondary);
+	color: var(--color-primary);
+	font-family: var(--font-title);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	font-size: 10rem;
+	font-weight: 400;
+	letter-spacing: -0.0625rem;
+}
+
+.landing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 4rem;
+}
+
+.animated-text {
+	text-align: center;
+	position: relative;
+}
+
+#animated-text {
+	text-align: center;
+	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
+	background-size: 300% 300%;
+	/* -webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent; */
+	animation: gradientMove 5s ease-in-out infinite;
+}
+
+/* Style des lettres */
+.letter {
+	display: inline-block;
+	transform: translateX(-50px); /* Position de départ au-dessus */
+	animation: dropIn 0.5s steps(4) forwards; /* Animation en "steps" pour un effet saccadé */
+}
+
+/* Animation dégradé */
+@keyframes gradientMove {
+	0% {background-position: 100% 100%;}
+	25% {background-position: 25% 25%;}
+	50% {background-position: 0% 0%;}
+	75% {background-position: 25% 25%;}
+	100% {background-position: 100% 100%;}
+}
+
+/* Animation d'apparition */
+@keyframes dropIn {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.language-links a {
+	padding: 0 4rem;
+	font-size: 1.75rem;
+	text-decoration: none;
+	color: inherit;
+	text-align: center;
+	display: inline-block; /* Assure que la transformation s'applique bien */
+}
+
+.language-links a:hover{
+	transform: translateY(-2px);
+	transition: transform 0.3s ease;
+}
+
+.language-links a::after {
+	content: '';
+	position: absolute;
+	bottom: -0.3rem;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient4));
+	transition: all 0.3s ease;
+	transform: translateX(-50%);
+}
+
+.language-links a[href="fr.html"]:hover::after {
+	width: 6.4rem;
+}
+
+.language-links a[href="en.html"]:hover::after {
+	width: 5.3rem;
+}
