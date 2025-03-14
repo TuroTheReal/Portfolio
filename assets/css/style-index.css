@@ -16,19 +16,26 @@
 	--font-text: "DM Sans", sans-serif;
 }
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+}
+
 body {
 	background-color: var(--color-secondary);
 	color: var(--color-primary);
 	font-family: var(--font-title);
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
 	margin: 0;
-	font-size: 10rem;
 	font-weight: 400;
 	letter-spacing: -0.0625rem;
+	font-size: 4rem;
 }
 
 .landing {
@@ -36,30 +43,40 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding: 4rem;
+	gap: 4rem;
+	height: 100vh;
+	padding: 1rem;
 }
 
+/* Le wrapper avec le dégradé */
 .animated-text-container {
-	text-align: center;
+	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
+	background-size: 300% 300%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	animation: gradientMove 5s ease-in-out infinite;
+	display: inline-flex;
+	justify-content: center;
+	width: auto;
 	position: relative;
 }
 
-#animated-text {
-	text-align: center;
-	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
-	background-size: 300% 300%;
-	/* -webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	color: transparent; */
-	animation: gradientMove 5s ease-in-out infinite;
-}
-
-/* Style des lettres */
+/* Les lettres animées */
 .letter {
 	display: inline-block;
-	transform: translateX(-50px); /* Position de départ au-dessus */
-	animation: dropIn 0.5s steps(4) forwards; /* Animation en "steps" pour un effet saccadé */
+	transform: translateX(-50px);
+	animation: dropIn 0.5s steps(4) forwards;
+	opacity: 0;
+}
+
+/* Le texte placeholder pour assurer la largeur constante */
+.text-placeholder {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	pointer-events: none;
 }
 
 /* Animation dégradé */
@@ -83,16 +100,25 @@ body {
 	}
 }
 
+.language-links {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
 .language-links a {
-	padding: 0 4rem;
+	padding: 0 2rem;
 	font-size: 1.75rem;
 	text-decoration: none;
 	color: inherit;
 	text-align: center;
-	display: inline-block; /* Assure que la transformation s'applique bien */
+	display: inline-block;
+	position: relative;
 }
 
-.language-links a:hover{
+.language-links a:hover {
 	transform: translateY(-2px);
 	transition: transform 0.3s ease;
 }
@@ -115,4 +141,31 @@ body {
 
 .language-links a[href="en.html"]:hover::after {
 	width: 5.3rem;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+	body {
+		font-size: 6rem;
+	}
+
+	.language-links a {
+		padding: 0 3rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	body {
+		font-size: 9rem;
+	}
+
+	.language-links a {
+		padding: 0 4rem;
+	}
+}
+
+@media (min-width: 1440px) {
+	body {
+		font-size: 10rem;
+	}
 }

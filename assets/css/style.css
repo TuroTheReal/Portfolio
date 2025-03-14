@@ -1,6 +1,6 @@
 /* Imports */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 /* Variables */
 :root {
@@ -622,8 +622,8 @@ html[lang="fr"] .menu {
 	/* Effet de survol */
 	.lang-switch-label .english:hover h1,
 	.lang-switch-label .french:hover h1 {
-		box-shadow: 0px 0px 15px rgba(40, 57, 183, 0.485),
-		0px 0px 60px rgba(52, 71, 212, 0.182) inset;
+		box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.514),
+		0px 0px 3px rgba(255, 255, 255, 0.514) inset;
 	}
 
 	.home {
@@ -859,40 +859,55 @@ html[lang="fr"] .menu {
 	}
 }
 
+
+
 /* Light theme styles */
 
 body:not(.dark-theme) {
 	background-color: var(--color-primary);
 }
 
- body:not(.dark-theme) .lang-switch-label .french h1:not(.active) {
+body:not(.dark-theme) .lang-switch-label .french h1:not(.active) {
 	color: var(--color-secondary);
+	font-weight: 500;
 }
 
 /* Active language stays using the gradient color in both themes */
 body.dark-theme .lang-switch:checked + .lang-switch-label .french h1,
 body:not(.dark-theme) .lang-switch:checked + .lang-switch-label .french h1 {
 	color: var(--color-gradient3);
+	font-weight: 500;
 }
 
 body.dark-theme .lang-switch-label .english h1,
 body:not(.dark-theme) .lang-switch-label .english h1 {
 	color: var(--color-gradient3);
+	font-weight: 500;
 }
 
 
 body.light-theme .lang-switch:checked + .lang-switch-label .english h1,
 body:not(.dark-theme) .lang-switch:checked + .lang-switch-label .english h1 {
 	color: var(--color-secondary);
+	font-weight: 500;
 }
 
 body:not(.dark-theme) .menu a,
-body:not(.dark-theme) .lang-lang-switch-label h1,
+body:not(.dark-theme) .lang-switch-label h1,
 body:not(.dark-theme) .work h1,
 body:not(.dark-theme) .about h1,
 body:not(.dark-theme) .about h2,
 body:not(.dark-theme) .about a {
-  color: var(--color-secondary);
+	color: var(--color-secondary);
+}
+
+body:not(.dark-theme) .lang-switch-label h1,
+body:not(.dark-theme) .menu a {
+	font-weight: 500;
+}
+
+body:not(.dark-theme) .menu a.active {
+	color: var(--color-gradient3);
 }
 
 body:not(.dark-theme) .about h2 {
@@ -907,16 +922,20 @@ body:not(.dark-theme) .work_card h1 {
 	color: var(--color-primary);
 }
 
-/* Adjust header and other elements for light theme */
 body:not(.dark-theme) .header {
 	background-color: rgba(248, 249, 250, 0.144);
 }
 
-/* Adjust logo for light/dark themes */
 body:not(.dark-theme) .logo img {
-	filter: brightness(0); /* Darker logo for light theme */
+	filter: brightness(0);
 }
 
 body.dark-theme .logo img {
-	filter: brightness(5); /* Brighter logo for dark theme */
+	filter: brightness(5);
+}
+
+body:not(.dark-theme) .lang-switch-label .english:hover h1,
+body:not(.dark-theme) .lang-switch-label .french:hover h1 {
+	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.514),
+	0px 0px 3px rgba(0, 0, 0, 0.514) inset;
 }
