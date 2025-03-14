@@ -665,7 +665,7 @@ html[lang="fr"] .menu {
 	}
 
 	.work {
-		padding: 2rem 4rem;
+		padding: 4rem 4rem;
 		padding-top: 2rem;
 	}
 
@@ -857,4 +857,66 @@ html[lang="fr"] .menu {
 	.footer a {
 		font-size: 1.1rem;
 	}
+}
+
+/* Light theme styles */
+
+body:not(.dark-theme) {
+	background-color: var(--color-primary);
+}
+
+ body:not(.dark-theme) .lang-switch-label .french h1:not(.active) {
+	color: var(--color-secondary);
+}
+
+/* Active language stays using the gradient color in both themes */
+body.dark-theme .lang-switch:checked + .lang-switch-label .french h1,
+body:not(.dark-theme) .lang-switch:checked + .lang-switch-label .french h1 {
+	color: var(--color-gradient3);
+}
+
+body.dark-theme .lang-switch-label .english h1,
+body:not(.dark-theme) .lang-switch-label .english h1 {
+	color: var(--color-gradient3);
+}
+
+
+body.light-theme .lang-switch:checked + .lang-switch-label .english h1,
+body:not(.dark-theme) .lang-switch:checked + .lang-switch-label .english h1 {
+	color: var(--color-secondary);
+}
+
+body:not(.dark-theme) .menu a,
+body:not(.dark-theme) .lang-lang-switch-label h1,
+body:not(.dark-theme) .work h1,
+body:not(.dark-theme) .about h1,
+body:not(.dark-theme) .about h2,
+body:not(.dark-theme) .about a {
+  color: var(--color-secondary);
+}
+
+body:not(.dark-theme) .about h2 {
+	font-weight: 400;
+}
+
+body:not(.dark-theme) .about_link a:hover {
+	color: var(--color-gradient1);
+}
+
+body:not(.dark-theme) .work_card h1 {
+	color: var(--color-primary);
+}
+
+/* Adjust header and other elements for light theme */
+body:not(.dark-theme) .header {
+	background-color: rgba(248, 249, 250, 0.144);
+}
+
+/* Adjust logo for light/dark themes */
+body:not(.dark-theme) .logo img {
+	filter: brightness(0); /* Darker logo for light theme */
+}
+
+body.dark-theme .logo img {
+	filter: brightness(5); /* Brighter logo for dark theme */
 }

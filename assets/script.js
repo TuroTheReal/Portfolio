@@ -113,12 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		scrollTimer = setTimeout(setActiveNavOnScroll, 50);
 	});
 
-	// S'assurer que la dernière section est suffisamment haute
+	// S'assurer que la dernière section est suffisamment haute, mais éviter d'agrandir la section Work
 	function ensureLastSectionHeight() {
 		const lastSection = sections[sections.length - 1];
 		const viewportHeight = window.innerHeight;
 
-		if (lastSection.offsetHeight < viewportHeight) {
+		if (lastSection.id !== "Work" && lastSection.offsetHeight < viewportHeight) {
 			lastSection.style.minHeight = viewportHeight + 'px';
 		}
 	}
@@ -134,24 +134,32 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
+// POUR PAGE WELCOME ET GESTION DE LA LANGUE
 
-
-
-
-
-
-
-
-
-
-
-// POUR PAGE WELCOME
-
-// Détecte la langue préférée du navigateur
 document.addEventListener('DOMContentLoaded', () => {
 	const userLang = navigator.language || navigator.userLanguage;
-});
 
+	// Gestion du changement de langue via le bouton
+	const langSwitch = document.getElementById('lang-switch');
+	if (langSwitch) {
+		// Détecter la page actuelle et mettre à jour l'état du bouton
+		const currentURL = window.location.pathname;
+		if (currentURL.includes('fr.html')) {
+			langSwitch.checked = true;
+		} else if (currentURL.includes('en.html')) {
+			langSwitch.checked = false;
+		}
+
+		// Ajouter l'événement de changement pour la redirection
+		langSwitch.addEventListener('change', function() {
+			if (this.checked) {
+				window.location.href = 'fr.html';
+			} else {
+				window.location.href = 'en.html';
+			}
+		});
+	}
+});
 
 // POUR LE TEXTE PAGE WELCOME
 
@@ -160,66 +168,90 @@ const texts = ["Welcome.", "Bienvenue.", "Hello.", "Bonjour."];
 let currentIndex = 0;
 const textContainer = document.getElementById('animated-text');
 
-/**
- * Retourne un caractère aléatoire parmi une liste.
- */
-function randomChar() {
-	const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#\"\'\\^$=)°][}{`|~,?;.:/!§><'{";
-	return chars.charAt(Math.floor(Math.random() * chars.length));
-}
+// Ne continuer que si l'élément existe (pour éviter les erreurs sur les autres pages)
+if (textContainer) {
+	/**
+	 * Retourne un caractère aléatoire parmi une liste.
+	 */
+	function randomChar() {
+		const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#\"\'\\^$=)°][}{`|~,?;.:/!§><'{";
+		return chars.charAt(Math.floor(Math.random() * chars.length));
+	}
 
-/**
- * Anime l'apparition du texte :
- * - Chaque lettre est enveloppée dans un <span> avec la classe "letter".
- * - Un délai d'animation aléatoire est appliqué pour que les lettres tombent depuis le haut de manière désordonnée.
- * - Pendant l'animation, la lettre affiche successivement des caractères aléatoires (effet "scramble") avant de révéler la lettre finale.
- *
- * @param {HTMLElement} element - L'élément dans lequel afficher le texte.
- * @param {string} finalText - Le texte final à afficher.
- */
+	/**
+	 * Anime l'apparition du texte :
+	 * - Chaque lettre est enveloppée dans un <span> avec la classe "letter".
+	 * - Un délai d'animation aléatoire est appliqué pour que les lettres tombent depuis le haut de manière désordonnée.
+	 * - Pendant l'animation, la lettre affiche successivement des caractères aléatoires (effet "scramble") avant de révéler la lettre finale.
+	 *
+	 * @param {HTMLElement} element - L'élément dans lequel afficher le texte.
+	 * @param {string} finalText - Le texte final à afficher.
+	 */
 
-function animateText(element, finalText) {
-	element.innerHTML = ''; // Réinitialise le contenu
-	const letters = finalText.split('');
+	function animateText(element, finalText) {
+		element.innerHTML = ''; // Réinitialise le contenu
+		const letters = finalText.split('');
 
-	letters.forEach(letter => {
-		const span = document.createElement('span');
-		span.classList.add('letter');
-		span.dataset.final = letter;
-		span.textContent = ''; // initialement vide
-		element.appendChild(span);
+		letters.forEach(letter => {
+			const span = document.createElement('span');
+			span.classList.add('letter');
+			span.dataset.final = letter;
+			span.textContent = ''; // initialement vide
+			element.appendChild(span);
 
-		// Délai d'animation aléatoire (jusqu'à 1 seconde)
-		const delay = Math.random() * 1000;
-		span.style.animationDelay = `${delay}ms`;
+			// Délai d'animation aléatoire (jusqu'à 1 seconde)
+			const delay = Math.random() * 1000;
+			span.style.animationDelay = `${delay}ms`;
 
-		// Lancement de l'effet scramble après le délai
-		setTimeout(() => {
-			let iterations = 10; // Nombre de cycles de scramble
-			const interval = setInterval(() => {
-				if (iterations <= 0) {
-					clearInterval(interval);
-					span.textContent = letter; // Affiche la lettre finale
-				} else {
-					span.textContent = randomChar();
-					iterations--;
-				}
-			}, 75); // Intervalle entre chaque changement (50ms)
-		}, delay);
-	});
-}
+			// Lancement de l'effet scramble après le délai
+			setTimeout(() => {
+				let iterations = 10; // Nombre de cycles de scramble
+				const interval = setInterval(() => {
+					if (iterations <= 0) {
+						clearInterval(interval);
+						span.textContent = letter; // Affiche la lettre finale
+					} else {
+						span.textContent = randomChar();
+						iterations--;
+					}
+				}, 75); // Intervalle entre chaque changement (50ms)
+			}, delay);
+		});
+	}
 
-// Animation initiale
-animateText(textContainer, texts[currentIndex]);
-
-// Changement de texte toutes les 3 secondes avec animation
-setInterval(() => {
-	currentIndex = (currentIndex + 1) % texts.length;
+	// Animation initiale
 	animateText(textContainer, texts[currentIndex]);
-}, 4000);
 
-
-
-
+	// Changement de texte toutes les 3 secondes avec animation
+	setInterval(() => {
+		currentIndex = (currentIndex + 1) % texts.length;
+		animateText(textContainer, texts[currentIndex]);
+	}, 4000);
+}
 
 // POUR LE THEME
+document.addEventListener('DOMContentLoaded', function() {
+	const themeSwitch = document.getElementById('theme-switch');
+
+	if (themeSwitch) {
+		// Vérifier si un thème est déjà enregistré dans localStorage
+		const savedTheme = localStorage.getItem('theme');
+		if (savedTheme === 'dark') {
+			themeSwitch.checked = false;
+			document.body.classList.add('dark-theme');
+		}
+
+		// Gestion du changement de thème
+		themeSwitch.addEventListener('change', function() {
+			if (this.checked) {
+				// Thème clair
+				document.body.classList.remove('dark-theme');
+				localStorage.setItem('theme', 'light');
+			} else {
+				// Thème sombre
+				document.body.classList.add('dark-theme');
+				localStorage.setItem('theme', 'dark');
+			}
+		});
+	}
+});
