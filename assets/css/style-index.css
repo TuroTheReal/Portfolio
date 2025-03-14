@@ -48,8 +48,11 @@ body {
 	padding: 1rem;
 }
 
-/* Le wrapper avec le dégradé */
 .animated-text-container {
+	width: 100%;
+	justify-content: center;
+	display: inline-flex;
+	/* position: relative; */
 	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
 	background-size: 300% 300%;
 	-webkit-background-clip: text;
@@ -57,47 +60,14 @@ body {
 	color: transparent;
 	-webkit-text-fill-color: transparent;
 	animation: gradientMove 5s ease-in-out infinite;
-	display: inline-flex;
-	justify-content: center;
-	width: auto;
-	position: relative;
 }
 
-/* Les lettres animées */
-.letter {
-	display: inline-block;
-	transform: translateX(-50px);
-	animation: dropIn 0.5s steps(4) forwards;
-	opacity: 0;
-}
-
-/* Le texte placeholder pour assurer la largeur constante */
-.text-placeholder {
-	visibility: hidden;
-	opacity: 0;
-	position: absolute;
-	pointer-events: none;
-}
-
-/* Animation dégradé */
 @keyframes gradientMove {
 	0% {background-position: 100% 100%;}
 	25% {background-position: 25% 25%;}
 	50% {background-position: 0% 0%;}
 	75% {background-position: 25% 25%;}
 	100% {background-position: 100% 100%;}
-}
-
-/* Animation d'apparition */
-@keyframes dropIn {
-	0% {
-		opacity: 0;
-		transform: translateX(-50px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
 }
 
 .language-links {
