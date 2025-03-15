@@ -172,14 +172,308 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // POUR LE TEXTE PAGE WELCOME
 
+// VERSION VOULU, PB AVEC LE BG des lettres
+
+// // Animation style machine à sous avec effets de brouillage et d'opacité
+// document.addEventListener('DOMContentLoaded', function() {
+//	 // Vérifier si l'élément existe avant de procéder
+//	 const animatedTextContainer = document.getElementById('animated-text');
+//	 if (!animatedTextContainer) {
+//		 console.error("L'élément avec l'ID 'animated-text' n'a pas été trouvé");
+//		 return;
+//	 }
+
+//	 // Définir les salutations à afficher en rotation
+//	 const greetings = ["Welcome.", "Bienvenue.", "Hello.", "Bonjour."];
+//	 let currentIndex = 0;
+
+//	 // Caractères pour l'effet de brouillage
+//	 const randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=";
+
+//	 // Stocker le texte original
+//	 const originalText = animatedTextContainer.textContent;
+
+//	 // Recréer la structure pour l'animation style machine à sous
+//	 animatedTextContainer.innerHTML = '';
+
+//	 // Ajouter un effet d'opacité initial
+//	 animatedTextContainer.style.opacity = '0';
+
+//	 // Fonction pour obtenir un caractère aléatoire
+//	 function getRandomChar() {
+//		 return randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+//	 }
+
+//	 // Fonction pour créer des spans individuels pour chaque caractère
+//	 function createCharacterSpans(text) {
+//		 animatedTextContainer.innerHTML = '';
+
+//		 for (let i = 0; i < text.length; i++) {
+//			 const span = document.createElement('span');
+//			 span.textContent = text[i];
+//			 span.style.display = 'inline-block';
+//			 span.style.opacity = '0';
+//			 span.style.transform = 'translateY(-20px)';
+//			 span.style.transition = 'all 0.2s ease-out';
+//			 animatedTextContainer.appendChild(span);
+//		 }
+
+//		 return Array.from(animatedTextContainer.children);
+//	 }
+
+//	 // Faire apparaître progressivement avec effet de machine à sous
+//	 function revealWithSlotEffect(spans, targetText) {
+//		 return new Promise(resolve => {
+//			 // Assurer que nous avons suffisamment de spans pour le texte cible
+//			 while (spans.length < targetText.length) {
+//				 const span = document.createElement('span');
+//				 span.textContent = ' ';
+//				 span.style.display = 'inline-block';
+//				 span.style.opacity = '0';
+//				 span.style.transform = 'translateY(-20px)';
+//				 span.style.transition = 'all 0.2s ease-out';
+//				 animatedTextContainer.appendChild(span);
+//				 spans.push(span);
+//			 }
+
+//			 // Réduire le nombre de spans si nécessaire
+//			 while (spans.length > targetText.length) {
+//				 const span = spans.pop();
+//				 span.style.opacity = '0';
+//				 span.style.transform = 'translateY(20px)';
+//				 setTimeout(() => span.remove(), 500);
+//			 }
+
+//			 // Rendre le conteneur visible
+//			 animatedTextContainer.style.opacity = '1';
+
+//			 // Pour chaque caractère, effectuer l'animation de machine à sous
+//			 let completeCount = 0;
+
+//			 spans.forEach((span, index) => {
+//				 // Délai progressif pour effet cascade
+//				 const delay = index * 150 + Math.random() * 200;
+
+//				 // Nombre d'itérations pour l'effet de roulette
+//				 const iterations = 5 + Math.floor(Math.random() * 10);
+
+//				 // Démarrer l'animation après le délai
+//				 setTimeout(() => {
+//					 let iteration = 0;
+
+//					 // Fonction pour changer les caractères
+//					 function changeCharacter() {
+//						 iteration++;
+
+//						 // Si nous n'avons pas terminé les itérations
+//						 if (iteration < iterations) {
+//							 // Caractère aléatoire
+//							 span.textContent = getRandomChar();
+
+//							 // Ajuster l'opacité progressivement
+//							 span.style.opacity = Math.min(0.3 + (iteration / iterations) * 0.7, 1).toString();
+
+//							 // Ajuster la position pour effet de défilement
+//							 const posY = -20 + (iteration / iterations) * 20;
+//							 span.style.transform = `translateY(${posY}px)`;
+
+//							 // Continuer avec le prochain changement
+//							 setTimeout(changeCharacter, 100 - (iteration / iterations) * 50);
+//						 } else {
+//							 // Fixer le caractère final
+//							 span.textContent = targetText[index];
+//							 span.style.opacity = '1';
+//							 span.style.transform = 'translateY(0)';
+
+//							 // Augmenter le compteur de complétion
+//							 completeCount++;
+
+//							 // Si tous les caractères sont en place, résoudre la promesse
+//							 if (completeCount === spans.length) {
+//								 setTimeout(resolve, 1000);
+//							 }
+//						 }
+//					 }
+
+//					 // Démarrer le changement de caractères
+//					 changeCharacter();
+//				 }, delay);
+//			 });
+//		 });
+//	 }
+
+//	 // Faire disparaître avec effet de machine à sous à l'envers
+//	 function hideWithReverseSlotEffect(spans) {
+//		 return new Promise(resolve => {
+//			 let completeCount = 0;
+
+//			 // Pour chaque caractère, effectuer l'animation inverse
+//			 spans.forEach((span, index) => {
+//				 // Délai progressif pour effet cascade, en ordre inverse
+//				 const delay = (spans.length - index - 1) * 100;
+
+//				 // Démarrer l'animation après le délai
+//				 setTimeout(() => {
+//					 // Animation d'opacité et de mouvement
+//					 span.style.opacity = '0';
+//					 span.style.transform = 'translateY(20px)';
+
+//					 // Augmenter le compteur de complétion
+//					 completeCount++;
+
+//					 // Si tous les caractères sont cachés, résoudre la promesse
+//					 if (completeCount === spans.length) {
+//						 setTimeout(resolve, 500);
+//					 }
+//				 }, delay);
+//			 });
+//		 });
+//	 }
+
+//	 // Fonction principale d'animation
+//	 async function runAnimation() {
+//		 // Créer les spans pour le texte initial
+//		 let spans = createCharacterSpans(originalText || greetings[0]);
+
+//		 // Attendre un court instant avant de commencer
+//		 await new Promise(resolve => setTimeout(resolve, 1000));
+
+//		 // Boucle infinie pour l'animation
+//		 while (true) {
+//			 // Afficher la salutation actuelle
+//			 await revealWithSlotEffect(spans, greetings[currentIndex]);
+
+//			 // Attendre 3 secondes
+//			 await new Promise(resolve => setTimeout(resolve, 3000));
+
+//			 // Cacher les caractères
+//			 await hideWithReverseSlotEffect(spans);
+
+//			 // Passer à la salutation suivante
+//			 currentIndex = (currentIndex + 1) % greetings.length;
+//		 }
+//	 }
+
+//	 // Démarrer l'animation
+//	 runAnimation();
+// });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+	// Vérifier si l'élément existe avant de procéder
+	const animatedText = document.getElementById('animated-text');
+	if (!animatedText) {
+		console.error("L'élément avec l'ID 'animated-text' n'a pas été trouvé");
+		return;
+	}
 
+	// Définir les salutations à afficher en rotation
+	const greetings = ["Welcome.", "Bienvenue.", "Hello.", "Bonjour."];
+	let currentIndex = 0;
 
+	// Caractères pour l'effet de brouillage
+	const randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
+	// Fonction pour obtenir un caractère aléatoire
+	function getRandomChar() {
+		return randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+	}
 
+	// Fonction pour animer la transition vers un nouveau texte
+	function animateTextChange(newText) {
+		// Conserver une copie du texte actuel
+		const currentText = animatedText.textContent;
 
+		// Créer un tableau de caractères pour le suivi
+		let chars = currentText.split('');
 
+		// Pour les nouveaux caractères qui n'existent pas dans le texte actuel
+		while (chars.length < newText.length) {
+			chars.push(' ');
+		}
+
+		// Paramètres d'animation
+		const phaseDuration = 2000;// Durée de l'animation en millisecondes (4 secondes)
+		const frameDuration = 40;	// Durée entre chaque mise à jour (millisecondes)
+		const totalFrames = Math.floor(phaseDuration / frameDuration);
+
+		let animationFrame = 0;
+
+		// Créer un tableau pour suivre quels caractères ont été fixés
+		const fixedChars = new Array(chars.length).fill(false);
+
+		// Fonction d'animation qui s'exécute à chaque frame
+		function animate() {
+			animationFrame++;
+
+			// Phase de l'animation entre 0 et 1
+			const phase = animationFrame / totalFrames;
+
+			// Nombre de caractères à fixer pour cette frame
+			const charsToFix = Math.floor(phase * newText.length * 1.5);
+
+			// Pour chaque caractère...
+			for (let i = 0; i < chars.length; i++) {
+				// Si ce caractère doit être fixé...
+				if (!fixedChars[i] && (Math.random() < 0.1 || animationFrame > totalFrames * 0.8)) {
+					if (i < newText.length && i < charsToFix) {
+						// Fixer ce caractère à sa valeur finale
+						chars[i] = newText[i];
+						fixedChars[i] = true;
+					}
+				}
+
+				// Si ce caractère n'est pas encore fixé, le faire "brouiller"
+				if (!fixedChars[i]) {
+					// Probabilité de brouillage augmente avec le temps
+					const blurProb = phase * 0.5 + 0.2;
+
+					if (Math.random() < blurProb) {
+						chars[i] = getRandomChar();
+					}
+				}
+			}
+
+			// Supprimer les caractères excédentaires progressivement
+			if (chars.length > newText.length) {
+				if (animationFrame > totalFrames * 0.5 && Math.random() < 1) {
+					chars.pop();
+				}
+			}
+
+			// Mettre à jour le texte affiché
+			animatedText.textContent = chars.join('');
+
+			// Continuer l'animation si nécessaire
+			if (animationFrame < totalFrames) {
+				setTimeout(animate, frameDuration);
+			} else {
+				// S'assurer que le texte final est correct
+				animatedText.textContent = newText;
+
+				// Programmer la prochaine animation
+				setTimeout(nextGreeting, 2500); // Attendre 3 secondes avant la prochaine transition
+			}
+		}
+
+		// Démarrer l'animation
+		setTimeout(animate, frameDuration);
+	}
+
+	// Fonction pour passer à la salutation suivante
+	function nextGreeting() {
+		// Passer à l'index suivant
+		currentIndex = (currentIndex + 1) % greetings.length;
+
+		// Animer vers le nouveau texte
+		animateTextChange(greetings[currentIndex]);
+	}
+
+	// Commencer par l'animation du texte original vers la première salutation
+	setTimeout(function() {
+		animateTextChange(greetings[0]);
+	}, 1500); // Attendre 1.5 secondes avant de commencer l'animation
+});
 
 
 // POUR LE THEME
