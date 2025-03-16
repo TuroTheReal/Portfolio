@@ -38,6 +38,10 @@ body {
 	font-size: 3rem;
 }
 
+.theme-switch-wrapper{
+	display: none;
+}
+
 .landing {
 	display: flex;
 	justify-content: center;
@@ -139,3 +143,20 @@ body {
 		font-size: 10rem;
 	}
 }
+
+
+/* Light theme styles */
+
+/* body:not(.dark-theme) {
+	background-color: var(--color-primary);
+}
+
+
+body:not(.dark-theme) h1,
+body:not(.dark-theme) h2,
+body:not(.dark-theme) h3,
+body:not(.dark-theme) a,
+body:not(.dark-theme) p {
+	color: var(--color-secondary);
+	font-weight: 500;
+} */

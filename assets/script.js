@@ -43,10 +43,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Ajouter les écouteurs d'événements de clic aux liens de navigation
 	navLinks.forEach(link => {
 		link.addEventListener('click', function(e) {
-			e.preventDefault();
-
-			// Récupérer la cible du lien
 			const targetId = this.getAttribute('href');
+
+			// Check if the link is to another page with a hash
+			if (targetId.includes('.html#')) {
+				// Let the default behavior happen (navigate to the other page)
+				return;
+			}
+
+			// For same-page navigation, handle it with smooth scrolling
+			e.preventDefault();
 			const targetSection = document.querySelector(targetId);
 
 			if (targetSection) {
@@ -132,6 +138,27 @@ document.addEventListener('DOMContentLoaded', function() {
 	ensureLastSectionHeight();
 	setActiveNavOnScroll();
 	});
+
+	// Gestion des liens entre pages avec des ancres
+	// Vérifier si l'URL contient un hash (ancre)
+	if (window.location.hash) {
+		// Petit délai pour s'assurer que la page est chargée
+		setTimeout(function() {
+			const targetId = window.location.hash;
+			const targetSection = document.querySelector(targetId);
+
+			if (targetSection) {
+				smoothScroll(targetSection, 800);
+
+				// Mettre à jour la classe active dans la navigation
+				navLinks.forEach(navLink => navLink.classList.remove('active'));
+				const activeLink = document.querySelector(`.menu a[href="${targetId}"]`);
+				if (activeLink) {
+					activeLink.classList.add('active');
+				}
+			}
+		}, 100);
+	}
 });
 
 
@@ -296,41 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // POUR LE THEME
 
-
-// POUR LE THEME
-
 document.addEventListener('DOMContentLoaded', function() {
 	const themeSwitch = document.getElementById('theme-switch');
-
-	// Fonction pour mettre à jour le favicon
-	function updateFavicon() {
-		// Supprime les anciens liens favicon s'ils existent
-		const existingFavicons = document.querySelectorAll('link[rel="icon"]');
-		existingFavicons.forEach(favicon => favicon.remove());
-
-		// Détermine si le thème actuel est sombre
-		const isDarkTheme = document.body.classList.contains('dark-theme');
-		// Ou si préférence système est sombre et pas de préférence utilisateur
-		const prefersDarkMode = window.matchMedia &&
-								window.matchMedia('(prefers-color-scheme: dark)').matches;
-		const userThemePreference = localStorage.getItem('theme');
-
-		// Détermine quel favicon utiliser
-		const useDarkTheme = (userThemePreference === 'dark') ||
-							(userThemePreference === null && prefersDarkMode) ||
-							(isDarkTheme);
-
-		// Crée et ajoute le bon favicon
-		const faviconLink = document.createElement('link');
-		faviconLink.rel = 'icon';
-		faviconLink.type = 'image/png'; // Ajustez selon votre format
-
-		// Choisit le bon chemin selon le thème
-		faviconLink.href = useDarkTheme ? 'assets/logo/withBG/favicon-dark.png' : 'assets/logo/withBG/favicon-light.png';
-
-		// Ajoute le favicon à la tête du document
-		document.head.appendChild(faviconLink);
-	}
 
 	if (themeSwitch) {
 		// Check for system preference first
@@ -350,9 +344,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			document.body.classList.remove('dark-theme');
 		}
 
-		// Mise à jour initiale du favicon après avoir déterminé le thème initial
-		updateFavicon();
-
 		// Listen for system preference changes
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
 			// Only apply system preference if user hasn't manually set a preference
@@ -366,9 +357,6 @@ document.addEventListener('DOMContentLoaded', function() {
 					themeSwitch.checked = true;
 					document.body.classList.remove('dark-theme');
 				}
-
-				// Mettre à jour le favicon après le changement de thème système
-				updateFavicon();
 			}
 		});
 
@@ -383,108 +371,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.body.classList.add('dark-theme');
 				localStorage.setItem('theme', 'dark');
 			}
-
-			// Mettre à jour le favicon après le changement de thème manuel
-			updateFavicon();
 		});
 	}
 });
-
-
-
-// avant maj FAV ICON
-
-// document.addEventListener('DOMContentLoaded', function() {
-//	 const themeSwitch = document.getElementById('theme-switch');
-
-//	 if (themeSwitch) {
-//		 // Check for system preference first
-//		 const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-//		 // Then check if a theme is saved in localStorage
-//		 const savedTheme = localStorage.getItem('theme');
-
-//		 // Set initial theme based on: savedTheme (if exists) OR system preference
-//		 if (savedTheme === 'dark' || (savedTheme === null && prefersDarkMode)) {
-//			 // Dark theme
-//			 themeSwitch.checked = false;
-//			 document.body.classList.add('dark-theme');
-//		 } else if (savedTheme === 'light' || (savedTheme === null && !prefersDarkMode)) {
-//			 // Light theme
-//			 themeSwitch.checked = true;
-//			 document.body.classList.remove('dark-theme');
-//		 }
-
-//		 // Listen for system preference changes
-//		 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-//			 // Only apply system preference if user hasn't manually set a preference
-//			 if (!localStorage.getItem('theme')) {
-//				 if (e.matches) {
-//					 // System switched to dark mode
-//					 themeSwitch.checked = false;
-//					 document.body.classList.add('dark-theme');
-//				 } else {
-//					 // System switched to light mode
-//					 themeSwitch.checked = true;
-//					 document.body.classList.remove('dark-theme');
-//				 }
-//			 }
-//		 });
-
-//		 // Handle theme change
-//		 themeSwitch.addEventListener('change', function() {
-//			 if (this.checked) {
-//				 // Light theme
-//				 document.body.classList.remove('dark-theme');
-//				 localStorage.setItem('theme', 'light');
-//			 } else {
-//				 // Dark theme
-//				 document.body.classList.add('dark-theme');
-//				 localStorage.setItem('theme', 'dark');
-//			 }
-//		 });
-//	 }
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// AVANT maj changement de langue
-
-// document.addEventListener('DOMContentLoaded', function() {
-// 	const themeSwitch = document.getElementById('theme-switch');
-
-// 	if (themeSwitch) {
-// 		// Vérifier si un thème est déjà enregistré dans localStorage
-// 		const savedTheme = localStorage.getItem('theme');
-// 		if (savedTheme === 'dark') {
-// 			themeSwitch.checked = false;
-// 			document.body.classList.add('dark-theme');
-// 		}
-
-// 		// Gestion du changement de thème
-// 		themeSwitch.addEventListener('change', function() {
-// 			if (this.checked) {
-// 				// Thème clair
-// 				document.body.classList.remove('dark-theme');
-// 				localStorage.setItem('theme', 'light');
-// 			} else {
-// 				// Thème sombre
-// 				document.body.classList.add('dark-theme');
-// 				localStorage.setItem('theme', 'dark');
-// 			}
-// 		});
-// 	}
-// });
