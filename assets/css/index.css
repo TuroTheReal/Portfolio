@@ -109,11 +109,11 @@ body {
 }
 
 .language-links a[href="fr.html"]:hover::after {
-	width: 6.4rem;
+	width: 4.5rem;
 }
 
 .language-links a[href="en.html"]:hover::after {
-	width: 5.3rem;
+	width: 3.6rem;
 }
 
 @media (min-width: 768px) {
@@ -125,6 +125,15 @@ body {
 		padding: 0 3rem;
 		font-size: 2rem;
 	}
+
+	.language-links a[href="fr.html"]:hover::after {
+		width: 7.4rem;
+	}
+
+	.language-links a[href="en.html"]:hover::after {
+		width: 6.1rem;
+	}
+
 }
 
 @media (min-width: 1024px) {
@@ -136,27 +145,78 @@ body {
 		padding: 0 4rem;
 		font-size: 3rem;
 	}
+
+	.language-links a[href="fr.html"]:hover::after {
+		width: 11.5rem;
+	}
+
+	.language-links a[href="en.html"]:hover::after {
+		width: 9.5rem;
+	}
+
 }
 
 @media (min-width: 1440px) {
 	body {
 		font-size: 10rem;
 	}
-}
 
+	.landing {
+		gap: 4rem;
+	}
+
+	.language-links {
+		margin-top: 3rem;
+	}
+
+	.language-links a {
+		padding: 0 5rem;
+		font-size: 3.5rem;
+	}
+
+	.language-links a[href="fr.html"]:hover::after {
+		width: 13rem;
+	}
+
+	.language-links a[href="en.html"]:hover::after {
+		width: 11rem;
+	}
+	}
+
+	@media (min-width: 1920px) {
+	body {
+		font-size: 12rem;
+	}
+
+	.landing {
+		gap: 5rem;
+	}
+
+	.language-links {
+		margin-top: 4rem;
+	}
+
+	.language-links a {
+		padding: 0 6rem;
+		font-size: 4rem;
+	}
+
+	.language-links a[href="fr.html"]:hover::after {
+		width: 15rem;
+	}
+
+	.language-links a[href="en.html"]:hover::after {
+		width: 12.5rem;
+	}
+	}
 
 /* Light theme styles */
 
-/* body:not(.dark-theme) {
+body:not(.dark-theme) {
 	background-color: var(--color-primary);
 }
 
-
-body:not(.dark-theme) h1,
-body:not(.dark-theme) h2,
-body:not(.dark-theme) h3,
-body:not(.dark-theme) a,
-body:not(.dark-theme) p {
+body:not(.dark-theme) a {
 	color: var(--color-secondary);
 	font-weight: 500;
-} */
+}

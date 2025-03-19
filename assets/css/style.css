@@ -5,8 +5,8 @@
 /* Variables */
 :root {
 	/* Colors */
-	--color-primary: #F8F9FA; /*F5F5F5*/ /*FAFAFA*/
-	--color-secondary: #121212; /*181A1B*/
+	--color-primary: #F8F9FA;
+	--color-secondary: #121212;
 	--color-gradient1: #52B4FF;
 	--color-gradient2: #332F94;
 	--color-gradient3: #8A4FBB;
@@ -16,57 +16,69 @@
 	--font-title: "Poppins", sans-serif;
 	--font-text: "DM Sans", sans-serif;
 
-	/* Pour effets galerie, à adapter*/
-	--total-items: 4;
-	--transition-time: 0.5s;
-	--slide-duration: 8s; /* Durée d'affichage de chaque slide */
+	/* Animation */
+	--slide-duration: 8s;
 }
 
 /* Reset */
-* {
+*, *::before, *::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
 /* Base styles */
+html {
+	/* Amélioration du défilement pour tous les navigateurs */
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	/* Fix pour iOS Safari et le problème de 100vh */
+	height: -webkit-fill-available;
+}
+
 body {
 	width: 100%;
 	min-height: 100vh;
-	padding: 0;
-	margin: 0;
-	background-color:var(--color-secondary);
-	box-sizing: border-box;
+	/* Fallback pour Safari iOS */
+	min-height: -webkit-fill-available;
+	background-color: var(--color-secondary);
+	font-family: var(--font-text);
+	line-height: 1.5;
+	/* Amélioration du rendu du texte */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
+/* Typographie */
 h1, h2 {
 	color: var(--color-primary);
-	line-height: 120%;
-	text-decoration: none;
-	text-align: center; /* Centre les titres */
+	line-height: 1.2;
+	text-align: center;
+	margin-bottom: 1rem;
 }
 
 h1 {
 	font-family: var(--font-title);
-	font-size: 1.75rem;
+	font-size: clamp(1.75rem, 4vw, 3.5rem); /* Taille responsive avec clamp */
 	font-weight: 400;
 	letter-spacing: -0.0625rem;
 }
 
 h2 {
 	font-family: var(--font-text);
-	font-size: 1rem;
+	font-size: clamp(1rem, 2vw, 1.75rem); /* Taille responsive avec clamp */
 	font-weight: 300;
 	letter-spacing: -0.028rem;
 }
 
+/* Texte avec dégradé */
 .gradient {
-	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2)40%, var(--color-gradient3), var(--color-gradient4)); /* Dégradé bleu -> violet -> rose */
-	background-size: 400% 400%; /* Augmente la taille du fond pour permettre le mouvement */
-	-webkit-background-clip: text; /* Applique le fond uniquement à la forme du texte (Safari, Chrome) */
-	background-clip: text; /* Même chose pour les autres navigateurs */
-	color: transparent; /* Rend la couleur du texte transparente pour voir le fond */
-	animation: gradientMove 5s ease-in-out infinite; /* Animation */
+	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
+	background-size: 400% 400%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: gradientMove 5s ease-in-out infinite;
 }
 
 .black {
@@ -74,132 +86,144 @@ h2 {
 }
 
 @keyframes gradientMove {
-	0% {background-position: 100% 100%;}
-	25% {background-position: 25% 25%;}
-	50% {background-position: 0% 0%;}
-	75% {background-position: 25% 25%;}
-	100% {background-position: 100% 100%;}
+	0% {background-position: 0% 50%;}
+	50% {background-position: 100% 50%;}
+	100% {background-position: 0% 50%;}
 }
 
-/* Components */
+/* Section principale */
 .home {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	height: 14rem;
-	overflow: hidden; /* Empêche la vidéo de déborder en dehors de la section */
+	height: 100vh; /* Utilise toute la hauteur disponible */
+	max-height: 20rem; /* Limite la hauteur sur mobile */
+	overflow: hidden;
 	justify-content: center;
-	gap: 0.165rem;
-	padding: 0 0.625rem;
+	align-items: center;
+	padding: 0 1rem;
+	/* Correction pour iOS Safari */
+	height: calc(100vh - var(--vh-offset, 0px));
 }
 
+/* Vidéo de fond */
 .home_video {
-	position: absolute; /* Positionner la vidéo derrière le contenu */
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
-	object-fit: cover; /* Assure que la vidéo couvre tout l'écran sans distorsion */
-	z-index: -1; /* Place la vidéo derrière le contenu */
-	filter: blur(0.0625rem) brightness(80%) contrast(100%) grayscale(0%); /* Applique un filtre */}
-
-.home_title, .home_subtitle {
-	text-align: center; /* Centre les titres */
-	z-index: 1; /* Met les titres au-dessus de la vidéo */
+	object-fit: cover;
+	z-index: -1;
+	/* Filtre amélioré pour la lisibilité */
+	filter: blur(2px) brightness(60%) contrast(110%);
 }
 
+/* Titres sur la vidéo */
+.home_title, .home_subtitle {
+	text-align: center;
+	z-index: 1;
+	max-width: 90%; /* Limite la largeur sur mobile */
+}
+
+/* Section À propos */
 .about {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	padding: 2rem 0; /* Ajoute de l'espace vertical sans affecter le centrage */
-	gap: 1rem;
-}
-
-.about_title {
-	margin-bottom: 1rem; /* Réduit l'espace entre h1 et le texte */
-	text-align: center;
+	min-height: 20rem;
+	padding: 3rem 1rem;
+	gap: 1.5rem;
+	align-items: center;
 }
 
 .about_description {
-	margin: 0 auto; /* Centre horizontalement */
-	max-width: 85%; /* Limite la largeur du texte */
+	max-width: 90%;
 	text-align: center;
+	color: var(--color-primary);
+	font-size: clamp(1rem, 1.5vw, 1.4rem);
 }
 
 .about_link {
-	margin-top: 1rem; /* Ajoute de l'espace au-dessus du lien */
+	margin-top: 1.5rem;
 	text-align: center;
 }
 
 .about_link a {
 	font-family: var(--font-text);
-	font-size: 1rem;
-	font-weight: 400;
+	font-size: clamp(1rem, 1.5vw, 1.3rem);
 	color: var(--color-primary);
-	letter-spacing: -0.0175rem;
 	text-decoration: underline;
-	display: inline-block; /* Assure que le lien occupe toute la largeur de son conteneur */
-	text-align: center;
+	position: relative;
+	transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* Section Travaux */
 .work {
-	padding: 2rem 0rem;
+	padding: 3rem 1rem;
 	overflow: hidden;
 }
 
+.work_title {
+	margin-bottom: 2rem;
+}
+
+/* Cacher pour tel */
 .click {
 	display: none;
 }
 
-.work_title {
-	text-align: center;
-	margin-bottom: 1rem;
-}
-
+/* Galerie scrollable sur mobile */
 .work_gallery {
-	display: flex; /* Aligne les éléments horizontalement */
-	overflow-x: auto; /* Permet le défilement horizontal manuel */
-	scroll-snap-type: x mandatory; /* Assure un alignement précis lors du défilement */
-	scroll-behavior: smooth; /* Rend le défilement plus fluide */
-	scrollbar-width: none; /* Cache la barre de défilement pour plus d'esthétique */
-	position: relative; /* Établit un contexte de positionnement pour les éléments enfants */
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scroll-padding: 0;
+	-webkit-overflow-scrolling: touch; /* Pour iOS */
+	scrollbar-width: none; /* Firefox */
+	gap: 1rem;
 }
 
 .work_gallery::-webkit-scrollbar {
-	display: none; /* Cache la navbar sur les navigateurs basés sur WebKit (Chrome, Safari) */
+	display: none; /* Chrome, Safari */
 }
 
 .work_item {
 	position: relative;
-	width: 100%; /* Largeur de chaque projet */
-	height: 14rem; /* Hauteur des projets */
-	flex-shrink: 0; /* Empêche la réduction de la taille */
-	scroll-snap-align: start; /* Positionnement du projet à l'alignement du scroll */
+	width: 100%; /* Largeur de chaque projet sur mobile */
+	height: 15rem;
+	flex-shrink: 0;
+	scroll-snap-align: start;
 	overflow: hidden;
+	border-radius: 5px; /* Coins arrondis pour meilleur design */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 
 .work_content {
-	position: absolute; /* Positionnement absolu par rapport à work_item */
+	position: absolute;
 	width: 100%;
 	height: 100%;
-	opacity: 0; /* Initialement caché */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 1rem 2rem;
 }
 
+/* Animation de l'alternat photo/description */
 .work_content.photo {
 	opacity: 1;
+}
+
+.work_content:not(.photo) {
+	opacity: 0;
 }
 
 .work_content img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	border-radius: 3px;
+	border-radius: 5px;
 }
 
 .work_card {
@@ -209,27 +233,19 @@ h2 {
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2)40%, var(--color-gradient3), var(--color-gradient4)); /* Dégradé bleu -> violet -> rose */
+	background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
 	padding: 1.5rem;
-	border-radius: 3px;
+	border-radius: 5px;
 	text-align: center;
-	box-shadow: 0px 0px 18px rgba(40, 57, 183, 0.485);
+	color: var(--color-primary);
 }
 
 .work_card h1 {
 	font-size: 1.25rem;
-	margin-bottom: 0.625rem;
+	margin-bottom: 1rem;
 }
 
-/* Pause des animations lors d'interactions */
-.work_gallery:active .work_item,
-.work_gallery:focus .work_item,
-.work_gallery:active .work_content,
-.work_gallery:focus .work_content {
-	animation-play-state: paused;
-}
-
-/* Animations synchronisées pour chaque élément */
+/* Animations */
 .work_item:nth-child(odd) .work_content.photo {
 	animation: slide-fade var(--slide-duration) ease-in-out infinite;
 	animation-delay: 0s;
@@ -253,56 +269,59 @@ h2 {
 @keyframes slide-fade-reverse {
 	0%, 40% {
 		opacity: 0;
-		transform: translateY(10px) scale(0.95);
+		transform: translateY(10px);
 	}
 	50%, 90% {
 		opacity: 1;
-		transform: translateY(0) scale(1);
+		transform: translateY(0);
 	}
 	100% {
 		opacity: 0;
-		transform: translateY(10px) scale(0.95);
+		transform: translateY(10px);
 	}
 }
 
 @keyframes slide-fade {
 	0%, 40% {
 		opacity: 1;
-		transform: translateY(0) scale(1);
+		transform: translateY(0);
 	}
 	50%, 90% {
 		opacity: 0;
-		transform: translateY(-10px) scale(0.95);
+		transform: translateY(-10px);
 	}
 	100% {
 		opacity: 0;
-		transform: translateY(-10px) scale(0.95);
+		transform: translateY(-10px);
 	}
 }
 
+/* Footer */
 .footer {
 	width: 100%;
-	background: linear-gradient(105deg, var(--color-gradient1), var(--color-gradient2)40%, var(--color-gradient3), var(--color-gradient4)); /* Dégradé bleu -> violet -> rose */
-	padding: 1rem;
+	background: linear-gradient(105deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
+	padding: 2rem 1rem;
+	text-align: center;
 }
 
-.contact_links{
+.contact_links {
 	display: flex;
-	padding: 0.625rem;
+	padding: 1rem 0;
 	flex-direction: column;
-	gap: 0.3125rem;
+	gap: 1rem;
 }
 
 .footer a {
 	font-family: var(--font-text);
-	height: 100%;
-	font-size: 1rem;
+	font-size: clamp(1rem, 1.5vw, 1.3rem);
 	font-weight: 300;
 	color: var(--color-primary);
 	display: flex;
 	justify-content: center;
+	transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* Header / Navigation */
 .header {
 	position: sticky;
 	bottom: 0;
@@ -311,115 +330,121 @@ h2 {
 	height: 4rem;
 	display: flex;
 	justify-content: center;
-	background-color: rgba(18, 18, 18, 0.25);
-	backdrop-filter: blur(2rem);
-	z-index: 10;
-	padding: 0;
-	box-sizing: border-box;
+	background-color: rgba(18, 18, 18, 0.8);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px); /* Support Safari */
+	z-index: 100;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .menu {
 	height: 100%;
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	width: 100%;
-	gap: 1.25rem;
-	padding: 0rem 1.25rem;
+	padding: 0 1rem;
 	margin: 0;
 }
 
 .menu a {
 	font-family: var(--font-title);
 	height: 100%;
-	font-size: 0.770rem;
-	color: inherit;
+	font-size: 0.875rem;
 	color: var(--color-primary);
 	text-decoration: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex: 1; /* Chaque lien prend une part égale de l'espace */
+	flex: 1;
 	text-align: center;
+	position: relative;
+	transition: color 0.3s ease;
 }
 
+/* Ajustement pour le français (généralement plus long) */
 html[lang="fr"] .menu {
-	gap: 1rem;
-	padding: 0rem 1rem;
+	gap: 0.5rem;
 }
 
-.lang-switch-wrapper {
-	display: none;
-}
-
-.theme-switch-wrapper {
-	display: none;
-}
-
+/* Éléments cachés sur mobile */
+.lang-switch-wrapper,
+.theme-switch-wrapper,
 .logo {
 	display: none;
 }
 
-/* Computer */
+/* Adaptation tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.home {
+		max-height: 40rem;
+	}
+
+	.about_description {
+		max-width: 75%;
+	}
+
+	/* Meilleure taille des projets sur tablette */
+	.work_item {
+		min-width: 65%;
+		height: 18rem;
+	}
+
+	/* Liens de contact en ligne sur tablette */
+	.contact_links {
+		flex-direction: row;
+		justify-content: center;
+		gap: 2rem;
+	}
+}
+
+/* Adaptation ordinateur */
 @media screen and (min-width: 1024px) {
-	h1 {
-		font-size: 3rem;
-	}
-
-	h2 {
-		font-size: 1.5rem;
-	}
-
-	/* Ajuster les sections pour qu'elles tiennent compte du header */
+	/* Repositionnement du header en haut pour les ordinateurs */
 	body {
 		padding-top: 4rem;
 	}
 
 	html {
 		scroll-padding-top: 4rem;
-		scroll-behavior: smooth;
 	}
 
 	section {
-		min-height: calc(100vh - 4rem);
+		scroll-margin-top: 4rem;
 	}
 
-
-	/* Modifier le header pour qu'il soit en haut plutôt qu'en bas */
 	.header {
 		position: fixed;
-		display: flex;
-		justify-content: space-around;
 		top: 0;
 		bottom: auto;
+		background-color: rgba(18, 18, 18, 0.85);
 		height: 4rem;
-		padding: 0 0.625rem;
 	}
 
-	#lang_switch, #color_switch {
-		display: inline-block;
-	}
-
+	/* Affichage du logo et des switchs sur desktop */
 	.logo {
-		display: inline-block;
+		display: block;
+		height: 100%;
+		padding: 0.5rem;
 	}
 
 	.logo img {
 		height: 100%;
-		padding: 0.375rem;
-		filter: brightness(5); /* Augmente la luminosité pour compenser l'assombrissement */
+		filter: brightness(5);
 	}
 
+	/* Configuration du menu */
 	.menu {
 		width: 100%;
 		max-width: 1200px;
-		margin: 0 2rem;
+		margin: 0 auto;
+		padding: 0 2rem;
 	}
 
 	.menu a {
 		font-size: 1rem;
-		position: relative;
-		padding: 0.5rem 1rem;
-		transition: transform 0.3s ease; /* Ajout pour l'effet de surélévation */
+		padding: 0 1rem;
+		transition: transform 0.3s ease, color 0.3s ease;
 	}
 
 	/* Effet de ligne au survol */
@@ -431,60 +456,165 @@ html[lang="fr"] .menu {
 		width: 0;
 		height: 2px;
 		background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient4));
-		transition: all 0.3s ease;
+		transition: width 0.3s ease;
 		transform: translateX(-50%);
 	}
 
 	.menu a:hover {
-		transform: translateY(-2px); /* Effet de surélévation au survol */
+		transform: translateY(-2px);
 	}
 
-	html[lang="fr"] .menu a[href="#Home"]:hover::after {
-		width: 4rem;
-	}
-
-	html[lang="fr"] .menu a[href="#About"]:hover::after {
-		width: 4.7rem;
-	}
-
-	html[lang="fr"] .menu a[href="#Work"]:hover::after {
-		width: 4rem;
-	}
-
-	html[lang="fr"] .menu a[href="#Contact"]:hover::after {
-		width: 4.5rem;
-	}
-
-	html[lang="en"] .menu a[href="#Home"]:hover::after {
-		width: 2.8rem;
-	}
-
-	html[lang="en"] .menu a[href="#About"]:hover::after {
-		width: 3.2rem;
-	}
-
-	html[lang="en"] .menu a[href="#Work"]:hover::after {
-		width: 5rem;
-	}
-
-	html[lang="en"] .menu a[href="#Contact"]:hover::after {
-		width: 4.5rem;
+	.menu a:hover::after {
+		width: 60%; /* Largeur standard pour tous les éléments */
 	}
 
 	/* Style pour le lien actif */
 	.menu a.active {
 		color: var(--color-gradient3);
-		font-weight: 600; /* Gras pour plus de visibilité */
+		font-weight: 600;
 	}
 
-	.theme-switch-wrapper {
+	/* Section home améliorée */
+	.home {
+		height: calc(100vh - 4rem);
+		max-height: none;
+		align-items: center;
+		padding: 2rem;
+	}
+
+	.home_title, .home_subtitle {
+		max-width: 60%;
+	}
+
+	.home_video {
+		filter: blur(1px) brightness(70%) contrast(110%);
+	}
+
+	/* Section à propos plus spacieuse */
+	.about {
+		min-height: calc(100vh - 4rem);
+		justify-content: space-around;
+		padding: 4rem 2rem;
+	}
+
+	.about_description {
+		max-width: 65%;
+	}
+
+	.about_link a:hover {
+		color: var(--color-gradient1);
+		transform: translateY(-2px);
+	}
+
+	/* Transformation de la galerie en grille */
+	.work {
+		padding: 4rem 2rem;
+	}
+
+	.swipe {
+		display: none;
+	}
+
+	.click {
+		display: inline-block;
+	}
+
+	.work_gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 2rem;
+		overflow: visible;
+		padding: 0;
+	}
+
+	.work_item {
+		min-width: 0;
+		width: 100%;
+		height: 25rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.work_item:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 8px 30px rgba(40, 57, 183, 0.3);
+		z-index: 2;
+	}
+
+	/* Désactive les animations auto et implémente des effets hover */
+	.work_item .work_content {
+		animation: none !important;
+	}
+
+	.work_content.photo {
+		opacity: 1;
+	}
+
+	.work_content:not(.photo) {
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.work_item:hover .work_content.photo {
+		opacity: 0;
+	}
+
+	.work_item:hover .work_content:not(.photo) {
+		opacity: 1;
+	}
+
+	.work_content img {
+		transition: transform 0.5s ease;
+	}
+
+	.work_item:hover .work_content img {
+		transform: scale(1.05);
+	}
+
+	/* Variations de dégradé pour chaque carte */
+
+	.work_item:nth-child(2) {
+		display: none;
+	}
+
+	.work_item:nth-child(1) .work_card {
+		background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
+	}
+
+	.work_item:nth-child(3) .work_card {
+		background: linear-gradient(105deg, var(--color-gradient4), var(--color-gradient3) 40%, var(--color-gradient2), var(--color-gradient1));
+	}
+
+	.work_item:nth-child(4) .work_card {
+		background: linear-gradient(165deg, var(--color-gradient1), var(--color-gradient3) 40%, var(--color-gradient4), var(--color-gradient2));
+	}
+
+	/* Footer amélioré */
+	.footer {
+		padding: 3rem 2rem;
+	}
+
+
+	.contact_links {
+		flex-direction: row;
+		justify-content: center;
+		gap: 4rem;
+	}
+
+	.footer a:hover {
+		color: var(--color-gradient1);
+		transform: translateY(-2px);
+	}
+
+	/* Commutateurs de thème et langue */
+	.theme-switch-wrapper,
+	.lang-switch-wrapper {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		padding: 0.375rem;
+		height: 100%;
+		padding: 0 1rem;
 	}
 
-	/* Hide checkbox while keeping it accessible */
+	/* Style du switch thème */
 	.theme-switch {
 		position: absolute;
 		opacity: 0;
@@ -499,7 +629,7 @@ html[lang="fr"] .menu {
 		position: relative;
 		width: 3.3rem;
 		height: 1.6rem;
-		background-color: rgb(79, 158, 214); /* Light theme background (sun) */
+		background-color: rgb(79, 158, 214);
 		border-radius: 1rem;
 		padding: 0.2rem;
 		cursor: pointer;
@@ -507,52 +637,50 @@ html[lang="fr"] .menu {
 		box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.37);
 	}
 
-	/* Moving cursor style */
 	.theme-switch-label::after {
 		content: "";
 		position: absolute;
-		left: 0.3em;
-		right: auto;
+		left: 0.3rem;
 		width: 1.3rem;
 		height: 1.3rem;
 		border-radius: 50%;
-		box-shadow: 0px 0px 3px rgb(111, 231, 252),
-		0px 0px 3px rgb(104, 231, 253) inset;
+		box-shadow: 0 0 3px rgb(111, 231, 252),
+					0 0 3px rgb(104, 231, 253) inset;
 		background-color: var(--color-secondary);
 		transition: transform 0.3s ease;
 	}
 
-	/* When switch is unchecked (dark theme), move cursor to the right */
 	.theme-switch:not(:checked) + .theme-switch-label::after {
-		transform: translateX(1.4rem);
+		transform: translateX(1.45rem);
 	}
 
-	/* When dark theme is active, change background */
 	.theme-switch:not(:checked) + .theme-switch-label {
-		background-color: rgb(83, 27, 139); /* Dark theme background (moon) */
+		background-color: rgb(83, 27, 139);
 	}
 
-	/* Icons style */
-	.sun-icon {
+	.sun-icon, .moon-icon {
 		width: 1.1rem;
 		height: 1.1rem;
 		z-index: 1;
-		fill: rgb(255, 253, 128);
+		fill: currentColor;
 		transition: opacity 0.3s ease;
-		opacity: 1; /* Visible by default (light theme) */
 	}
 
 	.moon-icon {
 		width: 1rem;
 		height: 1rem;
-		z-index: 1;
-		padding-right: 0.1rem;
-		fill: var(--color-primary);
-		transition: opacity 0.3s ease;
-		opacity: 0; /* Hidden by default (light theme) */
 	}
 
-	/* Show/hide icons based on switch state */
+	.sun-icon {
+		fill: rgb(255, 253, 128);
+		opacity: 1;
+	}
+
+	.moon-icon {
+		fill: var(--color-primary);
+		opacity: 0;
+	}
+
 	.theme-switch:not(:checked) + .theme-switch-label .sun-icon {
 		opacity: 0;
 	}
@@ -561,22 +689,7 @@ html[lang="fr"] .menu {
 		opacity: 1;
 	}
 
-	.lang-switch-label h1 {
-		font-size: 1rem;
-		letter-spacing: -0.0175rem;
-		transition: color 0.3s ease;
-		padding: 0.2rem 0.4rem;
-		border-radius: 50px;
-		margin: 0;
-	}
-
-	.lang-switch-wrapper {
-		display: flex;
-		align-items: center;
-		margin-left: auto;
-		margin-right: 1rem;
-	}
-
+	/* Style du switch langue */
 	.lang-switch {
 		position: absolute;
 		opacity: 0;
@@ -593,278 +706,94 @@ html[lang="fr"] .menu {
 		cursor: pointer;
 	}
 
+	.lang-switch-label h1 {
+		font-size: 1rem;
+		letter-spacing: -0.0175rem;
+		transition: color 0.3s ease, box-shadow 0.3s ease;
+		padding: 0.2rem 0.4rem;
+		border-radius: 50px;
+		margin: 0;
+	}
+
 	.separator {
 		color: #888;
 		padding: 0 0.3rem;
 	}
 
-	/* État par défaut: EN actif (violet) */
 	.lang-switch-label .english h1 {
-		color: var(--color-gradient3); /* Violet pour EN par défaut */
-		font-weight: 600; /* Gras pour plus de visibilité */
+		color: var(--color-gradient3);
+		font-weight: 600;
 	}
 
 	.lang-switch-label .french h1 {
-		color: var(--color-primary); /* Blanc pour FR par défaut */
+		color: var(--color-primary);
 		font-weight: 400;
 	}
 
-	/* État après clic: FR actif (violet) */
 	.lang-switch:checked + .lang-switch-label .english h1 {
-		color: var(--color-primary); /* EN devient blanc */
+		color: var(--color-primary);
 		font-weight: 400;
 	}
 
 	.lang-switch:checked + .lang-switch-label .french h1 {
-		color: var(--color-gradient3); /* FR devient violet */
-		font-weight: 600; /* Gras pour plus de visibilité */
+		color: var(--color-gradient3);
+		font-weight: 600;
 	}
 
-	/* Effet de survol */
 	.lang-switch-label .english:hover h1,
 	.lang-switch-label .french:hover h1 {
-		box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.514),
-		0px 0px 3px rgba(255, 255, 255, 0.514) inset;
+		box-shadow: 0 0 7px rgba(255, 255, 255, 0.3);
+	}
+}
+
+/* Grand écran */
+@media screen and (min-width: 1440px) {
+	.menu {
+		max-width: 1400px;
 	}
 
-	.home {
-		height: 34rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-	}
-
-	.home h1, h2{
-		max-width:52%;
-	}
-
-	.home_video {
-		filter: blur(0.03125rem) brightness(85%) contrast(110%) grayscale(0%);
-	}
-
-	.about {
-		height: 30rem;
-		justify-content: space-between;
-		padding: 4rem 10rem;
-	}
-
-	.about_description {
-		max-width: 70%;
-		font-size: 1.2rem;
-	}
-
-	.about_link a {
-		position: relative;
-		transition: all 0.3s ease;
-		font-size: 1.2rem;
-	}
-
-	.about_link a:hover {
-		color: var(--color-gradient1);
-		transform: translateY(-2px);
-	}
-
-	.work {
-		padding: 4rem 4rem;
-		padding-top: 2rem;
-	}
-
-	.swipe {
-		display: none;
-	}
-
-	.click {
-		display: inline-block;
-	}
-
-	.work_title {
-		margin-bottom: 3rem;
-	}
-
-	/* Disposition en flex wrap pour s'adapter automatiquement */
 	.work_gallery {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 3rem;
-		overflow: visible; /* Garde rebord avec animation hover vers le haut*/
-		justify-content: center;
-	}
-
-	/* Pour cacher le 3ème élément (n+n pour n'avoir que n éléments affichés) */
-	.work_item:nth-child(3) {
-		display: none;
-	}
-
-	.work_item {
-		flex: 0 0 calc(33.33% - 2rem); /* Calcule la largeur pour 3 colonnes avec gap */
-		height: 28rem;
-		position: relative;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		border-radius: 3px;
-		overflow: hidden; /* Assure que l'image et la carte ne débordent pas */
-	}
-
-	.work_item:hover {
-		transform: translateY(-8px);
-		box-shadow: 0px 0px 18px rgba(40, 57, 183, 0.485);
-		z-index: 2;
-	}
-
-	/* Désactive toutes les animations automatiques */
-	.work_item .work_content,
-	.work_item:nth-child(odd) .work_content.photo,
-	.work_item:nth-child(odd) .work_content:not(.photo),
-	.work_item:nth-child(even) .work_content.photo,
-	.work_item:nth-child(even) .work_content:not(.photo) {
-		animation: none;
-	}
-
-	.work_content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		padding: 0;
-	}
-
-	.work_content.photo {
-		opacity: 1;
-	}
-
-	.work_content img {
-		transition: transform 0.5s ease;
-		border-radius: 3px;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.work_item:hover .work_content img {
-		transform: scale(1.05);
-	}
-
-	.work_content:not(.photo) {
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		z-index: 1;
-	}
-
-	.work_item:hover .work_content:not(.photo) {
-		opacity: 1;
-	}
-
-	.work_card {
-		border-radius: 3px;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 1.5rem;
-	}
-
-	.work_item:nth-child(1) .work_card {
-		background: linear-gradient(55deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
-	}
-
-	.work_item:nth-child(2) .work_card {
-		background: linear-gradient(105deg, var(--color-gradient4), var(--color-gradient3) 40%, var(--color-gradient2), var(--color-gradient1));
-	}
-
-	.work_item:nth-child(4) .work_card {
-		background: linear-gradient(165deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
-	}
-
-	.work_card h1 {
-		font-size: 1.5rem;
-		margin-bottom: 1rem;
-	}
-
-	.work_card p {
-		max-width: 80%;
-		line-height: 1.5;
-	}
-
-	.footer {
-		padding: 3rem 0;
-	}
-
-	.footer a {
-		padding-top: 1.5rem;
-		position: relative;
-		transition: all 0.3s ease;
-		font-size: 1.2rem;
-	}
-
-	.footer a:hover {
-		color: var(--color-gradient1);
-		transform: translateY(-2px);
-	}
-
-	.contact_links {
-		flex-direction: row;
-		justify-content: center;
-		gap: 10rem;
-	}
-}
-
-/* Tablet */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-	h1 {
-		font-size: 2rem;
-	}
-
-	h2 {
-		font-size: 1.2rem;
-	}
-
-	.home {
-		height: 18rem;
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 	}
 
 	.about_description {
-		max-width: 70%;
-	}
-
-	.about a {
-		font-size: 1.1rem;
-	}
-
-	.work_content {
-		padding: 1rem 4rem;
-	}
-
-	.work_item {
-		height: 16rem;
+		max-width: 60%;
 	}
 
 	.contact_links {
-		flex-direction: row;
-		justify-content: center;
-		gap: 1.5rem;
-	}
-
-	.footer {
-		padding: 2rem 0rem;
-	}
-
-	.contact_links {
-		padding-top: 1.5rem;
-	}
-
-	.footer a {
-		font-size: 1.1rem;
+		gap: 6rem;
 	}
 }
 
+/* Très grand écran */
+@media screen and (min-width: 1920px) {
+	.menu {
+		max-width: 1800px;
+	}
 
+	.header {
+		height: 5rem;
+	}
 
-/* Light theme styles */
+	body {
+		padding-top: 5rem;
+	}
 
-body:not(.dark-theme) {
+	.work_gallery {
+		grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+	}
+
+	.about_description {
+		max-width: 50%;
+	}
+
+	.contact_links {
+		gap: 8rem;
+	}
+}
+
+/* Mode clair */
+body:not(.dark-theme), body.light-theme {
 	background-color: var(--color-primary);
 }
 
@@ -940,3 +869,29 @@ body:not(.dark-theme) .lang-switch-label .french:hover h1 {
 	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.514),
 	0px 0px 3px rgba(0, 0, 0, 0.514) inset;
 }
+
+/* Optimisations pour l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+	.gradient,
+	.work_item,
+	.about_link a,
+	.footer a,
+	.menu a,
+	.work_content img {
+
+		animation: none !important;
+		transition: none !important;
+	}
+
+	.work_item:hover .work_content.photo {
+		opacity: 0.3;
+	}
+}
+
+/* Fix pour iOS Safari et les hauteurs de viewport */
+/* Script à ajouter en JS:
+window.addEventListener('resize', () => {
+	let vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh-offset', `${vh}px`);
+});
+*/
