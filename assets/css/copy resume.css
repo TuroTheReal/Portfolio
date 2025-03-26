@@ -5,7 +5,6 @@ p {
 	font-family: var(--font-text);
 	margin-left: 6rem;
 	padding: 0 1rem;
-	font-size: 1rem;
 }
 
 li {
@@ -26,10 +25,6 @@ h3 {
 	margin-left: 6rem;
 	padding: 1rem;
 	font-weight: 500;
-}
-
-.resume {
-	padding: 1rem;
 }
 
 .date {
@@ -125,6 +120,7 @@ html[lang="fr"] .section_title#langues:after {
 	width: 4.4rem;
 }
 
+
 .resume_item h3 {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -136,34 +132,23 @@ html[lang="fr"] .section_title#langues:after {
 }
 
 .download_section {
-	padding: 4rem 0;
-	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	text-align: center;
+	margin: 4rem;
 }
 
 .download_section a {
 	font-family: var(--font-text);
-	font-size: clamp(1.2rem, 1.5vw, 2.2rem); /* Taille responsive avec clamp */
+	font-size: 1.2rem;
 	font-weight: 400;
 	color: var(--color-primary);
 	letter-spacing: -0.0175rem;
 	text-decoration: underline;
-	display: inline-block;
-	transform: all 0.3s ease;
-}
-
-.footer {
-	width: 100%;
-	background: linear-gradient(105deg, var(--color-gradient1), var(--color-gradient2) 40%, var(--color-gradient3), var(--color-gradient4));
-	padding: 2rem 1rem;
-	text-align: center;
 }
 
 /* Light theme styles */
+
 body:not(.dark-theme) {
 	background-color: var(--color-primary);
 }
@@ -182,17 +167,11 @@ body:not(.dark-theme) .download_section a{
 	font-weight: 500;
 }
 
-body:not(.dark-theme) .download_section a:hover{
-	color: var(--color-gradient1);
-}
-
 body:not(.dark-theme) .photo_section {
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Base styles for desktop (≥1024px) */
 @media screen and (min-width: 1024px) {
-
 	p {
 		margin-left: 15rem;
 		padding: 0 2rem;
@@ -214,13 +193,9 @@ body:not(.dark-theme) .photo_section {
 	}
 
 	.download_section a {
-		font-size: 1.5rem;
-		padding: 4rem 0;
-	}
-
-	.download_section a:hover {
-		color: var(--color-gradient1);
-		transform: translateY(-2px);
+		margin-left: 20rem;
+		padding: 0.5rem 2rem;
+		font-size: 1.3rem;
 	}
 
 	.resume_title {
@@ -234,15 +209,16 @@ body:not(.dark-theme) .photo_section {
 		height: 13rem;
 		margin: 0;
 		position: absolute;
-		top: 9.5rem;
-		left: 65%;
+		top: 9.5rem; /* Aligné verticalement avec MY RESUME */
+		left: 65%; /* Au milieu de la page */
 		transform: translateX(-50%);
 	}
 
 	.section_title {
 		margin-left: 6rem;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		margin-top: 2.5rem;
+		font-size: 1.5rem;
 	}
 
 	.resume_item h3 {
@@ -251,6 +227,11 @@ body:not(.dark-theme) .photo_section {
 
 	.resume_item p {
 		padding-bottom: 2.5rem;
+	}
+
+	.download_section {
+		margin: 5rem 0 5rem 6rem;
+		justify-content: flex-start;
 	}
 
 	html[lang="en"] .section_title#about:after {
@@ -296,225 +277,229 @@ body:not(.dark-theme) .photo_section {
 	html[lang="fr"] .section_title#langues:after {
 		width: 6rem;
 	}
-
-	html[lang="fr"] .menu a[href="fr.html#Home"]:hover::after {
-		width: 4rem;
-	}
-
-	html[lang="fr"] .menu a[href="fr.html#About"]:hover::after {
-		width: 4.7rem;
-	}
-
-	html[lang="fr"] .menu a[href="fr.html#Work"]:hover::after {
-		width: 4rem;
-	}
-
-	html[lang="fr"] .menu a[href="fr.html#Contact"]:hover::after {
-		width: 4.5rem;
-	}
-
-	html[lang="en"] .menu a[href="en.html#Home"]:hover::after {
-		width: 2.8rem;
-	}
-
-	html[lang="en"] .menu a[href="en.html#About"]:hover::after {
-		width: 3.2rem;
-	}
-
-	html[lang="en"] .menu a[href="en.html#Work"]:hover::after {
-		width: 5rem;
-	}
-
-	html[lang="en"] .menu a[href="en.html#Contact"]:hover::after {
-		width: 4.5rem;
-	}
 }
 
-/* Styles for large desktop (≥1440px) */
 @media screen and (min-width: 1440px) {
-	body {
-		padding-top: 4rem;
-	}
 
-	p {
-		font-size: 1.5rem;
-		margin-left: 16rem;
-	}
-
-	li {
-		font-size: 1.6rem;
-		margin-left: 19.5rem;
-	}
-
-	h3 {
-		font-size: 1.5rem;
-		margin-left: 16rem;
-	}
-
-	.resume_section {
+	.resume {
 		margin-left: 8rem;
 	}
 
-	.resume_title {
-		margin: 5rem 0 15rem 23rem;
+	p {
+		margin-left: 15rem;
+		padding: 0 2rem;
+		max-width: 65%;
+		font-size: 1.5rem;
+	}
+
+	li {
+		margin-left: 18rem;
+		padding: 0.5rem 2rem;
+		max-width: 65%;
+		font-size: 1.6rem;
+	}
+
+	h3 {
+		margin-left: 15rem;
+		padding: 1rem 2rem;
+		font-size: 1.5rem;
 	}
 
 	.download_section a {
+		margin-left: 22rem;
+		padding: 3rem 2rem;
 		font-size: 1.8rem;
-		padding: 6rem 0;
 	}
 
 	.resume_title {
+		margin: 5rem 0 15rem 15rem;
 		font-size: 3.5rem;
+		text-align: left;
 	}
 
 	.photo_section {
-		width: 12rem;
-		height: 15rem;
+		width: 10rem;
+		height: 13rem;
+		margin: 0;
+		position: absolute;
+		top: 9.5rem;
+		left: 65%;
+		transform: translateX(-50%);
 	}
 
 	.section_title {
-		font-size: 1.8rem;
+		margin-left: 6rem;
+		font-size: 1.2rem;
+		margin-top: 2.5rem;
+		font-size: 1.5rem;
 	}
 
-	/* Utiliser calc() pour les underlines */
+	.resume_item h3 {
+		padding-top: 0.5rem;
+	}
+
+	.resume_item p {
+		padding-bottom: 2.5rem;
+	}
+
+	.download_section {
+		margin: 5rem 0 5rem 6rem;
+		justify-content: flex-start;
+	}
+
 	html[lang="en"] .section_title#about:after {
-		width: calc(6.8rem * 1.2);
+		width: 6.8rem;
 	}
 
 	html[lang="en"] .section_title#soft:after {
-		width: calc(6.5rem * 1.2);
+		width: 6.5rem;
 	}
 
 	html[lang="en"] .section_title#hard:after {
-		width: calc(7.1rem * 1.2);
+		width: 7.1rem;
 	}
 
 	.section_title#formation:after {
-		width: calc(7.3rem * 1.2);
+		width: 7.3rem;
 	}
 
 	.section_title#experience:after {
-		width: calc(7.8rem * 1.2);
+		width: 7.8rem;
 	}
 
 	html[lang="en"] .section_title#languages:after {
-		width: calc(8.1rem * 1.2);
+		width: 8.1rem;
 	}
 
 	.section_title#information:after {
-		width: calc(8.3rem * 1.2);
+		width: 8.3rem;
 	}
 
 	html[lang="fr"] .section_title#à_propos:after {
-		width: calc(6.3rem * 1.2);
+		width: 6.3rem;
 	}
 
 	html[lang="fr"] .section_title#etre:after {
-		width: calc(8rem * 1.2);
+		width: 8rem;
 	}
 
 	html[lang="fr"] .section_title#faire:after {
-		width: calc(8.3rem * 1.2);
+		width: 8.3rem;
 	}
 
 	html[lang="fr"] .section_title#langues:after {
-		width: calc(6rem * 1.2);
+		width: 6rem;
 	}
 }
 
-/* Styles for extra large desktop (≥1920px) */
 @media screen and (min-width: 1920px) {
-
-	body {
-		padding-top: 5rem;
+	.resume {
+		margin-left: 30rem;
 	}
 
 	p {
-		margin-left: 25rem;
+		margin-left: 22rem;
+		padding: 0 2rem;
+		max-width: 65%;
 		font-size: 1.8rem;
 	}
 
 	li {
-		margin-left: 28rem;
+		margin-left: 25rem;
+		padding: 0.5rem 2rem;
+		max-width: 65%;
 		font-size: 1.9rem;
 	}
 
 	h3 {
-		margin-left: 25rem;
+		margin-left: 22rem;
+		padding: 1rem 2rem;
 		font-size: 1.8rem;
 	}
 
-	.header {
-		height: 5rem;
-	}
-
-	.resume_section {
-		margin-left: 10rem;
+	.download_section a {
+		margin-left: 30rem;
+		padding: 5rem 2rem;
+		font-size: 2.2rem;
 	}
 
 	.resume_title {
-		margin: 5rem 0 18rem 33rem;
-		font-size: 4rem;
-	}
-
-	.download_section a {
-		font-size: 2rem;
-		padding: 8rem 0;
+		margin: 5rem 0 22rem 18rem;
+		font-size: 4.5rem;
+		text-align: left;
 	}
 
 	.photo_section {
-		width: 14rem;
+		width: 15rem;
 		height: 18rem;
+		margin: 0;
+		position: absolute;
+		top: 9.5rem; /* Aligné verticalement avec MY RESUME */
+		left: 65%; /* Au milieu de la page */
+		transform: translateX(-50%);
 	}
 
 	.section_title {
-		margin-left: 12rem;
-		font-size: 2rem;
+		margin-left: 6rem;
+		font-size: 1.2rem;
+		margin-top: 2.5rem;
+		font-size: 2.1rem;
 	}
 
-	/* Utiliser calc() pour les underlines */
+	.resume_item h3 {
+		padding-top: 0.5rem;
+	}
+
+	.resume_item p {
+		padding-bottom: 2.5rem;
+	}
+
+	.download_section {
+		margin: 5rem 0 5rem 6rem;
+		justify-content: flex-start;
+	}
+
 	html[lang="en"] .section_title#about:after {
-		width: calc(6.8rem * 1.4);
+		width: 9.6rem;
 	}
 
 	html[lang="en"] .section_title#soft:after {
-		width: calc(6.5rem * 1.4);
+		width: 9rem;
 	}
 
 	html[lang="en"] .section_title#hard:after {
-		width: calc(7.1rem * 1.4);
+		width: 10rem;
 	}
 
 	.section_title#formation:after {
-		width: calc(7.3rem * 1.4);
+		width: 10.3rem;
 	}
 
 	.section_title#experience:after {
-		width: calc(7.8rem * 1.4);
+		width: 10.8rem;
 	}
 
 	html[lang="en"] .section_title#languages:after {
-		width: calc(8.1rem * 1.4);
+		width: 11.2rem;
 	}
 
 	.section_title#information:after {
-		width: calc(8.3rem * 1.4);
+		width: 11.6rem;
 	}
 
 	html[lang="fr"] .section_title#à_propos:after {
-		width: calc(6.3rem * 1.4);
+		width: 8.9rem;
 	}
 
 	html[lang="fr"] .section_title#etre:after {
-		width: calc(8rem * 1.4);
+		width: 11.2rem;
 	}
 
 	html[lang="fr"] .section_title#faire:after {
-		width: calc(8.3rem * 1.4);
+		width: 11.7rem;
 	}
 
 	html[lang="fr"] .section_title#langues:after {
-		width: calc(6rem * 1.4);
+		width: 8.4rem;
 	}
 }

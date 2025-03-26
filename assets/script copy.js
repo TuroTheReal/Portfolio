@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Sélectionner tous les liens de navigation et les sections
 	const navLinks = document.querySelectorAll('.menu a');
 	const sections = document.querySelectorAll('section');
-	const headerHeight = 64; // Ajustez selon la hauteur de votre menu
+	const headerHeight = 63; // Ajustez selon la hauteur de votre menu
 
 	// Variable pour indiquer si un défilement programmé est en cours
 	let isProgrammaticScrolling = false;
@@ -161,37 +161,42 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 });
 
+
+
+
+
 // POUR PAGE WELCOME ET GESTION DE LA LANGUE
 
 document.addEventListener('DOMContentLoaded', () => {
-    const langSwitch = document.getElementById('lang-switch');
-    if (!langSwitch) return;
+	const userLang = navigator.language || navigator.userLanguage;
 
-    // Mapping précis des pages
-    const pageMap = {
-        'index.html': { fr: 'fr.html', en: 'en.html' },
-        'fr.html': { fr: 'fr.html', en: 'en.html' },
-        'en.html': { fr: 'fr.html', en: 'en.html' },
-        'resumeFR.html': { fr: 'resumeFR.html', en: 'resumeEN.html' },
-        'resumeEN.html': { fr: 'resumeFR.html', en: 'resumeEN.html' }
-    };
+	// Gestion du changement de langue via le bouton
+	const langSwitch = document.getElementById('lang-switch');
+	if (langSwitch) {
+		// Détecter la page actuelle et mettre à jour l'état du bouton
+		const currentURL = window.location.pathname;
+		if (currentURL.includes('fr.html')) {
+			langSwitch.checked = true;
+		} else if (currentURL.includes('en.html')) {
+			langSwitch.checked = false;
+		}
 
-    // Déterminer la page et la langue actuelles
-    const currentURL = window.location.pathname;
-    const currentPage = currentURL.split('/').pop();
-    const isCurrentlyFrench = currentPage.includes('fr') || currentPage.includes('FR');
-
-    // Configurer l'état initial du switch de langue
-    langSwitch.checked = isCurrentlyFrench;
-
-    // Gestionnaire de changement de langue
-    langSwitch.addEventListener('change', function() {
-        const newLanguage = this.checked ? 'fr' : 'en';
-        const mappedPage = pageMap[currentPage]?.[newLanguage] || 'index.html';
-
-        window.location.href = mappedPage;
-    });
+		// Ajouter l'événement de changement pour la redirection
+		langSwitch.addEventListener('change', function() {
+			if (this.checked) {
+				window.location.href = 'fr.html';
+			} else {
+				window.location.href = 'en.html';
+			}
+		});
+	}
 });
+
+
+
+
+
+
 
 // POUR LE TEXTE PAGE WELCOME
 
@@ -310,6 +315,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		animateTextChange(greetings[0]);
 	}, 1500); // Attendre 1.5 secondes avant de commencer l'animation
 });
+
+
+
+
+
 
 // POUR LE THEME
 

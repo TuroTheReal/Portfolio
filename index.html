@@ -36,14 +36,33 @@
 
 
 <!-- /*
+copy = ancien
+ip ou sans preffix = le bon
+----------
 
-en cours: CV:
-optimisation + rectif en style et copy style css
-cv responsive pour ordi 1024 et 1440 et +
 
-a faire
-responsive sur les differents navigateur
+script a finir :
+scroll : taille du header gap a adapter en 1920 et pour la section work
+interaction couleur / langue a verifier sur nav
 
-responsive 1440PX et +
+
+responsive sur les differents navigateurs
+
+
+/* Fix pour iOS Safari et les hauteurs de viewport */
+/* Script à ajouter en JS: */
+window.addEventListener('resize', () => {
+	let vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh-offset', `${vh}px`);
+});
+
+
+hebergement
+
+
+tracker stats du site
+
+
+split les fichiers ?
 
 */ -->

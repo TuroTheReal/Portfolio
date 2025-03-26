@@ -342,7 +342,6 @@ h2 {
 	font-family: var(--font-title);
 	height: 100%;
 	font-size: 0.770rem;
-	color: inherit;
 	color: var(--color-primary);
 	text-decoration: none;
 	display: flex;
