@@ -960,12 +960,12 @@ body:not(.dark-theme) .lang-switch-label .french:hover h1 {
 
 /* Fix spécifique pour Opera GX */
 _:-o-prefocus, body:not(.dark-theme) {
-    background-color: #F8F9FA !important;
+	background-color: #F8F9FA !important;
 }
 
 @supports (-webkit-appearance:none) and (not (overflow:-webkit-marquee)) and (not (-ms-ime-align:auto)) {
-    /* Ciblage spécifique pour Opera basé sur Chromium */
-    body:not(.dark-theme) {
-        background-color: #F8F9FA !important;
-    }
+	/* Ciblage spécifique pour Opera basé sur Chromium */
+	body:not(.dark-theme) {
+		background-color: #F8F9FA !important;
+	}
 }
