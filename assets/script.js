@@ -364,3 +364,18 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
+
+
+// FIX POUR iOS SAFARI ET LES HAUTEURS DE VIEWPORT
+
+window.addEventListener('DOMContentLoaded', () => {
+	// Définir la variable CSS lors du chargement initial
+	let vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh-offset', `${vh}px`);
+});
+
+// Mettre à jour la variable lors du redimensionnement
+window.addEventListener('resize', () => {
+	let vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh-offset', `${vh}px`);
+});

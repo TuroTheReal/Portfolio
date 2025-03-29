@@ -813,16 +813,8 @@ h2 {
 
 @media screen and (min-width: 1920px) {
 
-	body {
-		padding-top: 5rem;
-	}
-
 	.menu {
 		max-width: 1800px;
-	}
-
-	.header {
-		height: 5rem;
 	}
 
 	.work_item {
@@ -839,10 +831,6 @@ h2 {
 
 	.footer a {
 		font-size: 1.7rem;
-	}
-
-	.menu a::after {
-		bottom: 1.5rem;
 	}
 }
 
@@ -968,4 +956,16 @@ body:not(.dark-theme) .lang-switch-label .french:hover h1 {
 			display: -webkit-flex;
 		}
 	}
+}
+
+/* Fix spécifique pour Opera GX */
+_:-o-prefocus, body:not(.dark-theme) {
+    background-color: #F8F9FA !important;
+}
+
+@supports (-webkit-appearance:none) and (not (overflow:-webkit-marquee)) and (not (-ms-ime-align:auto)) {
+    /* Ciblage spécifique pour Opera basé sur Chromium */
+    body:not(.dark-theme) {
+        background-color: #F8F9FA !important;
+    }
 }
