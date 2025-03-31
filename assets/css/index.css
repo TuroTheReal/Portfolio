@@ -108,11 +108,11 @@ body {
 	transform: translateX(-50%);
 }
 
-.language-links a[href="fr.html"]:hover::after {
+.language-links a[href="index_fr.html"]:hover::after {
 	width: 4.5rem;
 }
 
-.language-links a[href="en.html"]:hover::after {
+.language-links a[href="index_en.html"]:hover::after {
 	width: 3.6rem;
 }
 
@@ -126,11 +126,11 @@ body {
 		font-size: 2rem;
 	}
 
-	.language-links a[href="fr.html"]:hover::after {
+	.language-links a[href="index_fr.html"]:hover::after {
 		width: 7.4rem;
 	}
 
-	.language-links a[href="en.html"]:hover::after {
+	.language-links a[href="index_en.html"]:hover::after {
 		width: 6.1rem;
 	}
 
@@ -146,11 +146,11 @@ body {
 		font-size: 3rem;
 	}
 
-	.language-links a[href="fr.html"]:hover::after {
+	.language-links a[href="index_fr.html"]:hover::after {
 		width: 11.5rem;
 	}
 
-	.language-links a[href="en.html"]:hover::after {
+	.language-links a[href="index_en.html"]:hover::after {
 		width: 9.5rem;
 	}
 
@@ -174,11 +174,11 @@ body {
 		font-size: 3.5rem;
 	}
 
-	.language-links a[href="fr.html"]:hover::after {
+	.language-links a[href="index_fr.html"]:hover::after {
 		width: 13rem;
 	}
 
-	.language-links a[href="en.html"]:hover::after {
+	.language-links a[href="index_en.html"]:hover::after {
 		width: 11rem;
 	}
 	}
@@ -201,11 +201,11 @@ body {
 		font-size: 4rem;
 	}
 
-	.language-links a[href="fr.html"]:hover::after {
+	.language-links a[href="index_fr.html"]:hover::after {
 		width: 15rem;
 	}
 
-	.language-links a[href="en.html"]:hover::after {
+	.language-links a[href="index_en.html"]:hover::after {
 		width: 12.5rem;
 	}
 	}

@@ -169,11 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mapping précis des pages
     const pageMap = {
-        'index.html': { fr: 'fr.html', en: 'en.html' },
-        'fr.html': { fr: 'fr.html', en: 'en.html' },
-        'en.html': { fr: 'fr.html', en: 'en.html' },
-        'resumeFR.html': { fr: 'resumeFR.html', en: 'resumeEN.html' },
-        'resumeEN.html': { fr: 'resumeFR.html', en: 'resumeEN.html' }
+        'index_fr.html': { fr: 'index_fr.html', en: 'index_en.html' },
+        'index_en.html': { fr: 'index_fr.html', en: 'index_en.html' },
+        'resume_fr.html': { fr: 'resume_fr.html', en: 'resume_en.html' },
+        'resume_en.html': { fr: 'resume_fr.html', en: 'resume_en.html' }
     };
 
     // Déterminer la page et la langue actuelles
