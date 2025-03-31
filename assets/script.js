@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		link.addEventListener('click', function(e) {
 			const targetId = this.getAttribute('href');
 
-			// Check if the link is to another page with a hash
-			if (targetId.includes('.html#')) {
-				// Let the default behavior happen (navigate to the other page)
-				return;
-			}
+			// // Check if the link is to another page with a hash
+			// if (targetId.includes('.html#')) {
+			// 	// Let the default behavior happen (navigate to the other page)
+			// 	return;
+			// }
 
 			// For same-page navigation, handle it with smooth scrolling
 			e.preventDefault();
