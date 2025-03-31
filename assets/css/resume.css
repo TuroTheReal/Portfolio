@@ -297,35 +297,35 @@ body:not(.dark-theme) .photo_section {
 		width: 6rem;
 	}
 
-	html[lang="fr"] .menu a[href="index_fr.html#Home"]:hover::after {
+	html[lang="fr"] .menu a[href="index_fr#Home"]:hover::after {
 		width: 4rem;
 	}
 
-	html[lang="fr"] .menu a[href="index_fr.html#About"]:hover::after {
+	html[lang="fr"] .menu a[href="index_fr#About"]:hover::after {
 		width: 4.7rem;
 	}
 
-	html[lang="fr"] .menu a[href="index_fr.html#Work"]:hover::after {
+	html[lang="fr"] .menu a[href="index_fr#Work"]:hover::after {
 		width: 4rem;
 	}
 
-	html[lang="fr"] .menu a[href="index_fr.html#Contact"]:hover::after {
+	html[lang="fr"] .menu a[href="index_fr#Contact"]:hover::after {
 		width: 4.5rem;
 	}
 
-	html[lang="en"] .menu a[href="index_en.html#Home"]:hover::after {
+	html[lang="en"] .menu a[href="index_en#Home"]:hover::after {
 		width: 2.8rem;
 	}
 
-	html[lang="en"] .menu a[href="index_en.html#About"]:hover::after {
+	html[lang="en"] .menu a[href="index_en#About"]:hover::after {
 		width: 3.2rem;
 	}
 
-	html[lang="en"] .menu a[href="index_en.html#Work"]:hover::after {
+	html[lang="en"] .menu a[href="index_en#Work"]:hover::after {
 		width: 5rem;
 	}
 
-	html[lang="en"] .menu a[href="index_en.html#Contact"]:hover::after {
+	html[lang="en"] .menu a[href="index_en#Contact"]:hover::after {
 		width: 4.5rem;
 	}
 }

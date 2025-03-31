@@ -13,7 +13,7 @@
   minify = true
 
 [build.processing.html]
-  pretty_urls = false
+  pretty_urls = on
 
 [build.processing.images]
   compress = true

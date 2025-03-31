@@ -163,34 +163,77 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // POUR PAGE WELCOME ET GESTION DE LA LANGUE
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     const langSwitch = document.getElementById('lang-switch');
+//     if (!langSwitch) return;
+
+//     // Mapping précis des pages
+//     const pageMap = {
+//         'index_fr.html': { fr: 'index_fr.html', en: 'index_en.html' },
+//         'index_en.html': { fr: 'index_fr.html', en: 'index_en.html' },
+//         'resume_fr.html': { fr: 'resume_fr.html', en: 'resume_en.html' },
+//         'resume_en.html': { fr: 'resume_fr.html', en: 'resume_en.html' }
+//     };
+
+//     // Déterminer la page et la langue actuelles
+//     const currentURL = window.location.pathname;
+//     const currentPage = currentURL.split('/').pop();
+//     const isCurrentlyFrench = currentPage.includes('fr') || currentPage.includes('FR');
+
+//     // Configurer l'état initial du switch de langue
+//     langSwitch.checked = isCurrentlyFrench;
+
+//     // Gestionnaire de changement de langue
+//     langSwitch.addEventListener('change', function() {
+//         const newLanguage = this.checked ? 'fr' : 'en';
+//         const mappedPage = pageMap[currentPage]?.[newLanguage] || 'index.html';
+
+//         window.location.href = mappedPage;
+//     });
+// });
+
+
+
+
+// POUR LA GESTION DES PRETTY URLS ET DE LA LANGUE
 document.addEventListener('DOMContentLoaded', () => {
     const langSwitch = document.getElementById('lang-switch');
     if (!langSwitch) return;
 
-    // Mapping précis des pages
-    const pageMap = {
-        'index_fr.html': { fr: 'index_fr.html', en: 'index_en.html' },
-        'index_en.html': { fr: 'index_fr.html', en: 'index_en.html' },
-        'resume_fr.html': { fr: 'resume_fr.html', en: 'resume_en.html' },
-        'resume_en.html': { fr: 'resume_fr.html', en: 'resume_en.html' }
-    };
-
-    // Déterminer la page et la langue actuelles
+    // Extraire le nom de la page actuelle sans l'extension .html
     const currentURL = window.location.pathname;
-    const currentPage = currentURL.split('/').pop();
+    let currentPage = currentURL.split('/').filter(part => part).pop() || 'index_en';
+
+    // Supprimer le slash final si présent
+    if (currentPage.endsWith('/')) {
+        currentPage = currentPage.slice(0, -1);
+    }
+
     const isCurrentlyFrench = currentPage.includes('fr') || currentPage.includes('FR');
 
-    // Configurer l'état initial du switch de langue
+    // Configurer l'état initial
     langSwitch.checked = isCurrentlyFrench;
+
+    // Carte de pages mise à jour sans extensions .html
+    const pageMap = {
+        'index_fr': { fr: 'index_fr', en: 'index_en' },
+        'index_en': { fr: 'index_fr', en: 'index_en' },
+        'resume_fr': { fr: 'resume_fr', en: 'resume_en' },
+        'resume_en': { fr: 'resume_fr', en: 'resume_en' }
+    };
 
     // Gestionnaire de changement de langue
     langSwitch.addEventListener('change', function() {
         const newLanguage = this.checked ? 'fr' : 'en';
-        const mappedPage = pageMap[currentPage]?.[newLanguage] || 'index.html';
+        const mappedPage = pageMap[currentPage]?.[newLanguage] || 'index_en';
 
         window.location.href = mappedPage;
     });
 });
+
+
+
+
 
 // POUR LE TEXTE PAGE WELCOME
 
