@@ -17,3 +17,23 @@
 
 [build.processing.images]
   compress = true
+
+[[redirects]]
+  from = "/index_en.html"
+  to = "/index_en/"
+  status = 301
+
+[[redirects]]
+  from = "/resume_en.html"
+  to = "/resume_en/"
+  status = 301
+
+[[redirects]]
+  from = "/index_en"
+  to = "/index_en/"
+  status = 301
+
+[[redirects]]
+  from = "/resume_en"
+  to = "/resume_en/"
+  status = 301

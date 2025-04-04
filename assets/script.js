@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			// Ajouter la classe active au lien correspondant
 			const activeLink = document.querySelector(`.menu a[href="#${id}"]`);
-			console.log(activeLink);
 			if (activeLink) {
 				activeLink.classList.add('active');
 			}
