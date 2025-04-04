@@ -40,20 +40,23 @@ document.addEventListener('DOMContentLoaded', function() {
 		requestAnimationFrame(animation);
 	}
 
-	// Ajouter les écouteurs d'événements de clic aux liens de navigation
-	navLinks.forEach(link => {
-		link.addEventListener('click', function(e) {
-			const targetId = this.getAttribute('href');
+// Ajouter les écouteurs d'événements de clic aux liens de navigation
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
 
-			// Check if the link is to another page with a hash
-			if (targetId.includes('.html#')) {
-				// Let the default behavior happen (navigate to the other page)
-				return;
-			}
+        // Nouvelle condition: si le lien pointe vers une autre page
+        // Regardez si le lien commence par / et ne contient pas l'ID actuel
+        const currentPageId = window.location.pathname.split('/').filter(p => p).pop();
+        if (targetId.startsWith('/') && !targetId.includes(currentPageId)) {
+            // C'est un lien vers une autre page, laissez le comportement par défaut
+            return;
+        }
 
-			// For same-page navigation, handle it with smooth scrolling
-			e.preventDefault();
-			const targetSection = document.querySelector(targetId);
+        // Pour la navigation sur la même page, utilisez le défilement fluide
+        e.preventDefault();
+        // Adaptez pour gérer les IDs avec slashes
+        const targetSection = document.querySelector(targetId.includes('#') ? targetId.split('#')[1] : targetId);
 
 			if (targetSection) {
 				// Supprimer la classe active de tous les liens
