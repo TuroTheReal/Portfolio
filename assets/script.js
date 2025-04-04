@@ -40,36 +40,91 @@ document.addEventListener('DOMContentLoaded', function() {
 		requestAnimationFrame(animation);
 	}
 
-// Ajouter les écouteurs d'événements de clic aux liens de navigation
+
+	// Ajouter les écouteurs d'événements de clic aux liens de navigation
 navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
 
-        // Nouvelle condition: si le lien pointe vers une autre page
-        // Regardez si le lien commence par / et ne contient pas l'ID actuel
-        const currentPageId = window.location.pathname.split('/').filter(p => p).pop();
-        if (targetId.startsWith('/') && !targetId.includes(currentPageId)) {
-            // C'est un lien vers une autre page, laissez le comportement par défaut
+        // Déterminer si nous sommes sur une page d'index
+        const isIndexPage = window.location.pathname.includes('index') ||
+                          window.location.pathname === '/' ||
+                          window.location.pathname === '';
+
+        // Cas 1 : Liens internes à la page actuelle (commencent par #)
+        if (targetId.startsWith('#')) {
+            e.preventDefault();
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                // Code existant pour le défilement fluide
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
+                smoothScroll(targetSection, 800);
+            }
             return;
         }
 
-        // Pour la navigation sur la même page, utilisez le défilement fluide
-        e.preventDefault();
-        // Adaptez pour gérer les IDs avec slashes
-        const targetSection = document.querySelector(targetId.includes('#') ? targetId.split('#')[1] : targetId);
+        // Cas 2 : Liens vers une autre page (contenant # mais ne commençant pas par #)
+        if (targetId.includes('#') && !targetId.startsWith('#')) {
+            // Si on est sur une page d'index et qu'on clique sur un lien vers une page d'index,
+            // on pourrait vouloir gérer le scroll au lieu de la navigation
+            const targetBase = targetId.split('#')[0];
+            const currentPath = window.location.pathname;
 
-			if (targetSection) {
-				// Supprimer la classe active de tous les liens
-				navLinks.forEach(navLink => navLink.classList.remove('active'));
+            // Si on essaie de naviguer vers la page où on est déjà
+            if ((currentPath.endsWith(targetBase) ||
+                (currentPath === '/' && targetBase === '/index_en') ||
+                (currentPath === '/' && targetBase === '/index_fr'))) {
+                e.preventDefault();
+                const targetSection = document.querySelector('#' + targetId.split('#')[1]);
+                if (targetSection) {
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                    smoothScroll(targetSection, 800);
+                }
+                return;
+            }
 
-				// Ajouter la classe active au lien cliqué
-				this.classList.add('active');
+            // Sinon, c'est une navigation normale vers une autre page avec ancre
+            return; // Laisser le comportement par défaut
+        }
 
-				// Défiler jusqu'à la section cible
-				smoothScroll(targetSection, 800);
-			}
-		});
-	});
+        // Cas 3 : Liens sans # (navigation normale)
+        return; // Laisser le comportement par défaut
+    });
+});
+
+// // Ajouter les écouteurs d'événements de clic aux liens de navigation
+// navLinks.forEach(link => {
+// 	link.addEventListener('click', function(e) {
+// 		const targetId = this.getAttribute('href');
+
+// 		// Nouvelle condition: si le lien pointe vers une autre page
+// 		// Regardez si le lien commence par / et ne contient pas l'ID actuel
+// 		const currentPageId = window.location.pathname.split('/').filter(p => p).pop();
+// 		if (targetId.startsWith('/') && !targetId.includes(currentPageId)) {
+// 			// C'est un lien vers une autre page, laissez le comportement par défaut
+// 			return;
+// 		}
+
+// 		// Pour la navigation sur la même page, utilisez le défilement fluide
+// 		e.preventDefault();
+// 		// Adaptez pour gérer les IDs avec slashes
+// 		const targetSection = document.querySelector(targetId.includes('#') ? targetId.split('#')[1] : targetId);
+
+// 			if (targetSection) {
+// 				// Supprimer la classe active de tous les liens
+// 				navLinks.forEach(navLink => navLink.classList.remove('active'));
+
+// 				// Ajouter la classe active au lien cliqué
+// 				this.classList.add('active');
+
+// 				// Défiler jusqu'à la section cible
+// 				smoothScroll(targetSection, 800);
+// 			}
+// 		});
+// 	});
 
 	// Fonction pour déterminer quelle section est actuellement visible
 	function setActiveNavOnScroll() {
@@ -164,79 +219,41 @@ navLinks.forEach(link => {
 	}
 });
 
-// POUR PAGE WELCOME ET GESTION DE LA LANGUE
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const langSwitch = document.getElementById('lang-switch');
-//     if (!langSwitch) return;
-
-//     // Mapping précis des pages
-//     const pageMap = {
-//         'index_fr.html': { fr: 'index_fr.html', en: 'index_en.html' },
-//         'index_en.html': { fr: 'index_fr.html', en: 'index_en.html' },
-//         'resume_fr.html': { fr: 'resume_fr.html', en: 'resume_en.html' },
-//         'resume_en.html': { fr: 'resume_fr.html', en: 'resume_en.html' }
-//     };
-
-//     // Déterminer la page et la langue actuelles
-//     const currentURL = window.location.pathname;
-//     const currentPage = currentURL.split('/').pop();
-//     const isCurrentlyFrench = currentPage.includes('fr') || currentPage.includes('FR');
-
-//     // Configurer l'état initial du switch de langue
-//     langSwitch.checked = isCurrentlyFrench;
-
-//     // Gestionnaire de changement de langue
-//     langSwitch.addEventListener('change', function() {
-//         const newLanguage = this.checked ? 'fr' : 'en';
-//         const mappedPage = pageMap[currentPage]?.[newLanguage] || 'index.html';
-
-//         window.location.href = mappedPage;
-//     });
-// });
-
-
-
-
 // POUR LA GESTION DES PRETTY URLS ET DE LA LANGUE
 document.addEventListener('DOMContentLoaded', () => {
-    const langSwitch = document.getElementById('lang-switch');
-    if (!langSwitch) return;
+	const langSwitch = document.getElementById('lang-switch');
+	if (!langSwitch) return;
 
-    // Extraire le nom de la page actuelle sans l'extension .html
-    const currentURL = window.location.pathname;
-    let currentPage = currentURL.split('/').filter(part => part).pop() || 'index_en';
+	// Extraire le nom de la page actuelle sans l'extension .html
+	const currentURL = window.location.pathname;
+	let currentPage = currentURL.split('/').filter(part => part).pop() || 'index_en';
 
-    // Supprimer le slash final si présent
-    if (currentPage.endsWith('/')) {
-        currentPage = currentPage.slice(0, -1);
-    }
+	// Supprimer le slash final si présent
+	if (currentPage.endsWith('/')) {
+		currentPage = currentPage.slice(0, -1);
+	}
 
-    const isCurrentlyFrench = currentPage.includes('fr') || currentPage.includes('FR');
+	const isCurrentlyFrench = currentPage.includes('fr') || currentPage.includes('FR');
 
-    // Configurer l'état initial
-    langSwitch.checked = isCurrentlyFrench;
+	// Configurer l'état initial
+	langSwitch.checked = isCurrentlyFrench;
 
-    // Carte de pages mise à jour sans extensions .html
-    const pageMap = {
-        'index_fr': { fr: 'index_fr', en: 'index_en' },
-        'index_en': { fr: 'index_fr', en: 'index_en' },
-        'resume_fr': { fr: 'resume_fr', en: 'resume_en' },
-        'resume_en': { fr: 'resume_fr', en: 'resume_en' }
-    };
+	// Carte de pages mise à jour sans extensions .html
+	const pageMap = {
+		'index_fr': { fr: 'index_fr', en: 'index_en' },
+		'index_en': { fr: 'index_fr', en: 'index_en' },
+		'resume_fr': { fr: 'resume_fr', en: 'resume_en' },
+		'resume_en': { fr: 'resume_fr', en: 'resume_en' }
+	};
 
-    // Gestionnaire de changement de langue
-    langSwitch.addEventListener('change', function() {
-        const newLanguage = this.checked ? 'fr' : 'en';
-        const mappedPage = pageMap[currentPage]?.[newLanguage] || 'index_en';
+	// Gestionnaire de changement de langue
+	langSwitch.addEventListener('change', function() {
+		const newLanguage = this.checked ? 'fr' : 'en';
+		const mappedPage = pageMap[currentPage]?.[newLanguage] || 'index_en';
 
-        window.location.href = mappedPage;
-    });
+		window.location.href = mappedPage;
+	});
 });
-
-
-
-
 
 // POUR LE TEXTE PAGE WELCOME
 
@@ -409,7 +426,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
-
 
 // FIX POUR iOS SAFARI ET LES HAUTEURS DE VIEWPORT
 
