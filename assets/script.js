@@ -43,88 +43,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Ajouter les écouteurs d'événements de clic aux liens de navigation
 navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
+	link.addEventListener('click', function(e) {
+		const targetId = this.getAttribute('href');
 
-        // Déterminer si nous sommes sur une page d'index
-        const isIndexPage = window.location.pathname.includes('index') ||
-                          window.location.pathname === '/' ||
-                          window.location.pathname === '';
+		// Déterminer si nous sommes sur une page d'index
+		const isIndexPage = window.location.pathname.includes('index') ||
+						  window.location.pathname === '/' ||
+						  window.location.pathname === '';
 
-        // Cas 1 : Liens internes à la page actuelle (commencent par #)
-        if (targetId.startsWith('#')) {
-            e.preventDefault();
-            const targetSection = document.querySelector(targetId);
+		// Cas 1 : Liens internes à la page actuelle (commencent par #)
+		if (targetId.startsWith('#')) {
+			e.preventDefault();
+			const targetSection = document.querySelector(targetId);
 
-            if (targetSection) {
-                // Code existant pour le défilement fluide
-                navLinks.forEach(navLink => navLink.classList.remove('active'));
-                this.classList.add('active');
-                smoothScroll(targetSection, 800);
-            }
-            return;
-        }
+			if (targetSection) {
+				// Code existant pour le défilement fluide
+				navLinks.forEach(navLink => navLink.classList.remove('active'));
+				this.classList.add('active');
+				smoothScroll(targetSection, 800);
+			}
+			return;
+		}
 
-        // Cas 2 : Liens vers une autre page (contenant # mais ne commençant pas par #)
-        if (targetId.includes('#') && !targetId.startsWith('#')) {
-            // Si on est sur une page d'index et qu'on clique sur un lien vers une page d'index,
-            // on pourrait vouloir gérer le scroll au lieu de la navigation
-            const targetBase = targetId.split('#')[0];
-            const currentPath = window.location.pathname;
+		// Cas 2 : Liens vers une autre page (contenant # mais ne commençant pas par #)
+		if (targetId.includes('#') && !targetId.startsWith('#')) {
+			// Si on est sur une page d'index et qu'on clique sur un lien vers une page d'index,
+			// on pourrait vouloir gérer le scroll au lieu de la navigation
+			const targetBase = targetId.split('#')[0];
+			const currentPath = window.location.pathname;
 
-            // Si on essaie de naviguer vers la page où on est déjà
-            if ((currentPath.endsWith(targetBase) ||
-                (currentPath === '/' && targetBase === '/index_en') ||
-                (currentPath === '/' && targetBase === '/index_fr'))) {
-                e.preventDefault();
-                const targetSection = document.querySelector('#' + targetId.split('#')[1]);
-                if (targetSection) {
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    this.classList.add('active');
-                    smoothScroll(targetSection, 800);
-                }
-                return;
-            }
+			// Si on essaie de naviguer vers la page où on est déjà
+			if ((currentPath.endsWith(targetBase) ||
+				(currentPath === '/' && targetBase === '/index_en') ||
+				(currentPath === '/' && targetBase === '/index_fr'))) {
+				e.preventDefault();
+				const targetSection = document.querySelector('#' + targetId.split('#')[1]);
+				if (targetSection) {
+					navLinks.forEach(navLink => navLink.classList.remove('active'));
+					this.classList.add('active');
+					smoothScroll(targetSection, 800);
+				}
+				return;
+			}
 
-            // Sinon, c'est une navigation normale vers une autre page avec ancre
-            return; // Laisser le comportement par défaut
-        }
+			// navigation normale vers une autre page avec ancre
+			return; // Laisser le comportement par défaut
+		}
 
-        // Cas 3 : Liens sans # (navigation normale)
-        return; // Laisser le comportement par défaut
-    });
+		// Cas 3 : Liens sans # (navigation normale)
+		return; // Laisser le comportement par défaut
+	});
 });
-
-// // Ajouter les écouteurs d'événements de clic aux liens de navigation
-// navLinks.forEach(link => {
-// 	link.addEventListener('click', function(e) {
-// 		const targetId = this.getAttribute('href');
-
-// 		// Nouvelle condition: si le lien pointe vers une autre page
-// 		// Regardez si le lien commence par / et ne contient pas l'ID actuel
-// 		const currentPageId = window.location.pathname.split('/').filter(p => p).pop();
-// 		if (targetId.startsWith('/') && !targetId.includes(currentPageId)) {
-// 			// C'est un lien vers une autre page, laissez le comportement par défaut
-// 			return;
-// 		}
-
-// 		// Pour la navigation sur la même page, utilisez le défilement fluide
-// 		e.preventDefault();
-// 		// Adaptez pour gérer les IDs avec slashes
-// 		const targetSection = document.querySelector(targetId.includes('#') ? targetId.split('#')[1] : targetId);
-
-// 			if (targetSection) {
-// 				// Supprimer la classe active de tous les liens
-// 				navLinks.forEach(navLink => navLink.classList.remove('active'));
-
-// 				// Ajouter la classe active au lien cliqué
-// 				this.classList.add('active');
-
-// 				// Défiler jusqu'à la section cible
-// 				smoothScroll(targetSection, 800);
-// 			}
-// 		});
-// 	});
 
 	// Fonction pour déterminer quelle section est actuellement visible
 	function setActiveNavOnScroll() {
