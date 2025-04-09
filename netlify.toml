@@ -29,11 +29,26 @@
   status = 301
 
 [[redirects]]
-  from = "/index_en"
-  to = "/index_en/"
+  from = "/index_fr.html"
+  to = "/index_fr/"
   status = 301
 
 [[redirects]]
-  from = "/resume_en"
-  to = "/resume_en/"
+  from = "/resume_fr.html"
+  to = "/resume_fr/"
   status = 301
+
+[[redirects]]
+  from = "/en"
+  to = "/index.html"
+  status = 302
+
+[[redirects]]
+  from = "/fr"
+  to = "/index.html"
+  status = 302
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
