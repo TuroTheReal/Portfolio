@@ -445,10 +445,6 @@ body:not(.dark-theme) .photo_section {
 		font-size: 1.8rem;
 	}
 
-	.header {
-		height: 5rem;
-	}
-
 	.resume_section {
 		margin-left: 10rem;
 	}
