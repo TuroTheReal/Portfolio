@@ -135,7 +135,7 @@ and provides an intuitive way for potential employers or collaborators to learn 
 - **GitHub**: [@TuroTheReal](https://github.com/TuroTheReal)
 - **Email**: arthurbernard.dev@gmail.com
 - **LinkedIn**: [Arthur Bernard](https://www.linkedin.com/in/arthurbernard92/)
-- **Portfolio**: https://arthur-portfolio.cm
+- **Portfolio**: https://arthur-portfolio.com
 
 ---
 <p align="center">
