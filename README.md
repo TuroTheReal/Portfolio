@@ -20,7 +20,7 @@ and provides an intuitive way for potential employers or collaborators to learn 
 
 ## Demo & Live Preview
 
-🌐 **Live Website:** [View Portfolio](https://turothereal.github.io/Portfolio/)
+**Live Website:** [View Portfolio](https://turothereal.github.io/Portfolio/)
 
 **Screenshots Preview:**
 - **Desktop View:** Modern, clean interface with smooth animations
@@ -62,22 +62,22 @@ and provides an intuitive way for potential employers or collaborators to learn 
 
 ## Features
 
-### 🎨 Visual Design
+### Visual Design
 - **Clean, Modern Interface**: Professional design with intuitive navigation
 - **Responsive Layout**: Seamless experience on desktop, tablet, and mobile devices
 - **Dark/Light Theme**: Toggle between color schemes for user preference
 - **Smooth Animations**: CSS transitions and JavaScript animations for enhanced UX
 
-### 📱 Interactive Elements
+### Interactive Elements
 - **Smooth Scrolling**: Navigation links smoothly scroll to page sections
 - **Hover Effects**: Interactive project cards and button animations  
 
-### 🚀 Performance Features
+### Performance Features
 - **Minified Code**: Compressed CSS and JavaScript for better performance
 - **SEO Optimized**: Meta tags, structured data, and search engine friendly URLs
 - **Accessibility**: Screen reader compatible with proper ARIA labels
 
-### 📊 Content Sections
+### Content Sections
 - **Hero/Introduction**: Personal branding with animated call-to-action
 - **About Me**: Professional summary and personal background
 - **Resume/Experience**: Downloadable CV and work experience timeline
