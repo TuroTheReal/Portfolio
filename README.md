@@ -9,7 +9,7 @@
 - [Project Structure](#project-structure)
 
 ## About
-This repository contains my **first personal portfolio website** showcasing my projects, skills, and professional journey. It will evolve through the time ans technologies.  
+This repository contains my **first personal portfolio website** showcasing my projects, skills, and professional journey. It will evolve through time ans technologies.  
 Built with modern HTML5, CSS3, and vanilla JavaScript, this portfolio serves as a comprehensive presentation of my work in web development and software engineering.  
 The site features a clean, responsive design that adapts seamlessly across all devices while maintaining optimal performance and accessibility.
 
