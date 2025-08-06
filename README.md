@@ -4,7 +4,6 @@
 - [Demo & Live Preview](#demo--live-preview)
 - [Key Concepts Learned](#key-concepts-learned)
 - [Skills Developed](#skills-developed)
-- [Technical Implementation](#technical-implementation)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
