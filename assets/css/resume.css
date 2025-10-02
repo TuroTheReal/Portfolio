@@ -60,6 +60,13 @@ h3 {
 	object-position: center center;
 }
 
+/* Resume container */
+.resume_container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* Section titles */
 .section_title {
 	font-family: var(--font-title);
 	font-size: 1.1rem;
@@ -68,61 +75,26 @@ h3 {
 	margin-bottom: 1rem;
 	text-align: left;
 	position: relative;
+	text-decoration: underline;
+	text-decoration-color: var(--color-gradient3);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.5rem;
 }
 
 .section_title::after {
-	content: '';
-	position: absolute;
-	bottom: -0.5rem;
-	left: 0;
-	height: 2px;
-	background: linear-gradient(90deg, var(--color-gradient1), var(--color-gradient4));
-	background-size: 150% 150%;
-	animation: gradientMove 5s ease-in-out infinite;
+	display: none;
 }
 
-html[lang="en"] .section_title#about:after {
-	width: 5rem;
+/* Resume item links */
+.resume_item a {
+	color: var(--color-gradient1);
+	text-decoration: none;
+	transition: color 0.3s ease;
 }
 
-html[lang="en"] .section_title#soft:after {
-	width: 4.7rem;
-}
-
-html[lang="en"] .section_title#hard:after {
-	width: 5.2rem;
-}
-
-.section_title#formation:after {
-	width: 5.4rem;
-}
-
-.section_title#experience:after {
-	width: 5.6rem;
-}
-
-html[lang="en"] .section_title#languages:after {
-	width: 5.8rem;
-}
-
-.section_title#information:after {
-	width: 6.1rem;
-}
-
-html[lang="fr"] .section_title#à_propos:after {
-	width: 4.7rem;
-}
-
-html[lang="fr"] .section_title#etre:after {
-	width: 5.8rem;
-}
-
-html[lang="fr"] .section_title#faire:after {
-	width: 6.1rem;
-}
-
-html[lang="fr"] .section_title#langues:after {
-	width: 4.4rem;
+.resume_item a:hover {
+	color: var(--color-gradient3);
+	text-decoration: underline;
 }
 
 .resume_item h3 {
@@ -147,7 +119,7 @@ html[lang="fr"] .section_title#langues:after {
 
 .download_section a {
 	font-family: var(--font-text);
-	font-size: clamp(1.2rem, 1.5vw, 2.2rem); /* Taille responsive avec clamp */
+	font-size: clamp(1.2rem, 1.5vw, 2.2rem);
 	font-weight: 400;
 	color: var(--color-primary);
 	letter-spacing: -0.0175rem;
@@ -168,6 +140,18 @@ body:not(.dark-theme) {
 	background-color: var(--color-primary);
 }
 
+body:not(.dark-theme) .section_title {
+	text-decoration-color: var(--color-gradient3);
+}
+
+body:not(.dark-theme) .resume_item a {
+	color: var(--color-gradient2);
+}
+
+body:not(.dark-theme) .resume_item a:hover {
+	color: var(--color-gradient4);
+}
+
 body:not(.dark-theme) :not(.footer) h1,
 body:not(.dark-theme) :not(.footer) h2,
 body:not(.dark-theme) :not(.footer) h3,
@@ -177,12 +161,12 @@ body:not(.dark-theme) :not(.footer) p {
 	font-weight: 500;
 }
 
-body:not(.dark-theme) .download_section a{
+body:not(.dark-theme) .download_section a {
 	color: var(--color-secondary);
 	font-weight: 500;
 }
 
-body:not(.dark-theme) .download_section a:hover{
+body:not(.dark-theme) .download_section a:hover {
 	color: var(--color-gradient1);
 }
 
@@ -251,50 +235,6 @@ body:not(.dark-theme) .photo_section {
 
 	.resume_item p {
 		padding-bottom: 2.5rem;
-	}
-
-	html[lang="en"] .section_title#about:after {
-		width: 6.8rem;
-	}
-
-	html[lang="en"] .section_title#soft:after {
-		width: 6.5rem;
-	}
-
-	html[lang="en"] .section_title#hard:after {
-		width: 7.1rem;
-	}
-
-	.section_title#formation:after {
-		width: 7.3rem;
-	}
-
-	.section_title#experience:after {
-		width: 7.8rem;
-	}
-
-	html[lang="en"] .section_title#languages:after {
-		width: 8.1rem;
-	}
-
-	.section_title#information:after {
-		width: 8.3rem;
-	}
-
-	html[lang="fr"] .section_title#à_propos:after {
-		width: 6.3rem;
-	}
-
-	html[lang="fr"] .section_title#etre:after {
-		width: 8rem;
-	}
-
-	html[lang="fr"] .section_title#faire:after {
-		width: 8.3rem;
-	}
-
-	html[lang="fr"] .section_title#langues:after {
-		width: 6rem;
 	}
 
 	html[lang="fr"] .menu a[href="/index_fr#Home"]:hover::after {
@@ -376,51 +316,6 @@ body:not(.dark-theme) .photo_section {
 	.section_title {
 		font-size: 1.8rem;
 	}
-
-	/* Utiliser calc() pour les underlines */
-	html[lang="en"] .section_title#about:after {
-		width: calc(6.8rem * 1.2);
-	}
-
-	html[lang="en"] .section_title#soft:after {
-		width: calc(6.5rem * 1.2);
-	}
-
-	html[lang="en"] .section_title#hard:after {
-		width: calc(7.1rem * 1.2);
-	}
-
-	.section_title#formation:after {
-		width: calc(7.3rem * 1.2);
-	}
-
-	.section_title#experience:after {
-		width: calc(7.8rem * 1.2);
-	}
-
-	html[lang="en"] .section_title#languages:after {
-		width: calc(8.1rem * 1.2);
-	}
-
-	.section_title#information:after {
-		width: calc(8.3rem * 1.2);
-	}
-
-	html[lang="fr"] .section_title#à_propos:after {
-		width: calc(6.3rem * 1.2);
-	}
-
-	html[lang="fr"] .section_title#etre:after {
-		width: calc(8rem * 1.2);
-	}
-
-	html[lang="fr"] .section_title#faire:after {
-		width: calc(8.3rem * 1.2);
-	}
-
-	html[lang="fr"] .section_title#langues:after {
-		width: calc(6rem * 1.2);
-	}
 }
 
 /* Styles for extra large desktop (≥1920px) */
@@ -467,50 +362,5 @@ body:not(.dark-theme) .photo_section {
 	.section_title {
 		margin-left: 12rem;
 		font-size: 2rem;
-	}
-
-	/* Utiliser calc() pour les underlines */
-	html[lang="en"] .section_title#about:after {
-		width: calc(6.8rem * 1.4);
-	}
-
-	html[lang="en"] .section_title#soft:after {
-		width: calc(6.5rem * 1.4);
-	}
-
-	html[lang="en"] .section_title#hard:after {
-		width: calc(7.1rem * 1.4);
-	}
-
-	.section_title#formation:after {
-		width: calc(7.3rem * 1.4);
-	}
-
-	.section_title#experience:after {
-		width: calc(7.8rem * 1.4);
-	}
-
-	html[lang="en"] .section_title#languages:after {
-		width: calc(8.1rem * 1.4);
-	}
-
-	.section_title#information:after {
-		width: calc(8.3rem * 1.4);
-	}
-
-	html[lang="fr"] .section_title#à_propos:after {
-		width: calc(6.3rem * 1.4);
-	}
-
-	html[lang="fr"] .section_title#etre:after {
-		width: calc(8rem * 1.4);
-	}
-
-	html[lang="fr"] .section_title#faire:after {
-		width: calc(8.3rem * 1.4);
-	}
-
-	html[lang="fr"] .section_title#langues:after {
-		width: calc(6rem * 1.4);
 	}
 }
