@@ -276,27 +276,34 @@ body:not(.dark-theme) .photo_section {
 		padding-top: 4rem;
 	}
 
+	.resume_container {
+		max-width: 1400px;
+	}
+
 	p {
-		font-size: 1.5rem;
-		margin-left: 16rem;
+		font-size: 1.4rem;
+		margin-left: 14rem;
+		max-width: 70%;
 	}
 
 	li {
-		font-size: 1.6rem;
-		margin-left: 19.5rem;
+		font-size: 1.5rem;
+		margin-left: 17.5rem;
+		max-width: 70%;
 	}
 
 	h3 {
-		font-size: 1.5rem;
-		margin-left: 16rem;
+		font-size: 1.4rem;
+		margin-left: 14rem;
 	}
 
 	.resume_section {
-		margin-left: 8rem;
+		margin-left: 4rem;
 	}
 
 	.resume_title {
-		margin: 5rem 0 15rem 23rem;
+		margin: 5rem 0 15rem 18rem;
+		font-size: 3.5rem;
 	}
 
 	.download_section a {
@@ -304,17 +311,15 @@ body:not(.dark-theme) .photo_section {
 		padding: 6rem 0;
 	}
 
-	.resume_title {
-		font-size: 3.5rem;
-	}
-
 	.photo_section {
 		width: 12rem;
 		height: 15rem;
+		left: 62%;
 	}
 
 	.section_title {
 		font-size: 1.8rem;
+		margin-left: 4rem;
 	}
 }
 
@@ -325,27 +330,33 @@ body:not(.dark-theme) .photo_section {
 		padding-top: 5rem;
 	}
 
+	.resume_container {
+		max-width: 1800px;
+	}
+
 	p {
-		margin-left: 25rem;
-		font-size: 1.8rem;
+		margin-left: 18rem;
+		font-size: 1.7rem;
+		max-width: 72%;
 	}
 
 	li {
-		margin-left: 28rem;
-		font-size: 1.9rem;
+		margin-left: 21.5rem;
+		font-size: 1.8rem;
+		max-width: 72%;
 	}
 
 	h3 {
-		margin-left: 25rem;
-		font-size: 1.8rem;
+		margin-left: 18rem;
+		font-size: 1.7rem;
 	}
 
 	.resume_section {
-		margin-left: 10rem;
+		margin-left: 6rem;
 	}
 
 	.resume_title {
-		margin: 5rem 0 18rem 33rem;
+		margin: 5rem 0 18rem 24rem;
 		font-size: 4rem;
 	}
 
@@ -357,10 +368,61 @@ body:not(.dark-theme) .photo_section {
 	.photo_section {
 		width: 14rem;
 		height: 18rem;
+		left: 60%;
+	}
+
+	.section_title {
+		margin-left: 8rem;
+		font-size: 2rem;
+	}
+}
+
+/* Styles for ultra large desktop (≥2560px) */
+@media screen and (min-width: 2560px) {
+
+	.resume_container {
+		max-width: 2200px;
+	}
+
+	p {
+		margin-left: 22rem;
+		font-size: 2rem;
+		max-width: 75%;
+	}
+
+	li {
+		margin-left: 26rem;
+		font-size: 2.1rem;
+		max-width: 75%;
+	}
+
+	h3 {
+		margin-left: 22rem;
+		font-size: 2rem;
+	}
+
+	.resume_section {
+		margin-left: 10rem;
+	}
+
+	.resume_title {
+		margin: 6rem 0 20rem 32rem;
+		font-size: 5rem;
+	}
+
+	.download_section a {
+		font-size: 2.4rem;
+		padding: 10rem 0;
+	}
+
+	.photo_section {
+		width: 16rem;
+		height: 21rem;
+		left: 58%;
 	}
 
 	.section_title {
 		margin-left: 12rem;
-		font-size: 2rem;
+		font-size: 2.4rem;
 	}
 }
