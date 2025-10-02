@@ -115,8 +115,7 @@ h2 {
 	left: 0;
 	object-fit: cover;
 	z-index: -1;
-	/* Filtre amélioré pour la lisibilité */
-	filter: blur(2px) brightness(60%) contrast(110%);
+	filter: blur(1px) brightness(70%) contrast(110%);
 }
 
 .home_title, .home_subtitle {
