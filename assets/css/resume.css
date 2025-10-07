@@ -34,6 +34,10 @@ h3 {
 	padding: 0.5rem;
 }
 
+.resume_item.resume_section {
+	padding: 10rem;
+}
+
 .date {
 	padding-left: 1rem;
 	color: #888;
