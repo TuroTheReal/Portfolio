@@ -1,9 +1,7 @@
-/* Additional Resume CSS */
-
 p {
 	color: var(--color-primary);
 	font-family: var(--font-text);
-	margin-left: 6rem;
+	margin-left: 4rem;
 	padding: 0 1rem;
 	font-size: 1rem;
 }
@@ -12,8 +10,8 @@ li {
 	font-family: var(--font-text);
 	font-size: 1rem;
 	color: var(--color-primary);
-	margin-bottom: 0.5rem;
-	margin-left: 8rem;
+	margin-bottom: 0rem;
+	margin-left: 6.5rem;
 	text-align: left;
 	word-break: break-word;
 	padding: 0.5rem;
@@ -23,13 +21,17 @@ h3 {
 	font-size: 1rem;
 	color: var(--color-primary);
 	font-family: var(--font-text);
-	margin-left: 6rem;
+	margin-left: 4rem;
 	padding: 1rem;
 	font-weight: 500;
 }
 
 .resume {
 	padding: 1rem;
+}
+
+.resume_item {
+	padding: 0.5rem;
 }
 
 .date {
@@ -40,6 +42,10 @@ h3 {
 
 .resume_title {
 	margin: 2rem;
+}
+
+.skills_title {
+	padding: 0.5rem;
 }
 
 .photo_section {
@@ -98,7 +104,7 @@ h3 {
 }
 
 .resume_item h3 {
-	padding-top: 0;
+	padding-top: 1;
 	padding-bottom: 0;
 }
 
