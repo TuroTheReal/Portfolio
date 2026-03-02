@@ -40,15 +40,23 @@
 
 [[redirects]]
   from = "/en"
-  to = "/index.html"
-  status = 302
+  to = "/index_en"
+  status = 301
 
 [[redirects]]
   from = "/fr"
-  to = "/index.html"
-  status = 302
+  to = "/index_fr"
+  status = 301
 
+# Détection langue — francophones vers FR
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "/"
+  to = "/index_fr"
+  status = 302
+  conditions = {Language = ["fr"]}
+
+# Par défaut — EN
+[[redirects]]
+  from = "/"
+  to = "/index_en"
+  status = 302

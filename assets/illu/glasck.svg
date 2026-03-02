@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#e2e4e8"/>
+  <!-- Dashboard frame -->
+  <rect x="60" y="50" width="480" height="300" rx="12" fill="#fff" stroke="#c8ccd4" stroke-width="1.5"/>
+  <!-- Top bar -->
+  <rect x="60" y="50" width="480" height="40" rx="12" fill="#f0f1f4"/>
+  <rect x="60" y="78" width="480" height="12" fill="#f0f1f4"/>
+  <circle cx="85" cy="70" r="6" fill="#ff6b6b" opacity="0.7"/>
+  <circle cx="105" cy="70" r="6" fill="#ffd93d" opacity="0.7"/>
+  <circle cx="125" cy="70" r="6" fill="#6bcb77" opacity="0.7"/>
+  <!-- Sidebar -->
+  <rect x="60" y="90" width="120" height="260" fill="#f5f6f8"/>
+  <rect x="75" y="110" width="90" height="8" rx="4" fill="#c8ccd4"/>
+  <rect x="75" y="130" width="70" height="8" rx="4" fill="#d4d7de"/>
+  <rect x="75" y="150" width="80" height="8" rx="4" fill="#d4d7de"/>
+  <rect x="75" y="170" width="60" height="8" rx="4" fill="#d4d7de"/>
+  <rect x="75" y="200" width="90" height="8" rx="4" fill="#c8ccd4"/>
+  <rect x="75" y="220" width="75" height="8" rx="4" fill="#d4d7de"/>
+  <!-- Chart area -->
+  <rect x="200" y="110" width="320" height="140" rx="8" fill="#f8f9fb"/>
+  <!-- Bar chart -->
+  <rect x="230" y="190" width="24" height="50" rx="3" fill="#8c96ff" opacity="0.5"/>
+  <rect x="270" y="170" width="24" height="70" rx="3" fill="#8c96ff" opacity="0.6"/>
+  <rect x="310" y="145" width="24" height="95" rx="3" fill="#8c96ff" opacity="0.7"/>
+  <rect x="350" y="155" width="24" height="85" rx="3" fill="#8c96ff" opacity="0.8"/>
+  <rect x="390" y="130" width="24" height="110" rx="3" fill="#8c96ff" opacity="0.9"/>
+  <rect x="430" y="120" width="24" height="120" rx="3" fill="#8c96ff"/>
+  <rect x="470" y="140" width="24" height="100" rx="3" fill="#8c96ff" opacity="0.85"/>
+  <!-- Stats cards -->
+  <rect x="200" y="270" width="150" height="60" rx="8" fill="#f8f9fb"/>
+  <rect x="215" y="285" width="60" height="10" rx="4" fill="#c8ccd4"/>
+  <rect x="215" y="305" width="90" height="12" rx="4" fill="#8c96ff" opacity="0.4"/>
+  <rect x="370" y="270" width="150" height="60" rx="8" fill="#f8f9fb"/>
+  <rect x="385" y="285" width="50" height="10" rx="4" fill="#c8ccd4"/>
+  <rect x="385" y="305" width="100" height="12" rx="4" fill="#8c96ff" opacity="0.4"/>
+</svg>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5R3CELDV2W"></script>
 	<script>
@@ -12,235 +13,229 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-	<meta name="description" content="CV de Arthur Bernard - Ingénieur DevOps Junior">
-	<meta name="author" content="Arthur">
+	<meta name="description" content="Arthur Bernard — Ingénieur DevOps & Cloud CV">
+	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>Arthur Bernard - CV DevOps</title>
+	<title>Arthur Bernard — CV</title>
 
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/resume.css">
-	<link rel="icon" type="image/png" href="assets/logo/withBG/favicon-light.png">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
+
 </head>
 
 <body>
-	<main>
-		<section id="Resume" class="resume">
-			<h1 class="resume_title">
-				Mon <span class="gradient">CV</span>
-			</h1>
 
-			<div class="photo_section">
-				<img src="assets/illu/PhotoPro.jpg" alt="Photo professionnelle d'Arthur.">
+	<!-- Header -->
+	<header class="header">
+		<a href="index_fr#Home" class="logo">A.</a>
+		<nav class="nav">
+			<a href="index_fr#Home">Accueil</a>
+			<a href="index_fr#About">À propos</a>
+			<a href="index_fr#Work">Projets</a>
+			<a href="resume_fr" class="active">CV</a>
+			<a href="index_fr#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<span class="lang-toggle" data-lang="en">EN</span>
+			<span class="lang-sep">|</span>
+			<span class="lang-toggle active" data-lang="fr">FR</span>
+			<button class="theme-toggle" aria-label="Changer de thème">☀</button>
+		</div>
+		<button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+	</header>
+
+	<!-- Overlay mobile -->
+	<div class="overlay">
+		<nav>
+			<a href="index_fr#Home">Accueil</a>
+			<a href="index_fr#About">À propos</a>
+			<a href="index_fr#Work">Projets</a>
+			<a href="resume_fr" class="active">CV</a>
+			<a href="index_fr#Contact">Contact</a>
+		</nav>
+		<div class="overlay-bottom">
+			<div class="overlay-lang">
+				<span class="lang-toggle" data-lang="en">EN</span>
+				<span class="lang-sep">|</span>
+				<span class="lang-toggle active" data-lang="fr">FR</span>
+			</div>
+			<button class="theme-toggle" aria-label="Changer de thème">☀</button>
+		</div>
+	</div>
+
+	<main>
+		<section class="resume" id="Resume">
+
+			<div class="resume-header" data-fade>
+				<img src="assets/illu/PhotoPro.jpg" alt="Arthur Bernard" class="resume-photo">
+				<div class="resume-intro">
+					<h1>Arthur Bernard</h1>
+					<p class="resume-title">Ingénieur DevOps / Cloud</p>
+					<p class="resume-summary">Recherche stage de fin d'études de 6 mois pour approfondir mes compétences en DevOps, infrastructure cloud (AWS, K8s) & CI/CD.</p>
+					<a href="assets/link/Arthur_Bernard_CV.pdf" target="_blank" rel="noopener noreferrer" class="resume-download">Télécharger le PDF</a>
+				</div>
 			</div>
 
-			<div class="resume_container">
+			<div class="resume-container">
 
-				<div class="resume_section">
-					<h2 class="section_title" id="à_propos">Résumé</h2>
-					<p>Développeur DevOps Junior avec tronc commun de l'École 42 validé. 10 ans d'expérience en pâtisserie : passion, rigueur, organisation, travail d'équipe. Compétences techniques : Docker, programmation système C/C++, Unix/Linux et automatisation.</p>
-				</div>
-
-				<div class="resume_section">
-					<h2 class="section_title" id="competences_techniques">Compétences techniques</h2>
-					<div class="resume_item">
-						<h3 class="skills_title">Infrastructure & DevOps :</h3>
-						<ul class="skills_list">
-							<li>Docker</li>
-							<li>Containerisation</li>
-							<li>Unix/Linux</li>
-							<li>Shell Scripting</li>
-							<li>Git/GitHub</li>
-							<li>CI/CD*</li>
-							<li>Monitoring</li>
-							<li>Infrastructure as Code (IaC)</li>
-							<li>Reverse proxy (Traefik)</li>
-						</ul>
-					</div>
-					<div class="resume_item">
-						<h3 class="skills_title">Langages de programmation :</h3>
-						<ul class="skills_list">
-							<li>C/C++</li>
-							<li>Python*</li>
-							<li>Shell/Bash</li>
-							<li>HTML/CSS/JavaScript*</li>
-							<li>YAML</li>
-						</ul>
-					</div>
-					<div class="resume_item">
-						<h3 class="skills_title">Outils :</h3>
-						<ul class="skills_list">
-							<li>Docker</li>
-							<li>Git & GitHub</li>
-							<li>Elasticsearch, Logstash, Kibana</li>
-							<li>Prometheus, Grafana</li>
-							<li>Figma</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="resume_section">
-					<h2 class="section_title" id="savoir_etre">Savoir-être</h2>
-					<ul class="skills_list">
-						<li>Management d'équipe</li>
-						<li>Gestion d'incidents et SLA*</li>
-						<li>Optimisation de processus</li>
-						<li>Résolution de problèmes</li>
-						<li>Adaptabilité</li>
-						<li>Rigueur</li>
-						<li>Organisation</li>
-						<li>Esprit d'équipe</li>
-					</ul>
-				</div>
-
-				<div class="resume_section">
-					<h2 class="section_title" id="projets">Projets</h2>
-
-					<div class="resume_item">
-						<h3><a href="https://glasck.com" target="_blank" rel="noopener noreferrer">GLASCK*</a><span class="date"><br/>2025</span></h3>
-						<p>Site de suivi d'eSport. En charge de l'infrastructure, l'orchestration, l'automatisation, DevOps, UI/UX et communication LinkedIn.<br/>
-						<em>Technologies : Docker, Shell, GitHub, Traefik</em></p>
-
-						<h3><a href="https://github.com/TuroTheReal/Transcendence" target="_blank" rel="noopener noreferrer">TRANSCENDENCE</a><span class="date"><br/>2024</span></h3>
-						<p>Projet final de l'École 42. En charge de la containerisation, sécurité et monitoring du site web de pong.<br/>
-						<em>Technologies : TypeScript, Docker, ELK</em></p>
-
-						<h3><a href="https://github.com/TuroTheReal/inception" target="_blank" rel="noopener noreferrer">INCEPTION</a><span class="date"><br/>2024</span></h3>
-						<p>Containerisation multi-services (Nginx, MariaDB, WordPress).<br/>
-						<em>Technologies : Docker, Shell Scripting</em></p>
-
-						<h3><a href="https://github.com/TuroTheReal/minishell" target="_blank" rel="noopener noreferrer">MINISHELL</a><span class="date"><br/>2023</span></h3>
-						<p>Recréation d'un shell simplifié.<br/>
-						<em>Technologies : C</em></p>
-
-						<h3><a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer">AUTRES PROJETS</a></h3>
-						<p>Tous mes repositories sont disponibles sur <a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer">mon GitHub</a></p>
+				<div class="resume-section" data-fade>
+					<h2 class="section-title">Compétences techniques</h2>
+					<div class="section-content">
+						<div class="resume-item">
+							<h3>Cloud & Infrastructure</h3>
+							<ul class="skills-list">
+								<li>AWS</li>
+								<li>Docker</li>
+								<li>Docker Swarm</li>
+								<li>Kubernetes</li>
+								<li>Ansible</li>
+								<li>Terraform</li>
+								<li>IaC</li>
+								<li>Traefik</li>
+							</ul>
+						</div>
+						<div class="resume-item">
+							<h3>DevOps & Automatisation</h3>
+							<ul class="skills-list">
+								<li>CI/CD</li>
+								<li>Prometheus</li>
+								<li>Grafana</li>
+								<li>ELK Stack</li>
+								<li>Git/GitHub</li>
+								<li>Shell/Bash</li>
+								<li>Python</li>
+								<li>YAML</li>
+								<li>Taskfile</li>
+							</ul>
+						</div>
+						<div class="resume-item">
+							<h3>Développement</h3>
+							<ul class="skills-list">
+								<li>C/C++</li>
+								<li>Python</li>
+								<li>Shell/Bash</li>
+								<li>HTML/CSS/JS</li>
+							</ul>
+						</div>
+						<div class="resume-item">
+							<h3>Administration système</h3>
+							<ul class="skills-list">
+								<li>Linux/Unix</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 
-				<div class="resume_section">
-					<h2 class="section_title" id="formation">Formation</h2>
-
-					<div class="resume_item">
-						<h3>ÉCOLE 42, Paris<span class="date"><br/>Août 2025 - En cours</span></h3>
-						<p>Système d'information et réseaux, RNCP 7</p>
-
-						<h3>ÉCOLE 42, Paris<span class="date"><br/>Mai 2024 - Août 2025</span></h3>
-						<p>Cursus commun validé</p>
-
-						<h3>CAP CHOCOLATIER<span class="date"><br/>Sept. 2014 - Juil. 2015</span></h3>
-						<p>EPMTTH, Paris</p>
-
-						<h3>BAC PRO BOULANGERIE-PÂTISSERIE<span class="date"><br/>Sept. 2011 - Juil. 2014</span></h3>
-						<p>EPMTTH, Paris</p>
-					</div>
-				</div>
-
-				<div class="resume_section">
-					<h2 class="section_title" id="experience">Expérience professionnelle</h2>
-
-					<div class="resume_item">
-						<h3>DÉVELOPPEUR, UI/UX DESIGNER<span class="date"><br/>Avril 2024 (1 semaine)</span></h3>
-						<p>Dassault Systèmes, Vélizy - France</p>
-						<ul>
-							<li>Découverte des environnements de développement logiciel et écosystème tech</li>
-							<li>Apprentissage des workflows de pipelines de déploiement et déploiement automatisé</li>
-							<li>Observation collaboration Designer-Développeur et méthodologies Agile</li>
-							<li>Introduction aux outils professionnels et standards qualité du secteur logiciel</li>
-						</ul>
-						<p></p>
-					</div>
-
-					<div class="resume_item">
-						<h3>CHEF PÂTISSIER - PÂTISSIER - CHOCOLATIER<span class="date"><br/>Sept. 2011 - Août 2021</span></h3>
-						<p>Lenôtre, Plaza Athénée, La Maison du Chocolat, Bistro Guillaume<br/>France & Australie</p>
-						<ul>
-							<li>Management d'équipes de 3 à 6 personnes avec organisation des flux de travail</li>
-							<li>Optimisation des processus de production : amélioration de 25% de l'efficacité opérationnelle</li>
-							<li>Gestion du stress lors de services, livraisons et démonstrations</li>
-							<li>Formation et intégration des nouvelles équipes</li>
-							<li>Expérience internationale : management interculturel en Australie (1 an)</li>
+				<div class="resume-section" data-fade>
+					<h2 class="section-title">Compétences transversales</h2>
+					<div class="section-content">
+						<ul class="skills-list">
+							<li>Optimisation de processus</li>
+							<li>Résolution de problèmes</li>
+							<li>Collaboration interculturelle</li>
+							<li>Leadership d'équipe</li>
+							<li>Gestion d'incidents & SLA</li>
 						</ul>
 					</div>
 				</div>
 
-				<div class="resume_section">
-					<h2 class="section_title" id="langues">Langues</h2>
-					<ul class="skills_list">
-						<li>Français (langue maternelle)</li>
-						<li>Anglais (courant)</li>
-					</ul>
-				</div>
-
-				<div class="resume_section">
-					<h2 class="section_title" id="information">Contact</h2>
-					<div class="resume_item">
-						<ul class="contact_list">
-							<li>Rueil-Malmaison, Hauts-de-Seine</li>
-							<li><a href="mailto:arthurbernard.dev@gmail.com" target="_blank" rel="noopener noreferrer">arthurbernard.dev@gmail.com</a></li>
-							<li>+33 6 33 79 65 56</li>
-							<li><a href="https://arthur-portfolio.com" target="_blank" rel="noopener noreferrer">arthur-portfolio.com</a></li>
-							<li><a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer">in/arthurbernard92</a></li>
-						</ul>
-						<p style="margin-top: 2rem; font-size: small;"><em>*en cours d'apprentissage ou de développement</em></p>
+				<div class="resume-section" data-fade>
+					<h2 class="section-title">Expérience</h2>
+					<div class="section-content">
+						<div class="resume-item">
+							<h3><a href="https://glasck.com" target="_blank" rel="noopener noreferrer">Glasck</a> <span class="date">2025 – Présent</span></h3>
+							<p class="resume-role">Co-fondateur, Infrastructure Lead & Ingénieur DevOps</p>
+							<p>Plateforme SaaS de suivi eSports. Conception et déploiement d'un cluster Docker Swarm en production avec reverse proxy Traefik, pipeline CI/CD et environnement de staging.</p>
+						</div>
+						<div class="resume-item">
+							<h3>Développeur, UI/UX Designer <span class="date">Avril 2024</span></h3>
+							<p class="resume-role">Dassault Systèmes, Vélizy</p>
+							<p>Semaine découverte — pipelines de déploiement, méthodologies Agile, collaboration Designer-Développeur.</p>
+						</div>
+						<div class="resume-item">
+							<h3>Chef pâtissier / Chocolatier <span class="date">2011 – 2021</span></h3>
+							<p class="resume-role">Lenôtre, Plaza Athénée, La Maison du Chocolat — France & Australie</p>
+							<p>Gestion d'équipe (3-6 personnes), optimisation de production (+25% efficacité), expérience internationale.</p>
+						</div>
 					</div>
 				</div>
 
-				<div class="download_section">
-					<a href="assets/link/Arthur Bernard CV - FR.pdf" target="_blank" rel="noopener noreferrer" class="download_button">
-						Télécharger en PDF
-					</a>
+				<div class="resume-section" data-fade>
+					<h2 class="section-title">Projets</h2>
+					<div class="section-content">
+						<div class="resume-item">
+							<h3><a href="https://github.com/TuroTheReal/AWS-Terraform-Ansible" target="_blank" rel="noopener noreferrer">AWS Infrastructure Automation</a> <span class="date">2025</span></h3>
+							<p>Provisionnement AWS automatisé — Terraform (VPC, Security Groups, EC2, IAM) + gestion de configuration Ansible.</p>
+						</div>
+						<div class="resume-item">
+							<h3>Kubernetes & GitOps Pipeline <span class="date">2025</span></h3>
+							<p>Cluster K3s/K3d avec Argo CD pour le déploiement continu GitOps.</p>
+						</div>
+						<div class="resume-item">
+							<h3><a href="https://github.com/TuroTheReal/Transcendence" target="_blank" rel="noopener noreferrer">Transcendence</a> <span class="date">2024</span></h3>
+							<p>Application web multijoueur full-stack — Projet final École 42. Conteneurisation, sécurité, monitoring (ELK Stack).</p>
+						</div>
+						<div class="resume-item">
+							<h3><a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer">Autres projets</a></h3>
+							<p>Tous les dépôts disponibles sur GitHub.</p>
+						</div>
+					</div>
 				</div>
+
+				<div class="resume-section" data-fade>
+					<h2 class="section-title">Formation</h2>
+					<div class="section-content">
+						<div class="resume-item">
+							<h3>École 42, Paris <span class="date">Août 2025 – En cours</span></h3>
+							<p>Systèmes d'information et réseaux, RNCP Niveau 7</p>
+						</div>
+						<div class="resume-item">
+							<h3>École 42, Paris <span class="date">Mai 2024 – Août 2025</span></h3>
+							<p>Tronc commun validé</p>
+						</div>
+						<div class="resume-item">
+							<h3>CAP Chocolatier <span class="date">2014 – 2015</span></h3>
+							<p>EPMTTH, Paris</p>
+						</div>
+						<div class="resume-item">
+							<h3>Bac Pro Boulangerie-Pâtisserie <span class="date">2011 – 2014</span></h3>
+							<p>EPMTTH, Paris</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="resume-section" data-fade>
+					<h2 class="section-title">Langues</h2>
+					<div class="section-content">
+						<ul class="skills-list">
+							<li>Français (natif)</li>
+							<li>Anglais (courant)</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="resume-section" data-fade>
+					<h2 class="section-title">Contact</h2>
+					<div class="section-content">
+						<div class="resume-item">
+							<p>Rueil-Malmaison, Hauts-de-Seine</p>
+							<p><a href="mailto:arthurbernard.dev@gmail.com">arthurbernard.dev@gmail.com</a></p>
+							<p>
+								<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" class="contact-icon-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+								<span class="contact-sep">·</span>
+								<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" class="contact-icon-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</section>
 	</main>
 
-	<footer id="Contact" class="footer">
-		<h1 class="footer_title">
-			<span class="black">Propulsez</span> votre infrastructure.
-		</h1>
-		<div class="contact_links">
-			<div class="mail">
-				<a href="mailto:arthurbernard.dev@gmail.com" target="_blank" rel="noopener noreferrer">Contactez-moi par mail.</a>
-			</div>
-			<div class="linkedin">
-				<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer">Ou sur LinkedIn.</a>
-			</div>
-		</div>
-	</footer>
+	<script src="assets/script.js"></script>
 
-	<header class="header">
-		<div class="logo">
-			<a href="index_fr#Home">
-				<img src="assets/logo/withoutBG/logo-dark.png" alt="Logo du Portfolio d'Arthur.">
-			</a>
-		</div>
-		<nav class="menu">
-			<a href="/index_fr#Home">ACCUEIL</a>
-			<a href="/index_fr#About">À PROPOS</a>
-			<a href="/index_fr#Work">PROJETS</a>
-			<a href="/index_fr#Contact">CONTACT</a>
-		</nav>
-		<div class="lang-switch-wrapper">
-			<input type="checkbox" id="lang-switch" class="lang-switch" aria-label="Changer de langue" checked>
-			<label for="lang-switch" class="lang-switch-label">
-				<div class="english"><h1>EN</h1></div>
-				<div class="separator">|</div>
-				<div class="french"><h1>FR</h1></div>
-			</label>
-		</div>
-		<div class="theme-switch-wrapper">
-			<input type="checkbox" id="theme-switch" class="theme-switch" aria-label="Changer de thème">
-			<label for="theme-switch" class="theme-switch-label">
-				<svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-					<path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
-				</svg>
-				<svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-					<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
-				</svg>
-			</label>
-		</div>
-	</header>
-	<script src="assets/script.js" defer></script>
 </body>
 </html>
