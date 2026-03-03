@@ -14,13 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
     });
 
-    // Fermer l'overlay au clic sur un lien
+    // Fermer l'overlay
+    function closeOverlay() {
+      burger.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Fermer au clic sur un lien nav
     overlay.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        burger.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeOverlay);
+    });
+
+    // Fermer au clic lang toggle ou theme toggle dans l'overlay
+    overlay.querySelectorAll('.lang-toggle, .theme-toggle').forEach(btn => {
+      btn.addEventListener('click', closeOverlay);
+    });
+
+    // Fermer au clic sur le backdrop (zone hors du panel)
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeOverlay();
     });
   }
 
@@ -86,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============================================
      ACTIVE NAV (IntersectionObserver)
      ============================================ */
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
   const navLinks = document.querySelectorAll('.nav a, .overlay nav a');
 
   function updateActiveNav(sectionId) {
@@ -101,19 +114,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (sections.length > 0 && 'IntersectionObserver' in window) {
-    // Calculer la hauteur du header en px pour rootMargin
     const headerEl = document.querySelector('.header');
     const headerPx = headerEl ? headerEl.offsetHeight : 56;
 
+    // Stocker la section la plus visible
+    const sectionRatios = {};
+
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          updateActiveNav(entry.target.id);
-        }
+        sectionRatios[entry.target.id] = entry.intersectionRatio;
       });
+
+      // Trouver la section avec le plus grand ratio visible
+      let bestId = null;
+      let bestRatio = 0;
+      for (const [id, ratio] of Object.entries(sectionRatios)) {
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestId = id;
+        }
+      }
+
+      // Si en bas de page, forcer Contact
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+        bestId = 'Contact';
+      }
+
+      if (bestId) updateActiveNav(bestId);
     }, {
-      threshold: 0.2,
-      rootMargin: `-${headerPx}px 0px -40% 0px`
+      threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1],
+      rootMargin: `-${headerPx}px 0px 0px 0px`
     });
 
     sections.forEach(section => navObserver.observe(section));
@@ -249,7 +279,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   themeToggles.forEach(btn => btn.addEventListener('click', toggleTheme));
   initTheme();
-
-
 
 });

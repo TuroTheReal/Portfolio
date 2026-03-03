@@ -57,8 +57,8 @@ body.light-theme .resume-photo {
   border: 1px solid var(--accent);
   padding: 0.5rem 1.5rem;
   border-radius: 100px;
-  background: linear-gradient(to right, var(--accent) 50%, transparent 50.1%);
-  background-size: 202% 100%;
+  background: linear-gradient(to right, var(--accent) 50%, transparent 50%);
+  background-size: 200% 100%;
   background-position: 100% 0;
   transition: background-position 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s ease;
 }
