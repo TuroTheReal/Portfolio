@@ -52,19 +52,18 @@ body.light-theme .resume-photo {
 
 .resume-download {
   display: inline-block;
+  font-family: var(--font-text);
   font-size: 0.9rem;
   color: var(--accent);
   border: 1px solid var(--accent);
-  padding: 0.5rem 1.5rem;
+  padding: 0.6rem 1.75rem;
   border-radius: 100px;
-  background: linear-gradient(to right, var(--accent) 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition: background-position 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s ease;
+  background: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .resume-download:hover {
-  background-position: 0 0;
+  background-color: var(--accent);
   color: var(--bg-primary);
 }
 
@@ -116,12 +115,25 @@ body.light-theme .resume-photo {
 
 .resume-item h3 a {
   color: var(--accent);
+  position: relative;
+  padding-bottom: 2px;
   transition: color 0.3s ease;
 }
 
-.resume-item h3 a:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
+.resume-item h3 a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.resume-item h3 a:hover::after {
+  width: 100%;
 }
 
 /* Contact links — clearly clickable */

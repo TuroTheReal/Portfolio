@@ -426,14 +426,12 @@ body.light-theme .hero-mesh .blob { background: #3730a3; opacity: 0.4; }
   border: 1px solid var(--accent);
   padding: 0.6rem 1.75rem;
   border-radius: 100px;
-  background: linear-gradient(to right, var(--accent) 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition: background-position 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s ease;
+  background: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .hero-cta:hover {
-  background-position: 0 0;
+  background-color: var(--accent);
   color: var(--bg-primary);
 }
 
@@ -689,14 +687,12 @@ body.light-theme .work-item-image .img-light {
   border: 1px solid var(--accent);
   padding: 0.65rem clamp(1rem, 4vw, 2rem);
   border-radius: 100px;
-  background: linear-gradient(to right, var(--accent) 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition: background-position 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s ease;
+  background: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-cta:hover {
-  background-position: 0 0;
+  background-color: var(--accent);
   color: var(--bg-primary);
 }
 
