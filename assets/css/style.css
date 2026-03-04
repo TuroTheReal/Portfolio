@@ -5,7 +5,7 @@
 :root {
   --bg-primary:     #121212;
   --bg-secondary:   #1a1a1a;
-  --bg-card:        #151515;
+  --bg-card:        #141414;
   --text-primary:   #e2e8f0;
   --text-secondary: #94a3b8;
   --accent:         #8c96ff;
@@ -20,14 +20,14 @@
 
 /* === Light mode === */
 body.light-theme {
-  --bg-primary:     #f8f9fa;
+  --bg-primary:     #f0f1f2;
   --bg-secondary:   #ffffff;
-  --bg-card:        #fbfbfb;
-  --text-primary:   #1a1a2e;
-  --text-secondary: #3e4c5e;
-  --accent:         #4338ca;
-  --accent-hover:   #4f46e5;
-  --accent-muted:   rgba(67, 56, 202, 0.08);
+  --bg-card:        #f8f8f9;
+  --text-primary:   #121212;
+  --text-secondary: #374151;
+  --accent:         #3730a3;
+  --accent-hover:   #4338ca;
+  --accent-muted:   rgba(55, 48, 163, 0.08);
 }
 
 /* === RESET === */
@@ -96,8 +96,8 @@ section {
 }
 
 body.light-theme .header {
-  background: rgba(248, 249, 250, 0.75);
-  border-bottom: 1px solid rgba(67, 56, 202, 0.08);
+  background: rgba(248, 249, 250, 0.15);
+  border-bottom: 1px solid rgba(55, 48, 163, 0.08);
 }
 
 .header.hidden {
@@ -349,35 +349,35 @@ body.light-theme .overlay-panel {
 .hero-mesh .blob {
   position: absolute;
   background: #8c96ff;
-  filter: blur(55px);
-  opacity: 0.35;
+  filter: blur(90px);
+  opacity: 0.25;
 }
 
 .hero-mesh .blob-1 {
-  width: 60%;
-  height: 55%;
-  top: -15%;
-  left: -10%;
-  border-radius: 40% 60% 55% 45% / 55% 40% 60% 45%;
-  animation: blob1 7s ease-in-out infinite alternate;
+  width: 70%;
+  height: 65%;
+  top: -20%;
+  left: -15%;
+  border-radius: 50% 55% 50% 55% / 55% 50% 55% 50%;
+  animation: blob1 18s ease-in-out infinite alternate;
 }
 
 .hero-mesh .blob-2 {
-  width: 45%;
+  width: 60%;
   height: 60%;
-  top: 10%;
-  right: -15%;
-  border-radius: 55% 45% 40% 60% / 45% 60% 40% 55%;
-  animation: blob2 11s ease-in-out infinite alternate;
+  top: 5%;
+  right: -20%;
+  border-radius: 55% 50% 55% 50% / 50% 55% 50% 55%;
+  animation: blob2 24s ease-in-out infinite alternate;
 }
 
 .hero-mesh .blob-3 {
-  width: 55%;
-  height: 40%;
-  bottom: -10%;
-  left: 20%;
-  border-radius: 30% 70% 60% 40% / 60% 35% 65% 40%;
-  animation: blob3 14s ease-in-out infinite alternate;
+  width: 65%;
+  height: 55%;
+  bottom: -15%;
+  left: 15%;
+  border-radius: 50% 55% 55% 50% / 55% 50% 50% 55%;
+  animation: blob3 30s ease-in-out infinite alternate;
 }
 
 /* Light mode */
@@ -447,7 +447,7 @@ body.light-theme .hero-mesh .blob { background: #3730a3; opacity: 0.4; }
 }
 
 body.light-theme .about {
-  border-color: rgba(67, 56, 202, 0.15);
+  border-color: rgba(55, 48, 163, 0.15);
 }
 
 .about h2 {
@@ -537,7 +537,7 @@ body.light-theme .about {
 
 /* Light mode — cartes */
 body.light-theme .work-item {
-  box-shadow: 0 6px 14px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px -4px rgba(55, 48, 163, 0.08);
 }
 
 body.light-theme .work-list:hover .work-item:not(:hover) {
@@ -545,7 +545,7 @@ body.light-theme .work-list:hover .work-item:not(:hover) {
 }
 
 body.light-theme .work-tags span {
-  background: rgba(67, 56, 202, 0.1);
+  background: rgba(55, 48, 163, 0.1);
   font-weight: 500;
 }
 
@@ -721,7 +721,7 @@ body.light-theme .work-item-image .img-light {
 }
 
 body.light-theme .footer {
-  border-color: rgba(67, 56, 202, 0.15);
+  border-color: rgba(55, 48, 163, 0.15);
 }
 
 /* === FADE-IN AU SCROLL === */

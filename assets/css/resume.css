@@ -92,13 +92,10 @@ body.light-theme .resume-photo {
 }
 
 .section-content {
-  padding-left: 1rem;
-}
-
-.section-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding-left: 1rem;
 }
 
 /* Items */
@@ -146,10 +143,6 @@ body.light-theme .resume-photo {
   text-decoration-color: rgba(140, 150, 255, 0.3);
   text-underline-offset: 3px;
   transition: color 0.3s ease, text-decoration-color 0.3s ease;
-}
-
-body.light-theme .resume-item p a {
-  text-decoration-color: rgba(67, 56, 202, 0.3);
 }
 
 .resume-item p a:hover {
@@ -239,12 +232,12 @@ body.light-theme .resume-item p a {
 
   .section-title {
     text-align: right;
-    border-bottom: none;
     padding-right: 1.5rem;
-    padding-bottom: 0;
-    display: block;
     font-size: 1.05rem;
-    color: var(--text-primary);
+  }
+
+  .section-content {
+    padding-left: 0;
   }
 
   .resume-photo {
