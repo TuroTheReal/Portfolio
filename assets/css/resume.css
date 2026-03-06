@@ -140,7 +140,7 @@ body.light-theme .resume-photo {
 .resume-item p a {
   color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: rgba(140, 150, 255, 0.3);
+  text-decoration-color: var(--accent-muted);
   text-underline-offset: 3px;
   transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }

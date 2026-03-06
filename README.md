@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white"/>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-green.svg"/>
+  <img src="https://img.shields.io/badge/Deployed%20on-Netlify-00C7B7?logo=netlify&logoColor=white"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
 </p>
 
@@ -31,7 +31,7 @@
 ## 📌 About
 
 Bilingual (EN/FR) portfolio website showcasing my projects, skills, and professional background as a DevOps & Cloud Engineer.
-Built with vanilla HTML5, CSS3, and JavaScript — no frameworks, no dependencies. Dark/light theme, fully responsive, deployed on GitHub Pages.
+Built with vanilla HTML5, CSS3, and JavaScript — no frameworks, no dependencies. Dark/light theme, fully responsive, deployed on Netlify.
 
 ### Tech Stack
 
@@ -41,7 +41,7 @@ Built with vanilla HTML5, CSS3, and JavaScript — no frameworks, no dependencie
 | Styling | CSS3 (Grid, Flexbox, custom properties, transitions) |
 | Scripting | Vanilla JavaScript (ES6+) |
 | Fonts | Google Fonts (Poppins, DM Sans) |
-| Hosting | GitHub Pages |
+| Hosting | Netlify |
 | Analytics | Google Analytics (gtag.js) |
 | Design | Figma |
 
@@ -115,7 +115,7 @@ python3 -m http.server 8080
 
 ## 🌐 Live
 
-**[turothereal.github.io/Portfolio](https://turothereal.github.io/Portfolio/)**
+**[arthur-portfolio.com](https://arthur-portfolio.com)**
 
 ---
 

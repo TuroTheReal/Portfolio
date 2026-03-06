@@ -84,8 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
+          fadeObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
@@ -247,12 +246,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggles = document.querySelectorAll('.theme-toggle');
 
   // Initialiser le thème
+  // Priorité : localStorage > prefers-color-scheme > dark par défaut
   function initTheme() {
     const saved = localStorage.getItem('theme');
     if (saved === 'light') {
       document.body.classList.add('light-theme');
+    } else if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      document.body.classList.add('light-theme');
     }
-    // Dark = défaut, pas de classe nécessaire
     updateThemeIcon();
   }
 
