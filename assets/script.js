@@ -27,13 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Fermer au clic lang toggle ou theme toggle dans l'overlay
-    overlay.querySelectorAll('.lang-toggle, .theme-toggle').forEach(btn => {
+    overlay.querySelectorAll('.lang-toggle, .theme-switch').forEach(btn => {
       btn.addEventListener('click', closeOverlay);
     });
 
     // Fermer au clic sur le backdrop (zone hors du panel)
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) closeOverlay();
+    });
+
+    // Fermer avec Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay();
     });
   }
 
@@ -45,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let headerHidden = false;
 
   function handleHeaderScroll() {
+    if (!header) return;
     // Seulement sur mobile (< 1024px)
     if (window.innerWidth >= 1024) {
       header.classList.remove('hidden');
@@ -152,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
      SMOOTH SCROLL avec easing (liens nav)
      ============================================ */
   function smoothScrollTo(targetEl, duration = 800) {
+    if (!targetEl) return;
     const headerOffset = header ? header.offsetHeight : 56;
     const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
     const startPos = window.scrollY;
@@ -240,45 +247,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ============================================
-     THEME TOGGLE
-     Dark par défaut, pas de reload
+     THEME SWITCH
+     Dark par défaut, switch toggle
      ============================================ */
-  const themeToggles = document.querySelectorAll('.theme-toggle');
-
-  // Initialiser le thème
-  // Priorité : localStorage > prefers-color-scheme > dark par défaut
-  function initTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') {
-      document.body.classList.add('light-theme');
-    } else if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      document.body.classList.add('light-theme');
-    }
-    updateThemeIcon();
-  }
+  const themeSwitches = document.querySelectorAll('.theme-switch');
 
   function toggleTheme() {
     document.body.classList.toggle('light-theme');
     const isLight = document.body.classList.contains('light-theme');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    updateThemeIcon();
   }
 
-  function updateThemeIcon() {
-    const isLight = document.body.classList.contains('light-theme');
-    const isFr = document.documentElement.lang === 'fr';
-    const moonSVG = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    themeToggles.forEach(btn => {
-      btn.innerHTML = isLight ? moonSVG : '☀';
-      if (isFr) {
-        btn.setAttribute('aria-label', isLight ? 'Passer en mode sombre' : 'Passer en mode clair');
-      } else {
-        btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
-      }
-    });
-  }
-
-  themeToggles.forEach(btn => btn.addEventListener('click', toggleTheme));
-  initTheme();
+  themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
 
 });

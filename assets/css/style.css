@@ -74,6 +74,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
 h1, h2, h3 {
   font-family: var(--font-title);
   color: var(--text-primary);
@@ -311,26 +312,80 @@ section {
   opacity: 0.4;
 }
 
-/* === THEME TOGGLE === */
-.theme-toggle {
+/* === THEME SWITCH === */
+.theme-switch {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-  padding: 0.625rem;
+  padding: 0.25rem;
   display: flex;
   align-items: center;
-  line-height: 1;
 }
 
-.theme-toggle svg {
-  display: block;
+.theme-switch-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 2.6rem;
+  height: 1.3rem;
+  background: transparent;
+  border: 1px solid var(--text-secondary);
+  border-radius: 1rem;
+  padding: 0 0.25rem;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.theme-toggle:hover {
+.theme-switch-thumb {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  z-index: 0;
+  transform: translateX(1.2rem) translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  background: var(--text-secondary);
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-theme .theme-switch-thumb {
+  transform: translateY(-50%);
+}
+
+.theme-icon {
+  z-index: 1;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.theme-icon.sun {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.theme-icon.moon {
   color: var(--accent);
+}
+
+body.light-theme .theme-icon.sun {
+  color: var(--accent);
+  opacity: 1;
+}
+
+body.light-theme .theme-icon.moon {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.theme-switch:hover .theme-switch-track {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 8px rgba(140, 150, 255, 0.45);
+}
+
+body.light-theme .theme-switch:hover .theme-switch-track {
+  box-shadow: inset 0 0 8px rgba(67, 56, 202, 0.4);
 }
 
 /* === HERO === */
@@ -344,6 +399,7 @@ section {
   padding: 2rem 1rem;
   text-align: center;
   overflow: hidden;
+  background-color: #0a0a0a;
 }
 
 /* Mesh gradient — blobs indépendants */
@@ -352,6 +408,23 @@ section {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+}
+
+/* Grain texture — hero uniquement, sous le texte */
+.hero-mesh::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.10;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+body.light-theme .hero-mesh::after {
+  opacity: 0.15;
 }
 
 .hero-mesh .blob {
@@ -389,6 +462,10 @@ section {
 }
 
 /* Light mode */
+body.light-theme .hero {
+  background-color: #f8f9fa;
+}
+
 body.light-theme .hero-mesh .blob { opacity: 0.4; }
 
 @keyframes blob1 {
@@ -454,9 +531,6 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
   border-top: 1px solid var(--accent-muted);
 }
 
-body.light-theme .about {
-  border-color: rgba(55, 48, 163, 0.15);
-}
 
 .about h2 {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
@@ -674,9 +748,11 @@ body.light-theme .work-item-image .img-light {
   margin-top: 2rem;
 }
 
-.footer h2 {
+.footer-heading {
+  font-family: var(--font-title);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .footer-cta {
@@ -721,9 +797,6 @@ body.light-theme .work-item-image .img-light {
   margin-top: 1rem;
 }
 
-body.light-theme .footer {
-  border-color: rgba(55, 48, 163, 0.15);
-}
 
 /* === FADE-IN AU SCROLL === */
 [data-fade] {
@@ -741,18 +814,15 @@ body.light-theme .footer {
 
 /* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
-  .hero-mesh .blob {
-    animation: none;
-  }
-
-  .work-item-image img {
-    transition: none;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 
   [data-fade] {
     opacity: 1;
     transform: none;
-    transition: none;
   }
 }
 

@@ -1,4 +1,4 @@
-.env
-assets/fonts/
 .DS_Store
 .vscode/
+*.log
+node_modules/
