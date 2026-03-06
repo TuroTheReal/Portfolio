@@ -340,7 +340,7 @@ section {
   position: absolute;
   left: 2px;
   top: 50%;
-  z-index: 0;
+  z-index: 2;
   transform: translateX(1.2rem) translateY(-50%);
   width: 1rem;
   height: 1rem;
@@ -362,21 +362,18 @@ body.light-theme .theme-switch-thumb {
 
 .theme-icon.sun {
   color: var(--text-secondary);
-  opacity: 0.5;
 }
 
 .theme-icon.moon {
-  color: var(--accent);
+  color: var(--text-primary);
 }
 
 body.light-theme .theme-icon.sun {
-  color: var(--accent);
-  opacity: 1;
+  color: var(--text-primary);
 }
 
 body.light-theme .theme-icon.moon {
   color: var(--text-secondary);
-  opacity: 0.5;
 }
 
 .theme-switch:hover .theme-switch-track {
