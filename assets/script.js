@@ -110,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateActiveNav(sectionId) {
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === `#${sectionId}` || href === sectionId) {
+      if (!href.includes('#')) return;
+      if (href.endsWith(`#${sectionId}`)) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
