@@ -119,6 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Page resume : activer le lien CV avec animation
+  if (window.location.pathname.includes('resume')) {
+    requestAnimationFrame(() => {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href').includes('resume')) {
+          link.classList.add('active');
+        }
+      });
+    });
+  }
+
   if (sections.length > 0 && 'IntersectionObserver' in window) {
     const headerEl = document.querySelector('.header');
     const headerPx = headerEl ? headerEl.offsetHeight : 56;
