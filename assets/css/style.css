@@ -1,5 +1,5 @@
 /* === IMPORTS === */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap');
+/* Fonts chargées via <link> dans le HTML pour éviter le render-blocking */
 
 /* === VARIABLES — Dark mode (défaut) === */
 :root {
