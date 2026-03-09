@@ -55,14 +55,17 @@ Portfolio/
 │   ├── css/
 │   │   ├── style.css          # Main stylesheet (variables, layout, components)
 │   │   └── resume.css         # Resume/CV page styles
-│   ├── illu/                  # Project illustrations (dark + light variants)
+│   ├── illu/                  # Project illustrations, og-image.png (dark + light variants)
 │   ├── link/
 │   │   └── Arthur_Bernard_CV.pdf
 │   └── script.js              # Burger menu, scroll, theme/lang toggle, observers
+├── index.html                 # Root redirect (lang detection → EN/FR)
 ├── index_en.html              # Homepage — English
 ├── index_fr.html              # Homepage — French
 ├── resume_en.html             # Resume/CV — English
 ├── resume_fr.html             # Resume/CV — French
+├── sitemap.xml                # SEO sitemap with hreflang
+├── robots.txt                 # Crawler rules + AI bot blocking
 ├── .gitignore
 └── README.md
 ```
@@ -109,6 +112,7 @@ python3 -m http.server 8080
 - **Auto-hide header** — Header hides on scroll down, reveals on scroll up (mobile only)
 - **Resume/CV page** — Downloadable PDF, responsive grid layout, animated link underlines
 - **Performance** — No dependencies, no build step, Google Fonts CDN, lazy-loaded images
+- **SEO optimized** — Sitemap with hreflang, robots.txt, Open Graph, Twitter Cards, JSON-LD structured data
 - **Accessibility** — Semantic HTML, ARIA labels, prefers-reduced-motion support
 
 ---
