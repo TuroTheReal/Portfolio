@@ -59,11 +59,15 @@ Portfolio/
 │   ├── link/
 │   │   └── Arthur_Bernard_CV.pdf
 │   └── script.js              # Burger menu, scroll, theme/lang toggle, observers
-├── index.html                 # Root redirect (lang detection → EN/FR)
-├── index_en.html              # Homepage — English
-├── index_fr.html              # Homepage — French
-├── resume_en.html             # Resume/CV — English
-├── resume_fr.html             # Resume/CV — French
+├── en/
+│   ├── index.html             # Homepage — English
+│   └── resume.html            # Resume/CV — English
+├── fr/
+│   ├── index.html             # Homepage — French
+│   └── resume.html            # Resume/CV — French
+├── index.html                 # Root redirect (lang detection → /en/ or /fr/)
+├── _redirects                 # Netlify 301 redirects (old URLs → new folder-based)
+├── netlify.toml               # Netlify build config + redirects
 ├── sitemap.xml                # SEO sitemap with hreflang
 ├── robots.txt                 # Crawler rules + AI bot blocking
 ├── .gitignore
@@ -93,18 +97,18 @@ git clone https://github.com/TuroTheReal/Portfolio.git
 cd Portfolio
 
 # Open directly
-open index_en.html
+open en/index.html
 
 # Or serve locally
 python3 -m http.server 8080
-# Then visit http://localhost:8080/index_en.html
+# Then visit http://localhost:8080/en/
 ```
 
 ---
 
 ## 📖 Features
 
-- **Bilingual** — Full EN/FR versions with seamless language switching (preserves scroll position)
+- **Bilingual** — Full EN/FR versions with folder-based i18n (`/en/`, `/fr/`), seamless language switching (preserves scroll position)
 - **Dark/Light theme** — Toggle with localStorage persistence, separate color palettes
 - **Responsive** — Mobile-first design with slide panel menu, tablet grid, desktop navigation
 - **Smooth animations** — Scroll-based fade-in (IntersectionObserver), animated mesh gradient blobs, hover effects

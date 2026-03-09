@@ -1,0 +1,10 @@
+# Redirections 301 — migration i18n (suffix → folder-based)
+# Anciennes URLs → nouvelles URLs
+/index_en       /en/    301
+/index_en.html  /en/    301
+/index_fr       /fr/    301
+/index_fr.html  /fr/    301
+/resume_en      /en/resume  301
+/resume_en.html /en/resume  301
+/resume_fr      /fr/resume  301
+/resume_fr.html /fr/resume  301
