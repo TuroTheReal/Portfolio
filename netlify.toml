@@ -18,45 +18,43 @@
 [build.processing.images]
   compress = true
 
+# Redirections 301 — migration i18n (ancien suffix → folder-based)
 [[redirects]]
-  from = "/index_en.html"
-  to = "/index_en/"
+  from = "/index_en"
+  to = "/en/"
   status = 301
 
 [[redirects]]
-  from = "/resume_en.html"
-  to = "/resume_en/"
+  from = "/index_en.html"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/index_fr"
+  to = "/fr/"
   status = 301
 
 [[redirects]]
   from = "/index_fr.html"
-  to = "/index_fr/"
+  to = "/fr/"
+  status = 301
+
+[[redirects]]
+  from = "/resume_en"
+  to = "/en/resume"
+  status = 301
+
+[[redirects]]
+  from = "/resume_en.html"
+  to = "/en/resume"
+  status = 301
+
+[[redirects]]
+  from = "/resume_fr"
+  to = "/fr/resume"
   status = 301
 
 [[redirects]]
   from = "/resume_fr.html"
-  to = "/resume_fr/"
+  to = "/fr/resume"
   status = 301
-
-[[redirects]]
-  from = "/en"
-  to = "/index_en"
-  status = 301
-
-[[redirects]]
-  from = "/fr"
-  to = "/index_fr"
-  status = 301
-
-# Détection langue — francophones vers FR
-[[redirects]]
-  from = "/"
-  to = "/index_fr"
-  status = 302
-  conditions = {Language = ["fr"]}
-
-# Par défaut — EN
-[[redirects]]
-  from = "/"
-  to = "/index_en"
-  status = 302

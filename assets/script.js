@@ -227,34 +227,27 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================ */
   const langToggles = document.querySelectorAll('.lang-toggle');
 
-  // Carte des pages EN ↔ FR
-  const pageMap = {
-    'index_en':  { fr: 'index_fr',  en: 'index_en' },
-    'index_fr':  { fr: 'index_fr',  en: 'index_en' },
-    'resume_en': { fr: 'resume_fr', en: 'resume_en' },
-    'resume_fr': { fr: 'resume_fr', en: 'resume_en' }
-  };
-
-  // Déterminer la page actuelle
-  function getCurrentPage() {
-    let path = window.location.pathname.split('/').filter(Boolean).pop() || 'index_en';
-    // Retirer le slash final
-    if (path.endsWith('/')) path = path.slice(0, -1);
-    // Retirer l'extension .html si présente
-    path = path.replace('.html', '');
-    return path;
+  // Déterminer la langue et la page actuelle depuis l'URL folder-based
+  // Structure : /en/, /en/resume, /fr/, /fr/resume
+  function getCurrentLangAndPage() {
+    const path = window.location.pathname;
+    const lang = path.startsWith('/fr') ? 'fr' : 'en';
+    const isResume = path.includes('resume');
+    return { lang, isResume };
   }
 
   langToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const targetLang = toggle.dataset.lang;
-      const currentPage = getCurrentPage();
+      const { lang: currentLang, isResume } = getCurrentLangAndPage();
       const currentHash = window.location.hash;
 
-      const mappedPage = pageMap[currentPage]?.[targetLang];
-      if (mappedPage && mappedPage !== currentPage) {
-        window.location.href = mappedPage + currentHash;
-      }
+      if (targetLang === currentLang) return;
+
+      const newPath = isResume
+        ? `/${targetLang}/resume`
+        : `/${targetLang}/`;
+      window.location.href = newPath + currentHash;
     });
   });
 
