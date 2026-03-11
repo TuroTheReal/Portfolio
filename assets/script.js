@@ -117,6 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.remove('active');
       }
     });
+    // Met à jour le hash sans ajouter d'entrée dans l'historique
+    if (sectionId && window.location.hash !== `#${sectionId}`) {
+      history.replaceState(null, '', `#${sectionId}`);
+    }
   }
 
   // Page resume : activer le lien CV avec animation
