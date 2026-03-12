@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.remove('active');
       }
     });
-    // Met à jour le hash sans ajouter d'entrée dans l'historique
-    if (sectionId && window.location.hash !== `#${sectionId}`) {
+    // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf page resume)
+    if (sectionId && !window.location.pathname.includes('resume') && window.location.hash !== `#${sectionId}`) {
       history.replaceState(null, '', `#${sectionId}`);
     }
   }
