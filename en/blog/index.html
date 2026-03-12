@@ -13,16 +13,16 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-	<meta name="description" content="Arthur Bernard — DevOps & Cloud Engineer. Automation, infrastructure as code, CI/CD.">
+	<meta name="description" content="Arthur Bernard — Blog. Articles about DevOps, Cloud, CI/CD, infrastructure as code, and more.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>Arthur Bernard — DevOps & Cloud Engineer</title>
+	<title>Blog — Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Arthur Bernard — DevOps & Cloud Engineer">
-	<meta property="og:description" content="Portfolio — DevOps & Cloud Engineer. Automation, infrastructure as code, CI/CD, AWS, Kubernetes, Docker.">
-	<meta property="og:url" content="https://arthur-portfolio.com/en/">
+	<meta property="og:title" content="Blog — Arthur Bernard">
+	<meta property="og:description" content="Articles about DevOps, Cloud, CI/CD, infrastructure as code, and more.">
+	<meta property="og:url" content="https://arthur-portfolio.com/en/blog/">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:locale:alternate" content="fr_FR">
@@ -32,37 +32,21 @@
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Arthur Bernard — DevOps & Cloud Engineer">
-	<meta name="twitter:description" content="Portfolio — DevOps & Cloud Engineer. Automation, infrastructure as code, CI/CD, AWS, Kubernetes, Docker.">
+	<meta name="twitter:title" content="Blog — Arthur Bernard">
+	<meta name="twitter:description" content="Articles about DevOps, Cloud, CI/CD, infrastructure as code, and more.">
 	<meta name="twitter:image" content="https://arthur-portfolio.com/assets/illu/og-image.png">
 
-	<!-- JSON-LD -->
-	<script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "Person",
-		"name": "Arthur Bernard",
-		"jobTitle": "DevOps & Cloud Engineer",
-		"url": "https://arthur-portfolio.com",
-		"image": "https://arthur-portfolio.com/assets/illu/og-image.png",
-		"sameAs": [
-			"https://github.com/TuroTheReal",
-			"https://www.linkedin.com/in/arthurbernard92"
-		]
-	}
-	</script>
-
 	<!-- Hreflang -->
-	<link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/">
-	<link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/">
+	<link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/">
+	<link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/">
 
-	<link rel="canonical" href="https://arthur-portfolio.com/en/">
+	<link rel="canonical" href="https://arthur-portfolio.com/en/blog/">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap"></noscript>
-	<link rel="stylesheet" href="../assets/css/style.css">
-	<link rel="stylesheet" href="../assets/css/blog.css">
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
 	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
 
 </head>
@@ -72,14 +56,14 @@
 
 	<!-- Header -->
 	<header class="header">
-		<a href="#Home" class="logo">A.</a>
+		<a href="/en/#Home" class="logo">A.</a>
 		<nav class="nav">
-			<a href="#Home">Home</a>
-			<a href="#About">About</a>
-			<a href="#Work">Projects</a>
+			<a href="/en/#Home">Home</a>
+			<a href="/en/#About">About</a>
+			<a href="/en/#Work">Projects</a>
 			<a href="/en/blog">Blog</a>
 			<a href="/en/resume">CV</a>
-			<a href="#Contact">Contact</a>
+			<a href="/en/#Contact">Contact</a>
 		</nav>
 		<div class="header-actions">
 			<span class="lang-toggle active" data-lang="en">EN</span>
@@ -94,12 +78,12 @@
 	<div class="overlay">
 		<div class="overlay-panel">
 			<nav>
-				<a href="#Home">Home</a>
-				<a href="#About">About</a>
-				<a href="#Work">Projects</a>
+				<a href="/en/#Home">Home</a>
+				<a href="/en/#About">About</a>
+				<a href="/en/#Work">Projects</a>
 				<a href="/en/blog">Blog</a>
 				<a href="/en/resume">CV</a>
-				<a href="#Contact">Contact</a>
+				<a href="/en/#Contact">Contact</a>
 			</nav>
 			<div class="overlay-bottom">
 				<div class="overlay-lang">
@@ -113,118 +97,22 @@
 	</div>
 
 	<main>
+		<section class="blog-listing" id="Blog">
+			<h1 data-fade>Blog</h1>
+			<p class="blog-subtitle" data-fade>Articles about DevOps, Cloud, and infrastructure.</p>
 
-		<!-- Hero -->
-		<section class="hero" id="Home">
-			<div class="hero-mesh">
-				<div class="blob blob-1"></div>
-				<div class="blob blob-2"></div>
-				<div class="blob blob-3"></div>
+			<!-- Tags filter -->
+			<div class="blog-tags-filter" data-fade>
+				<!-- Boutons générés dynamiquement par script.js -->
 			</div>
-			<h1>DevOps & Cloud Engineer</h1>
-			<p>Automation. Reliability. Performance.<br>Let's optimize together.</p>
-			<a href="#Work" class="hero-cta">See my work</a>
-		</section>
 
-		<!-- About -->
-		<section class="about" id="About">
-			<h2 data-fade>About</h2>
-			<p class="about-bio" data-fade>
-				DevOps & Cloud Engineer with a passion for automation,
-				infrastructure as code, and building reliable systems.
-				Trained at École 42 with its peer-to-peer learning system, I bring
-				a hands-on approach to cloud infrastructure and CI/CD.
-			</p>
-			<a href="/en/resume" class="about-link" data-fade>Know more →</a>
-		</section>
+			<!-- Articles grid -->
+			<div class="blog-grid">
 
-		<!-- Projects -->
-		<section class="work" id="Work">
-			<h2 data-fade>Projects</h2>
-			<div class="work-list">
-
-				<!-- Glasck — texte gauche, image droite -->
-				<div class="work-item" data-fade>
-					<div class="work-item-content">
-						<h3><a href="https://glasck.com" target="_blank" rel="noopener noreferrer">Glasck</a></h3>
-						<p>SaaS platform — Co-Founder, Infrastructure Lead & DevOps Engineer.
-						   Production Docker Swarm cluster with Traefik reverse proxy and CI/CD.</p>
-						<div class="work-tags">
-							<span>Docker Swarm</span>
-							<span>Traefik</span>
-							<span>CI/CD</span>
-							<span>AWS</span>
-						</div>
-					</div>
-					<a href="https://glasck.com" class="work-item-image" target="_blank" rel="noopener noreferrer">
-						<img src="../assets/illu/Glasck.webp" alt="Glasck — SaaS music platform with Docker Swarm and Traefik" loading="lazy" class="img-dark">
-						<img src="../assets/illu/Glasck-light.webp" alt="Glasck — SaaS music platform with Docker Swarm and Traefik" loading="lazy" class="img-light">
-					</a>
-				</div>
-
-				<!-- AWS Terraform — image gauche, texte droite -->
-				<div class="work-item work-item--reverse" data-fade>
-					<div class="work-item-content">
-						<h3><a href="https://github.com/TuroTheReal/AWS-Terraform-Ansible" target="_blank" rel="noopener noreferrer">AWS Infrastructure Automation</a></h3>
-						<p>Automated AWS provisioning with Terraform (VPC, EC2, Security Groups, IAM)
-						   and Ansible for configuration management.</p>
-						<div class="work-tags">
-							<span>Terraform</span>
-							<span>Ansible</span>
-							<span>AWS</span>
-							<span>IaC</span>
-						</div>
-					</div>
-					<a href="https://github.com/TuroTheReal/AWS-Terraform-Ansible" class="work-item-image" target="_blank" rel="noopener noreferrer">
-						<img src="../assets/illu/Terraform.webp" alt="AWS infrastructure automation with Terraform and Ansible" loading="lazy" class="img-dark">
-						<img src="../assets/illu/Terraform-light.webp" alt="AWS infrastructure automation with Terraform and Ansible" loading="lazy" class="img-light">
-					</a>
-				</div>
-
-				<!-- Transcendence — texte gauche, image droite -->
-				<div class="work-item" data-fade>
-					<div class="work-item-content">
-						<h3><a href="https://github.com/TuroTheReal/Transcendence" target="_blank" rel="noopener noreferrer">Transcendence</a></h3>
-						<p>Full-stack multiplayer web application — École 42 final project.
-						   Containerized with Docker, Fastify/TypeScript backend, React/Next.js frontend.</p>
-						<div class="work-tags">
-							<span>Docker</span>
-							<span>Fastify</span>
-							<span>TypeScript</span>
-							<span>React</span>
-							<span>PostgreSQL</span>
-						</div>
-					</div>
-					<a href="https://github.com/TuroTheReal/Transcendence" class="work-item-image" target="_blank" rel="noopener noreferrer">
-						<img src="../assets/illu/ELK.webp" alt="Transcendence — Full-stack web app with Docker, Fastify and React" loading="lazy" class="img-dark">
-						<img src="../assets/illu/ELK-light.webp" alt="Transcendence — Full-stack web app with Docker, Fastify and React" loading="lazy" class="img-light">
-					</a>
-				</div>
-
-				<!-- More Projects — pas d'image -->
-				<div class="work-item work-item--link" data-fade>
-					<div class="work-item-content">
-						<h3><a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer">More Projects</a></h3>
-						<p>Explore more on GitHub — C/C++, Python, Shell scripts, and more.</p>
-						<div class="work-tags">
-							<span>C/C++</span>
-							<span>Python</span>
-							<span>Shell</span>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</section>
-
-		<!-- Latest Articles -->
-		<section class="blog-preview" id="Blog" data-fade>
-			<h2>Latest Articles</h2>
-			<div class="blog-preview-grid">
-
-				<a href="/en/blog/article-placeholder" class="blog-card">
+				<!-- Placeholder card 1 -->
+				<a href="#" class="blog-card" data-tags="kubernetes,gitops,devops" data-fade>
 					<div class="blog-card-image">
-						<img src="../assets/illu/og-image.png" alt="Kubernetes cluster setup" loading="lazy">
+						<img src="../../assets/illu/og-image.png" alt="Placeholder article" loading="lazy">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -236,13 +124,15 @@
 						<div class="blog-card-tags">
 							<span>Kubernetes</span>
 							<span>GitOps</span>
+							<span>Argo CD</span>
 						</div>
 					</div>
 				</a>
 
-				<a href="#" class="blog-card">
+				<!-- Placeholder card 2 -->
+				<a href="#" class="blog-card" data-tags="terraform,cloud,devops" data-fade>
 					<div class="blog-card-image">
-						<img src="../assets/illu/og-image.png" alt="Terraform on AWS" loading="lazy">
+						<img src="../../assets/illu/og-image.png" alt="Placeholder article" loading="lazy">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -254,18 +144,56 @@
 						<div class="blog-card-tags">
 							<span>Terraform</span>
 							<span>AWS</span>
+							<span>IaC</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Placeholder card 3 -->
+				<a href="#" class="blog-card" data-tags="cicd,devops" data-fade>
+					<div class="blog-card-image">
+						<img src="../../assets/illu/og-image.png" alt="Placeholder article" loading="lazy">
+					</div>
+					<div class="blog-card-content">
+						<div class="blog-card-meta">
+							<time>Feb 20, 2026</time>
+							<span class="blog-read-time">6 min read</span>
+						</div>
+						<h2>CI/CD Pipeline Design Patterns</h2>
+						<p>Comparing trunk-based development, GitFlow, and environment promotion strategies for reliable deployments.</p>
+						<div class="blog-card-tags">
+							<span>CI/CD</span>
+							<span>DevOps</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Placeholder card 4 -->
+				<a href="#" class="blog-card" data-tags="monitoring,cloud,devops" data-fade>
+					<div class="blog-card-image">
+						<img src="../../assets/illu/og-image.png" alt="Placeholder article" loading="lazy">
+					</div>
+					<div class="blog-card-content">
+						<div class="blog-card-meta">
+							<time>Feb 10, 2026</time>
+							<span class="blog-read-time">4 min read</span>
+						</div>
+						<h2>Monitoring with Prometheus and Grafana</h2>
+						<p>Building an observability stack from scratch — metrics, alerts, and dashboards for your infrastructure.</p>
+						<div class="blog-card-tags">
+							<span>Monitoring</span>
+							<span>Prometheus</span>
+							<span>Grafana</span>
 						</div>
 					</div>
 				</a>
 
 			</div>
-			<a href="/en/blog" class="blog-preview-link">See all articles &rarr;</a>
 		</section>
-
 	</main>
 
-	<!-- Footer / Contact -->
-	<footer id="Contact" class="footer" data-fade>
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
 		<p class="footer-heading">Let's work together.</p>
 		<a href="mailto:arthurbernard.dev@gmail.com" class="footer-cta">arthurbernard.dev@gmail.com</a>
 		<div class="footer-social">
@@ -275,7 +203,7 @@
 		<p class="footer-copy">&copy; 2026 Arthur Bernard</p>
 	</footer>
 
-	<script src="../assets/script.js" defer></script>
+	<script src="../../assets/script.js" defer></script>
 
 </body>
 </html>

@@ -107,32 +107,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id], footer[id]');
   const navLinks = document.querySelectorAll('.nav a, .overlay nav a');
 
+  const isBlogPage = window.location.pathname.includes('blog');
+  const isResumePage = window.location.pathname.includes('resume');
+
   function updateActiveNav(sectionId) {
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (!href.includes('#')) return;
-      if (href.endsWith(`#${sectionId}`)) {
+      // Retirer active de TOUS les liens (y compris blog, resume)
+      link.classList.remove('active');
+      // Activer le lien qui matche la section visible
+      if (href.includes('#') && href.endsWith(`#${sectionId}`)) {
         link.classList.add('active');
-      } else {
-        link.classList.remove('active');
       }
     });
-    // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf page resume)
-    if (sectionId && !window.location.pathname.includes('resume') && window.location.hash !== `#${sectionId}`) {
+    // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf pages resume/blog)
+    const pagePath = window.location.pathname;
+    if (sectionId && !pagePath.includes('resume') && !pagePath.includes('blog') && window.location.hash !== `#${sectionId}`) {
       history.replaceState(null, '', `#${sectionId}`);
     }
   }
 
-  // Page resume : activer le lien CV avec animation
-  if (window.location.pathname.includes('resume')) {
-    requestAnimationFrame(() => {
-      navLinks.forEach(link => {
-        if (link.getAttribute('href').includes('resume')) {
-          link.classList.add('active');
-        }
-      });
+  // Pages secondaires : activer le lien correspondant par défaut
+  function setDefaultActiveNav() {
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (isResumePage && href.includes('resume')) {
+        link.classList.add('active');
+      } else if (isBlogPage && href.includes('blog')) {
+        link.classList.add('active');
+      }
     });
   }
+
+  requestAnimationFrame(setDefaultActiveNav);
 
   if (sections.length > 0 && 'IntersectionObserver' in window) {
     const headerEl = document.querySelector('.header');
@@ -156,12 +164,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Si en bas de page, forcer Contact
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+      // Si en bas de page, forcer Contact (homepage seulement)
+      if (!isBlogPage && !isResumePage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
         bestId = 'Contact';
       }
 
-      if (bestId) updateActiveNav(bestId);
+      if (isBlogPage || isResumePage) {
+        // Sur blog/resume : seul Contact (>30% visible) peut override le défaut
+        if (bestId === 'Contact' && bestRatio >= 0.3) {
+          updateActiveNav(bestId);
+        } else {
+          setDefaultActiveNav();
+        }
+      } else {
+        if (bestId) updateActiveNav(bestId);
+      }
     }, {
       threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1],
       rootMargin: `-${headerPx}px 0px 0px 0px`
@@ -173,12 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============================================
      SMOOTH SCROLL avec easing (liens nav)
      ============================================ */
-  function smoothScrollTo(targetEl, duration = 800) {
+  function smoothScrollTo(targetEl) {
     if (!targetEl) return;
     const headerOffset = header ? header.offsetHeight : 56;
     const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
     const startPos = window.scrollY;
     const distance = targetPos - startPos;
+    // Durée adaptée à la distance (min 400ms, max 1600ms)
+    const duration = Math.min(1600, Math.max(400, Math.abs(distance) * 0.6));
     let startTime = null;
 
     // Ease in-out cubic
@@ -199,12 +218,46 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(step);
   }
 
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      if (targetId === '#') return;
+  // Logo : comportement contextuel
+  // - Homepage : scroll vers #Home (défaut du lien)
+  // - Blog listing : scroll to top
+  // - Article : retour au blog listing
+  // - Resume : retour homepage
+  const logo = document.querySelector('.logo');
+  if (logo) {
+    logo.addEventListener('click', (e) => {
+      const path = window.location.pathname;
+      const lang = path.startsWith('/fr') ? 'fr' : 'en';
+      const isHomepage = !path.includes('blog') && !path.includes('resume');
+      if (isHomepage) return; // Laisser le comportement par défaut (scroll vers #Home)
 
-      const target = document.querySelector(targetId);
+      e.preventDefault();
+      if (path.includes('resume')) {
+        window.location.href = `/${lang}/`;
+      } else {
+        // Blog listing → scroll to top, Article → retour au listing
+        const isBlogListing = path.endsWith('/blog') || path.endsWith('/blog/');
+        if (isBlogListing) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          window.location.href = `/${lang}/blog`;
+        }
+      }
+    });
+  }
+
+  document.querySelectorAll('a[href*="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+
+      // Extraire le hash (ex: "/en/#Contact" → "#Contact", "#About" → "#About")
+      const hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
+      const hash = href.substring(hashIndex);
+
+      // Si la cible existe sur la page courante → scroll local
+      const target = document.querySelector(hash);
       if (target) {
         e.preventDefault();
         smoothScrollTo(target);
@@ -232,25 +285,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const langToggles = document.querySelectorAll('.lang-toggle');
 
   // Déterminer la langue et la page actuelle depuis l'URL folder-based
-  // Structure : /en/, /en/resume, /fr/, /fr/resume
+  // Structure : /en/, /en/resume, /en/blog, /fr/, /fr/resume, /fr/blog
   function getCurrentLangAndPage() {
     const path = window.location.pathname;
     const lang = path.startsWith('/fr') ? 'fr' : 'en';
     const isResume = path.includes('resume');
-    return { lang, isResume };
+    const isBlog = path.includes('blog');
+    return { lang, isResume, isBlog };
   }
 
   langToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const targetLang = toggle.dataset.lang;
-      const { lang: currentLang, isResume } = getCurrentLangAndPage();
+      const { lang: currentLang, isResume, isBlog } = getCurrentLangAndPage();
       const currentHash = window.location.hash;
 
       if (targetLang === currentLang) return;
 
-      const newPath = isResume
-        ? `/${targetLang}/resume`
-        : `/${targetLang}/`;
+      // Construire le nouveau path en remplaçant /en/ ou /fr/ par la langue cible
+      const path = window.location.pathname;
+      let newPath;
+      if (isBlog) {
+        // Remplace /en/blog/... ou /fr/blog/... par /{targetLang}/blog/...
+        newPath = path.replace(/^\/(en|fr)\//, `/${targetLang}/`);
+      } else if (isResume) {
+        newPath = `/${targetLang}/resume`;
+      } else {
+        newPath = `/${targetLang}/`;
+      }
+
       window.location.href = newPath + currentHash;
     });
   });
@@ -268,5 +331,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+  /* ============================================
+     BLOG TAG FILTER
+     Boutons générés dynamiquement depuis les data-tags des cards
+     ============================================ */
+  const tagFilter = document.querySelector('.blog-tags-filter');
+  const blogCards = document.querySelectorAll('.blog-card[data-tags]');
+
+  if (tagFilter && blogCards.length > 0) {
+    // Extraire tous les tags uniques depuis les cards
+    const allTags = new Set();
+    blogCards.forEach(card => {
+      card.dataset.tags.split(',').forEach(tag => allTags.add(tag.trim()));
+    });
+
+    // Vider les boutons hardcodés et reconstruire dynamiquement
+    tagFilter.innerHTML = '';
+
+    // Label du bouton "Tous/All" selon la langue
+    const isFrench = window.location.pathname.startsWith('/fr');
+    const allLabel = isFrench ? 'Tous' : 'All';
+
+    // Bouton "All/Tous" en premier
+    const allBtn = document.createElement('button');
+    allBtn.textContent = allLabel;
+    allBtn.dataset.tag = 'all';
+    allBtn.classList.add('active');
+    tagFilter.appendChild(allBtn);
+
+    // Un bouton par tag unique (trié alphabétiquement)
+    [...allTags].sort().forEach(tag => {
+      const btn = document.createElement('button');
+      // Affichage lisible : première lettre majuscule
+      btn.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+      btn.dataset.tag = tag;
+      tagFilter.appendChild(btn);
+    });
+
+    // Attacher les événements de filtrage
+    tagFilter.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-tag]');
+      if (!btn) return;
+
+      const tag = btn.dataset.tag;
+
+      // Mettre à jour le bouton actif
+      tagFilter.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filtrer les cards
+      blogCards.forEach(card => {
+        const cardTags = card.dataset.tags.split(',').map(t => t.trim());
+        const matches = tag === 'all' || cardTags.includes(tag);
+
+        if (matches) {
+          card.classList.remove('blog-card-hidden');
+        } else {
+          card.classList.add('blog-card-hidden');
+        }
+      });
+    });
+  }
 
 });
