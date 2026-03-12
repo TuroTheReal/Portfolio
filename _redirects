@@ -8,3 +8,6 @@
 /resume_en.html /en/resume  301
 /resume_fr      /fr/resume  301
 /resume_fr.html /fr/resume  301
+
+# Ancien nom de fichier PDF (avec espaces)
+/assets/link/Arthur%20Bernard%20CV%20-%20FR.pdf  /assets/link/Arthur_Bernard_CV.pdf  301
