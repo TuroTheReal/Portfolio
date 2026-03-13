@@ -55,7 +55,9 @@ Portfolio/
 │   ├── css/
 │   │   ├── style.css          # Main stylesheet (variables, layout, components)
 │   │   └── resume.css         # Resume/CV page styles
-│   ├── illu/                  # Project illustrations, og-image.png (dark + light variants)
+│   ├── img/                   # Images (og-image.png, PhotoPro)
+│   │   ├── projects/          # Project screenshots (dark + light variants)
+│   │   └── blog/              # Blog article images
 │   ├── link/
 │   │   └── Arthur_Bernard_CV.pdf
 │   └── script.js              # Burger menu, scroll, theme/lang toggle, observers
