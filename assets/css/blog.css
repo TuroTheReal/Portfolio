@@ -100,9 +100,11 @@
 	display: none;
 }
 
-/* Léger scale sur la card au hover */
-.blog-card:hover {
-	transform: scale(1.03);
+/* Léger scale sur la card au hover (devices avec hover uniquement) */
+@media (hover: hover) {
+	.blog-card:hover {
+		transform: scale(1.03);
+	}
 }
 
 /* Light mode — ombre identique aux projets */
@@ -122,13 +124,14 @@ body.light-theme .blog-card {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transform: scale(1);
 	transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Scale image au hover sur l'image uniquement */
-.blog-card-image:hover img {
-	transform: scale(1.1);
+/* Scale image au hover (devices avec hover uniquement) */
+@media (hover: hover) {
+	.blog-card-image:hover img {
+		transform: scale(1.1);
+	}
 }
 
 /* Card content */
@@ -198,12 +201,14 @@ body.light-theme .blog-card-tags span {
 	font-weight: 500;
 }
 
-/* Blur des autres cartes au hover — image, meta, description, tags (PAS le titre) */
-.blog-grid:hover .blog-card:not(:hover) .blog-card-image img,
-.blog-grid:hover .blog-card:not(:hover) .blog-card-meta,
-.blog-grid:hover .blog-card:not(:hover) p,
-.blog-grid:hover .blog-card:not(:hover) .blog-card-tags {
-	filter: blur(1.5px);
+/* Blur des autres cartes au hover (devices avec hover uniquement) */
+@media (hover: hover) {
+	.blog-grid:hover .blog-card:not(:hover) .blog-card-image img,
+	.blog-grid:hover .blog-card:not(:hover) .blog-card-meta,
+	.blog-grid:hover .blog-card:not(:hover) p,
+	.blog-grid:hover .blog-card:not(:hover) .blog-card-tags {
+		filter: blur(1.5px);
+	}
 }
 
 /* Placeholder (supprimé quand articles réels) */
@@ -250,21 +255,36 @@ body.light-theme .blog-card-tags span {
 	font-family: var(--font-text);
 	font-size: 0.95rem;
 	color: var(--accent);
+	font-weight: 500;
 	text-decoration: none;
+	position: relative;
+	padding-bottom: 3px;
 	margin-top: 2rem;
-	transition: color 0.3s ease;
 }
 
-.blog-preview-link:hover {
-	color: var(--accent-hover);
+.blog-preview-link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1.5px;
+	background: var(--accent);
+	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Blur sur les cards preview aussi */
-.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-image img,
-.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-meta,
-.blog-preview-grid:hover .blog-card:not(:hover) p,
-.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-tags {
-	filter: blur(1.5px);
+.blog-preview-link:hover::after {
+	width: 100%;
+}
+
+/* Blur sur les cards preview (devices avec hover uniquement) */
+@media (hover: hover) {
+	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-image img,
+	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-meta,
+	.blog-preview-grid:hover .blog-card:not(:hover) p,
+	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-tags {
+		filter: blur(1.5px);
+	}
 }
 
 /* ============================================
@@ -468,8 +488,13 @@ body.light-theme .article-tags span {
 	padding: 1rem;
 	border-radius: 8px;
 	background: var(--bg-card);
+	box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.35);
 	text-decoration: none;
 	transition: transform 0.3s ease;
+}
+
+body.light-theme .article-nav-link {
+	box-shadow: 0 6px 18px -4px rgba(55, 48, 163, 0.08);
 }
 
 .article-nav-link:hover {
@@ -589,10 +614,15 @@ body.light-theme .article-tags span {
 @media (prefers-reduced-motion: reduce) {
 	.blog-card,
 	.blog-card-image img,
+	.blog-card-meta,
+	.blog-card p,
+	.blog-card-tags,
+	.blog-tags-filter,
 	.blog-tags-filter button,
 	.article-back,
 	.article-nav-link,
-	.blog-preview-link {
+	.blog-preview-link,
+	.blog-preview-link::after {
 		transition: none;
 	}
 

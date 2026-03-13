@@ -118,6 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Activer le lien qui matche la section visible
       if (href.includes('#') && href.endsWith(`#${sectionId}`)) {
         link.classList.add('active');
+      // Lien Blog sans hash (ex: /en/blog) → activer quand section Blog visible sur homepage
+      } else if (sectionId === 'Blog' && href.includes('/blog') && !href.includes('#')) {
+        link.classList.add('active');
       }
     });
     // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf pages resume/blog)
@@ -272,9 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.location.hash) {
     setTimeout(() => {
       const target = document.querySelector(window.location.hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (target) smoothScrollTo(target);
     }, 100);
   }
 

@@ -22,11 +22,12 @@
 	<!-- Open Graph -->
 	<meta property="og:title" content="Setting Up a Production-Ready Kubernetes Cluster">
 	<meta property="og:description" content="A step-by-step guide to deploying K3s with Argo CD for GitOps-driven continuous delivery.">
-	<meta property="og:url" content="https://arthur-portfolio.com/en/blog/article-placeholder">
+	<meta property="og:url" content="https://arthur-portfolio.com/en/blog/article-template">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:locale:alternate" content="fr_FR">
-	<meta property="og:image" content="https://arthur-portfolio.com/assets/illu/og-image.png">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthur-portfolio.com/assets/img/og-image.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<meta property="article:published_time" content="2026-03-12">
@@ -39,7 +40,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Setting Up a Production-Ready Kubernetes Cluster">
 	<meta name="twitter:description" content="A step-by-step guide to deploying K3s with Argo CD for GitOps-driven continuous delivery.">
-	<meta name="twitter:image" content="https://arthur-portfolio.com/assets/illu/og-image.png">
+	<meta name="twitter:image" content="https://arthur-portfolio.com/assets/img/og-image.png">
 
 	<!-- JSON-LD Article -->
 	<script type="application/ld+json">
@@ -48,8 +49,10 @@
 		"@type": "BlogPosting",
 		"headline": "Setting Up a Production-Ready Kubernetes Cluster",
 		"description": "A step-by-step guide to deploying K3s with Argo CD for GitOps-driven continuous delivery.",
-		"image": "https://arthur-portfolio.com/assets/illu/og-image.png",
+		"image": "https://arthur-portfolio.com/assets/img/og-image.png",
 		"datePublished": "2026-03-12",
+		"dateModified": "2026-03-12",
+		"inLanguage": "en",
 		"author": {
 			"@type": "Person",
 			"name": "Arthur Bernard",
@@ -59,15 +62,16 @@
 			"@type": "Person",
 			"name": "Arthur Bernard"
 		},
-		"mainEntityOfPage": "https://arthur-portfolio.com/en/blog/article-placeholder"
+		"mainEntityOfPage": "https://arthur-portfolio.com/en/blog/article-template"
 	}
 	</script>
 
 	<!-- Hreflang -->
-	<link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/article-placeholder">
-	<link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/article-placeholder">
+	<link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/article-template">
+	<link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/article-template">
+	<link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/article-template">
 
-	<link rel="canonical" href="https://arthur-portfolio.com/en/blog/article-placeholder">
+	<link rel="canonical" href="https://arthur-portfolio.com/en/blog/article-template">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
@@ -79,6 +83,20 @@
 </head>
 
 <body>
+	<!--
+		ARTICLE TEMPLATE — Duplicate this file to create a new article.
+		Replace the following:
+		1. Slug: canonical, og:url, hreflang, JSON-LD mainEntityOfPage, filename
+		2. Title: <title>, og:title, twitter:title, JSON-LD headline, <h1>
+		3. Description: meta description, og:description, twitter:description, JSON-LD description
+		4. Dates: article:published_time, JSON-LD datePublished/dateModified, <time>
+		5. Tags: article:tag meta, .article-tags spans
+		6. Image: og:image, twitter:image, JSON-LD image, .article-hero img + alt
+		7. Content: .article-body
+		8. Nav: prev/next links (href + title)
+		9. Add card in en/blog/index.html + fr/blog/index.html
+		10. Add entry in sitemap.xml
+	-->
 	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
 
 	<!-- Header -->
@@ -143,7 +161,7 @@
 
 			<!-- Hero image -->
 			<div class="article-hero" data-fade>
-				<img src="../../assets/illu/og-image.png" alt="Kubernetes cluster setup" loading="lazy">
+				<img src="../../assets/img/og-image.png" alt="Kubernetes cluster setup" fetchpriority="high">
 			</div>
 
 			<!-- Article body -->
@@ -195,13 +213,15 @@ kubectl apply -n argocd -f \
 			<!-- Article footer -->
 			<footer class="article-footer" data-fade>
 				<div class="article-nav">
-					<a href="#" class="article-nav-link article-nav-prev">
+					<!-- TODO: Update prev article href + title (remove if first article) -->
+					<a href="/en/blog/previous-article-slug" class="article-nav-link article-nav-prev">
 						<span class="article-nav-label">&larr; Previous</span>
-						<span class="article-nav-title">Infrastructure as Code with Terraform on AWS</span>
+						<span class="article-nav-title">Previous Article Title</span>
 					</a>
-					<a href="#" class="article-nav-link article-nav-next">
+					<!-- TODO: Update next article href + title (remove if last article) -->
+					<a href="/en/blog/next-article-slug" class="article-nav-link article-nav-next">
 						<span class="article-nav-label">Next &rarr;</span>
-						<span class="article-nav-title">CI/CD Pipeline Design Patterns</span>
+						<span class="article-nav-title">Next Article Title</span>
 					</a>
 				</div>
 			</footer>
