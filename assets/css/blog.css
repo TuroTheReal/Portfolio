@@ -127,12 +127,7 @@ body.light-theme .blog-card {
 	transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Scale image au hover (devices avec hover uniquement) */
-@media (hover: hover) {
-	.blog-card-image:hover img {
-		transform: scale(1.1);
-	}
-}
+/* Image au hover désactivé — scale card suffit */
 
 /* Card content */
 .blog-card-content {
@@ -201,16 +196,6 @@ body.light-theme .blog-card-tags span {
 	font-weight: 500;
 }
 
-/* Blur des autres cartes au hover (devices avec hover uniquement) */
-@media (hover: hover) {
-	.blog-grid:hover .blog-card:not(:hover) .blog-card-image img,
-	.blog-grid:hover .blog-card:not(:hover) .blog-card-meta,
-	.blog-grid:hover .blog-card:not(:hover) p,
-	.blog-grid:hover .blog-card:not(:hover) .blog-card-tags {
-		filter: blur(1.5px);
-	}
-}
-
 /* Placeholder (supprimé quand articles réels) */
 .blog-placeholder {
 	padding: 4rem 2rem;
@@ -275,16 +260,6 @@ body.light-theme .blog-card-tags span {
 
 .blog-preview-link:hover::after {
 	width: 100%;
-}
-
-/* Blur sur les cards preview (devices avec hover uniquement) */
-@media (hover: hover) {
-	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-image img,
-	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-meta,
-	.blog-preview-grid:hover .blog-card:not(:hover) p,
-	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-tags {
-		filter: blur(1.5px);
-	}
 }
 
 /* ============================================
@@ -366,6 +341,7 @@ body.light-theme .article-tags span {
 
 /* Hero image */
 .article-hero {
+	position: relative;
 	width: 100%;
 	border-radius: 12px;
 	overflow: hidden;
