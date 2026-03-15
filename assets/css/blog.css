@@ -441,6 +441,10 @@ body.light-theme .article-tags span {
 	line-height: 1.6;
 }
 
+body.light-theme .article-body pre {
+	border-color: rgba(55, 48, 163, 0.15);
+}
+
 .article-body code {
 	font-family: 'Courier New', Courier, monospace;
 }

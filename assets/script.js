@@ -26,11 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', closeOverlay);
     });
 
-    // Fermer au clic lang toggle ou theme toggle dans l'overlay
-    overlay.querySelectorAll('.lang-toggle, .theme-switch').forEach(btn => {
-      btn.addEventListener('click', closeOverlay);
-    });
-
     // Fermer au clic sur le backdrop (zone hors du panel)
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) closeOverlay();
@@ -115,11 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const href = link.getAttribute('href');
       // Retirer active de TOUS les liens (y compris blog, resume)
       link.classList.remove('active');
-      // Activer le lien qui matche la section visible
+      // Activer le lien qui matche la section visible (uniquement les liens avec hash)
       if (href.includes('#') && href.endsWith(`#${sectionId}`)) {
-        link.classList.add('active');
-      // Lien Blog sans hash (ex: /en/blog) → activer quand section Blog visible sur homepage
-      } else if (sectionId === 'Blog' && href.includes('/blog') && !href.includes('#')) {
         link.classList.add('active');
       }
     });
@@ -221,6 +213,29 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(step);
   }
 
+  // Scroll to top (même easing/durée que smoothScrollTo, cible = 0)
+  function smoothScrollToTop() {
+    const startPos = window.scrollY;
+    if (startPos === 0) return;
+    const duration = Math.min(1600, Math.max(500, startPos * 0.7));
+    let startTime = null;
+
+    function ease(t) {
+      return t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      window.scrollTo(0, startPos + (0 - startPos) * ease(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
   // Logo : comportement contextuel
   // - Homepage : scroll vers #Home (défaut du lien)
   // - Blog listing : scroll to top
@@ -232,22 +247,35 @@ document.addEventListener('DOMContentLoaded', () => {
       const path = window.location.pathname;
       const lang = path.startsWith('/fr') ? 'fr' : 'en';
       const isHomepage = !path.includes('blog') && !path.includes('resume');
-      if (isHomepage) return; // Laisser le comportement par défaut (scroll vers #Home)
+      if (isHomepage) return;
 
       e.preventDefault();
       if (path.includes('resume')) {
         window.location.href = `/${lang}/`;
       } else {
-        // Blog listing → scroll to top, Article → retour au listing
         const isBlogListing = path.endsWith('/blog') || path.endsWith('/blog/');
         if (isBlogListing) {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          smoothScrollToTop();
         } else {
           window.location.href = `/${lang}/blog`;
         }
       }
     });
   }
+
+  // Liens nav Blog/Resume : si déjà sur la page, scroll to top au lieu de recharger
+  document.querySelectorAll('.nav a, .overlay nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href.includes('#')) return;
+      const path = window.location.pathname;
+      // Si le lien pointe vers la page actuelle → scroll to top
+      if (path.endsWith(href) || path.endsWith(href + '/') || (href + '/') === path) {
+        e.preventDefault();
+        smoothScrollToTop();
+      }
+    });
+  });
 
   document.querySelectorAll('a[href*="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
@@ -315,23 +343,38 @@ document.addEventListener('DOMContentLoaded', () => {
         newPath = `/${targetLang}/`;
       }
 
+      // Sauvegarder la position de scroll pour la restaurer après rechargement
+      sessionStorage.setItem('scrollPos', window.scrollY);
       window.location.href = newPath + currentHash;
     });
   });
+
+  // Restaurer la position de scroll après un switch de langue
+  const savedScroll = sessionStorage.getItem('scrollPos');
+  if (savedScroll !== null) {
+    sessionStorage.removeItem('scrollPos');
+    window.scrollTo(0, parseInt(savedScroll, 10));
+  }
 
   /* ============================================
      THEME SWITCH
      Dark par défaut, switch toggle
      ============================================ */
-  const themeSwitches = document.querySelectorAll('.theme-switch');
+  const themeInputs = document.querySelectorAll('.switch__input');
+
+  // Sync checkbox avec l'état initial du thème (défini par le script inline)
+  const isLightInit = document.body.classList.contains('light-theme');
+  themeInputs.forEach(input => input.checked = isLightInit);
 
   function toggleTheme() {
     document.body.classList.toggle('light-theme');
     const isLight = document.body.classList.contains('light-theme');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    // Sync toutes les checkboxes (header + overlay)
+    themeInputs.forEach(input => input.checked = isLight);
   }
 
-  themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
+  themeInputs.forEach(input => input.addEventListener('change', toggleTheme));
 
   /* ============================================
      BLOG TAG FILTER
@@ -361,11 +404,19 @@ document.addEventListener('DOMContentLoaded', () => {
     allBtn.classList.add('active');
     tagFilter.appendChild(allBtn);
 
+    // Map de traduction pour les tags selon la langue
+    const tagLabels = {
+      fr: { career: 'Carrière', ai: 'IA' },
+      en: { career: 'Career', ai: 'AI' }
+    };
+    const currentLang = window.location.pathname.startsWith('/fr') ? 'fr' : 'en';
+
     // Un bouton par tag unique (trié alphabétiquement)
     [...allTags].sort().forEach(tag => {
       const btn = document.createElement('button');
-      // Affichage lisible : première lettre majuscule
-      btn.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+      // Affichage traduit si disponible, sinon première lettre majuscule
+      const labels = tagLabels[currentLang] || {};
+      btn.textContent = labels[tag] || tag.charAt(0).toUpperCase() + tag.slice(1);
       btn.dataset.tag = tag;
       tagFilter.appendChild(btn);
     });
