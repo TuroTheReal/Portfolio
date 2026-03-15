@@ -622,14 +622,6 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
   border-radius: 12px;
   box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.35);
   background: var(--bg-card);
-  transition: filter 0.4s ease;
-}
-
-/* Blur des autres cartes au hover */
-.work-list:hover .work-item:not(:hover) .work-item-image img,
-.work-list:hover .work-item:not(:hover) .work-item-content p,
-.work-list:hover .work-item:not(:hover) .work-tags {
-  filter: blur(1.5px);
 }
 
 /* Light mode — cartes */
@@ -654,16 +646,16 @@ body.light-theme .work-tags span {
 }
 
 /* Image swap dark/light */
-.work-item-image .img-light {
-  display: none;
+.img-light {
+  display: none !important;
 }
 
-body.light-theme .work-item-image .img-dark {
-  display: none;
+body.light-theme .img-dark {
+  display: none !important;
 }
 
-body.light-theme .work-item-image .img-light {
-  display: block;
+body.light-theme .img-light {
+  display: block !important;
 }
 
 .work-item-image img {
