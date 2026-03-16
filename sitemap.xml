@@ -98,4 +98,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/glasck-first-launch-production"/>
   </url>
 
+  <url>
+    <loc>https://arthur-portfolio.com/en/blog/devops-roadmap</loc>
+    <lastmod>2026-03-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/devops-roadmap"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/devops-roadmap"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/devops-roadmap"/>
+  </url>
+
+  <url>
+    <loc>https://arthur-portfolio.com/fr/blog/devops-roadmap</loc>
+    <lastmod>2026-03-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/devops-roadmap"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/devops-roadmap"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/devops-roadmap"/>
+  </url>
+
 </urlset>

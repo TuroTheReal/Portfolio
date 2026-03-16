@@ -363,43 +363,36 @@ section {
   transition: background 0.3s ease;
 }
 
-.switch__icon::after {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin: -4px 0 0 -4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  box-shadow:
-    0 -29px 0 var(--accent),
-    0 29px 0 var(--accent),
-    29px 0 0 var(--accent),
-    -29px 0 0 var(--accent),
-    20px 20px 0 var(--accent),
-    -20px 20px 0 var(--accent),
-    20px -20px 0 var(--accent),
-    -20px -20px 0 var(--accent);
-  transform: scale(0);
-  transition: all 0.3s ease;
-}
-
-/* Checked = light mode → moon morphe en soleil */
+/* Checked = light mode → moon disparaît */
 .switch__input:checked + .switch__icon {
-  box-shadow: inset 32px -32px 0 0 var(--text-secondary);
-  transform: scale(0.25) rotate(0deg);
-  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+  transform: scale(0) rotate(180deg);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.2s ease;
 }
 
-.switch__input:checked + .switch__icon::before {
-  background: var(--accent);
-  transition: background 0.3s ease 0.1s;
+/* SVG sun */
+.switch__sun {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  transform: scale(0) rotate(-180deg);
+  transition: transform 0.5s ease;
 }
 
-.switch__input:checked + .switch__icon::after {
-  transform: scale(1);
-  transition: transform 0.5s ease 0.15s;
+.switch__sun circle,
+.switch__sun line {
+  stroke: var(--accent);
+  fill: none;
+}
+
+.switch__sun .sun-core {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.switch__input:checked ~ .switch__sun {
+  transform: scale(1) rotate(0deg);
+  transition: transform 0.5s ease 0.1s;
 }
 
 /* Focus visible */
@@ -414,9 +407,8 @@ section {
     box-shadow: inset 15px -15px 0 0 var(--accent);
   }
 
-  .switch:hover .switch__input:checked + .switch__icon {
-    box-shadow: inset 32px -32px 0 0 var(--accent-hover);
-    filter: brightness(1.2);
+  .switch:hover .switch__input:checked ~ .switch__sun {
+    filter: brightness(1.3);
   }
 }
 
