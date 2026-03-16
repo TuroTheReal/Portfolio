@@ -3,3 +3,4 @@
 *.log
 node_modules/
 idee_article.md
+**/article-template*

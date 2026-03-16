@@ -1,60 +1,90 @@
 # Moteurs de recherche — autorisés
 User-agent: *
 Allow: /
+Disallow: /en/blog/article-template
+Disallow: /fr/blog/article-template
 
-# AI crawlers — bloqués
+# AI crawlers — blog autorisé, reste bloqué
 
 # OpenAI
 User-agent: GPTBot
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 User-agent: ChatGPT-User
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # Anthropic
 User-agent: anthropic-ai
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 User-agent: ClaudeBot
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # Google AI (Gemini) — pas le search, juste l'IA
 User-agent: Google-Extended
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # Meta
 User-agent: FacebookBot
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 User-agent: Meta-ExternalAgent
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # CommonCrawl (datasets IA)
 User-agent: CCBot
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # ByteDance / TikTok
 User-agent: Bytespider
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # Apple AI
 User-agent: Applebot-Extended
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # DeepSeek
 User-agent: DeepSeekBot
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # Perplexity
 User-agent: PerplexityBot
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # Cohere
 User-agent: cohere-ai
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 # xAI (Grok)
 User-agent: xAI-AI
+Allow: /en/blog/
+Allow: /fr/blog/
 Disallow: /
 
 Sitemap: https://arthur-portfolio.com/sitemap.xml

@@ -110,9 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const href = link.getAttribute('href');
       // Retirer active de TOUS les liens (y compris blog, resume)
       link.classList.remove('active');
+      link.removeAttribute('aria-current');
       // Activer le lien qui matche la section visible (uniquement les liens avec hash)
       if (href.includes('#') && href.endsWith(`#${sectionId}`)) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       }
     });
     // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf pages resume/blog)
@@ -126,20 +128,24 @@ document.addEventListener('DOMContentLoaded', () => {
   function setDefaultActiveNav() {
     navLinks.forEach(link => {
       link.classList.remove('active');
+      link.removeAttribute('aria-current');
       const href = link.getAttribute('href');
       if (isResumePage && href.includes('resume')) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       } else if (isBlogPage && href.includes('blog')) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       }
     });
   }
 
   requestAnimationFrame(setDefaultActiveNav);
 
+  // Hauteur header cachée une seule fois (évite forced reflow répétés)
+  const headerPx = header ? header.offsetHeight : 56;
+
   if (sections.length > 0 && 'IntersectionObserver' in window) {
-    const headerEl = document.querySelector('.header');
-    const headerPx = headerEl ? headerEl.offsetHeight : 56;
 
     // Stocker la section la plus visible
     const sectionRatios = {};
@@ -185,51 +191,42 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============================================
      SMOOTH SCROLL avec easing (liens nav)
      ============================================ */
+  // Ease in-out cubic (partagé entre smoothScrollTo et smoothScrollToTop)
+  function easeInOutCubic(t) {
+    return t < 0.5
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
   function smoothScrollTo(targetEl) {
     if (!targetEl) return;
     const headerOffset = header ? header.offsetHeight : 56;
     const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
     const startPos = window.scrollY;
     const distance = targetPos - startPos;
-    // Durée adaptée à la distance (min 400ms, max 1600ms)
     const duration = Math.min(1600, Math.max(400, Math.abs(distance) * 0.6));
     let startTime = null;
 
-    // Ease in-out cubic
-    function ease(t) {
-      return t < 0.5
-        ? 4 * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
     function step(currentTime) {
       if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      window.scrollTo(0, startPos + distance * ease(progress));
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      window.scrollTo(0, startPos + distance * easeInOutCubic(progress));
       if (progress < 1) requestAnimationFrame(step);
     }
 
     requestAnimationFrame(step);
   }
 
-  // Scroll to top (même easing/durée que smoothScrollTo, cible = 0)
   function smoothScrollToTop() {
     const startPos = window.scrollY;
     if (startPos === 0) return;
     const duration = Math.min(1600, Math.max(500, startPos * 0.7));
     let startTime = null;
 
-    function ease(t) {
-      return t < 0.5
-        ? 4 * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
     function step(currentTime) {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-      window.scrollTo(0, startPos + (0 - startPos) * ease(progress));
+      window.scrollTo(0, startPos * (1 - easeInOutCubic(progress)));
       if (progress < 1) requestAnimationFrame(step);
     }
 
@@ -362,9 +359,12 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================ */
   const themeInputs = document.querySelectorAll('.switch__input');
 
-  // Sync checkbox avec l'état initial du thème (défini par le script inline)
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+  // Sync checkbox et meta theme-color avec l'état initial du thème
   const isLightInit = document.body.classList.contains('light-theme');
   themeInputs.forEach(input => input.checked = isLightInit);
+  if (themeColorMeta && isLightInit) themeColorMeta.content = '#f0f1f2';
 
   function toggleTheme() {
     document.body.classList.toggle('light-theme');
@@ -372,6 +372,8 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
     // Sync toutes les checkboxes (header + overlay)
     themeInputs.forEach(input => input.checked = isLight);
+    // Sync meta theme-color pour la barre du navigateur mobile
+    if (themeColorMeta) themeColorMeta.content = isLight ? '#f0f1f2' : '#121212';
   }
 
   themeInputs.forEach(input => input.addEventListener('change', toggleTheme));
