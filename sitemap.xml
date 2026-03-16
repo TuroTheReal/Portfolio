@@ -82,4 +82,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/42-piscine-and-core-curriculum"/>
   </url>
 
+  <url>
+    <loc>https://arthur-portfolio.com/en/blog/glasck-first-launch-production</loc>
+    <lastmod>2026-03-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/glasck-first-launch-production"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/glasck-first-launch-production"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/glasck-first-launch-production"/>
+  </url>
+
+  <url>
+    <loc>https://arthur-portfolio.com/fr/blog/glasck-first-launch-production</loc>
+    <lastmod>2026-03-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/glasck-first-launch-production"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/glasck-first-launch-production"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/glasck-first-launch-production"/>
+  </url>
+
 </urlset>

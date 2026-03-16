@@ -406,8 +406,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Map de traduction pour les tags selon la langue
     const tagLabels = {
-      fr: { career: 'Carrière', ai: 'IA' },
-      en: { career: 'Career', ai: 'AI' }
+      fr: { career: 'Carrière', devops: 'DevOps', dev: 'Dev', project: 'Projet', ai: 'IA' },
+      en: { career: 'Career', devops: 'DevOps', dev: 'Dev', project: 'Project', ai: 'AI' }
     };
     const currentLang = window.location.pathname.startsWith('/fr') ? 'fr' : 'en';
 
