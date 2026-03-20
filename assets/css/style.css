@@ -629,7 +629,6 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
 }
 
 body.light-theme .work-tags span {
-  background: var(--accent-muted);
   font-weight: 500;
 }
 
@@ -1033,15 +1032,15 @@ body.light-theme .img-light {
 }
 
 .radar-card-week {
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-title);
 	font-weight: 600;
 	font-size: 1.1rem;
-	color: var(--text);
+	color: var(--text-primary);
 }
 
 .radar-card-date {
 	font-size: 0.85rem;
-	color: var(--text-muted);
+	color: var(--text-secondary);
 }
 
 .radar-card-list {
@@ -1061,7 +1060,7 @@ body.light-theme .img-light {
 	align-items: center;
 	gap: 0.75rem;
 	font-size: 0.95rem;
-	color: var(--text);
+	color: var(--text-primary);
 	line-height: 1.4;
 	min-width: 0;
 	overflow: hidden;
@@ -1106,7 +1105,7 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	margin-top: 1.25rem;
 	border-top: 1px solid var(--accent-muted);
 	font-size: 0.85rem;
-	color: var(--text-muted);
+	color: var(--text-secondary);
 }
 
 .radar-preview-link {
@@ -1174,7 +1173,7 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 .radar-edition-item p {
 	display: inline;
 	font-size: 0.9rem;
-	color: var(--text-muted);
+	color: var(--text-secondary);
 	line-height: 1.6;
 }
 
@@ -1286,7 +1285,7 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	flex-shrink: 0;
 	box-sizing: border-box;
 	margin: 0;
-	opacity: 0.5;
+	opacity: 1;
 	transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
 }
 
@@ -1304,11 +1303,22 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	opacity: 1;
 }
 
-.radar-tags-filter .radar-filter-btn[data-category="all"]:hover,
-.radar-tags-filter .radar-filter-btn[data-category="all"].active {
+.radar-tags-filter .radar-filter-btn[data-category="all"]:hover {
 	background: var(--accent-muted);
 	color: var(--accent);
 	border-color: var(--accent);
+}
+
+.radar-tags-filter .radar-filter-btn[data-category="all"].active {
+	background: rgba(140, 150, 255, 0.8);
+	color: var(--bg-primary);
+	border-color: rgba(140, 150, 255, 0.8);
+}
+
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="all"].active {
+	background: rgba(55, 48, 163, 0.8);
+	color: #fff;
+	border-color: rgba(55, 48, 163, 0.8);
 }
 
 .radar-tags-filter .radar-filter-btn:focus-visible {
@@ -1324,6 +1334,14 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 .radar-tags-filter .radar-filter-btn[data-category="frameworks"] { color: #ffda8c; border-color: #ffda8c; }
 .radar-tags-filter .radar-filter-btn[data-category="secu"]       { color: #ff8c8c; border-color: #ff8c8c; }
 
+/* Active : fond couleur atténuée + texte foncé */
+.radar-tags-filter .radar-filter-btn[data-category="cloud"].active      { background: rgba(140, 180, 255, 0.8); color: var(--bg-primary); }
+.radar-tags-filter .radar-filter-btn[data-category="devops"].active     { background: rgba(140, 255, 160, 0.8); color: var(--bg-primary); }
+.radar-tags-filter .radar-filter-btn[data-category="ia"].active         { background: rgba(199, 140, 255, 0.8); color: var(--bg-primary); }
+.radar-tags-filter .radar-filter-btn[data-category="business"].active   { background: rgba(255, 168, 140, 0.8); color: var(--bg-primary); }
+.radar-tags-filter .radar-filter-btn[data-category="frameworks"].active { background: rgba(255, 218, 140, 0.8); color: var(--bg-primary); }
+.radar-tags-filter .radar-filter-btn[data-category="secu"].active       { background: rgba(255, 140, 140, 0.8); color: var(--bg-primary); }
+
 /* Couleurs boutons filtre — light */
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="cloud"]      { color: #2563eb; border-color: #2563eb; }
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #16a34a; border-color: #16a34a; }
@@ -1331,6 +1349,14 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="ia"]       
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="business"]   { color: #ea580c; border-color: #ea580c; }
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="frameworks"] { color: #ca8a04; border-color: #ca8a04; }
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"]       { color: #dc2626; border-color: #dc2626; }
+
+/* Active light : fond couleur atténuée + texte blanc */
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="cloud"].active      { background: rgba(37, 99, 235, 0.8); color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"].active     { background: rgba(22, 163, 74, 0.8); color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="ia"].active         { background: rgba(124, 58, 237, 0.8); color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="business"].active   { background: rgba(234, 88, 12, 0.8); color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="frameworks"].active { background: rgba(202, 138, 4, 0.8); color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"].active       { background: rgba(220, 38, 38, 0.8); color: #fff; }
 
 .radar-edition .article-nav {
 	margin-top: 3rem;
@@ -1341,7 +1367,7 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"]     
 .radar-edition-disclaimer {
 	margin-top: 1.5rem;
 	font-size: 0.8rem;
-	color: var(--text-muted);
+	color: var(--text-secondary);
 	font-style: italic;
 	line-height: 1.6;
 }

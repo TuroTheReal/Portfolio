@@ -117,7 +117,8 @@
 	flex-shrink: 0;
 	box-sizing: border-box;
 	margin: 0;
-	transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+	opacity: 1;
+	transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
 }
 
 .blog-tags-filter button:focus-visible {
@@ -125,10 +126,17 @@
 	outline-offset: 3px;
 }
 
-.blog-tags-filter button:hover,
-.blog-tags-filter button.active {
+.blog-tags-filter button:hover {
+	opacity: 1;
 	background: var(--accent-muted);
 	color: var(--accent);
+	border-color: var(--accent);
+}
+
+.blog-tags-filter button.active {
+	opacity: 1;
+	background: var(--accent);
+	color: var(--bg-primary);
 	border-color: var(--accent);
 }
 
@@ -196,7 +204,6 @@
 	font-family: var(--font-text);
 	font-size: 0.8rem;
 	color: var(--text-secondary);
-	transition: filter 0.4s ease;
 }
 
 .blog-card-meta time {
@@ -222,7 +229,6 @@
 	font-size: clamp(0.85rem, 1.2vw + 0.3rem, 0.95rem);
 	color: var(--text-secondary);
 	line-height: 1.6;
-	transition: filter 0.4s ease;
 }
 
 /* Card tags */
@@ -231,7 +237,6 @@
 	flex-wrap: wrap;
 	gap: 0.4rem;
 	margin-top: 0.25rem;
-	transition: filter 0.4s ease;
 }
 
 .blog-card-tags span {
@@ -245,7 +250,6 @@
 }
 
 body.light-theme .blog-card-tags span {
-	background: var(--accent-muted);
 	font-weight: 500;
 }
 
@@ -388,7 +392,6 @@ body.light-theme .blog-card-tags span {
 }
 
 body.light-theme .article-tags span {
-	background: var(--accent-muted);
 	font-weight: 500;
 }
 
@@ -653,14 +656,4 @@ body.light-theme .article-body pre {
 		transition: none;
 	}
 
-	.blog-grid:hover .blog-card:not(:hover) .blog-card-image img,
-	.blog-grid:hover .blog-card:not(:hover) .blog-card-meta,
-	.blog-grid:hover .blog-card:not(:hover) p,
-	.blog-grid:hover .blog-card:not(:hover) .blog-card-tags,
-	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-image img,
-	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-meta,
-	.blog-preview-grid:hover .blog-card:not(:hover) p,
-	.blog-preview-grid:hover .blog-card:not(:hover) .blog-card-tags {
-		filter: none;
-	}
 }
