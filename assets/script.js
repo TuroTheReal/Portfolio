@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function smoothScrollTo(targetEl) {
     if (!targetEl) return;
-    const headerOffset = header ? header.offsetHeight : 56;
+    const headerOffset = headerPx;
     const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
     const startPos = window.scrollY;
     const distance = targetPos - startPos;
@@ -364,9 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sessionStorage.removeItem('scrollPos');
     const pos = parseInt(savedScroll, 10);
     window.scrollTo(0, pos);
-    // Re-scroll après le rendu complet (fonts, images)
     requestAnimationFrame(() => window.scrollTo(0, pos));
-    window.addEventListener('load', () => window.scrollTo(0, pos), { once: true });
   }
 
   /* ============================================
@@ -436,13 +434,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Vider les boutons hardcodés et reconstruire dynamiquement
     tagFilter.innerHTML = '';
 
-    // Label du bouton "Tous/All" selon la langue
-    const isFrench = window.location.pathname.startsWith('/fr');
-    const allLabel = isFrench ? 'Tous' : 'All';
+    // Langue courante pour les labels
+    const currentLang = window.location.pathname.startsWith('/fr') ? 'fr' : 'en';
 
     // Bouton "All/Tous" en premier
     const allBtn = document.createElement('button');
-    allBtn.textContent = allLabel;
+    allBtn.textContent = currentLang === 'fr' ? 'Tous' : 'All';
     allBtn.dataset.tag = 'all';
     allBtn.classList.add('active');
     tagFilter.appendChild(allBtn);
@@ -452,7 +449,6 @@ document.addEventListener('DOMContentLoaded', () => {
       fr: { career: 'Carrière', devops: 'DevOps', dev: 'Dev', project: 'Projet', ai: 'IA' },
       en: { career: 'Career', devops: 'DevOps', dev: 'Dev', project: 'Project', ai: 'AI' }
     };
-    const currentLang = window.location.pathname.startsWith('/fr') ? 'fr' : 'en';
 
     // Un bouton par tag unique (trié alphabétiquement)
     [...allTags].sort().forEach(tag => {
@@ -540,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const radarFilter = document.querySelector('.radar-tags-filter');
   if (radarFilter) {
     const filterBtns = radarFilter.querySelectorAll('.radar-filter-btn');
-    const hdrPx = document.querySelector('.header')?.offsetHeight || 56;
+    const hdrPx = headerPx;
     let isScrolling = false;
     let scrollTimer = null;
 
@@ -595,31 +591,35 @@ document.addEventListener('DOMContentLoaded', () => {
       const filterH = radarFilter.offsetHeight || 40;
       const topOffset = hdrPx + filterH + 20;
 
-      const categoryObserver = new IntersectionObserver((entries) => {
+      function updateActiveCategory() {
         if (isScrolling) return;
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const h2 = entry.target;
-            const tag = h2.querySelector('[class*="radar-tag--"]');
-            if (tag) {
-              const match = [...tag.classList].find(c => c.startsWith('radar-tag--'));
-              if (match) {
-                const catName = match.replace('radar-tag--', '');
-                filterBtns.forEach(b => b.classList.remove('active'));
-                const matchBtn = radarFilter.querySelector(`[data-category="${catName}"]`);
-                if (matchBtn) {
-                  matchBtn.classList.add('active');
-                  matchBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                }
-              }
-            }
+        // Trouver la première h2 dont le top est sous le header+filtre
+        let activeH2 = null;
+        for (const h2 of sectionH2s) {
+          const rect = h2.getBoundingClientRect();
+          if (rect.top <= topOffset + 40) {
+            activeH2 = h2;
+          } else {
+            break;
           }
-        });
-      }, {
-        rootMargin: `-${topOffset}px 0px -60% 0px`
-      });
+        }
+        if (!activeH2) return;
+        const tag = activeH2.querySelector('[class*="radar-tag--"]');
+        if (!tag) return;
+        const match = [...tag.classList].find(c => c.startsWith('radar-tag--'));
+        if (!match) return;
+        const catName = match.replace('radar-tag--', '');
+        const currentActive = radarFilter.querySelector('.radar-filter-btn.active');
+        if (currentActive && currentActive.dataset.category === catName) return;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        const matchBtn = radarFilter.querySelector(`[data-category="${catName}"]`);
+        if (matchBtn) {
+          matchBtn.classList.add('active');
+          matchBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }
 
-      sectionH2s.forEach(h2 => categoryObserver.observe(h2));
+      window.addEventListener('scroll', updateActiveCategory, { passive: true });
 
       // "Tous" actif quand tout en haut de la page
       const allBtn = radarFilter.querySelector('[data-category="all"]');
