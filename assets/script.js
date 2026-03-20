@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isBlogPage = window.location.pathname.includes('blog');
   const isResumePage = window.location.pathname.includes('resume');
+  const isRadarPage = window.location.pathname.includes('tech-radar');
 
   function updateActiveNav(sectionId) {
     navLinks.forEach(link => {
@@ -119,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf pages resume/blog)
     const pagePath = window.location.pathname;
-    if (sectionId && !pagePath.includes('resume') && !pagePath.includes('blog') && window.location.hash !== `#${sectionId}`) {
+    if (sectionId && !pagePath.includes('resume') && !pagePath.includes('blog') && !pagePath.includes('tech-radar') && window.location.hash !== `#${sectionId}`) {
       history.replaceState(null, '', `#${sectionId}`);
     }
   }
@@ -131,6 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
       link.removeAttribute('aria-current');
       const href = link.getAttribute('href');
       if (isResumePage && href.includes('resume')) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      } else if (isRadarPage && href.includes('tech-radar')) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
       } else if (isBlogPage && href.includes('blog')) {
@@ -166,11 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Si en bas de page, forcer Contact (homepage seulement)
-      if (!isBlogPage && !isResumePage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+      if (!isBlogPage && !isResumePage && !isRadarPage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
         bestId = 'Contact';
       }
 
-      if (isBlogPage || isResumePage) {
+      if (isBlogPage || isResumePage || isRadarPage) {
         // Sur blog/resume : seul Contact (>30% visible) peut override le défaut
         if (bestId === 'Contact' && bestRatio >= 0.3) {
           updateActiveNav(bestId);
@@ -243,12 +247,19 @@ document.addEventListener('DOMContentLoaded', () => {
     logo.addEventListener('click', (e) => {
       const path = window.location.pathname;
       const lang = path.startsWith('/fr') ? 'fr' : 'en';
-      const isHomepage = !path.includes('blog') && !path.includes('resume');
+      const isHomepage = !path.includes('blog') && !path.includes('resume') && !path.includes('tech-radar');
       if (isHomepage) return;
 
       e.preventDefault();
       if (path.includes('resume')) {
         window.location.href = `/${lang}/`;
+      } else if (path.includes('tech-radar')) {
+        const isRadarListing = path.endsWith('/tech-radar') || path.endsWith('/tech-radar/');
+        if (isRadarListing) {
+          smoothScrollToTop();
+        } else {
+          window.location.href = `/${lang}/tech-radar/`;
+        }
       } else {
         const isBlogListing = path.endsWith('/blog') || path.endsWith('/blog/');
         if (isBlogListing) {
@@ -311,19 +322,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const langToggles = document.querySelectorAll('.lang-toggle');
 
   // Déterminer la langue et la page actuelle depuis l'URL folder-based
-  // Structure : /en/, /en/resume, /en/blog, /fr/, /fr/resume, /fr/blog
+  // Structure : /en/, /en/resume, /en/blog, /en/tech-radar, /fr/, /fr/resume, /fr/blog, /fr/tech-radar
   function getCurrentLangAndPage() {
     const path = window.location.pathname;
     const lang = path.startsWith('/fr') ? 'fr' : 'en';
     const isResume = path.includes('resume');
     const isBlog = path.includes('blog');
-    return { lang, isResume, isBlog };
+    const isRadar = path.includes('tech-radar');
+    return { lang, isResume, isBlog, isRadar };
   }
 
   langToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const targetLang = toggle.dataset.lang;
-      const { lang: currentLang, isResume, isBlog } = getCurrentLangAndPage();
+      const { lang: currentLang, isResume, isBlog, isRadar } = getCurrentLangAndPage();
       const currentHash = window.location.hash;
 
       if (targetLang === currentLang) return;
@@ -331,8 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Construire le nouveau path en remplaçant /en/ ou /fr/ par la langue cible
       const path = window.location.pathname;
       let newPath;
-      if (isBlog) {
-        // Remplace /en/blog/... ou /fr/blog/... par /{targetLang}/blog/...
+      if (isBlog || isRadar) {
+        // Remplace /en/blog/... ou /fr/blog/... ou /en/tech-radar/... par /{targetLang}/...
         newPath = path.replace(/^\/(en|fr)\//, `/${targetLang}/`);
       } else if (isResume) {
         newPath = `/${targetLang}/resume`;
@@ -350,7 +362,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedScroll = sessionStorage.getItem('scrollPos');
   if (savedScroll !== null) {
     sessionStorage.removeItem('scrollPos');
-    window.scrollTo(0, parseInt(savedScroll, 10));
+    const pos = parseInt(savedScroll, 10);
+    window.scrollTo(0, pos);
+    // Re-scroll après le rendu complet (fonts, images)
+    requestAnimationFrame(() => window.scrollTo(0, pos));
+    window.addEventListener('load', () => window.scrollTo(0, pos), { once: true });
   }
 
   /* ============================================
@@ -445,6 +461,41 @@ document.addEventListener('DOMContentLoaded', () => {
           card.classList.add('blog-card-hidden');
         }
       });
+    });
+  }
+
+  /* ============================================
+     TECH RADAR — LOAD MORE
+     ============================================ */
+  const radarLoadMore = document.querySelector('.radar-load-more');
+  if (radarLoadMore) {
+    let expanded = sessionStorage.getItem('radarExpanded') === 'true';
+    const allCards = document.querySelectorAll('.radar-card--hidden');
+    // Cache le lien s'il n'y a rien à charger
+    if (allCards.length === 0 && !expanded) {
+      radarLoadMore.style.display = 'none';
+    }
+    const isFr = document.documentElement.lang === 'fr';
+    const labelMore = isFr ? 'Voir plus →' : 'Show more →';
+    const labelLess = isFr ? '← Voir moins' : '← Show less';
+    // Restaurer l'état après switch de langue
+    if (expanded) {
+      allCards.forEach(card => card.classList.remove('radar-card--hidden'));
+      radarLoadMore.textContent = labelLess;
+    }
+    radarLoadMore.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!expanded) {
+        allCards.forEach(card => card.classList.remove('radar-card--hidden'));
+        radarLoadMore.textContent = labelLess;
+        expanded = true;
+      } else {
+        allCards.forEach(card => card.classList.add('radar-card--hidden'));
+        radarLoadMore.textContent = labelMore;
+        expanded = false;
+        document.querySelector('.radar-listing')?.scrollIntoView({ behavior: 'smooth' });
+      }
+      sessionStorage.setItem('radarExpanded', expanded);
     });
   }
 
