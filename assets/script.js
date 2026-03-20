@@ -395,6 +395,31 @@ document.addEventListener('DOMContentLoaded', () => {
   themeInputs.forEach(input => input.addEventListener('change', toggleTheme));
 
   /* ============================================
+     SCROLL FADE — indicateurs de scroll horizontal
+     ============================================ */
+  function initScrollFade(el, fadeTarget) {
+    if (!el) return;
+    const target = fadeTarget || el;
+    function update() {
+      const threshold = 4;
+      const canLeft = el.scrollLeft > threshold;
+      const canRight = el.scrollLeft + el.clientWidth < el.scrollWidth - threshold;
+      target.classList.toggle('fade-left', canLeft);
+      target.classList.toggle('fade-right', canRight);
+    }
+    el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  const radarFilterEl = document.querySelector('.radar-tags-filter');
+  const radarFadeEl = document.querySelector('.radar-filter-fade');
+  if (radarFilterEl && radarFadeEl) {
+    radarFadeEl.style.setProperty('--radar-filter-h', radarFilterEl.offsetHeight + 'px');
+    initScrollFade(radarFilterEl, radarFadeEl);
+  }
+
+  /* ============================================
      BLOG TAG FILTER
      Boutons générés dynamiquement depuis les data-tags des cards
      ============================================ */
@@ -449,6 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Mettre à jour le bouton actif
       tagFilter.querySelectorAll('button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 
       // Filtrer les cards
       blogCards.forEach(card => {
@@ -462,6 +488,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    // Init scroll fade après génération des boutons
+    const blogFadeEl = document.querySelector('.blog-filter-fade');
+    if (blogFadeEl) {
+      blogFadeEl.style.setProperty('--blog-filter-h', tagFilter.offsetHeight + 'px');
+      initScrollFade(tagFilter, blogFadeEl);
+    } else {
+      initScrollFade(tagFilter);
+    }
   }
 
   /* ============================================
@@ -497,6 +532,105 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       sessionStorage.setItem('radarExpanded', expanded);
     });
+  }
+
+  /* ============================================
+     TECH RADAR — CATEGORY FILTER (scroll to section)
+     ============================================ */
+  const radarFilter = document.querySelector('.radar-tags-filter');
+  if (radarFilter) {
+    const filterBtns = radarFilter.querySelectorAll('.radar-filter-btn');
+    const hdrPx = document.querySelector('.header')?.offsetHeight || 56;
+    let isScrolling = false;
+    let scrollTimer = null;
+
+    function endScrollLock() {
+      function onScroll() {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          isScrolling = false;
+          window.removeEventListener('scroll', onScroll);
+        }, 100);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      // Fallback si déjà à destination (pas de scroll déclenché)
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        isScrolling = false;
+        window.removeEventListener('scroll', onScroll);
+      }, 600);
+    }
+
+    radarFilter.addEventListener('click', (e) => {
+      const btn = e.target.closest('.radar-filter-btn');
+      if (!btn) return;
+
+      const category = btn.dataset.category;
+
+      isScrolling = true;
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (category === 'all') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        endScrollLock();
+        return;
+      }
+
+      const targetTag = document.querySelector(`.article-body .radar-tag--${category}`);
+      if (targetTag) {
+        const h2 = targetTag.closest('h2');
+        if (h2) {
+          const filterH = radarFilter.offsetHeight || 40;
+          const top = h2.getBoundingClientRect().top + window.scrollY - hdrPx - filterH - 16;
+          window.scrollTo({ top, behavior: 'smooth' });
+          endScrollLock();
+        }
+      }
+    });
+
+    // Observer les h2 pour mettre à jour le bouton actif au scroll manuel
+    const sectionH2s = document.querySelectorAll('.article-body h2');
+    if (sectionH2s.length > 0) {
+      const filterH = radarFilter.offsetHeight || 40;
+      const topOffset = hdrPx + filterH + 20;
+
+      const categoryObserver = new IntersectionObserver((entries) => {
+        if (isScrolling) return;
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const h2 = entry.target;
+            const tag = h2.querySelector('[class*="radar-tag--"]');
+            if (tag) {
+              const match = [...tag.classList].find(c => c.startsWith('radar-tag--'));
+              if (match) {
+                const catName = match.replace('radar-tag--', '');
+                filterBtns.forEach(b => b.classList.remove('active'));
+                const matchBtn = radarFilter.querySelector(`[data-category="${catName}"]`);
+                if (matchBtn) {
+                  matchBtn.classList.add('active');
+                  matchBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+              }
+            }
+          }
+        });
+      }, {
+        rootMargin: `-${topOffset}px 0px -60% 0px`
+      });
+
+      sectionH2s.forEach(h2 => categoryObserver.observe(h2));
+
+      // "Tous" actif quand tout en haut de la page
+      const allBtn = radarFilter.querySelector('[data-category="all"]');
+      window.addEventListener('scroll', () => {
+        if (isScrolling) return;
+        if (window.scrollY < 100 && allBtn && !allBtn.classList.contains('active')) {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          allBtn.classList.add('active');
+        }
+      }, { passive: true });
+    }
   }
 
 });

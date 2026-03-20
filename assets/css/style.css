@@ -1076,13 +1076,10 @@ body.light-theme .img-light {
 }
 
 .radar-tag {
-	font-size: 0.7rem;
-	font-weight: 600;
-	padding: 0.2rem 0.6rem;
+	font-size: 0.75rem;
+	padding: 0.25rem 0.75rem;
 	border-radius: 100px;
 	white-space: nowrap;
-	letter-spacing: 0.02em;
-	text-transform: uppercase;
 	min-width: 5.8rem;
 	text-align: center;
 	flex-shrink: 0;
@@ -1157,8 +1154,8 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 }
 
 .radar-edition .article-body h2 .radar-tag {
-	font-size: 1.15rem;
-	padding: 0.45rem 1.2rem;
+	font-size: clamp(1.1rem, 2vw, 1.4rem);
+	padding: 0.4rem 1.1rem;
 }
 
 .radar-edition-item {
@@ -1181,31 +1178,159 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	line-height: 1.6;
 }
 
-.radar-edition-source {
-	display: inline;
+.radar-edition .article-body .radar-edition-source {
+	font-family: var(--font-text);
 	font-size: 0.85rem;
 	font-style: italic;
 	color: var(--accent);
 	font-weight: 500;
-	text-decoration: none !important;
-	position: relative;
 	white-space: nowrap;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	text-decoration-color: transparent;
+	transition: text-decoration-color 0.35s ease;
 }
 
-.radar-edition-source::after {
+.radar-edition .article-body .radar-edition-source:hover {
+	text-decoration-color: var(--accent);
+}
+
+/* Radar Tags Filter (edition page) — même layout que blog-tags-filter */
+.radar-tags-filter {
+	position: sticky;
+	top: var(--header-height, 3.5rem);
+	z-index: 10;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.5rem;
+	margin-bottom: 2.5rem;
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
+	padding: 0.75rem calc(50vw - 50%);
+	background: var(--sticky-bg);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	border-bottom: 1px solid var(--header-border);
+	overflow-x: auto;
+	scrollbar-width: none;
+	transition: top 0.3s ease;
+}
+
+
+.header.hidden ~ main .radar-tags-filter {
+	top: 0;
+}
+
+.radar-tags-filter::-webkit-scrollbar {
+	display: none;
+}
+
+.radar-filter-fade {
+	position: sticky;
+	top: var(--header-height, 3.5rem);
+	z-index: 11;
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
+	height: 0;
+	pointer-events: none;
+}
+
+.header.hidden ~ main .radar-filter-fade {
+	top: 0;
+}
+
+.radar-filter-fade::before,
+.radar-filter-fade::after {
 	content: '';
 	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1.5px;
-	background: var(--accent);
-	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	top: 0;
+	width: 3rem;
+	height: var(--radar-filter-h, 2.75rem);
+	opacity: 0;
+	transition: opacity 0.2s ease;
 }
 
-.radar-edition-source:hover::after {
-	width: 100%;
+.radar-filter-fade::before {
+	left: 0;
+	background: linear-gradient(to right, var(--bg-primary), transparent);
 }
+
+.radar-filter-fade::after {
+	right: 0;
+	background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.radar-filter-fade.fade-left::before {
+	opacity: 1;
+}
+
+.radar-filter-fade.fade-right::after {
+	opacity: 1;
+}
+
+.radar-tags-filter .radar-filter-btn {
+	appearance: none;
+	-webkit-appearance: none;
+	display: inline-block;
+	font-family: var(--font-text);
+	font-size: 0.8rem;
+	line-height: 1.2;
+	padding: 0.35rem 1rem;
+	border-radius: 100px;
+	border: 1px solid var(--accent-muted);
+	background: transparent;
+	color: var(--text-secondary);
+	cursor: pointer;
+	white-space: nowrap;
+	flex-shrink: 0;
+	box-sizing: border-box;
+	margin: 0;
+	opacity: 0.5;
+	transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+
+.radar-tags-filter .radar-filter-btn.active,
+.radar-tags-filter .radar-filter-btn:hover {
+	opacity: 1;
+}
+
+.radar-tags-filter .radar-filter-btn.active {
+	transform: scale(1.1);
+}
+
+/* Bouton "Tous/All" — style accent comme le blog */
+.radar-tags-filter .radar-filter-btn[data-category="all"] {
+	opacity: 1;
+}
+
+.radar-tags-filter .radar-filter-btn[data-category="all"]:hover,
+.radar-tags-filter .radar-filter-btn[data-category="all"].active {
+	background: var(--accent-muted);
+	color: var(--accent);
+	border-color: var(--accent);
+}
+
+.radar-tags-filter .radar-filter-btn:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
+
+/* Couleurs boutons filtre — dark */
+.radar-tags-filter .radar-filter-btn[data-category="cloud"]      { color: #8cb4ff; border-color: #8cb4ff; }
+.radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #8cffa0; border-color: #8cffa0; }
+.radar-tags-filter .radar-filter-btn[data-category="ia"]         { color: #c78cff; border-color: #c78cff; }
+.radar-tags-filter .radar-filter-btn[data-category="business"]   { color: #ffa88c; border-color: #ffa88c; }
+.radar-tags-filter .radar-filter-btn[data-category="frameworks"] { color: #ffda8c; border-color: #ffda8c; }
+.radar-tags-filter .radar-filter-btn[data-category="secu"]       { color: #ff8c8c; border-color: #ff8c8c; }
+
+/* Couleurs boutons filtre — light */
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="cloud"]      { color: #2563eb; border-color: #2563eb; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #16a34a; border-color: #16a34a; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="ia"]         { color: #7c3aed; border-color: #7c3aed; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="business"]   { color: #ea580c; border-color: #ea580c; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="frameworks"] { color: #ca8a04; border-color: #ca8a04; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"]       { color: #dc2626; border-color: #dc2626; }
 
 .radar-edition .article-nav {
 	margin-top: 3rem;
@@ -1243,7 +1368,7 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	}
 
 	.radar-tag {
-		font-size: 0.65rem;
+		font-size: 0.7rem;
 		min-width: 4.5rem;
 		text-align: center;
 	}
