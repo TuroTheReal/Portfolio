@@ -11,7 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
       burger.classList.toggle('active');
       overlay.classList.toggle('active');
       // Empêcher le scroll du body quand l'overlay est ouvert
-      document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+      const isOpen = overlay.classList.contains('active');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (isOpen) {
+        // Attendre le rendu pour que le focus prenne sur un élément visible
+        requestAnimationFrame(() => {
+          const firstLink = overlay.querySelector('nav a');
+          if (firstLink) firstLink.focus();
+        });
+      }
+    });
+
+    // Focus trap : Tab reste dans l'overlay
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = [...overlay.querySelectorAll('a, button, input, label[tabindex], [tabindex]:not([tabindex="-1"])')].filter(el => el.offsetParent !== null || el.offsetWidth > 0);
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
 
     // Fermer l'overlay
@@ -19,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       burger.classList.remove('active');
       overlay.classList.remove('active');
       document.body.style.overflow = '';
+      burger.focus();
     }
 
     // Fermer au clic sur un lien nav
@@ -202,9 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
       : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
 
-  function smoothScrollTo(targetEl) {
+  function smoothScrollTo(targetEl, extraOffset) {
     if (!targetEl) return;
-    const headerOffset = headerPx;
+    const headerOffset = headerPx + (extraOffset || 0);
     const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
     const startPos = window.scrollY;
     const distance = targetPos - startPos;
@@ -308,7 +333,8 @@ document.addEventListener('DOMContentLoaded', () => {
      SCROLL VERS HASH AU CHARGEMENT
      (conservation position après changement de langue)
      ============================================ */
-  if (window.location.hash) {
+  // Scroll vers hash sauf si on restaure une position de scroll (switch langue)
+  if (window.location.hash && !sessionStorage.getItem('scrollPos')) {
     setTimeout(() => {
       const target = document.querySelector(window.location.hash);
       if (target) smoothScrollTo(target);
@@ -363,8 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedScroll !== null) {
     sessionStorage.removeItem('scrollPos');
     const pos = parseInt(savedScroll, 10);
-    window.scrollTo(0, pos);
-    requestAnimationFrame(() => window.scrollTo(0, pos));
+    if (!isNaN(pos)) {
+      window.scrollTo(0, pos);
+      requestAnimationFrame(() => window.scrollTo(0, pos));
+    }
   }
 
   /* ============================================
@@ -502,6 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (radarLoadMore) {
     let expanded = sessionStorage.getItem('radarExpanded') === 'true';
     const allCards = document.querySelectorAll('.radar-card--hidden');
+    const loadmoreStatus = document.getElementById('loadmore-status');
     // Cache le lien s'il n'y a rien à charger
     if (allCards.length === 0 && !expanded) {
       radarLoadMore.style.display = 'none';
@@ -513,9 +542,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (expanded) {
       allCards.forEach(card => card.classList.remove('radar-card--hidden'));
       radarLoadMore.textContent = labelLess;
+      radarLoadMore.setAttribute('aria-expanded', 'true');
     }
-    radarLoadMore.addEventListener('click', (e) => {
-      e.preventDefault();
+    radarLoadMore.addEventListener('click', () => {
       if (!expanded) {
         allCards.forEach(card => card.classList.remove('radar-card--hidden'));
         radarLoadMore.textContent = labelLess;
@@ -525,6 +554,12 @@ document.addEventListener('DOMContentLoaded', () => {
         radarLoadMore.textContent = labelMore;
         expanded = false;
         document.querySelector('.radar-listing')?.scrollIntoView({ behavior: 'smooth' });
+      }
+      radarLoadMore.setAttribute('aria-expanded', String(expanded));
+      if (loadmoreStatus) {
+        loadmoreStatus.textContent = expanded
+          ? (isFr ? `${allCards.length} éditions supplémentaires affichées` : `${allCards.length} more editions shown`)
+          : (isFr ? 'Éditions supplémentaires masquées' : 'Extra editions hidden');
       }
       sessionStorage.setItem('radarExpanded', expanded);
     });
@@ -536,9 +571,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const radarFilter = document.querySelector('.radar-tags-filter');
   if (radarFilter) {
     const filterBtns = radarFilter.querySelectorAll('.radar-filter-btn');
+    const filterStatus = document.getElementById('filter-status');
+    const validCategories = new Set(['all', 'cloud', 'devops', 'ia', 'business', 'tech', 'secu']);
     const hdrPx = headerPx;
+    const filterH = radarFilter.offsetHeight || 40;
     let isScrolling = false;
     let scrollTimer = null;
+
+    // Réinitialise tous les boutons filtre puis active le bouton donné
+    function setActiveFilter(btn) {
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+    }
 
     function endScrollLock() {
       function onScroll() {
@@ -549,7 +594,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
       }
       window.addEventListener('scroll', onScroll, { passive: true });
-      // Fallback si déjà à destination (pas de scroll déclenché)
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => {
         isScrolling = false;
@@ -562,13 +606,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!btn) return;
 
       const category = btn.dataset.category;
+      if (!validCategories.has(category)) return;
 
       isScrolling = true;
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      setActiveFilter(btn);
+
+      if (filterStatus) filterStatus.textContent = btn.textContent;
 
       if (category === 'all') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        smoothScrollToTop();
         endScrollLock();
         return;
       }
@@ -577,9 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetTag) {
         const h2 = targetTag.closest('h2');
         if (h2) {
-          const filterH = radarFilter.offsetHeight || 40;
-          const top = h2.getBoundingClientRect().top + window.scrollY - hdrPx - filterH - 16;
-          window.scrollTo({ top, behavior: 'smooth' });
+          smoothScrollTo(h2, filterH + 16);
           endScrollLock();
         }
       }
@@ -588,16 +632,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Observer les h2 pour mettre à jour le bouton actif au scroll manuel
     const sectionH2s = document.querySelectorAll('.article-body h2');
     if (sectionH2s.length > 0) {
-      const filterH = radarFilter.offsetHeight || 40;
       const topOffset = hdrPx + filterH + 20;
+      const allBtn = radarFilter.querySelector('[data-category="all"]');
 
       function updateActiveCategory() {
         if (isScrolling) return;
+
+        // En haut de page → "Tous/All" actif
+        if (window.scrollY < 100 && allBtn && !allBtn.classList.contains('active')) {
+          setActiveFilter(allBtn);
+          return;
+        }
+
         // Trouver la première h2 dont le top est sous le header+filtre
         let activeH2 = null;
         for (const h2 of sectionH2s) {
-          const rect = h2.getBoundingClientRect();
-          if (rect.top <= topOffset + 40) {
+          if (h2.getBoundingClientRect().top <= topOffset + 40) {
             activeH2 = h2;
           } else {
             break;
@@ -611,25 +661,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const catName = match.replace('radar-tag--', '');
         const currentActive = radarFilter.querySelector('.radar-filter-btn.active');
         if (currentActive && currentActive.dataset.category === catName) return;
-        filterBtns.forEach(b => b.classList.remove('active'));
         const matchBtn = radarFilter.querySelector(`[data-category="${catName}"]`);
         if (matchBtn) {
-          matchBtn.classList.add('active');
+          setActiveFilter(matchBtn);
           matchBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
       }
 
       window.addEventListener('scroll', updateActiveCategory, { passive: true });
-
-      // "Tous" actif quand tout en haut de la page
-      const allBtn = radarFilter.querySelector('[data-category="all"]');
-      window.addEventListener('scroll', () => {
-        if (isScrolling) return;
-        if (window.scrollY < 100 && allBtn && !allBtn.classList.contains('active')) {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          allBtn.classList.add('active');
-        }
-      }, { passive: true });
     }
   }
 

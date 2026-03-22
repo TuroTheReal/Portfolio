@@ -564,6 +564,20 @@ body.light-theme .article-body pre {
    TABLET (768px+)
    ============================================ */
 @media (min-width: 768px) {
+	.blog-tags-filter {
+		overflow-x: visible;
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.blog-filter-fade {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
 	.blog-listing {
 		padding: 3rem 2rem 5rem;
 	}

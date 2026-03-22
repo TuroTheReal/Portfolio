@@ -14,39 +14,41 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="Tech Radar Week 12 — Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.">
+	<meta name="description" content="Tech Radar Week 12 — 18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>Tech Radar Week 12 — Business, Cloud, DevOps, Tech, Security & AI News (March 2026) — Arthur Bernard</title>
+	<title>Tech Radar — Week 12 (March 2026) — Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Tech Radar Week 12 — Business, Cloud, DevOps, Tech, Security & AI News (March 2026)">
-	<meta property="og:description" content="Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.">
+	<meta property="og:title" content="Tech Radar — Week 12 (March 2026)">
+	<meta property="og:description" content="18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.">
 	<meta property="og:url" content="https://arthur-portfolio.com/en/tech-radar/2026-week-12.html">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:locale:alternate" content="fr_FR">
 	<meta property="og:site_name" content="Arthur Bernard">
 	<meta property="og:image" content="https://arthur-portfolio.com/assets/img/og-image.png">
+	<meta property="og:image:alt" content="Tech Radar — Week 12 by Arthur Bernard">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
-	<meta property="article:published_time" content="2026-03-20">
+	<meta property="article:published_time" content="2026-03-20T00:00:00Z">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Tech Radar — Week 12">
-	<meta name="twitter:description" content="Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.">
+	<meta name="twitter:title" content="Tech Radar — Week 12 (March 2026)">
+	<meta name="twitter:description" content="18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.">
 	<meta name="twitter:image" content="https://arthur-portfolio.com/assets/img/og-image.png">
+	<meta name="twitter:image:alt" content="Tech Radar — Week 12 by Arthur Bernard">
 
 	<!-- JSON-LD -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "Article",
-		"headline": "Tech Radar — Week 12",
-		"description": "Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.",
-		"datePublished": "2026-03-20",
+		"headline": "Tech Radar — Week 12 (March 2026)",
+		"description": "18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.",
+		"datePublished": "2026-03-20T00:00:00Z",
 		"inLanguage": "en",
 		"author": {
 			"@type": "Person",
@@ -79,7 +81,7 @@
 	<!-- Header -->
 	<header class="header">
 		<a href="/en/#Home" class="logo">A.</a>
-		<nav class="nav">
+		<nav class="nav" aria-label="Main navigation">
 			<a href="/en/#Home">Home</a>
 			<a href="/en/#About">About</a>
 			<a href="/en/#Work">Projects</a>
@@ -90,7 +92,7 @@
 		</nav>
 		<div class="header-actions">
 			<button class="lang-toggle active" data-lang="en">EN</button>
-			<span class="lang-sep">|</span>
+			<span class="lang-sep" aria-hidden="true">|</span>
 			<button class="lang-toggle" data-lang="fr">FR</button>
 			<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
 		</div>
@@ -100,7 +102,7 @@
 	<!-- Slide panel mobile -->
 	<div class="overlay">
 		<div class="overlay-panel">
-			<nav>
+			<nav aria-label="Menu">
 				<a href="/en/#Home">Home</a>
 				<a href="/en/#About">About</a>
 				<a href="/en/#Work">Projects</a>
@@ -112,7 +114,7 @@
 			<div class="overlay-bottom">
 				<div class="overlay-lang">
 					<button class="lang-toggle active" data-lang="en">EN</button>
-					<span class="lang-sep">|</span>
+					<span class="lang-sep" aria-hidden="true">|</span>
 					<button class="lang-toggle" data-lang="fr">FR</button>
 				</div>
 				<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
@@ -125,7 +127,7 @@
 
 			<!-- Edition header -->
 			<header class="article-header" data-fade>
-				<a href="/en/tech-radar/" class="article-back">&larr; Back to Tech Radar</a>
+				<a href="/en/tech-radar/" class="article-back"><span aria-hidden="true">&larr;</span> Back to Tech Radar</a>
 				<h1>Tech Radar — Week 12</h1>
 				<div class="article-meta">
 					<time datetime="2026-03-20">March 13 - 20, 2026</time>
@@ -135,15 +137,16 @@
 
 			<!-- Category filter -->
 			<div class="radar-filter-fade"></div>
-			<div class="radar-tags-filter" data-fade>
-				<button class="radar-filter-btn active" data-category="all">All</button>
-				<button class="radar-filter-btn" data-category="business">Business</button>
-				<button class="radar-filter-btn" data-category="cloud">Cloud</button>
-				<button class="radar-filter-btn" data-category="devops">DevOps</button>
-				<button class="radar-filter-btn" data-category="frameworks">Tech</button>
-				<button class="radar-filter-btn" data-category="secu">Security</button>
-				<button class="radar-filter-btn" data-category="ia">AI</button>
+			<div class="radar-tags-filter" role="group" aria-label="Filter by category" data-fade>
+				<button class="radar-filter-btn active" data-category="all" aria-pressed="true">All</button>
+				<button class="radar-filter-btn" data-category="business" aria-pressed="false">Business</button>
+				<button class="radar-filter-btn" data-category="cloud" aria-pressed="false">Cloud</button>
+				<button class="radar-filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+				<button class="radar-filter-btn" data-category="tech" aria-pressed="false">Tech</button>
+				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Security</button>
+				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">AI</button>
 			</div>
+			<div aria-live="polite" class="sr-only" id="filter-status"></div>
 
 			<!-- Edition body -->
 			<div class="article-body" data-fade>
@@ -155,13 +158,13 @@
 <div class="radar-edition-item">
     <h3>Thoughts on OpenAI acquiring Astral and uv/ruff/ty</h3>
     <p>OpenAI acquires Astral, creator of uv (126M downloads/month), ruff, and ty. Analysis of implications: 7 years of Python infrastructure now under OpenAI ownership, risk of competitive dynamics affecting open source projects.</p>
-    <a href="https://simonwillison.net/2026/Mar/19/openai-acquiring-astral/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://simonwillison.net/2026/Mar/19/openai-acquiring-astral/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Thoughts on OpenAI acquiring Astral and uv/ruff/ty (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Cloud service providers ask EU regulator to reinstate VMware partner program</h3>
     <p>Cloud service providers ask EU regulator to reinstate VMware partner program; Broadcom says the group misrepresents market realities.</p>
-    <a href="https://arstechnica.com/information-technology/2026/03/cloud-service-providers-ask-eu-regulator-to-reinstate-vmware-partner-program/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://arstechnica.com/information-technology/2026/03/cloud-service-providers-ask-eu-regulator-to-reinstate-vmware-partner-program/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Cloud service providers ask EU regulator to reinstate VMware partner program (opens in new tab)">Read article →</a>
 </div>
 
 <h2><span class="radar-tag radar-tag--cloud">Cloud</span></h2>
@@ -169,19 +172,19 @@
 <div class="radar-edition-item">
     <h3>AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026)</h3>
     <p>Amazon S3 marks 20 years since its public launch in March 2006, evolving from simple object storage into foundational cloud infrastructure. Route 53 Global Resolver reaches general availability.</p>
-    <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-s3-turns-20-amazon-route-53-global-resolver-general-availability-and-more-march-16-2026/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-s3-turns-20-amazon-route-53-global-resolver-general-availability-and-more-march-16-2026/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver… (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Crossplane and AI: The case for API-first infrastructure</h3>
     <p>Examines how AI-assisted development changed code writing, but the actual bottleneck has shifted post-git push: infrastructure provisioning, policy enforcement, and day-two operations.</p>
-    <a href="https://www.cncf.io/blog/2026/03/20/crossplane-and-ai-the-case-for-api-first-infrastructure/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://www.cncf.io/blog/2026/03/20/crossplane-and-ai-the-case-for-api-first-infrastructure/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Crossplane and AI: The case for API-first infrastructure (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>AWS Lambda se transforme avec du serveless persistant</h3>
     <p>AWS recently unveiled persistent Lambda functions, transforming serverless compute offerings with persistent storage and state capabilities.</p>
-    <a href="https://www.lemondeinformatique.fr/actualites/lire-aws-lambda-se-transforme-avec-du-serveless-persistant-99254.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://www.lemondeinformatique.fr/actualites/lire-aws-lambda-se-transforme-avec-du-serveless-persistant-99254.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS Lambda se transforme avec du serveless persistant (opens in new tab)">Read article →</a>
 </div>
 
 <h2><span class="radar-tag radar-tag--devops">DevOps</span></h2>
@@ -189,39 +192,39 @@
 <div class="radar-edition-item">
     <h3>The Invisible Rewrite: Modernizing the Kubernetes Image Promoter</h3>
     <p>Complete rewrite of kpromo (Kubernetes image promoter) in 9 phased releases: 20% codebase reduction, drastic performance gains (plan phase: 20min→2min), added SLSA provenance attestations, separated signing from replication to eliminate rate-limit contention.</p>
-    <a href="https://kubernetes.io/blog/2026/03/17/image-promoter-rewrite/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://kubernetes.io/blog/2026/03/17/image-promoter-rewrite/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : The Invisible Rewrite: Modernizing the Kubernetes Image Promoter (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Policy-as-Code: Flexible Kubernetes governance with Kyverno</h3>
     <p>Guide on using Kyverno for Policy-as-Code implementation to ensure security, compliance, and consistency in large-scale growing Kubernetes clusters.</p>
-    <a href="https://www.cncf.io/blog/2026/03/19/policy-as-code-flexible-kubernetes-governance-with-kyverno/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://www.cncf.io/blog/2026/03/19/policy-as-code-flexible-kubernetes-governance-with-kyverno/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Policy-as-Code: Flexible Kubernetes governance with Kyverno (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Understanding Kubernetes metrics: Best practices for effective monitoring</h3>
     <p>Explains the importance of Kubernetes metrics for managing clusters, nodes, and applications, and provides best practices for effective monitoring and troubleshooting.</p>
-    <a href="https://www.cncf.io/blog/2026/03/18/understanding-kubernetes-metrics-best-practices-for-effective-monitoring/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://www.cncf.io/blog/2026/03/18/understanding-kubernetes-metrics-best-practices-for-effective-monitoring/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Understanding Kubernetes metrics: Best practices for effective monitoring (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Agentic code reviews for $0.25 each</h3>
     <p>GitLab Code Review Flow offers agentic code reviews at flat-rate $0.25 per merge request (vs $15-25 variable pricing elsewhere), eliminating review queues and reducing costs by 99%.</p>
-    <a href="https://about.gitlab.com/blog/agentic-code-reviews-with-flat-rate-pricing/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://about.gitlab.com/blog/agentic-code-reviews-with-flat-rate-pricing/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Agentic code reviews for $0.25 each (opens in new tab)">Read article →</a>
 </div>
 
-<h2><span class="radar-tag radar-tag--frameworks">Tech</span></h2>
+<h2><span class="radar-tag radar-tag--tech">Tech</span></h2>
 
 <div class="radar-edition-item">
     <h3>Microsoft: March Windows updates break Teams, OneDrive sign-ins</h3>
     <p>March Windows 11 update breaks Microsoft account sign-ins across Teams, OneDrive, and other Microsoft applications.</p>
-    <a href="https://www.bleepingcomputer.com/news/microsoft/kb5079473-march-windows-11-update-breaks-microsoft-account-sign-ins/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/kb5079473-march-windows-11-update-breaks-microsoft-account-sign-ins/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Microsoft: March Windows updates break Teams, OneDrive sign-ins (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Google details new 24-hour process to sideload unverified Android apps</h3>
     <p>Google details new 24-hour "advanced flow" for sideloading unverified Android apps, available before enforcement begins later this year.</p>
-    <a href="https://arstechnica.com/gadgets/2026/03/google-details-new-24-hour-process-to-sideload-unverified-android-apps/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://arstechnica.com/gadgets/2026/03/google-details-new-24-hour-process-to-sideload-unverified-android-apps/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Google details new 24-hour process to sideload unverified Android apps (opens in new tab)">Read article →</a>
 </div>
 
 <h2><span class="radar-tag radar-tag--secu">Security</span></h2>
@@ -229,25 +232,25 @@
 <div class="radar-edition-item">
     <h3>Securing Production Debugging in Kubernetes</h3>
     <p>Recommends security best practices for production debugging: least-privilege RBAC, short-lived identity-bound credentials, and just-in-time SSH-style gateways with automatic session expiry and comprehensive audit logging.</p>
-    <a href="https://kubernetes.io/blog/2026/03/18/securing-production-debugging-in-kubernetes/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://kubernetes.io/blog/2026/03/18/securing-production-debugging-in-kubernetes/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Securing Production Debugging in Kubernetes (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>GitLab 18.10 brings AI-native triage and remediation</h3>
     <p>GitLab 18.10 introduces AI-powered SAST false positive detection (GA), agentic SAST vulnerability resolution (beta), and secret false positive detection (beta), reducing triage time and noise.</p>
-    <a href="https://about.gitlab.com/blog/gitlab-18-10-brings-ai-native-triage-and-remediation/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://about.gitlab.com/blog/gitlab-18-10-brings-ai-native-triage-and-remediation/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : GitLab 18.10 brings AI-native triage and remediation (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Snowflake Cortex AI Escapes Sandbox and Executes Malware</h3>
     <p>PromptArmor reports prompt injection attack in Snowflake Cortex Agent enabling malware execution via process substitution, exploiting insufficient command allowlisting. Vulnerability now fixed.</p>
-    <a href="https://simonwillison.net/2026/Mar/18/snowflake-cortex-ai/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://simonwillison.net/2026/Mar/18/snowflake-cortex-ai/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Snowflake Cortex AI Escapes Sandbox and Executes Malware (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Magento PolyShell Flaw Enables Unauthenticated Uploads, RCE and Account Takeover</h3>
     <p>Sansec warns of critical flaw in Magento REST API allowing unauthenticated attackers to upload arbitrary executables disguised as images, enabling RCE and account takeover.</p>
-    <a href="https://thehackernews.com/2026/03/magento-polyshell-flaw-enables.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://thehackernews.com/2026/03/magento-polyshell-flaw-enables.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Magento PolyShell Flaw Enables Unauthenticated Uploads, RCE and Account Takeover (opens in new tab)">Read article →</a>
 </div>
 
 <h2><span class="radar-tag radar-tag--ia">AI</span></h2>
@@ -255,19 +258,19 @@
 <div class="radar-edition-item">
     <h3>Introducing Mistral Small 4</h3>
     <p>Mistral Small 4: 119B parameter MoE model (6B active) under Apache 2 license, unifying reasoning, multimodal, and agentic coding capabilities. Supports reasoning_effort parameter.</p>
-    <a href="https://simonwillison.net/2026/Mar/16/mistral-small-4/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://simonwillison.net/2026/Mar/16/mistral-small-4/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Introducing Mistral Small 4 (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>1M context is now generally available for Opus 4.6 and Sonnet 4.6</h3>
     <p>Anthropic enables 1M token context for Claude Opus 4.6 and Sonnet 4.6 at standard pricing with no long-context premium, differing from OpenAI and Google's tiered pricing.</p>
-    <a href="https://simonwillison.net/2026/Mar/13/1m-context/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://simonwillison.net/2026/Mar/13/1m-context/#atom-everything" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : 1M context is now generally available for Opus 4.6 and Sonnet 4.6 (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
     <h3>Sashiko: AI code review system for the Linux kernel spots bugs humans miss</h3>
     <p>Sashiko is an AI-powered code review system for the Linux kernel that detects bugs human reviewers miss, focusing on review rather than code submissions.</p>
-    <a href="https://go.theregister.com/feed/www.theregister.com/2026/03/20/sashiko_code_review_linux/" target="_blank" rel="noopener noreferrer" class="radar-edition-source">Read article →</a>
+    <a href="https://go.theregister.com/feed/www.theregister.com/2026/03/20/sashiko_code_review_linux/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Sashiko: AI code review system for the Linux kernel spots bugs humans miss (opens in new tab)">Read article →</a>
 </div>
 
 				<!-- /RADAR_CONTENT -->
