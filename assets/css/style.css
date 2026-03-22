@@ -38,7 +38,6 @@
   --overlay-panel-end:   rgba(18, 18, 18, 0.85);
 
   --shadow-card:    0 8px 24px -4px rgba(0, 0, 0, 0.35);
-  --shadow-card-sm: 0 6px 18px -4px rgba(0, 0, 0, 0.35);
 
   --bg-hero:        #0a0a0a;
 }
@@ -50,19 +49,18 @@ body.light-theme {
   --bg-card:        #f8f8f9;
   --text-primary:   #121212;
   --text-secondary: #374151;
-  --accent:         #3730a3;
-  --accent-hover:   #4338ca;
-  --accent-muted:   rgba(55, 48, 163, 0.08);
+  --accent:         #4540D0;
+  --accent-hover:   #5651E5;
+  --accent-muted:   rgba(69, 64, 208, 0.08);
 
   --header-bg:      rgba(240, 241, 242, 0.9);
   --sticky-bg:      rgba(240, 241, 242, 0.9);
-  --header-border:  rgba(55, 48, 163, 0.08);
+  --header-border:  rgba(69, 64, 208, 0.08);
   --overlay-bg:     rgba(0, 0, 0, 0.2);
   --overlay-panel-start: rgba(248, 249, 250, 0.97);
   --overlay-panel-end:   rgba(248, 249, 250, 0.9);
 
-  --shadow-card:    0 6px 18px -4px rgba(55, 48, 163, 0.08);
-  --shadow-card-sm: 0 6px 18px -4px rgba(55, 48, 163, 0.08);
+  --shadow-card:    0 6px 18px -4px rgba(69, 64, 208, 0.08);
 
   --bg-hero:        #f8f9fa;
 }
@@ -1089,14 +1087,14 @@ body.light-theme .img-light {
 .radar-tag--devops     { color: #8cffa0; background: rgba(140, 255, 160, 0.1); }
 .radar-tag--ia         { color: #c78cff; background: rgba(199, 140, 255, 0.1); }
 .radar-tag--business   { color: #ffa88c; background: rgba(255, 168, 140, 0.1); }
-.radar-tag--frameworks { color: #ffda8c; background: rgba(255, 218, 140, 0.1); }
+.radar-tag--tech { color: #ffda8c; background: rgba(255, 218, 140, 0.1); }
 .radar-tag--secu       { color: #ff8c8c; background: rgba(255, 140, 140, 0.1); }
 
 body.light-theme .radar-tag--cloud      { color: #2563eb; background: rgba(37, 99, 235, 0.08); }
-body.light-theme .radar-tag--devops     { color: #16a34a; background: rgba(22, 163, 74, 0.08); }
+body.light-theme .radar-tag--devops     { color: #15803d; background: rgba(21, 128, 61, 0.08); }
 body.light-theme .radar-tag--ia         { color: #7c3aed; background: rgba(124, 58, 237, 0.08); }
-body.light-theme .radar-tag--business   { color: #ea580c; background: rgba(234, 88, 12, 0.08); }
-body.light-theme .radar-tag--frameworks { color: #ca8a04; background: rgba(202, 138, 4, 0.08); }
+body.light-theme .radar-tag--business   { color: #c2410c; background: rgba(194, 65, 12, 0.08); }
+body.light-theme .radar-tag--tech { color: #a16207; background: rgba(161, 98, 7, 0.08); }
 body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 38, 38, 0.08); }
 
 .radar-card-count {
@@ -1142,6 +1140,10 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 .radar-load-more {
 	cursor: pointer;
 	margin-top: 2rem;
+	border: none;
+	background: none;
+	padding: 0;
+	font: inherit;
 }
 
 /* ───── Tech Radar Edition page ───── */
@@ -1331,7 +1333,7 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="all"].activ
 .radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #8cffa0; border-color: #8cffa0; }
 .radar-tags-filter .radar-filter-btn[data-category="ia"]         { color: #c78cff; border-color: #c78cff; }
 .radar-tags-filter .radar-filter-btn[data-category="business"]   { color: #ffa88c; border-color: #ffa88c; }
-.radar-tags-filter .radar-filter-btn[data-category="frameworks"] { color: #ffda8c; border-color: #ffda8c; }
+.radar-tags-filter .radar-filter-btn[data-category="tech"] { color: #ffda8c; border-color: #ffda8c; }
 .radar-tags-filter .radar-filter-btn[data-category="secu"]       { color: #ff8c8c; border-color: #ff8c8c; }
 
 /* Active : fond couleur atténuée + texte foncé */
@@ -1339,24 +1341,24 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="all"].activ
 .radar-tags-filter .radar-filter-btn[data-category="devops"].active     { background: rgba(140, 255, 160, 0.8); color: var(--bg-primary); }
 .radar-tags-filter .radar-filter-btn[data-category="ia"].active         { background: rgba(199, 140, 255, 0.8); color: var(--bg-primary); }
 .radar-tags-filter .radar-filter-btn[data-category="business"].active   { background: rgba(255, 168, 140, 0.8); color: var(--bg-primary); }
-.radar-tags-filter .radar-filter-btn[data-category="frameworks"].active { background: rgba(255, 218, 140, 0.8); color: var(--bg-primary); }
+.radar-tags-filter .radar-filter-btn[data-category="tech"].active { background: rgba(255, 218, 140, 0.8); color: var(--bg-primary); }
 .radar-tags-filter .radar-filter-btn[data-category="secu"].active       { background: rgba(255, 140, 140, 0.8); color: var(--bg-primary); }
 
 /* Couleurs boutons filtre — light */
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="cloud"]      { color: #2563eb; border-color: #2563eb; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #16a34a; border-color: #16a34a; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #15803d; border-color: #15803d; }
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="ia"]         { color: #7c3aed; border-color: #7c3aed; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="business"]   { color: #ea580c; border-color: #ea580c; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="frameworks"] { color: #ca8a04; border-color: #ca8a04; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="business"]   { color: #c2410c; border-color: #c2410c; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="tech"] { color: #a16207; border-color: #a16207; }
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"]       { color: #dc2626; border-color: #dc2626; }
 
-/* Active light : fond couleur atténuée + texte blanc */
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="cloud"].active      { background: rgba(37, 99, 235, 0.8); color: #fff; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"].active     { background: rgba(22, 163, 74, 0.8); color: #fff; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="ia"].active         { background: rgba(124, 58, 237, 0.8); color: #fff; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="business"].active   { background: rgba(234, 88, 12, 0.8); color: #fff; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="frameworks"].active { background: rgba(202, 138, 4, 0.8); color: #fff; }
-body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"].active       { background: rgba(220, 38, 38, 0.8); color: #fff; }
+/* Active light : fond couleur + texte blanc */
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="cloud"].active      { background: #2563eb; color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"].active     { background: #15803d; color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="ia"].active         { background: #7c3aed; color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="business"].active   { background: #c2410c; color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="tech"].active { background: #a16207; color: #fff; }
+body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"].active       { background: #dc2626; color: #fff; }
 
 .radar-edition .article-nav {
 	margin-top: 3rem;
@@ -1372,7 +1374,19 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"].acti
 	line-height: 1.6;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+	.radar-tags-filter {
+		overflow-x: visible;
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.radar-filter-fade {
+		display: none;
+	}
+
 	.radar-card:hover {
 		transform: scale(1.03);
 	}

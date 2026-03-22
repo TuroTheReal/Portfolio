@@ -14,6 +14,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
+	<!--
+		SEO GUIDELINES — placeholders to fill:
+		{{WEEK}}             → week number (e.g. 12)
+		{{MONTH_EN}}         → month name in English (e.g. March)
+		{{YEAR}}             → year (e.g. 2026)
+		{{SEO_TITLE}}        → "Tech Radar — Week {{WEEK}} ({{MONTH_EN}} {{YEAR}})" — max 60 chars
+		{{META_DESCRIPTION}} → "X articles: headline1, headline2, … and more." — max 155 chars
+		{{DATE_ISO}}         → full ISO 8601: YYYY-MM-DDT00:00:00Z
+		{{FILENAME}}         → e.g. 2026-week-12.html
+		{{ARTICLE_COUNT}}    → total number of articles
+	-->
 	<meta name="description" content="Tech Radar Week {{WEEK}} — {{META_DESCRIPTION}}">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
@@ -29,22 +40,24 @@
 	<meta property="og:locale:alternate" content="fr_FR">
 	<meta property="og:site_name" content="Arthur Bernard">
 	<meta property="og:image" content="https://arthur-portfolio.com/assets/img/og-image.png">
+	<meta property="og:image:alt" content="Tech Radar — Week {{WEEK}} by Arthur Bernard">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<meta property="article:published_time" content="{{DATE_ISO}}">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Tech Radar — Week {{WEEK}}">
+	<meta name="twitter:title" content="{{SEO_TITLE}}">
 	<meta name="twitter:description" content="{{META_DESCRIPTION}}">
 	<meta name="twitter:image" content="https://arthur-portfolio.com/assets/img/og-image.png">
+	<meta name="twitter:image:alt" content="Tech Radar — Week {{WEEK}} by Arthur Bernard">
 
 	<!-- JSON-LD -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "Article",
-		"headline": "Tech Radar — Week {{WEEK}}",
+		"headline": "{{SEO_TITLE}}",
 		"description": "{{META_DESCRIPTION}}",
 		"datePublished": "{{DATE_ISO}}",
 		"inLanguage": "en",
@@ -79,7 +92,7 @@
 	<!-- Header -->
 	<header class="header">
 		<a href="/en/#Home" class="logo">A.</a>
-		<nav class="nav">
+		<nav class="nav" aria-label="Main navigation">
 			<a href="/en/#Home">Home</a>
 			<a href="/en/#About">About</a>
 			<a href="/en/#Work">Projects</a>
@@ -90,7 +103,7 @@
 		</nav>
 		<div class="header-actions">
 			<button class="lang-toggle active" data-lang="en">EN</button>
-			<span class="lang-sep">|</span>
+			<span class="lang-sep" aria-hidden="true">|</span>
 			<button class="lang-toggle" data-lang="fr">FR</button>
 			<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
 		</div>
@@ -100,7 +113,7 @@
 	<!-- Slide panel mobile -->
 	<div class="overlay">
 		<div class="overlay-panel">
-			<nav>
+			<nav aria-label="Menu">
 				<a href="/en/#Home">Home</a>
 				<a href="/en/#About">About</a>
 				<a href="/en/#Work">Projects</a>
@@ -112,7 +125,7 @@
 			<div class="overlay-bottom">
 				<div class="overlay-lang">
 					<button class="lang-toggle active" data-lang="en">EN</button>
-					<span class="lang-sep">|</span>
+					<span class="lang-sep" aria-hidden="true">|</span>
 					<button class="lang-toggle" data-lang="fr">FR</button>
 				</div>
 				<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
@@ -125,7 +138,7 @@
 
 			<!-- Edition header -->
 			<header class="article-header" data-fade>
-				<a href="/en/tech-radar/" class="article-back">&larr; Back to Tech Radar</a>
+				<a href="/en/tech-radar/" class="article-back"><span aria-hidden="true">&larr;</span> Back to Tech Radar</a>
 				<h1>Tech Radar — Week {{WEEK}}</h1>
 				<div class="article-meta">
 					<time datetime="{{DATE_ISO}}">{{DATE_DISPLAY}}</time>
@@ -135,15 +148,16 @@
 
 			<!-- Category filter -->
 			<div class="radar-filter-fade"></div>
-			<div class="radar-tags-filter" data-fade>
-				<button class="radar-filter-btn active" data-category="all">All</button>
-				<button class="radar-filter-btn" data-category="business">Business</button>
-				<button class="radar-filter-btn" data-category="cloud">Cloud</button>
-				<button class="radar-filter-btn" data-category="devops">DevOps</button>
-				<button class="radar-filter-btn" data-category="frameworks">Tech</button>
-				<button class="radar-filter-btn" data-category="secu">Security</button>
-				<button class="radar-filter-btn" data-category="ia">AI</button>
+			<div class="radar-tags-filter" role="group" aria-label="Filter by category" data-fade>
+				<button class="radar-filter-btn active" data-category="all" aria-pressed="true">All</button>
+				<button class="radar-filter-btn" data-category="business" aria-pressed="false">Business</button>
+				<button class="radar-filter-btn" data-category="cloud" aria-pressed="false">Cloud</button>
+				<button class="radar-filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+				<button class="radar-filter-btn" data-category="tech" aria-pressed="false">Tech</button>
+				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Security</button>
+				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">AI</button>
 			</div>
+			<div aria-live="polite" class="sr-only" id="filter-status"></div>
 
 			<!-- Edition body -->
 			<div class="article-body" data-fade>
