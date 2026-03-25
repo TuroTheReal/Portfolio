@@ -14,15 +14,26 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="Tech Radar Week 12 — 18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.">
+	<!--
+		SEO GUIDELINES — placeholders to fill:
+		12             → week number (e.g. 12)
+		{{MONTH_EN}}         → month name in English (e.g. March)
+		{{YEAR}}             → year (e.g. 2026)
+		Tech Radar Week 12 — Business, Cloud, DevOps, Tech, Security & AI News (March 2026)        → "Tech Radar — Week 12 ({{MONTH_EN}} {{YEAR}})" — max 60 chars
+		Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more. → "X articles: headline1, headline2, … and more." — max 155 chars
+		2026-03-20         → full ISO 8601: YYYY-MM-DDT00:00:00Z
+		2026-week-12.html         → e.g. 2026-week-12.html
+		18    → total number of articles
+	-->
+	<meta name="description" content="Tech Radar Week 12 — Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>Tech Radar — Week 12 (March 2026) — Arthur Bernard</title>
+	<title>Tech Radar Week 12 — Business, Cloud, DevOps, Tech, Security & AI News (March 2026) — Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Tech Radar — Week 12 (March 2026)">
-	<meta property="og:description" content="18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.">
+	<meta property="og:title" content="Tech Radar Week 12 — Business, Cloud, DevOps, Tech, Security & AI News (March 2026)">
+	<meta property="og:description" content="Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.">
 	<meta property="og:url" content="https://arthur-portfolio.com/en/tech-radar/2026-week-12.html">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
@@ -32,12 +43,12 @@
 	<meta property="og:image:alt" content="Tech Radar — Week 12 by Arthur Bernard">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
-	<meta property="article:published_time" content="2026-03-20T00:00:00Z">
+	<meta property="article:published_time" content="2026-03-20">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Tech Radar — Week 12 (March 2026)">
-	<meta name="twitter:description" content="18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.">
+	<meta name="twitter:title" content="Tech Radar Week 12 — Business, Cloud, DevOps, Tech, Security & AI News (March 2026)">
+	<meta name="twitter:description" content="Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.">
 	<meta name="twitter:image" content="https://arthur-portfolio.com/assets/img/og-image.png">
 	<meta name="twitter:image:alt" content="Tech Radar — Week 12 by Arthur Bernard">
 
@@ -46,9 +57,9 @@
 	{
 		"@context": "https://schema.org",
 		"@type": "Article",
-		"headline": "Tech Radar — Week 12 (March 2026)",
-		"description": "18 articles: OpenAI acquires Astral, AWS S3 turns 20, Kubernetes image promoter rewrite, Windows breaks Teams & OneDrive, and more.",
-		"datePublished": "2026-03-20T00:00:00Z",
+		"headline": "Tech Radar Week 12 — Business, Cloud, DevOps, Tech, Security & AI News (March 2026)",
+		"description": "Thoughts on OpenAI acquiring Astral and uv/ruff/ty, AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026), The Invisible Rewrite: Modernizing the Kubernetes Image Promoter, Microsoft: March Windows updates break Teams, OneDrive sign-ins and more.",
+		"datePublished": "2026-03-20",
 		"inLanguage": "en",
 		"author": {
 			"@type": "Person",
@@ -145,6 +156,7 @@
 				<button class="radar-filter-btn" data-category="tech" aria-pressed="false">Tech</button>
 				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Security</button>
 				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">AI</button>
+
 			</div>
 			<div aria-live="polite" class="sr-only" id="filter-status"></div>
 
@@ -172,7 +184,7 @@
 <div class="radar-edition-item">
     <h3>AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026)</h3>
     <p>Amazon S3 marks 20 years since its public launch in March 2006, evolving from simple object storage into foundational cloud infrastructure. Route 53 Global Resolver reaches general availability.</p>
-    <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-s3-turns-20-amazon-route-53-global-resolver-general-availability-and-more-march-16-2026/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver… (opens in new tab)">Read article →</a>
+    <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-s3-turns-20-amazon-route-53-global-resolver-general-availability-and-more-march-16-2026/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general availability, and more (March 16, 2026) (opens in new tab)">Read article →</a>
 </div>
 
 <div class="radar-edition-item">
@@ -280,7 +292,6 @@
 			<!-- Edition navigation -->
 			<nav class="article-nav" data-fade>
 <!-- RADAR_NAV -->
-
 <!-- /RADAR_NAV -->
 			</nav>
 

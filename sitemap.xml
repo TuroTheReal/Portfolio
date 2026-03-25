@@ -130,4 +130,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/tech-radar/"/>
   </url>
 
+  <url>
+    <loc>https://arthur-portfolio.com/en/tech-radar/2026-week-12</loc>
+    <lastmod>2026-03-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/tech-radar/2026-week-12"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/tech-radar/2026-week-12"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/tech-radar/2026-week-12"/>
+  </url>
+
+  <url>
+    <loc>https://arthur-portfolio.com/fr/tech-radar/2026-week-12</loc>
+    <lastmod>2026-03-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/tech-radar/2026-week-12"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/tech-radar/2026-week-12"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/tech-radar/2026-week-12"/>
+  </url>
+
 </urlset>
