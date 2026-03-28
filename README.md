@@ -54,6 +54,7 @@ Portfolio/
 ├── assets/
 │   ├── css/
 │   │   ├── style.css          # Main stylesheet (variables, layout, components)
+│   │   ├── blog.css           # Blog listing & article styles
 │   │   └── resume.css         # Resume/CV page styles
 │   ├── img/                   # Images (og-image.png, PhotoPro)
 │   │   ├── projects/          # Project screenshots (dark + light variants)
@@ -63,10 +64,14 @@ Portfolio/
 │   └── script.js              # Burger menu, scroll, theme/lang toggle, observers
 ├── en/
 │   ├── index.html             # Homepage — English
-│   └── resume.html            # Resume/CV — English
+│   ├── resume.html            # Resume/CV — English
+│   ├── blog/                  # Blog articles — English
+│   └── tech-radar/            # Tech Radar listing & editions — English
 ├── fr/
 │   ├── index.html             # Homepage — French
-│   └── resume.html            # Resume/CV — French
+│   ├── resume.html            # Resume/CV — French
+│   ├── blog/                  # Blog articles — French
+│   └── tech-radar/            # Tech Radar listing & editions — French
 ├── index.html                 # Root redirect (lang detection → /en/ or /fr/)
 ├── _redirects                 # Netlify 301 redirects (old URLs → new folder-based)
 ├── netlify.toml               # Netlify build config + redirects
@@ -111,8 +116,11 @@ python3 -m http.server 8080
 ## 📖 Features
 
 - **Bilingual** — Full EN/FR versions with folder-based i18n (`/en/`, `/fr/`), seamless language switching (preserves scroll position)
-- **Dark/Light theme** — Toggle with localStorage persistence, separate color palettes
+- **Dark/Light theme** — Toggle with localStorage persistence, separate color palettes (AAA contrast)
 - **Responsive** — Mobile-first design with slide panel menu, tablet grid, desktop navigation
+- **Blog** — Bilingual articles with tag-based filtering, category system
+- **Tech Radar** — Weekly tech watch with category filters, edition navigation, automated via [weekly-tech-radar](https://github.com/TuroTheReal/weekly-tech-radar) pipeline
+- **Smooth scroll** — Variable speed easeInOutCubic scroll-to-section on filter/nav clicks
 - **Smooth animations** — Scroll-based fade-in (IntersectionObserver), animated mesh gradient blobs, hover effects
 - **Active nav tracking** — Ratio-based IntersectionObserver highlights current section
 - **Auto-hide header** — Header hides on scroll down, reveals on scroll up (mobile only)
