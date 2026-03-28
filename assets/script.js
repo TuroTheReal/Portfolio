@@ -498,7 +498,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Mettre à jour le bouton actif
       tagFilter.querySelectorAll('button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      const container = btn.closest('.blog-tag-filter');
+      if (container) {
+        const btnCenter = btn.offsetLeft - container.offsetLeft + btn.offsetWidth / 2;
+        container.scrollTo({ left: btnCenter - container.clientWidth / 2, behavior: 'smooth' });
+      }
 
       // Filtrer les cards
       blogCards.forEach(card => {
@@ -664,7 +668,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const matchBtn = radarFilter.querySelector(`[data-category="${catName}"]`);
         if (matchBtn) {
           setActiveFilter(matchBtn);
-          matchBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          const container = matchBtn.closest('.radar-tags-filter');
+          if (container) {
+            const btnCenter = matchBtn.offsetLeft - container.offsetLeft + matchBtn.offsetWidth / 2;
+            container.scrollTo({ left: btnCenter - container.clientWidth / 2, behavior: 'smooth' });
+          }
         }
       }
 
