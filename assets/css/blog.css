@@ -481,7 +481,8 @@ body.light-theme .article-body pre {
 	font-family: 'Courier New', Courier, monospace;
 }
 
-.article-body p code {
+.article-body p code,
+.article-body li code {
 	background: var(--accent-muted);
 	padding: 0.15rem 0.4rem;
 	border-radius: 4px;

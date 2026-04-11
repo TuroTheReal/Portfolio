@@ -115,6 +115,38 @@
   </url>
 
   <url>
+    <loc>https://arthur-portfolio.com/en/blog/aws-terraform-ansible</loc>
+    <lastmod>2026-03-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/aws-terraform-ansible"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/aws-terraform-ansible"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/aws-terraform-ansible"/>
+  </url>
+
+  <url>
+    <loc>https://arthur-portfolio.com/fr/blog/aws-terraform-ansible</loc>
+    <lastmod>2026-03-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/aws-terraform-ansible"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/aws-terraform-ansible"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/aws-terraform-ansible"/>
+  </url>
+
+  <url>
+    <loc>https://arthur-portfolio.com/en/blog/criteo-interview</loc>
+    <lastmod>2026-03-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/criteo-interview"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/criteo-interview"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/criteo-interview"/>
+  </url>
+
+  <url>
+    <loc>https://arthur-portfolio.com/fr/blog/criteo-interview</loc>
+    <lastmod>2026-03-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/criteo-interview"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/criteo-interview"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/criteo-interview"/>
+  </url>
+
+  <url>
     <loc>https://arthur-portfolio.com/en/tech-radar/</loc>
     <lastmod>2026-03-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/tech-radar/"/>
