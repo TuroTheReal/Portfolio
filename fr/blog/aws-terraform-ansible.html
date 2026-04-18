@@ -161,7 +161,7 @@
 
 				<p>L'objectif : déployer une application conteneurisée sur AWS, de manière entièrement automatisée, en utilisant Terraform pour le provisioning et Ansible pour la configuration. Le tout en restant dans le Free Tier AWS pour ne pas recevoir de facture surprise.</p>
 
-				<p>Ça reste un projet modeste. Il y a des dizaines de façons de monter ce type d'infra — ALB, HTTPS avec ACM, base RDS managée, ECS pour l'orchestration. J'ai volontairement ignoré tout ça. Le but n'était pas de construire une architecture production-ready, c'était de comprendre les fondamentaux : la programmation déclarative, le provisioning, la configuration automatisée, et comment ces briques s'assemblent.</p>
+				<p>Cela reste un projet modeste. Il y a des dizaines de façons de monter ce type d'infra — ALB, HTTPS avec ACM, base RDS managée, ECS pour l'orchestration. J'ai volontairement ignoré tout ça. Le but n'était pas de construire une architecture production-ready, c'était de comprendre les fondamentaux : la programmation déclarative, le provisioning, la configuration automatisée, et comment ces briques s'assemblent.</p>
 
 				<h2>Deux outils, deux rôles</h2>
 				<p>Un point qui m'a pris du temps à bien intégrer : Terraform et Ansible ne font pas la même chose.</p>
@@ -227,7 +227,7 @@ resource "null_resource" "run_ansible" {
 				<h2>L'architecture</h2>
 				<p>Deux instances EC2 (Ubuntu 24.04) dans le VPC par défaut, région eu-west-3. Un security group qui autorise le SSH (port 22) et le HTTP (port 80).</p>
 
-				<p>Pas d'HTTPS : ça nécessite soit un ALB (Application Load Balancer) avec un certificat ACM, soit une Elastic IP fixe pour pointer un domaine — les deux sont hors Free Tier. Le projet reste en HTTP uniquement.</p>
+				<p>Pas d'HTTPS : cela nécessite soit un ALB (Application Load Balancer) avec un certificat ACM, soit une Elastic IP fixe pour pointer un domaine — les deux sont hors Free Tier. Le projet reste en HTTP uniquement.</p>
 
 				<p>Sur chaque instance, quatre conteneurs Docker orchestrés avec Docker Compose :</p>
 
@@ -247,7 +247,7 @@ resource "null_resource" "run_ansible" {
 				<p>Les deux instances sont indépendantes. Pas de synchronisation de données entre elles. C'est une limite assumée du scope Free Tier.</p>
 
 				<h2>IAM : la première vraie leçon</h2>
-				<p>Au début, je faisais tout avec le compte root AWS. Terraform, la console, tout. Ça fonctionnait, mais c'est exactement ce qu'il ne faut pas faire.</p>
+				<p>Au début, je faisais tout avec le compte root AWS. Terraform, la console, tout. Cela fonctionnait, mais c'est exactement ce qu'il ne faut pas faire.</p>
 
 				<p>Le compte root a les pleins pouvoirs sur l'ensemble du compte AWS. L'utiliser pour des opérations courantes, c'est comme travailler en permanence en <code>sudo</code> sur un serveur Linux — ça marche jusqu'au jour où une mauvaise commande fait des dégâts.</p>
 
@@ -272,7 +272,7 @@ resource "null_resource" "run_ansible" {
 
 				<p><strong>Les healthchecks et l'ordre de démarrage.</strong> Terraform crée les instances EC2, mais elles ne sont pas immédiatement prêtes à recevoir des connexions SSH. Si Ansible se lance trop tôt, tout échoue. Il a fallu ajouter un mécanisme d'attente : une boucle qui teste la connexion SSH avec un timeout et un intervalle de retry avant de déclencher les playbooks.</p>
 
-				<p>Même problème côté conteneurs. WordPress dépend de MariaDB, Nginx dépend de WordPress. Si un service démarre avant que sa dépendance ne soit prête, il crash ou reste bloqué. Docker Compose gère les <code>depends_on</code>, mais ça ne garantit pas que le service est réellement opérationnel — juste que le conteneur est démarré. Il a fallu ajouter des checks HTTP dans Ansible pour s'assurer que WordPress répondait vraiment avant de passer à l'étape suivante :</p>
+				<p>Même problème côté conteneurs. WordPress dépend de MariaDB, Nginx dépend de WordPress. Si un service démarre avant que sa dépendance ne soit prête, il crash ou reste bloqué. Docker Compose gère les <code>depends_on</code>, mais cela ne garantit pas que le service est réellement opérationnel — juste que le conteneur est démarré. Il a fallu ajouter des checks HTTP dans Ansible pour s'assurer que WordPress répondait vraiment avant de passer à l'étape suivante :</p>
 
 				<pre><code>- name: Pause play until a URL is reachable from this host
   ansible.builtin.uri:

@@ -809,14 +809,12 @@ body.light-theme .img-light {
 [data-fade] {
   opacity: 0;
   transform: translateY(24px);
-  filter: blur(2px);
-  transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 [data-fade].visible {
   opacity: 1;
   transform: none;
-  filter: none;
 }
 
 /* === REDUCED MOTION === */

@@ -21,6 +21,10 @@ AWS, Kubernetes, Docker, Terraform, Ansible, CI/CD (GitHub Actions), Python, Bas
 2. 42 Piscine and Core Curriculum — Experience at 42 school
 3. Glasck — First Production Launch — Deploying a SaaS project
 4. My DevOps Roadmap — Learning path and priorities
+5. AWS Infrastructure Automation With Terraform & Ansible — IaC project on AWS Free Tier
+6. How I Failed My Criteo Interview — Honest post-mortem on a missed SRE interview
+7. How I Landed My Internship at Alan — Python learned in 10 days, 4-step process
+8. My Learning System: Obsidian + Claude — GitHub repo as knowledge vault, AI-assisted learning without dependency
 
 ## Contact
 - GitHub: https://github.com/TuroTheReal
