@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5R3CELDV2W"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-5R3CELDV2W');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<meta name="description" content="Mon système d'apprentissage DevOps avec Obsidian et Claude — repo GitHub comme coffre-fort de savoir, workflow concret, guidelines pour ne pas dépendre de l'IA.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Mon système d'apprentissage : Obsidian + Claude | Arthur Bernard</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Mon système d'apprentissage : Obsidian + Claude">
+	<meta property="og:description" content="Repo GitHub comme coffre-fort de savoir, Obsidian pour visualiser, Claude pour comprendre — sans devenir dépendant.">
+	<meta property="og:url" content="https://arthur-portfolio.com/fr/blog/obsidian-claude-learning-system">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthur-portfolio.com/assets/img/blog/obsidian-claude-learning-system.webp">
+	<meta property="og:image:width" content="1536">
+	<meta property="og:image:height" content="1024">
+	<meta property="article:published_time" content="2026-04-17">
+	<meta property="article:author" content="Arthur Bernard">
+	<meta property="article:tag" content="DevOps">
+	<meta property="article:tag" content="Projet">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Mon système d'apprentissage : Obsidian + Claude">
+	<meta name="twitter:description" content="Repo GitHub comme coffre-fort de savoir, Obsidian pour visualiser, Claude pour comprendre — sans devenir dépendant.">
+	<meta name="twitter:image" content="https://arthur-portfolio.com/assets/img/blog/obsidian-claude-learning-system.webp">
+
+	<!-- JSON-LD Article -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "Mon système d'apprentissage : Obsidian + Claude",
+		"description": "Mon système d'apprentissage DevOps avec Obsidian et Claude — repo GitHub comme coffre-fort de savoir, workflow concret, guidelines pour ne pas dépendre de l'IA.",
+		"image": "https://arthur-portfolio.com/assets/img/blog/obsidian-claude-learning-system.webp",
+		"datePublished": "2026-04-17",
+		"dateModified": "2026-04-17",
+		"inLanguage": "fr",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthur-portfolio.com"
+		},
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard"
+		},
+		"mainEntityOfPage": "https://arthur-portfolio.com/fr/blog/obsidian-claude-learning-system"
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthur-portfolio.com/en/blog/obsidian-claude-learning-system">
+	<link rel="alternate" hreflang="fr" href="https://arthur-portfolio.com/fr/blog/obsidian-claude-learning-system">
+	<link rel="alternate" hreflang="x-default" href="https://arthur-portfolio.com/en/blog/obsidian-claude-learning-system">
+
+	<link rel="canonical" href="https://arthur-portfolio.com/fr/blog/obsidian-claude-learning-system">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap"></noscript>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/fr/#Home" class="logo">A.</a>
+		<nav class="nav" aria-label="Navigation principale">
+			<a href="/fr/#Home">Accueil</a>
+			<a href="/fr/#About">À propos</a>
+			<a href="/fr/#Work">Projets</a>
+			<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/">Tech Radar</a>
+			<a href="/fr/resume">CV</a>
+			<a href="/fr/#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle active" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/fr/#Home">Accueil</a>
+				<a href="/fr/#About">À propos</a>
+				<a href="/fr/#Work">Projets</a>
+				<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/">Tech Radar</a>
+				<a href="/fr/resume">CV</a>
+				<a href="/fr/#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle active" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<article class="blog-article">
+
+			<!-- En-tête article -->
+			<header class="article-header" data-fade>
+				<a href="/fr/blog" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Blog</a>
+				<h1>Mon système d'apprentissage : Obsidian + Claude</h1>
+				<div class="article-meta">
+					<time datetime="2026-04-17">17 avril 2026</time>
+					<span class="article-read-time">12 min de lecture</span>
+				</div>
+				<div class="article-tags">
+					<span>DevOps</span>
+					<span>Projet</span>
+				</div>
+			</header>
+
+			<!-- Image hero -->
+			<div class="article-hero" data-fade>
+				<img src="../../assets/img/blog/obsidian-claude-learning-system.webp" alt="Illustration minimaliste d'un graphe de connaissances — formes géométriques reliées en indigo profond" fetchpriority="high">
+			</div>
+
+			<!-- Corps de l'article -->
+			<div class="article-body" data-fade>
+
+				<h2>Le problème de départ</h2>
+				<p>Pendant des mois, j'ai appris à la volée : documentation, tutos, discussions avec d'autres développeurs, conversations avec Claude. Et rien à la sortie que des brouillons, des feuilles volantes. Rien d'écrit, rien de structuré.</p>
+
+				<p>Je comprenais toujours les bases globales d'un concept. Mais dès qu'il fallait creuser un peu plus, j'oubliais. C'est encore le cas aujourd'hui — le fait d'écrire ne me donne pas une mémoire parfaite, mais cela me permet de mieux retenir sur le moment, et de retrouver facilement ensuite.</p>
+
+				<p>Le vrai point faible : ce que j'avais creusé, justement, je m'en souvenais souvent moins bien que les bases. Les détails spécifiques disparaissaient en premier. Et sans trace, pas moyen de réactiver.</p>
+
+				<p>Cela ne posait pas de problème tant que je bossais sur du court terme. Dès que j'ai commencé à empiler des technos — Docker, Swarm, Terraform, Ansible, AWS — j'ai senti que je perdais le fil.</p>
+
+				<h2>Le déclencheur</h2>
+				<p>Deux choses en même temps : j'ai pris un abonnement Claude, et j'allais attaquer mon projet AWS + Terraform + Ansible. Un projet plus gros que tout ce que j'avais fait avant.</p>
+
+				<p>J'ai compris que si je démarrais sans rien pour poser les choses au fur et à mesure, j'allais finir avec des bouts de compréhension dispersés et aucune manière de les retrouver.</p>
+
+				<p>Avant d'installer quoi que ce soit, j'ai pris le temps de me documenter sur deux sujets :</p>
+
+				<ol>
+					<li><strong>Comment mieux structurer ses notes et ses connaissances.</strong> C'est là que j'ai croisé le Zettelkasten (méthode de Niklas Luhmann basée sur des notes atomiques — une note = une idée — reliées entre elles par des liens bidirectionnels, plus un concept est relié, plus il devient central) et PARA de Tiago Forte (classement en Projects, Areas, Resources, Archives). J'ai pris ce qui me parlait dans chaque : l'atomicité et les liens du premier, le découpage par nature d'usage du second. Je n'applique ni l'un ni l'autre à la lettre.</li>
+					<li><strong>Comment mieux utiliser Claude pour apprendre.</strong> Anti-dépendance, ratio assistance/autonomie, prompts qui challengent plutôt que qui donnent la réponse directe.</li>
+				</ol>
+
+				<p>Après ça seulement, j'ai installé Obsidian et créé un repo GitHub pour héberger tout.</p>
+
+				<h2>Mise en place concrète</h2>
+				<p>Il faut démystifier un truc : ce n'est pas "un vault Obsidian". C'est un repo GitHub qui sert de coffre-fort de savoir. Obsidian est juste l'outil qui permet de le visualiser, de chercher dedans, et de lier les fichiers entre eux. Les notes sont des fichiers markdown. Si demain Obsidian disparaît, le repo reste lisible avec n'importe quel éditeur de texte.</p>
+
+				<p>Mon repo est public sur GitHub. Si tu veux voir à quoi cela ressemble en vrai, clone-le : <a href="https://github.com/TuroTheReal/devops-cloud_vault" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/devops-cloud_vault</a>.</p>
+
+				<p>Structure actuelle :</p>
+
+				<ul>
+					<li><code>concepts/</code> — comment ça marche (Docker, Terraform, AWS, réseau, Linux)</li>
+					<li><code>cheatsheets/</code> — les commandes utiles par techno</li>
+					<li><code>projects/</code> — retours d'expérience par projet</li>
+					<li><code>MOCs/</code> — maps of content, points d'entrée par thème</li>
+					<li><code>troubleshooting/</code> — problèmes rencontrés et solutions vérifiées</li>
+					<li><code>meta/</code> — templates et guidelines</li>
+				</ul>
+
+				<p>Dans Obsidian, deux choses font la différence par rapport à un dossier de markdown classique :</p>
+
+				<ul>
+					<li><strong>Les liens <code>[[note]]</code></strong> — tu relies une fiche concept à un projet, un troubleshooting à un concept. L'outil reconstruit le graphe des relations automatiquement, et c'est grâce à cela qu'on peut visualiser ce fameux "réseau de neurones" très satisfaisant quand il commence à se densifier.</li>
+					<li><strong>Les métadonnées YAML</strong> — tags, statut (<code>status/learning</code>, <code>status/mastered</code>), difficulté, date de création. Cela permet de filtrer et de requêter plus tard.</li>
+				</ul>
+
+				<h2>Mon workflow concret</h2>
+
+				<h3>1. Découverte et validation</h3>
+				<p>Quand je tombe sur un nouveau concept, je commence par en discuter avec Claude pour poser les bases. Puis je valide en croisant avec la documentation officielle. C'est non-négociable.</p>
+
+				<p>Ma hiérarchie de sources est stricte :</p>
+
+				<ol>
+					<li><strong>Documentation officielle</strong> — source de vérité absolue, sans discussion</li>
+					<li><strong>Blogs tech reconnus</strong> (AWS, CNCF, Hashicorp, etc.)</li>
+					<li><strong>Stack Overflow / discussions techniques pointues</strong></li>
+				</ol>
+
+				<p>Ce que je refuse : Reddit généraliste, blogs non-tech, contenus reformulés qui citent d'autres reformulations. Et dans mes guidelines Claude, c'est écrit noir sur blanc : l'IA doit traiter la doc officielle comme la source de vérité absolue. Pas d'approximation, pas de "j'ai lu quelque part que".</p>
+
+				<p>Pendant cette phase, je reformule ce que j'ai compris avec mes propres mots. Souvent j'essaie une analogie pour imager le concept. Si je ne peux pas le reformuler ou trouver une image, c'est que je ne l'ai pas compris — et je replonge dans la doc.</p>
+
+				<p>Pour les concepts que je connais déjà un peu, utiliser l'IA pour synthétiser est un vrai gain de temps. Mais dès qu'on passe à un problème précis appliqué à un besoin spécifique, il faut retourner à la doc officielle ou creuser dans le code source. L'IA sans contexte donne une réponse globale, pas précise. Si je veux du précis, je dois poser le contexte explicitement — sinon je perds plus de temps à vérifier sa réponse qu'à chercher moi-même.</p>
+
+				<h3>2. Contextualisation avec Claude</h3>
+				<p>Une fois que j'ai saisi l'idée générale, je crée un projet Claude dédié pour la techno ou le projet sur lequel je vais bosser. En plus de mes guidelines principales chargées globalement, ce projet contient :</p>
+
+				<ul>
+					<li>La doc officielle que je veux que Claude ait en tête</li>
+					<li>Le contexte précis de ce que je vais faire</li>
+					<li>L'exercice ou le projet concret auquel je m'attaque</li>
+					<li>La discussion précédente aussi, pour valider, poser les bases, situer où j'en suis pour l'IA</li>
+				</ul>
+
+				<p>C'est un gros travail de contextualisation à chaque fois. Mais c'est ce qui permet à Claude de vraiment m'aider plutôt que de me donner des réponses génériques. L'IA sans contexte = un moteur de recherche amélioré. L'IA avec mon contexte = un interlocuteur qui comprend ce que j'essaie de faire.</p>
+
+				<p>C'est d'ailleurs là que je commence à me concentrer de plus en plus : le contexte engineering plutôt que le prompt. Un bon prompt sans contexte vaut moins qu'un prompt moyen avec le bon contexte. C'est depuis que j'essaye de passer de prompt à context engineering avec l'IA.</p>
+
+				<h3>3. Implémentation et notes en temps réel</h3>
+				<p>Je passe au projet. Je tente, j'implémente, je casse. Je prends les notes au fur et à mesure, pas à la fin.</p>
+
+				<p>Ce point est important parce que j'ai fait l'erreur inverse au début : attendre la fin du projet pour tout documenter. Résultat, je zappais déjà des points, je ne me souvenais plus de mes premières galères, je ne retrouvais plus pourquoi j'avais fait tel choix à un moment donné. Aujourd'hui je capture à chaud — même en bazar, même incomplet. Le tri vient après.</p>
+
+				<h3>4. Formatage avec mes templates (et une bonne dose d'itérations)</h3>
+				<p>Une fois une étape importante atteinte, je décide si ce que j'ai appris mérite d'aller dans le repo. Si c'est un concept réutilisable, une techno nouvelle, un problème récurrent ou critique, ça y va.</p>
+
+				<p>Là Claude m'aide à mettre en forme. Je lui donne mes notes brutes + le template concerné, et je lui demande de structurer. La règle absolue : <strong>les concepts restent dans mes mots</strong>. Si je laisse Claude paraphraser à ma place, je perds la trace de ce que j'avais compris, et la fiche ne me parle plus à la relecture.</p>
+
+				<p>J'ai plusieurs templates — un pour les concepts, un pour les projets, un pour les cheatsheets, un pour les troubleshooting. Ils sont différents parce que les usages sont différents, mais j'essaie de maintenir une certaine cohérence dans la forme globale. En revanche, entre deux fiches concept (concept A, concept B, concept C), le template est toujours le même. Mêmes sections dans le même ordre. Certaines sections sont optionnelles selon le cas, mais la base reste identique. Cela me permet d'être familier avec la structure, de retrouver l'info au même endroit dans chaque fiche, sans avoir à réfléchir.</p>
+
+				<p>Mon template actuel est le résultat de beaucoup d'itérations. Au début il était trop long, trop complexe. Écrire prenait deux heures, relire deux mois plus tard ne me donnait rien de plus qu'une note courte. J'ai simplifié, puis re-simplifié. Aujourd'hui une fiche concept me prend 30-40 min à finaliser, et quand je la relis je retrouve ma réflexion, pas un résumé formaté par une IA.</p>
+
+				<h3>5. Extraction des troubleshooting</h3>
+				<p>Si j'ai vraiment galéré sur un problème pendant l'implémentation, j'en fais une fiche dans <code>troubleshooting/</code>. Pas juste la solution : le message d'erreur exact, les hypothèses testées, ce qui n'a pas marché et pourquoi, la solution finale, et comment l'éviter.</p>
+
+				<p>Dans mon repo j'en ai trois pour l'instant — deux sur Docker et une sur Grafana. C'est peu, mais ce n'est pas forcément l'objectif d'en avoir beaucoup ni de gagner du temps à la prochaine occurrence. Ces fiches couvrent surtout des problèmes assez critiques pour mériter une trace explicite, même si je ne retomberai pas forcément dessus avant des mois.</p>
+
+				<h2>Les guidelines : le vrai levier du système</h2>
+				<p>Le système ne tient pas sur Obsidian. Il tient sur les guidelines que je donne à Claude sur le contexte — ce qu'il doit savoir, comment il doit travailler avec moi, ce qu'il ne doit pas faire à ma place.</p>
+
+				<p>J'ai un CLAUDE.md global, chargé automatiquement à chaque conversation Claude Code. Dedans : mon contexte tech, ma stack prioritaire, ma pédagogie (explique avant d'implémenter, challenge-moi, ne fais pas à ma place), mon style de réponse, ma hiérarchie de sources, et mes règles de sécurité.</p>
+
+				<p>À minima, la hiérarchie de sources est ce qu'il doit absolument respecter : doc officielle d'abord, blogs tech reconnus ensuite, le reste seulement pour des discussions pointues. Pas d'approximation, pas de reformulation de reformulation. C'est la règle la plus importante du fichier — sans cela, tout le reste s'effondre.</p>
+
+				<p>Côté pédagogie, je lui demande d'expliquer avant de coder, de me challenger sur ce que je crois avoir compris, de ne jamais me donner une réponse toute faite quand je peux la chercher moi-même. Côté style, du français avec les termes techniques en anglais, du concret, pas de blabla. Côté contrôle, Claude ne touche jamais à Git tout seul, ne lance jamais de commande destructive sans validation explicite : il me montre, j'approuve, il exécute.</p>
+
+				<p>Et dans le repo, ma règle à moi est simple :</p>
+
+				<blockquote>
+					<p>Mes mots doivent rester les miens.</p>
+				</blockquote>
+
+				<p>Quand je relis une fiche, je veux retrouver ma voix, mes mots, ma façon de raisonner — pas une reformulation propre générée par une IA. Le jour où je ne me reconnais plus dans ce que je relis, c'est qu'à ce moment-là, c'est Claude qui aura appris à ma place, pas moi.</p>
+
+				<h2>Mon usage réel de l'IA</h2>
+				<p>Dans la pratique, je suis à environ 60% avec l'IA et 40% seul. Et l'usage est clair : c'est pour comprendre, pour m'approprier ce qu'elle me donne. Je discute beaucoup avec l'IA. Je lui demande d'expliquer, de challenger ma compréhension, de pointer ce que je rate.</p>
+
+				<p>Mon point de vue actuel : dans quelques temps, l'IA codera déjà mieux que nous sur beaucoup de tâches. Elle le fait déjà pour le boilerplate (le code répétitif qu'on réécrit à chaque nouveau projet sans vraie valeur : imports, config, structure de base), le refactor simple, la génération de fichiers de configuration. Ce qu'elle n'aura pas avant un bon moment, c'est le contexte complet d'un projet dans une vraie boîte — les 45 contraintes à prendre en compte, les décisions architecturales liées à des choix business, l'historique, les dépendances cachées entre équipes.</p>
+
+				<p>Donc ce sur quoi je dois absolument devenir solide, c'est comprendre ce que je fais et pourquoi. La nomenclature exacte d'une commande, la liste de flags d'un outil, la config précise d'un fichier — je ne me focus pas là-dessus, cela viendra avec le temps et la répétition. Ce qui compte maintenant, c'est le raisonnement derrière.</p>
+
+				<h2>Le bilan honnête</h2>
+				<p>Ce qui marche vraiment : pouvoir poser des notes en vrac, puis savoir où les retrouver. Point. Je tape Ctrl+O, un mot-clé, j'ai ma fiche. Je me souviens de ce que j'avais compris, avec mes mots, pas avec une reformulation générique.</p>
+
+				<p>Ce qui est joli mais pas essentiel : le graph view. Je l'ouvre de temps en temps. C'est un bonus — satisfaisant de voir l'évolution de mes connaissances prendre forme visuellement. Le graph me rappelle que cela progresse, mais ce n'est pas ce qui me fait retenir quoi que ce soit.</p>
+
+				<p>La maîtrise, pour moi, c'est être à l'aise avec un sujet, connaître les points primordiaux, et pouvoir s'approprier un code ou une architecture qu'on n'a pas écrit soi-même pour en faire quelque chose. C'est d'ailleurs pour cela que mes notes ont un statut : <code>status/learning</code>, <code>status/practiced</code>, <code>status/mastered</code>. Pas parce que "mastered" veut dire terminé — la tech bouge sans cesse, il y aura toujours du nouveau, des évolutions, des cas inédits. La maîtrise au sens strict est impossible. Mais une base solide, cela reste. Et le statut me dit où j'en suis dessus à un instant T.</p>
+
+				<p>Ce que je ne fais pas : les reviews espacées à J+7, J+30. C'est dans mes guidelines, je les ai écrites, je ne les suis pas. Je préfère réactiver par la pratique — si je retouche à Terraform dans 3 mois, je relis ma fiche Terraform à ce moment-là. Plus naturel que de forcer un rythme artificiel.</p>
+
+				<h2>Évolution : vers du context engineering</h2>
+				<p>Mon vault actuel est top pour le savoir : c'est là que je capitalise les concepts, les patterns, les retours d'expérience, par techno. Mais il a une limite — il sait ce qu'est Terraform, il ne sait pas comment Terraform s'articule avec le reste de la stack sur laquelle je bosse à un instant T. Il manque la vue projet.</p>
+
+				<p>Mon prochain step, c'est un deuxième repo, avec un but différent : avoir un contexte global, interconnecté, sur un projet ou un sujet. Pas du savoir générique, du contexte appliqué.</p>
+
+				<p>Chez Alan par exemple, c'est exactement ce qui me serait super pratique. La stack est énorme, les composants nombreux, les interactions partout. Si l'IA dispose d'un contexte global et interconnecté du projet — les services, les conventions, les liens entre les briques, ce qui dépend de quoi — elle peut comprendre et mapper ce sur quoi je travaille beaucoup mieux qu'avec une question isolée. Plus besoin de tout réexpliquer à chaque conversation. Le repo serait privé, évidemment, parce qu'il toucherait au contexte interne — mais j'extrairais quand même les patterns réutilisables pour les remettre dans mon vault public sous forme générique.</p>
+
+				<p>Dans un contexte perso, même logique. Mon Tech Radar par exemple : c'est un projet séparé du portfolio, avec son propre repo — mais les deux touchent au même site, partagent la même stack, interfèrent au déploiement. Avoir un contexte commun aux deux permettrait à l'IA de savoir ce qui dépend de quoi, sans que je doive lui réexpliquer la relation à chaque conversation.</p>
+
+				<p>C'est là que j'essaie de me concentrer maintenant : construire du contexte engineering solide, plutôt que peaufiner des prompts isolés. Un bon prompt sans contexte atteint vite sa limite. Un bon contexte rend même un prompt moyen utile.</p>
+
+				<h2>À retenir</h2>
+				<p>Obsidian n'est pas l'outil magique. Claude non plus (quoique ?). Ce qui marche, c'est la combinaison : un endroit où poser les choses dans mes mots, une IA qui m'aide à structurer sans dénaturer, et des guidelines claires pour que cette IA bosse avec moi et non à ma place.</p>
+
+				<p>Disclaimer : tout cela, c'est ma méthode. Pas une méthode universelle. Je l'ai construite en itérant, en simplifiant, en jetant ce qui ne servait pas. Elle marche pour moi aujourd'hui et elle bougera encore.</p>
+
+				<p>Si tu veux t'en inspirer, prends ce qui te parle, laisse le reste, et teste sur tes propres projets. C'est la seule façon de savoir ce qui te convient.</p>
+
+			</div>
+
+			<!-- Article footer -->
+			<footer class="article-footer" data-fade>
+				<div class="article-nav">
+					<a href="/fr/blog/landing-alan-internship" class="article-nav-link article-nav-prev">
+						<span class="article-nav-label"><span aria-hidden="true">&larr;</span> Précédent</span>
+						<span class="article-nav-title">Comment j'ai décroché mon stage chez Alan — Python appris en 10 jours</span>
+					</a>
+				</div>
+			</footer>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<p class="footer-heading">Travaillons ensemble.</p>
+		<a href="mailto:arthurbernard.dev@gmail.com" class="footer-cta">arthurbernard.dev@gmail.com</a>
+		<div class="footer-social">
+			<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+			<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+		</div>
+		<p class="footer-copy">&copy; 2026 Arthur Bernard</p>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+</body>
+</html>

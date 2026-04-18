@@ -151,28 +151,27 @@
 
 			<!-- Image hero -->
 			<div class="article-hero" data-fade>
-				<img src="../../assets/img/blog/glasck-first-production-launch.webp" alt="Glasck — Premier lancement d'un projet en production" fetchpriority="high" class="img-dark">
-				<img src="../../assets/img/blog/glasck-first-production-launch.webp" alt="Glasck — Premier lancement d'un projet en production" fetchpriority="high" class="img-light">
+				<img src="../../assets/img/blog/glasck-first-production-launch.webp" alt="Glasck — Premier lancement d'un projet en production" fetchpriority="high">
 			</div>
 
 			<!-- Corps de l'article -->
 			<div class="article-body" data-fade>
 
-				<p>Glasck, c'est une plateforme de data esport pour League of Legends, pour le moment. Le projet existe parce qu'un pote avait envie de le faire. Il a commencé seul, et quelques mois plus tard, il m'en a parlé. L'idée me plaisait, la base de données existait déjà. J'ai rejoint avec un autre pote, on a attaqué le design ensemble, et ça s'est enchaîné.</p>
+				<p>Glasck, c'est une plateforme de data esport pour League of Legends, pour le moment. Le projet existe parce qu'un ami avait envie de le faire. Il a commencé seul, et quelques mois plus tard, il m'en a parlé. L'idée me plaisait, la base de données existait déjà. J'ai rejoint avec un autre ami, on a attaqué le design ensemble, et ça s'est enchaîné.</p>
 
-				<p>On est quatre sur le projet. Trois développeurs — dont moi — et une quatrième personne qui gère le projet, le marketing et le légal. Côté dev, je gère l'infrastructure. Je bosse aussi sur le design avec l'équipe, et je gère la communication LinkedIn. Les décisions globales, l'évolution du projet, on les prend ensemble.</p>
+				<p>Nous sommes quatre sur le projet. Trois développeurs — dont moi — et une quatrième personne qui gère le projet, le marketing et le légal. Côté dev, je gère l'infrastructure. Je bosse aussi sur le design avec l'équipe, et je gère la communication LinkedIn. Les décisions globales, l'évolution du projet, nous les prenons ensemble.</p>
 
 				<h2>Mon approche</h2>
 
 				<p>Dès le départ, je me suis fixé quelques principes.</p>
 
-				<p>User first. Chaque décision technique doit servir l'utilisateur, pas flatter l'ego du dev. ROI et tradeoffs : on a du temps limité, chaque choix a un coût. Si une solution à 80% fait le job et prend trois fois moins de temps, on la prend.</p>
+				<p>User first. Chaque décision technique doit servir l'utilisateur, pas flatter l'ego du dev. ROI et tradeoffs : notre temps est limité, chaque choix a un coût. Si une solution à 80% fait le job et prend trois fois moins de temps, nous la prenons.</p>
 
 				<p>Tout ce que je mets en place doit être compréhensible par les autres. Pas de boîte noire que moi seul peux maintenir. Je refuse d'être un SPOF — un Single Point of Failure, le maillon unique dont l'absence bloque tout. Si je suis indisponible, le projet ne doit pas s'arrêter.</p>
 
 				<h2>La stack — et pourquoi ces choix</h2>
 
-				<p>Docker Compose en production sur un seul VPS. Pas de cluster, pas de Kubernetes. On est trois devs avec du temps limité — la complexité doit être proportionnelle à l'équipe. Avec Taskfile — un outil d'automatisation de tâches en ligne de commande — c'est déployable et upgradable en une seule commande. Tout le monde dans l'équipe l'utilise.</p>
+				<p>Docker Compose en production sur un seul VPS. Pas de cluster, pas de Kubernetes. Nous sommes trois devs avec du temps limité — la complexité doit être proportionnelle à l'équipe. Avec Taskfile — un outil d'automatisation de tâches en ligne de commande — c'est déployable et upgradable en une seule commande. Tout le monde dans l'équipe l'utilise.</p>
 
 				<p>Traefik en reverse proxy plutôt que Nginx. Quand un nouveau service Docker démarre, Traefik le détecte tout seul grâce aux labels dans le Compose. Les certificats HTTPS se génèrent automatiquement via Let's Encrypt, le dashboard est intégré. Concrètement, ajouter un service exposé c'est trois lignes de config, pas un fichier Nginx à écrire et recharger.</p>
 
@@ -251,7 +250,7 @@ UptimeRobot → monitoring externe (le site répond-il depuis l'extérieur ?)</c
 					<p>Le monitoring dès le premier jour. Pas après le premier crash, pas après le premier OOM. Avant. C'est pas un luxe, c'est une fondation.</p>
 				</blockquote>
 
-				<p>La sécurité pensée plus tôt. On n'a pas eu de problème, mais ce n'est pas une excuse. Durcir la config dès le départ, c'est toujours moins cher que de le faire après un incident.</p>
+				<p>La sécurité pensée plus tôt. Nous n'avons pas eu de problème, mais ce n'est pas une excuse. Durcir la config dès le départ, c'est toujours moins cher que de le faire après un incident.</p>
 
 				<p>Le CI/CD est prévu. Pour l'instant le déploiement manuel via Taskfile fait le job, mais à mesure que le projet grandit, ça ne tiendra pas.</p>
 
@@ -259,7 +258,7 @@ UptimeRobot → monitoring externe (le site répond-il depuis l'extérieur ?)</c
 
 				<p>Glasck, c'est mon premier vrai projet en production. Pas un exercice, pas un projet d'école. Le site est là — <a href="https://glasck.gg" target="_blank" rel="noopener noreferrer">glasck.gg</a>. Il tourne, il a de vrais utilisateurs, de vraies sessions, du vrai trafic. C'est concret. Quand quelque chose casse, ce sont de vraies personnes qui sont impactées.</p>
 
-				<p>On continue de bosser dessus. Pas de pression, chacun avance avec le temps qu'il a — mais on a des objectifs clairs pour le site. Ça change la façon de réfléchir. Chaque décision technique devient un tradeoff entre ce qu'on veut faire, le temps disponible, et surtout ce que l'utilisateur attend. Est-ce que ça marche ? Est-ce que c'est fiable ? Est-ce que l'expérience est correcte ? C'est ça qui compte, pas la stack la plus impressionnante.</p>
+				<p>Nous continuons à bosser dessus. Pas de pression, chacun avance avec le temps qu'il a — mais nous avons des objectifs clairs pour le site. Cela change la façon de réfléchir. Chaque décision technique devient un tradeoff entre ce que l'on veut faire, le temps disponible, et surtout ce que l'utilisateur attend. Est-ce que ça marche ? Est-ce que c'est fiable ? Est-ce que l'expérience est correcte ? C'est cela qui compte, pas la stack la plus impressionnante.</p>
 
 				<p>Le monitoring n'est pas un bonus. Travailler en équipe, c'est rendre son travail lisible par les autres. Gérer l'infra d'un vrai projet m'a montré tout ce qu'il me reste à apprendre. C'est pour ça que je continue.</p>
 
