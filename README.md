@@ -54,33 +54,35 @@ Built with vanilla HTML5, CSS3, and JavaScript — no frameworks, no dependencie
 Portfolio/
 ├── assets/
 │   ├── css/
-│   │   ├── style.css          # Main stylesheet (variables, layout, components)
-│   │   ├── blog.css           # Blog listing & article styles
-│   │   ├── resume.css         # Resume/CV page styles
-│   │   └── tech-radar.css     # Tech Radar listing & edition styles
-│   ├── img/                   # Images (og-image.webp, PhotoPro)
-│   │   ├── projects/          # Project screenshots (dark + light variants)
-│   │   └── blog/              # Blog article images
+│   │   ├── style.css             # Main stylesheet (variables, layout, components, tech-radar)
+│   │   ├── blog.css              # Blog listing & article styles
+│   │   └── resume.css            # Resume/CV page styles
+│   ├── img/
+│   │   ├── og-image.webp         # Open Graph / Twitter preview image
+│   │   ├── PhotoPro.webp         # Profile photo (WebP + JPG fallback)
+│   │   ├── PhotoPro.jpg
+│   │   ├── projects/             # Project screenshots (dark + light variants, WebP + JPG)
+│   │   └── blog/                 # Blog article cover images (WebP)
 │   ├── link/
 │   │   └── Arthur_Bernard_CV.pdf
-│   └── script.js              # Burger menu, scroll, theme/lang toggle, observers
+│   └── script.js                 # Burger menu, scroll, theme/lang toggle, observers
 ├── en/
-│   ├── index.html             # Homepage — English
-│   ├── resume.html            # Resume/CV — English
-│   ├── blog/                  # Blog articles + index — English
-│   └── tech-radar/            # Tech Radar listing & editions — English
+│   ├── index.html                # Homepage — English
+│   ├── resume.html               # Resume/CV — English
+│   ├── blog/                     # Blog articles + index — English
+│   └── tech-radar/               # Tech Radar listing & editions — English
 ├── fr/
-│   ├── index.html             # Homepage — French
-│   ├── resume.html            # Resume/CV — French
-│   ├── blog/                  # Blog articles + index — French
-│   └── tech-radar/            # Tech Radar listing & editions — French
-├── index.html                 # Root redirect (lang detection → /en/ or /fr/)
-├── _redirects                 # Netlify 301 redirects (old URLs → new folder-based)
-├── netlify.toml               # Netlify build config + redirects
-├── sitemap.xml                # SEO sitemap with hreflang
-├── robots.txt                 # Crawler rules + AI bot blocking
-├── llms.txt                   # AI crawler instructions (LLM-oriented summary)
-├── humans.txt                 # Human-readable site credits
+│   ├── index.html                # Homepage — French
+│   ├── resume.html               # Resume/CV — French
+│   ├── blog/                     # Blog articles + index — French
+│   └── tech-radar/               # Tech Radar listing & editions — French
+├── index.html                    # Root redirect (lang detection → /en/ or /fr/)
+├── _redirects                    # Netlify 301 redirects (old URLs → new folder-based)
+├── netlify.toml                  # Netlify build config + redirects
+├── sitemap.xml                   # SEO sitemap with hreflang (EN/FR alternates)
+├── robots.txt                    # Crawler rules + AI bot blocking
+├── llms.txt                      # AI crawler instructions (LLM-oriented summary)
+├── humans.txt                    # Human-readable site credits
 ├── .gitignore
 └── README.md
 ```
@@ -122,15 +124,16 @@ python3 -m http.server 8080
 - **Bilingual** — Full EN/FR versions with folder-based i18n (`/en/`, `/fr/`), seamless language switching (preserves scroll position)
 - **Dark/Light theme** — Toggle with localStorage persistence, separate color palettes (AAA contrast)
 - **Responsive** — Mobile-first design with slide panel menu, tablet grid, desktop navigation
-- **Blog** — Bilingual articles with tag-based filtering, category system
+- **Blog** — Bilingual articles with tag-based filtering, category system, featured post highlight
 - **Tech Radar** — Weekly tech watch with category filters, edition navigation, automated via [weekly-tech-radar](https://github.com/TuroTheReal/weekly-tech-radar) pipeline
 - **Smooth scroll** — Variable speed easeInOutCubic scroll-to-section on filter/nav clicks
 - **Smooth animations** — Scroll-based fade-in (IntersectionObserver), animated mesh gradient blobs, hover effects
 - **Active nav tracking** — Ratio-based IntersectionObserver highlights current section
 - **Auto-hide header** — Header hides on scroll down, reveals on scroll up (mobile only)
 - **Resume/CV page** — Downloadable PDF, responsive grid layout, animated link underlines
-- **Performance** — No dependencies, no build step, Google Fonts CDN, lazy-loaded images
-- **SEO optimized** — Sitemap with hreflang, robots.txt, Open Graph, Twitter Cards, JSON-LD (Person, BlogPosting, BreadcrumbList, ProfilePage)
+- **Performance** — No dependencies, no build step, Google Fonts CDN, lazy-loaded images, WebP with JPG fallback
+- **SEO optimized** — Sitemap with hreflang, robots.txt, Open Graph, Twitter Cards, canonical URLs
+- **Structured data (JSON-LD)** — Person, BlogPosting, BreadcrumbList, ProfilePage schemas for rich search results
 - **AI-friendly** — `llms.txt` instructions + structured data for ChatGPT, Perplexity, Google AI Overview
 - **Accessibility** — Semantic HTML, ARIA labels, prefers-reduced-motion support
 
@@ -140,8 +143,7 @@ python3 -m http.server 8080
 
 The blog hosted on this portfolio documents the DevOps/Cloud learning journey behind it:
 
-- 📝 [Blog — English](https://arthur-portfolio.com/en/blog) — All articles (EN)
-- 📝 [Blog — Français](https://arthur-portfolio.com/fr/blog) — Tous les articles (FR)
+- 📝 [Blog](https://arthur-portfolio.com/en/blog) — All articles
 
 Featured posts:
 
