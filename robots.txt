@@ -87,4 +87,4 @@ Allow: /en/blog/
 Allow: /fr/blog/
 Disallow: /
 
-Sitemap: https://arthur-portfolio.com/sitemap.xml
+Sitemap: https://arthurbernard.dev/sitemap.xml

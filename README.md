@@ -143,20 +143,20 @@ python3 -m http.server 8080
 
 The blog hosted on this portfolio documents the DevOps/Cloud learning journey behind it:
 
-- 📝 [Blog](https://arthur-portfolio.com/en/blog) — All articles
+- 📝 [Blog](https://arthurbernard.dev/en/blog) — All articles
 
 Featured posts:
 
-- 📝 [My DevOps/Cloud Engineer Roadmap](https://arthur-portfolio.com/en/blog/devops-roadmap) — 6-month plan from 42 to DevOps/Cloud
-- 📝 [Building a Learning System with Obsidian + Claude](https://arthur-portfolio.com/en/blog/obsidian-claude-learning-system) — Personal knowledge vault setup
-- 📝 [AWS + Terraform + Ansible: Infrastructure as Code](https://arthur-portfolio.com/en/blog/aws-terraform-ansible) — Deep dive on IaC automation
-- 📝 [Landing a DevOps Internship at Alan](https://arthur-portfolio.com/en/blog/landing-alan-internship) — Interview process and feedback
+- 📝 [My DevOps/Cloud Engineer Roadmap](https://arthurbernard.dev/en/blog/devops-roadmap) — 6-month plan from 42 to DevOps/Cloud
+- 📝 [Building a Learning System with Obsidian + Claude](https://arthurbernard.dev/en/blog/obsidian-claude-learning-system) — Personal knowledge vault setup
+- 📝 [AWS + Terraform + Ansible: Infrastructure as Code](https://arthurbernard.dev/en/blog/aws-terraform-ansible) — Deep dive on IaC automation
+- 📝 [Landing a DevOps Internship at Alan](https://arthurbernard.dev/en/blog/landing-alan-internship) — Interview process and feedback
 
 ---
 
 ## 🌐 Live
 
-**[arthur-portfolio.com](https://arthur-portfolio.com)**
+**[arthurbernard.dev](https://arthurbernard.dev)**
 
 ---
 

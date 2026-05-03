@@ -18,6 +18,19 @@
 [build.processing.images]
   compress = true
 
+# Redirections 301 — migration domaine (arthur-portfolio.com → arthurbernard.dev)
+[[redirects]]
+  from = "https://arthur-portfolio.com/*"
+  to = "https://arthurbernard.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.arthur-portfolio.com/*"
+  to = "https://arthurbernard.dev/:splat"
+  status = 301
+  force = true
+
 # Redirections 301 — migration i18n (ancien suffix → folder-based)
 [[redirects]]
   from = "/index_en"
