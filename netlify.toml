@@ -19,8 +19,21 @@
   compress = true
 
 # Redirections 301 — migration domaine (arthur-portfolio.com → arthurbernard.dev)
+# Couvre HTTP + HTTPS + apex + www, chacun en 1 seul saut direct (pas de chaîne)
+[[redirects]]
+  from = "http://arthur-portfolio.com/*"
+  to = "https://arthurbernard.dev/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "https://arthur-portfolio.com/*"
+  to = "https://arthurbernard.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.arthur-portfolio.com/*"
   to = "https://arthurbernard.dev/:splat"
   status = 301
   force = true
