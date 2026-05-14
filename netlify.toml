@@ -18,35 +18,12 @@
 [build.processing.images]
   compress = true
 
-# Force HTTPS sur le domaine principal (compense le "Force HTTPS" Netlify désactivé)
-[[redirects]]
-  from = "http://arthurbernard.dev/*"
-  to = "https://arthurbernard.dev/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.arthurbernard.dev/*"
-  to = "https://arthurbernard.dev/:splat"
-  status = 301
-  force = true
-
 # Redirections 301 — migration domaine (arthur-portfolio.com → arthurbernard.dev)
-# 1 seul saut direct depuis HTTP/HTTPS, apex/www, vers le nouveau domaine HTTPS
-[[redirects]]
-  from = "http://arthur-portfolio.com/*"
-  to = "https://arthurbernard.dev/:splat"
-  status = 301
-  force = true
-
+# Note : Netlify auto-upgrade HTTP → HTTPS avant d'évaluer ces règles, donc seules
+# les règles HTTPS sont effectives. La chaîne HTTP→HTTPS→nouveau-domaine reste OK
+# pour le SEO (Google suit les redirects, max 2 hops).
 [[redirects]]
   from = "https://arthur-portfolio.com/*"
-  to = "https://arthurbernard.dev/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.arthur-portfolio.com/*"
   to = "https://arthurbernard.dev/:splat"
   status = 301
   force = true
