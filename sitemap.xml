@@ -466,4 +466,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-27"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-27"/>
   </url>
+
+  <url>
+    <loc>https://arthurbernard.dev/en/tech-radar/2026-week-28</loc>
+    <lastmod>2026-07-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-28"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-28"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-28"/>
+  </url>
+
+  <url>
+    <loc>https://arthurbernard.dev/fr/tech-radar/2026-week-28</loc>
+    <lastmod>2026-07-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-28"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-28"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-28"/>
+  </url>
 </urlset>
