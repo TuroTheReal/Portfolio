@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5R3CELDV2W"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-5R3CELDV2W');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<meta name="description" content="I automated my tech watch with a Python and Claude pipeline. The making-of, the crash I caused, and why I keep control over the AI.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Weekly Tech Radar: Automated Tech Watch | Arthur Bernard</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer">
+	<meta property="og:description" content="Automating a tech watch with AI without handing it the control. The making-of, the crash I caused, and what I took away.">
+	<meta property="og:url" content="https://arthurbernard.dev/en/blog/weekly-tech-radar">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:locale:alternate" content="fr_FR">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="800">
+	<meta property="article:published_time" content="2026-07-25">
+	<meta property="article:author" content="Arthur Bernard">
+	<meta property="article:tag" content="DevOps">
+	<meta property="article:tag" content="AI">
+	<meta property="article:tag" content="Automation">
+	<meta property="article:tag" content="Python">
+	<meta property="article:tag" content="Tech watch">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer">
+	<meta name="twitter:description" content="Automating a tech watch with AI without handing it the control. The making-of, the crash I caused, and what I took away.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp">
+
+	<!-- JSON-LD Article -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer",
+		"description": "Automating a tech watch with AI without handing it the control. The making-of, the crash I caused, and what I took away.",
+		"image": "https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp",
+		"datePublished": "2026-07-25",
+		"dateModified": "2026-07-25",
+		"inLanguage": "en",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/en/blog/weekly-tech-radar"
+	}
+	</script>
+
+	<!-- JSON-LD BreadcrumbList -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthurbernard.dev/en/"},
+			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/en/blog"},
+			{"@type": "ListItem", "position": 3, "name": "Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer", "item": "https://arthurbernard.dev/en/blog/weekly-tech-radar"}
+		]
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/weekly-tech-radar">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/weekly-tech-radar">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/weekly-tech-radar">
+
+	<link rel="canonical" href="https://arthurbernard.dev/en/blog/weekly-tech-radar">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap"></noscript>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/en/#Home" class="logo">A.</a>
+		<nav class="nav" aria-label="Main navigation">
+			<a href="/en/#Home">Home</a>
+			<a href="/en/#About">About</a>
+			<a href="/en/#Work">Projects</a>
+			<a href="/en/blog">Blog</a>
+			<a href="/en/tech-radar/">Tech Radar</a>
+			<a href="/en/resume">CV</a>
+			<a href="/en/#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle active" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/en/#Home">Home</a>
+				<a href="/en/#About">About</a>
+				<a href="/en/#Work">Projects</a>
+				<a href="/en/blog">Blog</a>
+			<a href="/en/tech-radar/">Tech Radar</a>
+				<a href="/en/resume">CV</a>
+				<a href="/en/#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle active" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<article class="blog-article">
+
+			<!-- Article header -->
+			<header class="article-header" data-fade>
+				<a href="/en/blog" class="article-back"><span aria-hidden="true">&larr;</span> Back to Blog</a>
+				<h1>Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer</h1>
+				<div class="article-meta">
+					<time datetime="2026-07-25">July 25, 2026</time>
+					<span class="article-read-time">6 min read</span>
+				</div>
+				<div class="article-tags">
+					<span>Project</span>
+					<span>DevOps</span>
+					<span>AI</span>
+				</div>
+			</header>
+
+			<!-- Hero image -->
+			<div class="article-hero" data-fade>
+				<img src="../../assets/img/blog/weekly-tech-radar.webp" alt="Weekly Tech Radar: my automated tech watch" fetchpriority="high">
+			</div>
+
+			<!-- Article body -->
+			<div class="article-body" data-fade>
+
+				<p>Every week, 27 sources dump around 300 articles on me to sort through. A pipeline brings them down to a 10-minute read, on its own, with an AI in the middle, without me opening my terminal.</p>
+
+				<p>One Saturday, it crashed. Not because of the AI, but because of the trust I had placed in it.</p>
+
+				<p>That's what I want to share here. The way I see it, an engineer's job isn't just to write code: it's to understand a problem and solve it. Whether an AI holds the keyboard or not changes nothing. That Saturday, if the pipeline got away from me, it's because I hadn't understood the problem well enough to see it coming.</p>
+
+				<h2>Why a tech watch</h2>
+
+				<p>I built it for two reasons.</p>
+
+				<p>The first: to have a personal tech watch, tailored to what I want to follow given where I want to go. Cloud, DevOps and AI move every month, and I didn't want yet another generic feed. I wanted to follow what matters for my path.</p>
+
+				<p>The second: to experiment with real automation, end to end. Something that runs on its own, in production, with everything that implies.</p>
+
+				<p>The concrete problem is volume. 27 feeds means around 300 articles a week. Reading them all is impossible, ignoring them would be worse. What's missing isn't content, it's curation.</p>
+
+				<p>That's where the AI comes in, and only there. Not because it's fashionable, but because it handles the part that simple rules can't: reading the 300 articles, keeping the relevant ones, removing duplicates, summarizing them. The rest of the pipeline, fetching the feeds and publishing, is plain Python.</p>
+
+				<p>Concretely, every Saturday, a GitHub Actions cron fetches the articles from the last 7 days, Claude Haiku selects and summarizes the most relevant ones in French and English, and the pipeline publishes an edition on my portfolio. Three Python scripts, a few cents a week. It has been running for four months, 19 editions so far. The links are at the end of the article if you want them.</p>
+
+				<h2>The AI's place in the project</h2>
+
+				<p>I set one rule from the start: the AI does the work, but nothing gets published without me having read it.</p>
+
+				<p>The pipeline puts nothing online on its own. It prepares the edition and opens a Pull Request. That review serves two purposes. First, doing my tech watch: re-reading the edition is already reading it, and that's the whole point of the project. Second, checking the AI's work, that the summaries match the articles and that no duplicate slipped through. For each article, the original source stays accessible, if I want to dig deeper.</p>
+
+				<p>Upstream, same logic: the instruction is written into the prompt, factual summaries, no opinion or commentary. I don't want the AI interpreting the news for me, only giving me the fact and what it means.</p>
+
+				<h2>The crash</h2>
+
+				<p>Two weeks after going live, on a Saturday morning, the CI alerts me: the workflow fails at the summarize step. No edition that day.</p>
+
+				<p>In itself, the incident is minor. The CI caught it right away, no data was lost, and it took me half an hour to fix. But the cause was worth pausing on, because it's a trap.</p>
+
+				<p>My prompt asked Claude to summarize the thirty-odd selected articles in one go, each with a translated title, two summaries and a category, all in a single JSON response. Two instructions were written there in plain sight:</p>
+
+<pre><code>Summarize ALL articles without exception.
+Respond with ONLY valid JSON.</code></pre>
+
+				<p>That week, the selection was dense. The response exceeded the token budget I had set, 8192. Claude wrote up to the limit, then stopped, mid-JSON. My script got an object cut clean off, impossible to read.</p>
+
+				<p>The problem didn't come from Claude, but from me. I had taken a prompt instruction for a guarantee. Writing "respond with valid JSON" doesn't limit the length of the response, and "summarize everything without exception" pushes it right past the limit. A prompt expresses an intention, it doesn't guarantee a result.</p>
+
+				<p>But it got worse. My parser was hiding the problem: when it didn't find usable JSON, instead of raising an error, it started over from the beginning of the text with a default value.</p>
+
+<pre><code># The buggy version: default=0 hides the missing JSON
+start = min((text.find(c) for c in '[{' if text.find(c) != -1), default=0)</code></pre>
+
+				<p>That behavior hid the problem instead of flagging it. The day the response was cleanly truncated, everything gave way at once, with no lead to trace the cause.</p>
+
+				<h2>What I took away</h2>
+
+				<p><strong>An AI's output is unreliable data, and should be treated as such.</strong> We know to validate user input, handle a network timeout, be wary of a third-party API. A model's response calls for the same caution: it isn't deterministic, and nothing guarantees it fits within the space you planned. I validate it and parse it defensively; I no longer treat it as a safe value coming from my own code.</p>
+
+				<p><strong>An error should be visible.</strong> My first fix wasn't to make the pipeline smarter, but to make it fail out loud. If the response contains no usable JSON, the script now raises an explicit error, with the start of the text it received. A visible bug gets fixed in minutes; a silent one can cost you days.</p>
+
+<pre><code>candidates = [text.find(c) for c in '[{' if text.find(c) != -1]
+if not candidates:
+    raise ValueError(f"No JSON found in response: {text[:200]}")
+start = min(candidates)</code></pre>
+
+				<p><strong>The real problem was in the design, not the setting.</strong> I raised <code>max_tokens</code> to 16384 and added 3 attempts. It helps, but it only pushes the ceiling back: the day the radar keeps more articles or longer summaries, the same bug returns. The right fix, the one I'd make starting from scratch, isn't to enlarge the response, but to stop asking for one huge one. Split into batches of 5 or 10 articles, handle one article per call, or enforce an output schema. Bound what you ask the model for instead of hoping it fits.</p>
+
+<pre><code>for attempt in range(3):
+    response = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=16384,          # was: 8192
+        messages=[{"role": "user", "content": prompt}])
+    try:
+        return extract_json(response.content[0].text)
+    except (json.JSONDecodeError, ValueError) as e:
+        print(f"Attempt {attempt + 1}/3 failed: {e}")
+        if attempt == 2:
+            raise</code></pre>
+
+				<p><strong>Understanding the problem stays my job, whether the AI writes the code or not.</strong> The AI saved me a lot of time on the tedious part, sorting 300 articles a week. But the day I trusted it without checking, it let me down without warning. The way I see it, an engineer isn't only there to write code, they're there to understand a problem and solve it. Whether an AI or I write it changes nothing: if I don't understand what it produces, or where it can break, I can't see it coming. That's exactly what happened that Saturday.</p>
+
+				<h2>And now</h2>
+
+				<p>The radar is still running. Every Saturday, without me, it brings 300 articles down to a 10-minute read. I went from a tech watch I did when I thought about it, meaning rarely, to a regular one I actually read.</p>
+
+				<p>But I don't leave it on its own. The AI does the heavy lifting, I keep my hand on what matters: what gets published, what's accurate, and what breaks. That's the lesson I'm keeping for the next project where I put an AI in production. It's an excellent tool, as long as you stay the one who understands what it does.</p>
+
+				<p>If this interests you, this week's edition is at <a href="/en/tech-radar/">arthurbernard.dev/en/tech-radar</a>, and the code is public at <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>.</p>
+
+			</div>
+
+			<!-- Article footer -->
+			<footer class="article-footer" data-fade>
+				<div class="article-nav">
+					<a href="/en/blog/obsidian-claude-learning-system" class="article-nav-link article-nav-prev">
+						<span class="article-nav-label"><span aria-hidden="true">&larr;</span> Previous</span>
+						<span class="article-nav-title">My Learning System: Obsidian + Claude</span>
+					</a>
+				</div>
+			</footer>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<p class="footer-heading">Let's work together.</p>
+		<a href="mailto:arthurbernard.dev@gmail.com" class="footer-cta">arthurbernard.dev@gmail.com</a>
+		<div class="footer-social">
+			<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+			<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+		</div>
+		<p class="footer-copy">&copy; 2026 Arthur Bernard</p>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>

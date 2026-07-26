@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5R3CELDV2W"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-5R3CELDV2W');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<meta name="description" content="J'ai automatisé ma veille tech avec un pipeline Python et Claude. Le making-of, le crash que j'ai provoqué, et pourquoi je garde la main sur l'IA.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Weekly Tech Radar : veille tech automatisée | Arthur Bernard</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur">
+	<meta property="og:description" content="Automatiser sa veille avec une IA sans lui déléguer le contrôle. Le making-of du pipeline, le crash que j'ai provoqué, et ce que j'en ai retenu.">
+	<meta property="og:url" content="https://arthurbernard.dev/fr/blog/weekly-tech-radar">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="800">
+	<meta property="article:published_time" content="2026-07-25">
+	<meta property="article:author" content="Arthur Bernard">
+	<meta property="article:tag" content="DevOps">
+	<meta property="article:tag" content="IA">
+	<meta property="article:tag" content="Automatisation">
+	<meta property="article:tag" content="Python">
+	<meta property="article:tag" content="Veille">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur">
+	<meta name="twitter:description" content="Automatiser sa veille avec une IA sans lui déléguer le contrôle. Le making-of du pipeline, le crash que j'ai provoqué, et ce que j'en ai retenu.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp">
+
+	<!-- JSON-LD Article -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur",
+		"description": "Automatiser sa veille avec une IA sans lui déléguer le contrôle. Le making-of du pipeline, le crash que j'ai provoqué, et ce que j'en ai retenu.",
+		"image": "https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp",
+		"datePublished": "2026-07-25",
+		"dateModified": "2026-07-25",
+		"inLanguage": "fr",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/fr/blog/weekly-tech-radar"
+	}
+	</script>
+
+	<!-- JSON-LD BreadcrumbList -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://arthurbernard.dev/fr/"},
+			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/fr/blog"},
+			{"@type": "ListItem", "position": 3, "name": "Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur", "item": "https://arthurbernard.dev/fr/blog/weekly-tech-radar"}
+		]
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/weekly-tech-radar">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/weekly-tech-radar">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/weekly-tech-radar">
+
+	<link rel="canonical" href="https://arthurbernard.dev/fr/blog/weekly-tech-radar">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap"></noscript>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/fr/#Home" class="logo">A.</a>
+		<nav class="nav" aria-label="Navigation principale">
+			<a href="/fr/#Home">Accueil</a>
+			<a href="/fr/#About">À propos</a>
+			<a href="/fr/#Work">Projets</a>
+			<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/">Tech Radar</a>
+			<a href="/fr/resume">CV</a>
+			<a href="/fr/#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle active" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/fr/#Home">Accueil</a>
+				<a href="/fr/#About">À propos</a>
+				<a href="/fr/#Work">Projets</a>
+				<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/">Tech Radar</a>
+				<a href="/fr/resume">CV</a>
+				<a href="/fr/#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle active" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<article class="blog-article">
+
+			<!-- En-tête article -->
+			<header class="article-header" data-fade>
+				<a href="/fr/blog" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Blog</a>
+				<h1>Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur</h1>
+				<div class="article-meta">
+					<time datetime="2026-07-25">25 juillet 2026</time>
+					<span class="article-read-time">6 min de lecture</span>
+				</div>
+				<div class="article-tags">
+					<span>Projet</span>
+					<span>DevOps</span>
+					<span>IA</span>
+				</div>
+			</header>
+
+			<!-- Image hero -->
+			<div class="article-hero" data-fade>
+				<img src="../../assets/img/blog/weekly-tech-radar.webp" alt="Weekly Tech Radar : ma veille tech automatisée" fetchpriority="high">
+			</div>
+
+			<!-- Corps de l'article -->
+			<div class="article-body" data-fade>
+
+				<p>Chaque semaine, 27 sources me déversent environ 300 articles à trier. Un pipeline les ramène à 10 minutes de lecture, tout seul, une IA au milieu, sans que j'ouvre mon terminal.</p>
+
+				<p>Un samedi, il a planté. Pas à cause de l'IA, mais à cause de la confiance que je lui avais donnée.</p>
+
+				<p>C'est ce que je veux partager ici. De mon point de vue, le travail d'un ingénieur ne se résume pas à écrire du code : c'est comprendre un problème et le résoudre. Qu'une IA tienne le clavier ou non n'y change rien. Ce samedi-là, si le pipeline m'a échappé, c'est que je n'avais pas assez compris le problème pour l'anticiper.</p>
+
+				<h2>Pourquoi une veille technique</h2>
+
+				<p>J'avais deux raisons de le construire.</p>
+
+				<p>La première : avoir une veille personnelle, taillée pour ce que je veux suivre en fonction de là où je veux aller. Le cloud, le DevOps et l'IA bougent chaque mois, et je ne voulais pas d'un fil générique de plus. Je voulais suivre ce qui compte pour mon parcours.</p>
+
+				<p>La seconde : expérimenter une vraie automatisation, de bout en bout. Quelque chose qui tourne seul, en production, avec les contraintes que ça implique.</p>
+
+				<p>Le problème concret, c'est le volume. 27 flux, cela fait environ 300 articles par semaine. Les lire tous est impossible, les ignorer serait pire. Ce qui manque, ce n'est pas le contenu, c'est le tri.</p>
+
+				<p>C'est là que l'IA entre en jeu, et seulement là. Pas parce que c'est à la mode, mais parce qu'elle résout la partie que des règles simples ne suffisent pas à traiter : lire les 300 articles, garder les pertinents, retirer les doublons, les résumer. Le reste du pipeline, la collecte des flux et la publication, c'est du Python classique.</p>
+
+				<p>Concrètement, chaque samedi, un cron GitHub Actions récupère les articles des 7 derniers jours, Claude Haiku sélectionne et résume les plus pertinents en français et en anglais, et le pipeline publie une édition sur mon portfolio. Trois scripts Python, quelques centimes par semaine. Il tourne depuis quatre mois, 19 éditions à ce jour. Les liens sont à la fin de l'article si tu les souhaites.</p>
+
+				<h2>La place de l'IA dans le projet</h2>
+
+				<p>J'ai fixé une règle dès le départ : l'IA fait le travail, mais rien n'est publié sans que je l'aie relu.</p>
+
+				<p>Le pipeline ne met rien en ligne tout seul. Il prépare l'édition et ouvre une Pull Request. Cette relecture me sert à deux choses. La première, c'est faire ma veille : relire l'édition, c'est déjà la lire, et c'est le but même du projet. La seconde, c'est vérifier le travail de l'IA, que les résumés correspondent aux articles et qu'aucun doublon n'est passé. Pour chaque article, la source d'origine reste accessible, si je veux creuser un peu plus.</p>
+
+				<p>En amont, même logique : la consigne est écrite dans le prompt, des résumés factuels, sans opinion ni commentaire. Je ne veux pas que l'IA interprète l'actualité à ma place, seulement qu'elle me donne le fait et sa portée.</p>
+
+				<h2>Le crash</h2>
+
+				<p>Deux semaines après la mise en production, un samedi matin, la CI m'alerte : le workflow s'arrête en erreur à l'étape de résumé. Aucune édition ce jour-là.</p>
+
+				<p>En soi, l'incident est mineur. La CI l'a rattrapé tout de suite, aucune donnée n'a été perdue, et il m'a fallu une demi-heure pour corriger. Mais la cause valait la peine que je m'y arrête, parce qu'elle est piégeuse.</p>
+
+				<p>Mon prompt demandait à Claude de résumer d'un coup la trentaine d'articles retenus, chacun avec son titre traduit, deux résumés et une catégorie, le tout dans une seule réponse JSON. Deux consignes y figuraient noir sur blanc :</p>
+
+<pre><code>Summarize ALL articles without exception.
+Respond with ONLY valid JSON.</code></pre>
+
+				<p>Cette semaine-là, la sélection était dense. La réponse dépassait le budget de tokens que j'avais fixé, 8192. Claude a écrit jusqu'à la limite, puis s'est arrêté, en plein milieu du JSON. Mon script a reçu un objet coupé net, impossible à lire.</p>
+
+				<p>Le problème ne venait pas de Claude, mais de moi. J'avais pris une consigne de prompt pour une garantie. Écrire « réponds en JSON valide » ne limite pas la longueur de la réponse, et « résume tout sans exception » la pousse justement à dépasser la limite. Un prompt exprime une intention, il ne garantit pas un résultat.</p>
+
+				<p>Mais il y avait pire. Mon parser masquait le problème : quand il ne trouvait pas de JSON exploitable, au lieu de lever une erreur, il repartait du début du texte avec une valeur par défaut.</p>
+
+<pre><code># La version fautive : default=0 masque l'absence de JSON
+start = min((text.find(c) for c in '[{' if text.find(c) != -1), default=0)</code></pre>
+
+				<p>Ce comportement masquait le problème au lieu de le signaler. Le jour où la réponse a été franchement tronquée, tout a lâché d'un coup, sans indice pour remonter à la cause.</p>
+
+				<h2>Ce que j'en ai retenu</h2>
+
+				<p><strong>La sortie d'une IA est une donnée non fiable, à traiter comme telle.</strong> On sait valider une saisie utilisateur, gérer un timeout réseau, se méfier d'une API tierce. La réponse d'un modèle demande la même prudence : elle n'est pas déterministe, et rien ne garantit qu'elle tienne dans la place prévue. Je la valide et je la parse défensivement, je ne la considère plus comme une valeur sûre venue de mon propre code.</p>
+
+				<p><strong>Une erreur doit se voir.</strong> Ma première correction n'a pas été de rendre le pipeline plus intelligent, mais de le faire échouer franchement. Si la réponse ne contient pas de JSON exploitable, le script lève désormais une erreur explicite, avec le début du texte reçu. Un bug visible se corrige en quelques minutes ; un bug silencieux, lui, peut coûter des jours.</p>
+
+<pre><code>candidates = [text.find(c) for c in '[{' if text.find(c) != -1]
+if not candidates:
+    raise ValueError(f"Pas de JSON trouvé dans la réponse : {text[:200]}")
+start = min(candidates)</code></pre>
+
+				<p><strong>Le vrai problème venait de la conception, pas du réglage.</strong> J'ai monté <code>max_tokens</code> à 16384 et ajouté 3 tentatives. C'est utile, mais cela ne fait que repousser le plafond : le jour où le radar retiendra plus d'articles ou des résumés plus longs, le même bug reviendra. La bonne correction, celle que je ferais en repartant de zéro, n'est pas d'agrandir la réponse, mais de ne plus en demander une seule et énorme. Découper en paquets de 5 ou 10 articles, traiter un article par appel, ou imposer un schéma de sortie. Borner ce qu'on demande au modèle plutôt que d'espérer que ça passe.</p>
+
+<pre><code>for attempt in range(3):
+    response = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=16384,          # avant : 8192
+        messages=[{"role": "user", "content": prompt}])
+    try:
+        return extract_json(response.content[0].text)
+    except (json.JSONDecodeError, ValueError) as e:
+        print(f"Tentative {attempt + 1}/3 échouée : {e}")
+        if attempt == 2:
+            raise</code></pre>
+
+				<p><strong>Comprendre le problème reste mon travail, que l'IA écrive le code ou non.</strong> L'IA m'a fait gagner beaucoup de temps sur la partie ingrate, trier 300 articles chaque semaine. Mais le jour où je lui ai fait confiance sans vérifier, elle m'a lâché sans prévenir. De mon point de vue, un ingénieur n'est pas seulement là pour écrire du code, il est là pour comprendre un problème et le résoudre. Que ce soit une IA ou moi qui l'écrive n'y change rien : si je ne comprends pas ce qu'elle produit, ni où cela peut casser, je ne peux pas l'anticiper. C'est exactement ce qui s'est passé ce samedi-là.</p>
+
+				<h2>Et maintenant</h2>
+
+				<p>Le radar tourne toujours. Chaque samedi, sans moi, il ramène 300 articles à 10 minutes de lecture. Je suis passé d'une veille que je faisais quand j'y pensais, c'est-à-dire rarement, à une veille régulière que je lis vraiment.</p>
+
+				<p>Mais je ne le laisse pas seul pour autant. L'IA fait le gros du travail, je garde la main sur ce qui compte : ce qui est publié, ce qui est exact, et ce qui casse. C'est la leçon que je retiens pour le prochain projet où je mettrai une IA en production. C'est un excellent outil, à condition de rester celui qui comprend ce qu'il fait.</p>
+
+				<p>Si le sujet t'intéresse, l'édition de la semaine est sur <a href="/fr/tech-radar/">arthurbernard.dev/fr/tech-radar</a>, et le code est public sur <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>.</p>
+
+			</div>
+
+			<!-- Pied d'article -->
+			<footer class="article-footer" data-fade>
+				<div class="article-nav">
+					<a href="/fr/blog/obsidian-claude-learning-system" class="article-nav-link article-nav-prev">
+						<span class="article-nav-label"><span aria-hidden="true">&larr;</span> Précédent</span>
+						<span class="article-nav-title">Mon système d'apprentissage : Obsidian + Claude</span>
+					</a>
+				</div>
+			</footer>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<p class="footer-heading">Travaillons ensemble.</p>
+		<a href="mailto:arthurbernard.dev@gmail.com" class="footer-cta">arthurbernard.dev@gmail.com</a>
+		<div class="footer-social">
+			<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+			<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+		</div>
+		<p class="footer-copy">&copy; 2026 Arthur Bernard</p>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>

@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isBlogPage = window.location.pathname.includes('blog');
   const isResumePage = window.location.pathname.includes('resume');
-  const isRadarPage = window.location.pathname.includes('tech-radar');
+  const isRadarPage = window.location.pathname.includes('/tech-radar');
 
   function updateActiveNav(sectionId) {
     navLinks.forEach(link => {
