@@ -25,6 +25,7 @@ AWS, Kubernetes, Docker, Terraform, Ansible, CI/CD (GitHub Actions), Python, Bas
 6. How I Failed My Criteo Interview — Honest post-mortem on a missed SRE interview
 7. How I Landed My Internship at Alan — Python learned in 10 days, 4-step process
 8. My Learning System: Obsidian + Claude — GitHub repo as knowledge vault, AI-assisted learning without dependency
+9. Weekly Tech Radar: Automating My Tech Watch With AI — Automated weekly tech-watch pipeline (Python + Claude Haiku), and keeping the engineer's control over what the AI produces
 
 ## Contact
 - GitHub: https://github.com/TuroTheReal
