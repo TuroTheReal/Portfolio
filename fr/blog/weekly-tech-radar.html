@@ -14,15 +14,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="J'ai automatisé ma veille tech avec Python et Claude : 300 articles triés en 10 min chaque semaine. Le making-of du pipeline, et le crash que j'ai provoqué.">
+	<meta name="description" content="J'ai automatisé ma veille tech avec un pipeline Python et Claude. Le making-of, le crash que j'ai provoqué, et pourquoi je garde la main sur l'IA.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
 	<title>Weekly Tech Radar : veille tech automatisée | Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Weekly Tech Radar : j'ai automatisé ma veille tech, puis je l'ai cassée">
-	<meta property="og:description" content="300 articles triés en 10 minutes chaque semaine, en pilote automatique. Le making-of du pipeline, et le jour où je l'ai cassé.">
+	<meta property="og:title" content="Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur">
+	<meta property="og:description" content="Automatiser sa veille avec une IA sans lui déléguer le contrôle. Le making-of du pipeline, le crash que j'ai provoqué, et ce que j'en ai retenu.">
 	<meta property="og:url" content="https://arthurbernard.dev/fr/blog/weekly-tech-radar">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="fr_FR">
@@ -41,8 +41,8 @@
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Weekly Tech Radar : j'ai automatisé ma veille tech, puis je l'ai cassée">
-	<meta name="twitter:description" content="300 articles triés en 10 minutes chaque semaine, en pilote automatique. Le making-of du pipeline, et le jour où je l'ai cassé.">
+	<meta name="twitter:title" content="Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur">
+	<meta name="twitter:description" content="Automatiser sa veille avec une IA sans lui déléguer le contrôle. Le making-of du pipeline, le crash que j'ai provoqué, et ce que j'en ai retenu.">
 	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp">
 
 	<!-- JSON-LD Article -->
@@ -50,8 +50,8 @@
 	{
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
-		"headline": "Weekly Tech Radar : j'ai automatisé ma veille tech, puis je l'ai cassée",
-		"description": "300 articles triés en 10 minutes chaque semaine, en pilote automatique. Le making-of du pipeline, et le jour où je l'ai cassé.",
+		"headline": "Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur",
+		"description": "Automatiser sa veille avec une IA sans lui déléguer le contrôle. Le making-of du pipeline, le crash que j'ai provoqué, et ce que j'en ai retenu.",
 		"image": "https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp",
 		"datePublished": "2026-07-25",
 		"dateModified": "2026-07-25",
@@ -77,7 +77,7 @@
 		"itemListElement": [
 			{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://arthurbernard.dev/fr/"},
 			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/fr/blog"},
-			{"@type": "ListItem", "position": 3, "name": "Weekly Tech Radar : j'ai automatisé ma veille tech, puis je l'ai cassée", "item": "https://arthurbernard.dev/fr/blog/weekly-tech-radar"}
+			{"@type": "ListItem", "position": 3, "name": "Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur", "item": "https://arthurbernard.dev/fr/blog/weekly-tech-radar"}
 		]
 	}
 	</script>
@@ -151,10 +151,10 @@
 			<!-- En-tête article -->
 			<header class="article-header" data-fade>
 				<a href="/fr/blog" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Blog</a>
-				<h1>Weekly Tech Radar : j'ai automatisé ma veille tech, puis je l'ai cassée</h1>
+				<h1>Weekly Tech Radar : automatiser sa veille avec une IA, et rester l'ingénieur</h1>
 				<div class="article-meta">
 					<time datetime="2026-07-25">25 juillet 2026</time>
-					<span class="article-read-time">7 min de lecture</span>
+					<span class="article-read-time">6 min de lecture</span>
 				</div>
 				<div class="article-tags">
 					<span>Projet</span>
@@ -171,97 +171,68 @@
 			<!-- Corps de l'article -->
 			<div class="article-body" data-fade>
 
-				<p>27 sources. 300 articles à trier chaque semaine. 10 minutes de lecture au bout.</p>
+				<p>Chaque semaine, 27 sources me déversent environ 300 articles à trier. Un pipeline les ramène à 10 minutes de lecture, tout seul, une IA au milieu, sans que j'ouvre mon terminal.</p>
 
-				<p>Samedi, tout a planté.</p>
+				<p>Un samedi, il a planté. Pas à cause de l'IA, mais à cause de la confiance que je lui avais donnée.</p>
 
-				<p>Et c'est entièrement de ma faute.</p>
+				<p>C'est ce que je veux partager ici. De mon point de vue, le travail d'un ingénieur ne se résume pas à écrire du code : c'est comprendre un problème et le résoudre. Qu'une IA tienne le clavier ou non n'y change rien. Ce samedi-là, si le pipeline m'a échappé, c'est que je n'avais pas assez compris le problème pour l'anticiper.</p>
 
-				<p>Mais avant d'en parler, voici le projet.</p>
+				<h2>Pourquoi une veille technique</h2>
 
-				<h2>Le projet : ma veille en pilote automatique</h2>
+				<p>J'avais deux raisons de le construire.</p>
 
-				<p>Je voulais suivre l'actu cloud, DevOps et IA sans y passer mes soirées. Le problème n'est pas de manquer d'infos, c'est l'inverse. Vingt-sept flux crachent environ 300 articles par semaine. Tout lire est intenable, tout ignorer est pire. Ce qui manque, ce n'est pas le contenu, c'est le tri.</p>
+				<p>La première : me construire une veille personnelle, taillée pour ce que je veux suivre en fonction de là où je veux aller. Le cloud, le DevOps et l'IA bougent chaque mois, et je ne voulais pas d'un fil générique de plus. Je voulais suivre ce qui compte pour mon parcours.</p>
 
-				<p>Weekly Tech Radar, c'est le pipeline qui fait ce tri à ma place. Chaque samedi à 8h, il collecte ces 300 articles, garde les plus pertinents, les résume en français et en anglais, et publie une édition sur mon portfolio. Le tout pour quelques centimes par semaine, sans que j'ouvre mon terminal.</p>
+				<p>La seconde : expérimenter une vraie automatisation, de bout en bout. Quelque chose qui tourne seul, en production, avec les contraintes que ça implique.</p>
 
-				<p>Il tourne depuis quatre mois, une édition chaque samedi, dix-neuf à ce jour. Le code est public sur <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>, et les éditions se lisent sur <a href="/fr/tech-radar/">arthurbernard.dev/fr/tech-radar</a>.</p>
+				<p>Le problème concret, c'est le volume. 27 flux, cela fait environ 300 articles par semaine. Les lire tous est impossible, les ignorer serait pire. Ce qui manque, ce n'est pas le contenu, c'est le tri.</p>
 
-				<h2>Pourquoi une veille, et pourquoi comme ça</h2>
+				<p>C'est là que l'IA entre en jeu, et seulement là. Pas parce que c'est à la mode, mais parce qu'elle résout la partie que des règles simples ne suffisent pas à traiter : lire les 300 articles, garder les pertinents, retirer les doublons, les résumer. Le reste du pipeline, la collecte des flux et la publication, c'est du Python classique.</p>
 
-				<p>La veille fait partie du métier. Le cloud, le DevOps et l'IA bougent tous les mois : un service managé qui change de tarif, une CVE critique, un outil qui devient le nouveau standard. Ne pas suivre, c'est prendre du retard sans même s'en rendre compte. Pour un profil qui vise l'architecture, savoir ce qui se passe fait partie du travail, pas du bonus.</p>
+				<p>Concrètement, chaque samedi, un cron GitHub Actions récupère les articles des 7 derniers jours, Claude Haiku sélectionne et résume les plus pertinents en français et en anglais, et le pipeline publie une édition sur mon portfolio. Trois scripts Python, quelques centimes par semaine. Il tourne depuis quatre mois, 19 éditions à ce jour. Les liens sont à la fin de l'article si tu les souhaites.</p>
 
-				<p>Le piège, c'est le volume. S'abonner à vingt-sept flux, c'est facile. Les lire, non. Au début je scrollais, je mettais en favori, je n'y revenais jamais. La veille sans tri, c'est juste de l'anxiété avec un fil RSS.</p>
+				<h2>La place de l'IA dans le projet</h2>
 
-				<p>D'où le choix du RSS et de l'Atom plutôt qu'un feed piloté par un algorithme. Pas de recommandation opaque, pas de contenu poussé pour l'engagement, pas de FOMO organisée. Je choisis mes sources et je les garde. Vingt-sept flux répartis sur six domaines : cloud, devops, sécu, ia, business, tech. Français et anglais, parce que les deux écosystèmes ne parlent pas des mêmes sujets au même moment.</p>
+				<p>J'ai fixé une règle dès le départ : l'IA fait le travail, mais rien n'est publié sans que je l'aie relu.</p>
 
-				<p>La ligne éditoriale, elle, est écrite en dur dans le prompt : <code>Factual only: no opinions, no editorial</code>. Je ne veux pas d'un résumé qui commente, je veux le fait et son impact concret. Le prompt donne même l'exemple à Claude, mauvais contre bon :</p>
+				<p>Le pipeline ne met rien en ligne tout seul. Il prépare l'édition et ouvre une Pull Request. Cette relecture me sert à deux choses. La première, c'est faire ma veille : relire l'édition, c'est déjà la lire, et c'est le but même du projet. La seconde, c'est vérifier le travail de l'IA, que les résumés correspondent aux articles et qu'aucun doublon n'est passé. Pour chaque article, la source d'origine reste accessible, si je veux creuser un peu plus.</p>
 
-<pre><code>BAD:  "Report on the state of open source on Hugging Face"
-GOOD: "Hugging Face downloads grew 60% in 6 months, driven by diffusion models"</code></pre>
+				<p>En amont, même logique : la consigne est écrite dans le prompt, des résumés factuels, sans opinion ni commentaire. Je ne veux pas que l'IA interprète l'actualité à ma place, seulement qu'elle me donne le fait et sa portée.</p>
 
-				<p>Un fait, un chiffre, un impact. C'est ça que je veux lire le samedi, pas une opinion de plus.</p>
+				<h2>Le crash</h2>
 
-				<p>Et il y a une frontière que je ne bouge pas. L'IA trie, déduplique, résume. Elle ne décide pas de ce qui est publié. Le pipeline ouvre une Pull Request, je relis, je merge. Le tri est automatique, l'éditorial reste humain.</p>
+				<p>Deux semaines après la mise en production, un samedi matin, la CI m'alerte : le workflow s'arrête en erreur à l'étape de résumé. Aucune édition ce jour-là.</p>
 
-				<h2>Comment ça marche</h2>
+				<p>En soi, l'incident est mineur. La CI l'a rattrapé tout de suite, aucune donnée n'a été perdue, et il m'a fallu une demi-heure pour corriger. Mais la cause valait la peine que je m'y arrête, parce qu'elle est piégeuse.</p>
 
-				<p>Trois scripts Python, orchestrés par un cron GitHub Actions. Rien de plus.</p>
-
-				<p><strong>Collecte.</strong> <code>collect.py</code> parse les 27 flux RSS et Atom (AWS, Kubernetes, CNCF, GitHub, TechCrunch et d'autres) et garde les articles des 7 derniers jours. Environ 300.</p>
-
-				<p><strong>Sélection et résumé.</strong> <code>summarize.py</code> envoie ces 300 articles à Claude Haiku, le petit modèle rapide et pas cher d'Anthropic. Le modèle fait trois passes : il sélectionne les 40 plus pertinents pour un profil cloud/DevOps, supprime les doublons (il en reste une trentaine), puis écrit pour chacun un résumé factuel FR et EN avant de le ranger dans une des six catégories.</p>
-
-				<p><strong>Publication.</strong> <code>publish.py</code> clone le repo du portfolio, génère les pages HTML bilingues, met à jour les cartes de listing et la home, ouvre une Pull Request. Netlify en construit une preview de déploiement. Je relis, je merge. En ligne.</p>
-
-<pre><code>GitHub Actions (samedi 8h UTC)
-        |
-   collect.py    27 flux RSS  ->  ~300 articles bruts
-        |
-  summarize.py   Claude Haiku ->  top 40 -> dedup ~35 -> resumes FR+EN
-        |
-   publish.py    genere le HTML -> ouvre une PR sur le portfolio
-        |
-     Netlify     preview de deploiement</code></pre>
-
-				<p>Le pipeline est idempotent : je peux le relancer sans risque, il saute les semaines déjà traitées. C'est ce qui m'a sauvé le fameux samedi.</p>
-
-				<h2>Le samedi où tout a planté</h2>
-
-				<p>Deux semaines de production. À peine le temps de me croire tranquille. Puis un samedi matin, GitHub Actions me notifie : le workflow sort en <code>exit code 1</code>. Étape <code>summarize</code>. Aucune édition générée.</p>
-
-				<p>Le message d'erreur ne parlait ni d'API, ni de réseau, ni de quota. Il parlait de JSON.</p>
-
-				<p>Voici ce qui s'était passé. Mon prompt demandait à Claude de résumer d'un coup la trentaine d'articles retenus, chacun avec son titre traduit, deux résumés et une catégorie, le tout dans une seule réponse JSON que mon script parse ensuite. Deux consignes, écrites noir sur blanc dans le prompt :</p>
+				<p>Mon prompt demandait à Claude de résumer d'un coup la trentaine d'articles retenus, chacun avec son titre traduit, deux résumés et une catégorie, le tout dans une seule réponse JSON. Deux consignes y figuraient noir sur blanc :</p>
 
 <pre><code>Summarize ALL articles without exception.
 Respond with ONLY valid JSON.</code></pre>
 
-				<p>Cette semaine-là, la sélection était dense. La réponse attendue dépassait mon budget de tokens : j'avais fixé <code>max_tokens</code> à 8192. Claude a écrit jusqu'à la limite, puis s'est arrêté. En plein milieu du JSON. Mon parser a reçu un objet coupé net, invalide, impossible à charger.</p>
+				<p>Cette semaine-là, la sélection était dense. La réponse dépassait le budget de tokens que j'avais fixé, 8192. Claude a écrit jusqu'à la limite, puis s'est arrêté, en plein milieu du JSON. Mon script a reçu un objet coupé net, impossible à lire.</p>
 
-				<p>Le vrai coupable n'était pas Claude. C'était moi, sur deux points.</p>
+				<p>Le problème ne venait pas de Claude, mais de moi. J'avais pris une consigne de prompt pour une garantie. Écrire « réponds en JSON valide » ne limite pas la longueur de la réponse, et « résume tout sans exception » la pousse justement à dépasser la limite. Un prompt exprime une intention, il ne garantit pas un résultat.</p>
 
-				<p>D'abord, j'avais présumé qu'une consigne dans un prompt était une garantie. « Réponds en JSON valide » ne borne pas la longueur de la sortie, et « résume tout sans exception » la pousse justement au-delà de la limite. Un prompt décrit une intention, il ne signe pas un contrat. La sortie d'un LLM reste une donnée externe, non déterministe, non bornée. Je la traitais comme une valeur de retour fiable de mon propre code.</p>
-
-				<p>Ensuite, mon parser mentait. Quand il ne trouvait pas de JSON exploitable, il ne levait pas d'erreur : il repartait silencieusement du début du texte, avec une valeur par défaut.</p>
+				<p>Il y avait pire. Mon parser masquait le problème : quand il ne trouvait pas de JSON exploitable, au lieu de lever une erreur, il repartait du début du texte avec une valeur par défaut.</p>
 
 <pre><code># La version fautive : default=0 masque l'absence de JSON
 start = min((text.find(c) for c in '[{' if text.find(c) != -1), default=0)</code></pre>
 
-				<p>Ce <code>default=0</code> a masqué le problème pendant des semaines au lieu de le signaler. Le jour où la troncature a été franche, l'échec a explosé d'un coup, sans piste claire.</p>
+				<p>Ce comportement masquait le problème au lieu de le signaler. Le jour où la réponse a été franchement tronquée, tout a lâché d'un coup, sans indice pour remonter à la cause.</p>
 
-				<h2>Le fix, et ce que j'en retiens</h2>
+				<h2>Ce que j'en ai retenu</h2>
 
-				<p>Trois corrections, dans cet ordre de priorité.</p>
+				<p><strong>La sortie d'une IA est une donnée non fiable, à traiter comme telle.</strong> On sait valider une saisie utilisateur, gérer un timeout réseau, se méfier d'une API tierce. La réponse d'un modèle demande la même prudence : elle n'est pas déterministe, et rien ne garantit qu'elle tienne dans la place prévue. Je la valide et je la parse défensivement, je ne la considère plus comme une valeur sûre venue de mon propre code.</p>
 
-				<p>D'abord, échouer bruyamment. Si la réponse ne contient pas de JSON exploitable, le script lève une erreur explicite avec le début du texte reçu. Un bug qui se voit vaut mille fois mieux qu'un bug silencieux.</p>
+				<p><strong>Une erreur doit se voir.</strong> Ma première correction n'a pas été de rendre le pipeline plus intelligent, mais de le faire échouer franchement. Si la réponse ne contient pas de JSON exploitable, le script lève désormais une erreur explicite, avec le début du texte reçu. Un bug visible se corrige en quelques minutes ; un bug silencieux, lui, peut coûter des jours.</p>
 
 <pre><code>candidates = [text.find(c) for c in '[{' if text.find(c) != -1]
 if not candidates:
     raise ValueError(f"Pas de JSON trouvé dans la réponse : {text[:200]}")
 start = min(candidates)</code></pre>
 
-				<p>Ensuite, une boucle de retry. La sortie d'un modèle n'est pas déterministe : la même requête peut réussir au deuxième essai. Trois tentatives avant d'abandonner. Et au passage, <code>max_tokens</code> de 8192 à 16384 : plus de marge. Ça repousse le plafond, ça ne le supprime pas. La vraie leçon n'est pas dans ce chiffre.</p>
+				<p><strong>Le vrai problème venait de la conception, pas du réglage.</strong> J'ai monté <code>max_tokens</code> à 16384 et ajouté 3 tentatives. C'est utile, mais cela ne fait que repousser le plafond : le jour où le radar retiendra plus d'articles ou des résumés plus longs, le même bug reviendra. La bonne correction, celle que je ferais en repartant de zéro, n'est pas d'agrandir la réponse, mais de ne plus en demander une seule et énorme. Découper en paquets de 5 ou 10 articles, traiter un article par appel, ou imposer un schéma de sortie. Borner ce qu'on demande au modèle plutôt que d'espérer que ça passe.</p>
 
 <pre><code>for attempt in range(3):
     response = client.messages.create(
@@ -275,21 +246,15 @@ start = min(candidates)</code></pre>
         if attempt == 2:
             raise</code></pre>
 
-				<p>La vraie leçon, c'est que j'ai traité un composant probabiliste comme un composant déterministe. On apprend à valider les entrées utilisateur, à gérer les timeouts réseau, à ne jamais faire confiance à une API tierce sans garde-fou. La sortie d'un LLM demande exactement la même discipline : valider, borner, réessayer, échouer fort. Un prompt n'est pas une promesse.</p>
-
-				<p>Le pipeline étant idempotent, un simple redéclenchement a régénéré l'édition manquante une fois le fix poussé. Aucune donnée perdue. Le crash m'a coûté une demi-heure et une bonne leçon.</p>
+				<p><strong>Comprendre le problème reste mon travail, que l'IA écrive le code ou non.</strong> L'IA m'a fait gagner beaucoup de temps sur la partie ingrate, trier 300 articles chaque semaine. Mais le jour où je lui ai fait confiance sans vérifier, elle m'a lâché sans prévenir. De mon point de vue, un ingénieur n'est pas seulement là pour écrire du code, il est là pour comprendre un problème et le résoudre. Que ce soit une IA ou moi qui l'écrive n'y change rien : si je ne comprends pas ce qu'elle produit, ni où cela peut casser, je ne peux pas l'anticiper. C'est exactement ce qui s'est passé ce samedi-là.</p>
 
 				<h2>Et maintenant</h2>
 
-				<p>Le radar tourne toujours. Chaque samedi, sans moi, il transforme 300 articles à trier en 10 minutes de lecture.</p>
+				<p>Le radar tourne toujours. Chaque samedi, sans moi, il ramène 300 articles à 10 minutes de lecture. Je suis passé d'une veille que je faisais quand j'y pensais, c'est-à-dire rarement, à une veille régulière que je lis vraiment.</p>
 
-				<p>Ce que ça a changé, concrètement : je suis passé d'une veille en pointillé, faite quand j'y pensais, souvent jamais, à une veille systématique que je lis vraiment. Dix minutes le week-end, et je sais ce qui a bougé côté cloud, DevOps et IA. Pas tout. L'essentiel, filtré pour mon profil. C'est la différence entre subir trente onglets ouverts et lire une page qui va droit au but.</p>
+				<p>Mais je ne le laisse pas seul pour autant. L'IA fait le gros du travail, je garde la main sur ce qui compte : ce qui est publié, ce qui est exact, et ce qui casse. C'est la leçon que je retiens pour le prochain projet où je mettrai une IA en production. C'est un excellent outil, à condition de rester celui qui comprend ce qu'il fait.</p>
 
-				<p>Et comme les éditions restent archivées sur le portfolio, j'ai aussi une trace. Des mois plus tard, je peux remonter le fil d'un sujet, voir à quelle semaine tel outil est apparu dans le radar. Une veille qui se garde, pas juste qui défile.</p>
-
-				<p>Si le sujet te parle, l'édition de la semaine est sur <a href="/fr/tech-radar/">arthurbernard.dev/fr/tech-radar</a>. Et si tu veux le monter pour ta propre veille, le repo est public et documenté sur <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>.</p>
-
-				<p>Un prompt n'est pas une garantie. Mais bien encadré, il fait tourner une veille tech tout seul pendant des mois.</p>
+				<p>Si le sujet t'intéresse, l'édition de la semaine est sur <a href="/fr/tech-radar/">arthurbernard.dev/fr/tech-radar</a>, et le code est public sur <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>.</p>
 
 			</div>
 

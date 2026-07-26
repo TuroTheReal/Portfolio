@@ -14,15 +14,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="I automated my tech watch with Python and Claude: 300 articles filtered into a 10-min read each week. The making-of, and the crash I caused myself.">
+	<meta name="description" content="I automated my tech watch with a Python and Claude pipeline. The making-of, the crash I caused, and why I keep control over the AI.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
 	<title>Weekly Tech Radar: Automated Tech Watch | Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Weekly Tech Radar: I Automated My Tech Watch, Then I Broke It">
-	<meta property="og:description" content="300 articles filtered into a 10-minute read every week, on autopilot. The making-of, and the day I broke my own pipeline.">
+	<meta property="og:title" content="Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer">
+	<meta property="og:description" content="Automating a tech watch with AI without handing it the control. The making-of, the crash I caused, and what I took away.">
 	<meta property="og:url" content="https://arthurbernard.dev/en/blog/weekly-tech-radar">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
@@ -41,8 +41,8 @@
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Weekly Tech Radar: I Automated My Tech Watch, Then I Broke It">
-	<meta name="twitter:description" content="300 articles filtered into a 10-minute read every week, on autopilot. The making-of, and the day I broke my own pipeline.">
+	<meta name="twitter:title" content="Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer">
+	<meta name="twitter:description" content="Automating a tech watch with AI without handing it the control. The making-of, the crash I caused, and what I took away.">
 	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp">
 
 	<!-- JSON-LD Article -->
@@ -50,8 +50,8 @@
 	{
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
-		"headline": "Weekly Tech Radar: I Automated My Tech Watch, Then I Broke It",
-		"description": "300 articles filtered into a 10-minute read every week, on autopilot. The making-of, and the day I broke my own pipeline.",
+		"headline": "Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer",
+		"description": "Automating a tech watch with AI without handing it the control. The making-of, the crash I caused, and what I took away.",
 		"image": "https://arthurbernard.dev/assets/img/blog/weekly-tech-radar.webp",
 		"datePublished": "2026-07-25",
 		"dateModified": "2026-07-25",
@@ -77,7 +77,7 @@
 		"itemListElement": [
 			{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthurbernard.dev/en/"},
 			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/en/blog"},
-			{"@type": "ListItem", "position": 3, "name": "Weekly Tech Radar: I Automated My Tech Watch, Then I Broke It", "item": "https://arthurbernard.dev/en/blog/weekly-tech-radar"}
+			{"@type": "ListItem", "position": 3, "name": "Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer", "item": "https://arthurbernard.dev/en/blog/weekly-tech-radar"}
 		]
 	}
 	</script>
@@ -151,10 +151,10 @@
 			<!-- Article header -->
 			<header class="article-header" data-fade>
 				<a href="/en/blog" class="article-back"><span aria-hidden="true">&larr;</span> Back to Blog</a>
-				<h1>Weekly Tech Radar: I Automated My Tech Watch, Then I Broke It</h1>
+				<h1>Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer</h1>
 				<div class="article-meta">
 					<time datetime="2026-07-25">July 25, 2026</time>
-					<span class="article-read-time">7 min read</span>
+					<span class="article-read-time">6 min read</span>
 				</div>
 				<div class="article-tags">
 					<span>Project</span>
@@ -171,97 +171,68 @@
 			<!-- Article body -->
 			<div class="article-body" data-fade>
 
-				<p>27 sources. 300 articles to sort through every week. A 10-minute read at the end.</p>
+				<p>Every week, 27 sources dump around 300 articles on me to sort through. A pipeline brings them down to a 10-minute read, on its own, with an AI in the middle, without me opening my terminal.</p>
 
-				<p>One Saturday, everything broke.</p>
+				<p>One Saturday, it crashed. Not because of the AI, but because of the trust I had placed in it.</p>
 
-				<p>And it's entirely my fault.</p>
+				<p>That's what I want to share here. The way I see it, an engineer's job isn't just to write code: it's to understand a problem and solve it. Whether an AI holds the keyboard or not changes nothing. That Saturday, if the pipeline got away from me, it's because I hadn't understood the problem well enough to see it coming.</p>
 
-				<p>But before I get into that, here's the project.</p>
+				<h2>Why a tech watch</h2>
 
-				<h2>The project: my tech watch on autopilot</h2>
+				<p>I built it for two reasons.</p>
 
-				<p>I wanted to keep up with cloud, DevOps and AI without burning my evenings on it. The problem isn't a lack of information, it's the opposite. Twenty-seven feeds spit out around 300 articles a week. Reading them all is impossible, ignoring them all is worse. What's missing isn't content, it's curation.</p>
+				<p>The first: to have a personal tech watch, tailored to what I want to follow given where I want to go. Cloud, DevOps and AI move every month, and I didn't want yet another generic feed. I wanted to follow what matters for my path.</p>
 
-				<p>Weekly Tech Radar is the pipeline that does that sorting for me. Every Saturday at 8am, it collects those 300 articles, keeps the most relevant ones, summarizes them in French and English, and publishes an edition on my portfolio. All for a few cents a week, without me opening my terminal.</p>
+				<p>The second: to experiment with real automation, end to end. Something that runs on its own, in production, with everything that implies.</p>
 
-				<p>It's been running for four months, one edition every Saturday, nineteen so far. The code is public at <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>, and the editions are online at <a href="/en/tech-radar/">arthurbernard.dev/en/tech-radar</a>.</p>
+				<p>The concrete problem is volume. 27 feeds means around 300 articles a week. Reading them all is impossible, ignoring them would be worse. What's missing isn't content, it's curation.</p>
 
-				<h2>Why a tech watch, and why like this</h2>
+				<p>That's where the AI comes in, and only there. Not because it's fashionable, but because it handles the part that simple rules can't: reading the 300 articles, keeping the relevant ones, removing duplicates, summarizing them. The rest of the pipeline, fetching the feeds and publishing, is plain Python.</p>
 
-				<p>Tech watch is part of the job. Cloud, DevOps and AI move every month: a managed service changes its pricing, a critical CVE drops, a tool becomes the new standard. Not keeping up means falling behind without even noticing. For someone aiming at architecture, knowing what's going on is part of the work, not a bonus.</p>
+				<p>Concretely, every Saturday, a GitHub Actions cron fetches the articles from the last 7 days, Claude Haiku selects and summarizes the most relevant ones in French and English, and the pipeline publishes an edition on my portfolio. Three Python scripts, a few cents a week. It has been running for four months, 19 editions so far. The links are at the end of the article if you want them.</p>
 
-				<p>The trap is volume. Subscribing to twenty-seven feeds is easy. Reading them isn't. At first I'd scroll, bookmark, and never come back. Tech watch without curation is just anxiety with an RSS feed.</p>
+				<h2>The AI's place in the project</h2>
 
-				<p>Hence the choice of RSS and Atom over an algorithm-driven feed. No opaque recommendations, no content pushed for engagement, no manufactured FOMO. I pick my sources and I keep them. Twenty-seven feeds across six domains: cloud, devops, security, ai, business, tech. French and English, because the two ecosystems don't talk about the same things at the same time.</p>
+				<p>I set one rule from the start: the AI does the work, but nothing gets published without me having read it.</p>
 
-				<p>The editorial line is hardcoded into the prompt: <code>Factual only: no opinions, no editorial</code>. I don't want a summary that comments, I want the fact and its concrete impact. The prompt even gives Claude the example, bad versus good:</p>
+				<p>The pipeline puts nothing online on its own. It prepares the edition and opens a Pull Request. That review serves two purposes. First, doing my tech watch: re-reading the edition is already reading it, and that's the whole point of the project. Second, checking the AI's work, that the summaries match the articles and that no duplicate slipped through. For each article, the original source stays accessible, if I want to dig deeper.</p>
 
-<pre><code>BAD:  "Report on the state of open source on Hugging Face"
-GOOD: "Hugging Face downloads grew 60% in 6 months, driven by diffusion models"</code></pre>
+				<p>Upstream, same logic: the instruction is written into the prompt, factual summaries, no opinion or commentary. I don't want the AI interpreting the news for me, only giving me the fact and what it means.</p>
 
-				<p>A fact, a number, an impact. That's what I want to read on a Saturday, not one more opinion.</p>
+				<h2>The crash</h2>
 
-				<p>And there's one line I don't move. The AI sorts, deduplicates, summarizes. It doesn't decide what gets published. The pipeline opens a Pull Request, I review, I merge. The sorting is automatic, the editorial stays human.</p>
+				<p>Two weeks after going live, on a Saturday morning, the CI alerts me: the workflow fails at the summarize step. No edition that day.</p>
 
-				<h2>How it works</h2>
+				<p>In itself, the incident is minor. The CI caught it right away, no data was lost, and it took me half an hour to fix. But the cause was worth pausing on, because it's a trap.</p>
 
-				<p>Three Python scripts, orchestrated by a GitHub Actions cron. Nothing more.</p>
-
-				<p><strong>Collect.</strong> <code>collect.py</code> parses the 27 RSS and Atom feeds (AWS, Kubernetes, CNCF, GitHub, TechCrunch and others) and keeps articles from the last 7 days. Around 300.</p>
-
-				<p><strong>Select and summarize.</strong> <code>summarize.py</code> sends those 300 articles to Claude Haiku, Anthropic's small, fast and cheap model. The model runs three passes: it selects the 40 most relevant for a cloud/DevOps profile, removes duplicates (about thirty remain), then writes a factual FR and EN summary for each before filing it into one of six categories.</p>
-
-				<p><strong>Publish.</strong> <code>publish.py</code> clones the portfolio repo, generates the bilingual HTML pages, updates the listing and homepage cards, opens a Pull Request. Netlify builds a deploy preview. I review, I merge. Live.</p>
-
-<pre><code>GitHub Actions (Saturday 8am UTC)
-        |
-   collect.py    27 RSS feeds ->  ~300 raw articles
-        |
-  summarize.py   Claude Haiku ->  top 40 -> dedup ~35 -> FR+EN summaries
-        |
-   publish.py    generates HTML -> opens a PR on the portfolio
-        |
-     Netlify     deploy preview</code></pre>
-
-				<p>The pipeline is idempotent: I can re-run it safely, it skips weeks already processed. That's what saved me that Saturday.</p>
-
-				<h2>The Saturday it all crashed</h2>
-
-				<p>Two weeks in production. Barely enough time to feel safe. Then one Saturday morning, GitHub Actions notifies me: the workflow exits with <code>exit code 1</code>. The <code>summarize</code> step. No edition generated.</p>
-
-				<p>The error message wasn't about the API, the network, or a quota. It was about JSON.</p>
-
-				<p>Here's what happened. My prompt asked Claude to summarize the thirty-odd selected articles in one go, each with a translated title, two summaries and a category, all in a single JSON response my script then parses. Two instructions, written plainly in the prompt:</p>
+				<p>My prompt asked Claude to summarize the thirty-odd selected articles in one go, each with a translated title, two summaries and a category, all in a single JSON response. Two instructions were written there in plain sight:</p>
 
 <pre><code>Summarize ALL articles without exception.
 Respond with ONLY valid JSON.</code></pre>
 
-				<p>That week, the selection was dense. The expected response exceeded my token budget: I'd set <code>max_tokens</code> to 8192. Claude wrote up to the limit, then stopped. Mid-JSON. My parser got an object cut clean off, invalid, impossible to load.</p>
+				<p>That week, the selection was dense. The response exceeded the token budget I had set, 8192. Claude wrote up to the limit, then stopped, mid-JSON. My script got an object cut clean off, impossible to read.</p>
 
-				<p>The real culprit wasn't Claude. It was me, on two counts.</p>
+				<p>The problem didn't come from Claude, but from me. I had taken a prompt instruction for a guarantee. Writing "respond with valid JSON" doesn't limit the length of the response, and "summarize everything without exception" pushes it right past the limit. A prompt expresses an intention, it doesn't guarantee a result.</p>
 
-				<p>First, I'd assumed an instruction in a prompt was a guarantee. "Respond with valid JSON" doesn't bound the length of the output, and "summarize everything without exception" pushes it right past the limit. A prompt describes an intention, it doesn't sign a contract. An LLM's output is external data: non-deterministic, unbounded. I was treating it like a reliable return value from my own code.</p>
-
-				<p>Second, my parser was lying. When it didn't find usable JSON, it didn't raise an error: it silently restarted from the beginning of the text, with a default value.</p>
+				<p>It got worse. My parser was hiding the problem: when it didn't find usable JSON, instead of raising an error, it started over from the beginning of the text with a default value.</p>
 
 <pre><code># The buggy version: default=0 hides the missing JSON
 start = min((text.find(c) for c in '[{' if text.find(c) != -1), default=0)</code></pre>
 
-				<p>That <code>default=0</code> masked the problem for weeks instead of flagging it. The day the truncation was clean, the failure blew up all at once, with no clear lead.</p>
+				<p>That behavior hid the problem instead of flagging it. The day the response was cleanly truncated, everything gave way at once, with no lead to trace the cause.</p>
 
-				<h2>The fix, and what I take away</h2>
+				<h2>What I took away</h2>
 
-				<p>Three fixes, in this order of priority.</p>
+				<p><strong>An AI's output is unreliable data, and should be treated as such.</strong> We know to validate user input, handle a network timeout, be wary of a third-party API. A model's response calls for the same caution: it isn't deterministic, and nothing guarantees it fits within the space you planned. I validate it and parse it defensively; I no longer treat it as a safe value coming from my own code.</p>
 
-				<p>First, fail loudly. If the response contains no usable JSON, the script raises an explicit error with the start of the text it received. A bug you can see beats a silent bug a thousand times over.</p>
+				<p><strong>An error should be visible.</strong> My first fix wasn't to make the pipeline smarter, but to make it fail out loud. If the response contains no usable JSON, the script now raises an explicit error, with the start of the text it received. A visible bug gets fixed in minutes; a silent one can cost you days.</p>
 
 <pre><code>candidates = [text.find(c) for c in '[{' if text.find(c) != -1]
 if not candidates:
     raise ValueError(f"No JSON found in response: {text[:200]}")
 start = min(candidates)</code></pre>
 
-				<p>Then, a retry loop. A model's output isn't deterministic: the same request can succeed on the second try. Three attempts before giving up. And along the way, <code>max_tokens</code> from 8192 to 16384: more headroom. That pushes the ceiling back, it doesn't remove it. The real lesson isn't in that number.</p>
+				<p><strong>The real problem was in the design, not the setting.</strong> I raised <code>max_tokens</code> to 16384 and added 3 attempts. It helps, but it only pushes the ceiling back: the day the radar keeps more articles or longer summaries, the same bug returns. The right fix, the one I'd make starting from scratch, isn't to enlarge the response, but to stop asking for one huge one. Split into batches of 5 or 10 articles, handle one article per call, or enforce an output schema. Bound what you ask the model for instead of hoping it fits.</p>
 
 <pre><code>for attempt in range(3):
     response = client.messages.create(
@@ -275,21 +246,15 @@ start = min(candidates)</code></pre>
         if attempt == 2:
             raise</code></pre>
 
-				<p>The real lesson is that I treated a probabilistic component like a deterministic one. We learn to validate user input, to handle network timeouts, to never trust a third-party API without a guardrail. An LLM's output demands exactly the same discipline: validate, bound, retry, fail loud. A prompt isn't a promise.</p>
-
-				<p>Since the pipeline is idempotent, a simple re-trigger regenerated the missing edition once the fix was pushed. No data lost. The crash cost me half an hour and a good lesson.</p>
+				<p><strong>Understanding the problem stays my job, whether the AI writes the code or not.</strong> The AI saved me a lot of time on the tedious part, sorting 300 articles a week. But the day I trusted it without checking, it let me down without warning. The way I see it, an engineer isn't only there to write code, they're there to understand a problem and solve it. Whether an AI or I write it changes nothing: if I don't understand what it produces, or where it can break, I can't see it coming. That's exactly what happened that Saturday.</p>
 
 				<h2>And now</h2>
 
-				<p>The radar is still running. Every Saturday, without me, it turns 300 articles to sort through into a 10-minute read.</p>
+				<p>The radar is still running. Every Saturday, without me, it brings 300 articles down to a 10-minute read. I went from a tech watch I did when I thought about it, meaning rarely, to a regular one I actually read.</p>
 
-				<p>What it changed, concretely: I went from a patchy tech watch, done when I remembered, often never, to a systematic one I actually read. Ten minutes on the weekend, and I know what moved in cloud, DevOps and AI. Not everything. The essentials, filtered for my profile. It's the difference between drowning in thirty open tabs and reading one page that gets to the point.</p>
+				<p>But I don't leave it on its own. The AI does the heavy lifting, I keep my hand on what matters: what gets published, what's accurate, and what breaks. That's the lesson I'm keeping for the next project where I put an AI in production. It's an excellent tool, as long as you stay the one who understands what it does.</p>
 
-				<p>And since the editions stay archived on the portfolio, I also have a record. Months later, I can trace a topic back, see which week a given tool first showed up on the radar. A tech watch that keeps, not just one that scrolls by.</p>
-
-				<p>If this speaks to you, this week's edition is at <a href="/en/tech-radar/">arthurbernard.dev/en/tech-radar</a>. And if you want to build one for your own tech watch, the repo is public and documented at <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>.</p>
-
-				<p>A prompt isn't a guarantee. But framed properly, it can run a tech watch on its own for months.</p>
+				<p>If this interests you, this week's edition is at <a href="/en/tech-radar/">arthurbernard.dev/en/tech-radar</a>, and the code is public at <a href="https://github.com/TuroTheReal/weekly-tech-radar" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/weekly-tech-radar</a>.</p>
 
 			</div>
 
