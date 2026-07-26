@@ -181,7 +181,7 @@
 
 				<p>J'avais deux raisons de le construire.</p>
 
-				<p>La première : me construire une veille personnelle, taillée pour ce que je veux suivre en fonction de là où je veux aller. Le cloud, le DevOps et l'IA bougent chaque mois, et je ne voulais pas d'un fil générique de plus. Je voulais suivre ce qui compte pour mon parcours.</p>
+				<p>La première : avoir une veille personnelle, taillée pour ce que je veux suivre en fonction de là où je veux aller. Le cloud, le DevOps et l'IA bougent chaque mois, et je ne voulais pas d'un fil générique de plus. Je voulais suivre ce qui compte pour mon parcours.</p>
 
 				<p>La seconde : expérimenter une vraie automatisation, de bout en bout. Quelque chose qui tourne seul, en production, avec les contraintes que ça implique.</p>
 
@@ -214,7 +214,7 @@ Respond with ONLY valid JSON.</code></pre>
 
 				<p>Le problème ne venait pas de Claude, mais de moi. J'avais pris une consigne de prompt pour une garantie. Écrire « réponds en JSON valide » ne limite pas la longueur de la réponse, et « résume tout sans exception » la pousse justement à dépasser la limite. Un prompt exprime une intention, il ne garantit pas un résultat.</p>
 
-				<p>Il y avait pire. Mon parser masquait le problème : quand il ne trouvait pas de JSON exploitable, au lieu de lever une erreur, il repartait du début du texte avec une valeur par défaut.</p>
+				<p>Mais il y avait pire. Mon parser masquait le problème : quand il ne trouvait pas de JSON exploitable, au lieu de lever une erreur, il repartait du début du texte avec une valeur par défaut.</p>
 
 <pre><code># La version fautive : default=0 masque l'absence de JSON
 start = min((text.find(c) for c in '[{' if text.find(c) != -1), default=0)</code></pre>

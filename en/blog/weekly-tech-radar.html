@@ -214,7 +214,7 @@ Respond with ONLY valid JSON.</code></pre>
 
 				<p>The problem didn't come from Claude, but from me. I had taken a prompt instruction for a guarantee. Writing "respond with valid JSON" doesn't limit the length of the response, and "summarize everything without exception" pushes it right past the limit. A prompt expresses an intention, it doesn't guarantee a result.</p>
 
-				<p>It got worse. My parser was hiding the problem: when it didn't find usable JSON, instead of raising an error, it started over from the beginning of the text with a default value.</p>
+				<p>But it got worse. My parser was hiding the problem: when it didn't find usable JSON, instead of raising an error, it started over from the beginning of the text with a default value.</p>
 
 <pre><code># The buggy version: default=0 hides the missing JSON
 start = min((text.find(c) for c in '[{' if text.find(c) != -1), default=0)</code></pre>
