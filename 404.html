@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5R3CELDV2W"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-5R3CELDV2W');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<meta name="description" content="Page introuvable (404) — Arthur Bernard.">
+	<meta name="robots" content="noindex, follow">
+
+	<title>404 · Page introuvable | Arthur Bernard</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap"></noscript>
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
+
+	<style>
+		/* ===== 404 — radar / signal perdu (mobile-first), tokens du site ===== */
+		.err404 {
+			--e4-danger: #f97583;
+			min-height: calc(100svh - var(--header-height));
+			display: grid;
+			place-items: center;
+			padding: 2rem 1.25rem 3.5rem;
+			text-align: center;
+		}
+		body.light-theme .err404 { --e4-danger: #dc2626; }
+
+		.err404__inner { display: grid; justify-items: center; gap: 1.6rem; max-width: 34rem; }
+
+		/* --- radar --- */
+		.radar {
+			--size: clamp(190px, 64vw, 290px);
+			width: var(--size);
+			height: var(--size);
+			position: relative;
+			display: grid;
+			place-items: center;
+		}
+		.radar__disc {
+			position: absolute; inset: 0; border-radius: 50%;
+			background: radial-gradient(circle, var(--accent-muted), transparent 72%);
+		}
+		.radar__ring { position: absolute; border: 1px solid var(--header-border); border-radius: 50%; }
+		.radar__ring--1 { inset: 0; }
+		.radar__ring--2 { inset: 17%; }
+		.radar__ring--3 { inset: 35%; }
+		.radar__cross, .radar__cross::before {
+			content: ""; position: absolute; background: var(--header-border);
+		}
+		.radar__cross { top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%); }
+		.radar__cross::before { top: 50%; left: 0; right: 0; height: 1px; transform: translateY(-50%); }
+		.radar__sweep { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
+		.radar__sweep::before {
+			content: ""; position: absolute; inset: 0;
+			background: conic-gradient(from 0deg, transparent 300deg, var(--accent) 358deg, transparent 360deg);
+			animation: e4-spin 3.6s linear infinite;
+		}
+		.radar__blip {
+			position: absolute; top: 31%; left: 64%; width: 9px; height: 9px;
+			border-radius: 50%; background: var(--e4-danger);
+			box-shadow: 0 0 12px var(--e4-danger);
+			animation: e4-pulse 2s ease-in-out infinite;
+		}
+		.radar__404 {
+			position: relative; z-index: 2;
+			font-family: var(--font-title); font-weight: 700;
+			font-size: clamp(2.4rem, 9vw, 3.1rem);
+			letter-spacing: -.03em; color: var(--text-primary);
+		}
+		@keyframes e4-spin { to { transform: rotate(360deg); } }
+		@keyframes e4-pulse { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+
+		/* --- texte --- */
+		.err404__title {
+			font-family: var(--font-title); font-weight: 500;
+			font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+			margin: 0; text-wrap: balance;
+		}
+		.err404__title .en { display: block; color: var(--text-secondary); font-weight: 400; font-size: .78em; margin-top: .3rem; }
+		.err404__lead { color: var(--text-secondary); max-width: 38ch; margin: 0; font-size: .95rem; }
+
+		/* --- CTA --- */
+		.err404__cta { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
+		.err404__btn {
+			font-family: var(--font-text); font-size: .9rem; font-weight: 500;
+			text-decoration: none; border-radius: 9px; padding: .65rem 1.15rem;
+			border: 1px solid var(--accent); transition: background .15s, color .15s;
+		}
+		.err404__btn--primary { background: var(--accent); color: #fff; }
+		.err404__btn--primary:hover { background: var(--accent-hover); }
+		.err404__btn--ghost { background: transparent; color: var(--accent); }
+		.err404__btn--ghost:hover { background: var(--accent-muted); }
+		.err404__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+		@media (prefers-reduced-motion: reduce) {
+			.radar__sweep::before { animation: none; opacity: .55; }
+			.radar__blip { animation: none; }
+		}
+	</style>
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+
+	<!-- Header allégé (logo + langue + thème) -->
+	<header class="header">
+		<a href="/fr/#Home" class="logo" id="e4-logo">A.</a>
+		<div class="header-actions">
+			<button class="lang-toggle" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle active" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+	</header>
+
+	<main class="err404">
+		<div class="err404__inner" data-fade>
+
+			<div class="radar" role="img" aria-label="Radar sans signal, 404">
+				<div class="radar__disc"></div>
+				<div class="radar__ring radar__ring--1"></div>
+				<div class="radar__ring radar__ring--2"></div>
+				<div class="radar__ring radar__ring--3"></div>
+				<div class="radar__cross"></div>
+				<div class="radar__sweep"></div>
+				<div class="radar__blip"></div>
+				<div class="radar__404">404</div>
+			</div>
+
+			<h1 class="err404__title" data-i18n-html="title">Aucun signal sur le radar<span class="en">No signal on the radar</span></h1>
+			<p class="err404__lead" data-i18n="lead">La page que tu cherches a quitté la zone, ou n'a jamais existé.</p>
+
+			<div class="err404__cta">
+				<a class="err404__btn err404__btn--primary" id="e4-home" href="/fr/" data-i18n="home">Accueil</a>
+				<a class="err404__btn err404__btn--ghost" id="e4-radar" href="/fr/tech-radar/" data-i18n="radar">Tech Radar</a>
+			</div>
+
+		</div>
+	</main>
+
+	<!-- i18n : FR par défaut, EN si l'URL commence par /en/ -->
+	<script>
+		(function () {
+			var T = {
+				fr: { title: "Aucun signal sur le radar<span class=\"en\">No signal on the radar</span>", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", radar: "Tech Radar", homeHref: "/fr/", radarHref: "/fr/tech-radar/" },
+				en: { title: "No signal on the radar<span class=\"en\">Aucun signal sur le radar</span>", lead: "The page you're looking for left the area, or never existed.", home: "Home", radar: "Tech Radar", homeHref: "/en/", radarHref: "/en/tech-radar/" }
+			};
+			// Langue : préfixe d'URL prioritaire, sinon langue du navigateur (défaut EN = x-default du site)
+			var path = window.location.pathname;
+			var lang;
+			if (path.indexOf('/fr') === 0) lang = 'fr';
+			else if (path.indexOf('/en') === 0) lang = 'en';
+			else lang = (navigator.language || '').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+			var t = T[lang];
+
+			document.documentElement.lang = lang;
+			document.querySelectorAll('[data-i18n]').forEach(function (el) {
+				var k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k];
+			});
+			document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+				var k = el.getAttribute('data-i18n-html'); if (t[k]) el.innerHTML = t[k];
+			});
+			document.getElementById('e4-home').setAttribute('href', t.homeHref);
+			document.getElementById('e4-radar').setAttribute('href', t.radarHref);
+			document.getElementById('e4-logo').setAttribute('href', t.homeHref + '#Home');
+			document.querySelectorAll('.lang-toggle').forEach(function (b) {
+				b.classList.toggle('active', b.dataset.lang === lang);
+			});
+		})();
+	</script>
+
+	<script src="/assets/script.js" defer></script>
+
+</body>
+</html>
