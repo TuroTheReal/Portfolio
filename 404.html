@@ -89,7 +89,6 @@
 			font-size: clamp(1.2rem, 5.5vw, 1.5rem);
 			margin: 0; text-wrap: balance;
 		}
-		.err404__title .en { display: block; color: var(--text-secondary); font-weight: 400; font-size: .78em; margin-top: .3rem; }
 		.err404__lead { color: var(--text-secondary); max-width: 38ch; margin: 0; font-size: .95rem; }
 
 		/* --- CTA --- */
@@ -141,11 +140,12 @@
 				<div class="radar__404">404</div>
 			</div>
 
-			<h1 class="err404__title" data-i18n-html="title">Aucun signal sur le radar<span class="en">No signal on the radar</span></h1>
+			<h1 class="err404__title" data-i18n="title">Aucun signal sur le radar</h1>
 			<p class="err404__lead" data-i18n="lead">La page que tu cherches a quitté la zone, ou n'a jamais existé.</p>
 
 			<div class="err404__cta">
 				<a class="err404__btn err404__btn--primary" id="e4-home" href="/fr/" data-i18n="home">Accueil</a>
+				<a class="err404__btn err404__btn--ghost" id="e4-blog" href="/fr/blog" data-i18n="blog">Blog</a>
 				<a class="err404__btn err404__btn--ghost" id="e4-radar" href="/fr/tech-radar/" data-i18n="radar">Tech Radar</a>
 			</div>
 
@@ -156,8 +156,8 @@
 	<script>
 		(function () {
 			var T = {
-				fr: { title: "Aucun signal sur le radar<span class=\"en\">No signal on the radar</span>", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", radar: "Tech Radar", homeHref: "/fr/", radarHref: "/fr/tech-radar/" },
-				en: { title: "No signal on the radar<span class=\"en\">Aucun signal sur le radar</span>", lead: "The page you're looking for left the area, or never existed.", home: "Home", radar: "Tech Radar", homeHref: "/en/", radarHref: "/en/tech-radar/" }
+				fr: { title: "Aucun signal sur le radar", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", blog: "Blog", radar: "Tech Radar", homeHref: "/fr/", blogHref: "/fr/blog", radarHref: "/fr/tech-radar/" },
+				en: { title: "No signal on the radar", lead: "The page you're looking for left the area, or never existed.", home: "Home", blog: "Blog", radar: "Tech Radar", homeHref: "/en/", blogHref: "/en/blog", radarHref: "/en/tech-radar/" }
 			};
 			// Langue : préfixe d'URL prioritaire, sinon langue du navigateur (défaut EN = x-default du site)
 			var path = window.location.pathname;
@@ -171,10 +171,8 @@
 			document.querySelectorAll('[data-i18n]').forEach(function (el) {
 				var k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k];
 			});
-			document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-				var k = el.getAttribute('data-i18n-html'); if (t[k]) el.innerHTML = t[k];
-			});
 			document.getElementById('e4-home').setAttribute('href', t.homeHref);
+			document.getElementById('e4-blog').setAttribute('href', t.blogHref);
 			document.getElementById('e4-radar').setAttribute('href', t.radarHref);
 			document.getElementById('e4-logo').setAttribute('href', t.homeHref + '#Home');
 			document.querySelectorAll('.lang-toggle').forEach(function (b) {
