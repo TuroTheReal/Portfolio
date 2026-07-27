@@ -27,100 +27,77 @@
 	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
 
 	<style>
-		/* ===== 404 — réponse HTTP (mobile-first), tokens du site ===== */
+		/* ===== 404 — radar / signal perdu (mobile-first), tokens du site ===== */
 		.err404 {
-			--e4-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 			--e4-danger: #f97583;
 			min-height: calc(100svh - var(--header-height));
 			display: grid;
 			place-items: center;
 			padding: 2rem 1.25rem 3.5rem;
+			text-align: center;
 		}
 		body.light-theme .err404 { --e4-danger: #dc2626; }
 
-		.err404__card {
-			width: 100%;
-			max-width: 30rem;
-			font-family: var(--e4-mono);
-		}
+		.err404__inner { display: grid; justify-items: center; gap: 1.6rem; max-width: 34rem; }
 
-		/* ligne de requête : GET /path 404 */
-		.err404__req {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			gap: .5rem;
-			font-size: .8rem;
-			color: var(--text-secondary);
-			margin-bottom: 1.25rem;
-			min-width: 0;
-		}
-		.err404__verb { color: var(--accent); font-weight: 600; }
-		.err404__path {
-			color: var(--text-primary);
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			max-width: 100%;
-		}
-		.err404__pill {
-			font-size: .68rem;
-			color: var(--e4-danger);
-			border: 1px solid var(--e4-danger);
-			border-radius: 5px;
-			padding: .1rem .4rem;
-			white-space: nowrap;
-		}
-
-		/* statut : 404 Not Found */
-		.err404__status {
-			display: flex;
-			align-items: baseline;
-			flex-wrap: wrap;
-			gap: .3rem .9rem;
-			margin-bottom: 1.4rem;
-		}
-		.err404__code {
-			font-family: var(--font-title);
-			font-weight: 600;
-			font-size: clamp(3.5rem, 20vw, 5rem);
-			line-height: 1;
-			letter-spacing: -.03em;
-			color: var(--e4-danger);
-		}
-		.err404__reason {
-			font-family: var(--font-title);
-			font-weight: 500;
-			font-size: clamp(1.1rem, 5vw, 1.35rem);
-			color: var(--text-primary);
-		}
-
-		/* pseudo-headers : clé / valeur */
-		.err404__hdr {
-			border-left: 2px solid var(--header-border);
-			padding-left: .9rem;
+		/* --- radar --- */
+		.radar {
+			--size: clamp(190px, 64vw, 290px);
+			width: var(--size);
+			height: var(--size);
+			position: relative;
 			display: grid;
-			gap: .45rem;
-			margin: 0 0 1.9rem;
-			font-size: .82rem;
-			line-height: 1.5;
+			place-items: center;
 		}
-		.err404__row { display: flex; gap: .5rem; }
-		.err404__key { color: var(--text-secondary); }
-		.err404__key::after { content: ":"; }
-		.err404__val { color: var(--text-primary); }
+		.radar__disc {
+			position: absolute; inset: 0; border-radius: 50%;
+			background: radial-gradient(circle, var(--accent-muted), transparent 72%);
+		}
+		.radar__ring { position: absolute; border: 1px solid var(--header-border); border-radius: 50%; }
+		.radar__ring--1 { inset: 0; }
+		.radar__ring--2 { inset: 17%; }
+		.radar__ring--3 { inset: 35%; }
+		.radar__cross, .radar__cross::before {
+			content: ""; position: absolute; background: var(--header-border);
+		}
+		.radar__cross { top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%); }
+		.radar__cross::before { top: 50%; left: 0; right: 0; height: 1px; transform: translateY(-50%); }
+		.radar__sweep { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
+		.radar__sweep::before {
+			content: ""; position: absolute; inset: 0;
+			background: conic-gradient(from 0deg, transparent 300deg, var(--accent) 358deg, transparent 360deg);
+			animation: e4-spin 3.6s linear infinite;
+		}
+		.radar__blip {
+			position: absolute; top: 31%; left: 64%; width: 9px; height: 9px;
+			border-radius: 50%; background: var(--e4-danger);
+			box-shadow: 0 0 12px var(--e4-danger);
+			animation: e4-pulse 2s ease-in-out infinite;
+		}
+		.radar__404 {
+			position: relative; z-index: 2;
+			font-family: var(--font-title); font-weight: 700;
+			font-size: clamp(2.4rem, 9vw, 3.1rem);
+			letter-spacing: -.03em; color: var(--text-primary);
+		}
+		@keyframes e4-spin { to { transform: rotate(360deg); } }
+		@keyframes e4-pulse { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
 
-		/* CTA */
-		.err404__cta { display: flex; flex-wrap: wrap; gap: .7rem; }
+		/* --- texte --- */
+		.err404__title {
+			font-family: var(--font-title); font-weight: 500;
+			font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+			margin: 0; text-wrap: balance;
+		}
+		.err404__title .en { display: block; color: var(--text-secondary); font-weight: 400; font-size: .78em; margin-top: .3rem; }
+		.err404__lead { color: var(--text-secondary); max-width: 38ch; margin: 0; font-size: .95rem; }
+
+		/* --- CTA --- */
+		.err404__cta { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
 		.err404__btn {
-			font-family: var(--font-text);
-			font-size: .9rem;
-			font-weight: 500;
-			text-decoration: none;
-			border-radius: 9px;
-			padding: .65rem 1.15rem;
-			border: 1px solid var(--accent);
-			transition: background .15s, color .15s;
+			font-family: var(--font-text); font-size: .9rem; font-weight: 500;
+			text-decoration: none; border-radius: 9px; padding: .65rem 1.15rem;
+			border: 1px solid var(--accent); transition: background .15s, color .15s;
 		}
 		.err404__btn--primary { background: var(--accent); color: #fff; }
 		.err404__btn--primary:hover { background: var(--accent-hover); }
@@ -128,9 +105,9 @@
 		.err404__btn--ghost:hover { background: var(--accent-muted); }
 		.err404__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-		@media (min-width: 640px) {
-			.err404__req { font-size: .85rem; }
-			.err404__hdr { font-size: .88rem; }
+		@media (prefers-reduced-motion: reduce) {
+			.radar__sweep::before { animation: none; opacity: .55; }
+			.radar__blip { animation: none; }
 		}
 	</style>
 
@@ -151,37 +128,36 @@
 	</header>
 
 	<main class="err404">
-		<div class="err404__card" data-fade>
-			<p class="err404__req">
-				<span class="err404__verb">GET</span>
-				<span class="err404__path" id="e4-path">/page-introuvable</span>
-				<span class="err404__pill">404</span>
-			</p>
+		<div class="err404__inner" data-fade>
 
-			<div class="err404__status">
-				<span class="err404__code">404</span>
-				<span class="err404__reason">Not Found</span>
+			<div class="radar" role="img" aria-label="Radar sans signal, 404">
+				<div class="radar__disc"></div>
+				<div class="radar__ring radar__ring--1"></div>
+				<div class="radar__ring radar__ring--2"></div>
+				<div class="radar__ring radar__ring--3"></div>
+				<div class="radar__cross"></div>
+				<div class="radar__sweep"></div>
+				<div class="radar__blip"></div>
+				<div class="radar__404">404</div>
 			</div>
 
-			<div class="err404__hdr">
-				<div class="err404__row"><span class="err404__key">server</span><span class="err404__val">arthurbernard.dev</span></div>
-				<div class="err404__row"><span class="err404__key">message</span><span class="err404__val" data-i18n="message">cette page n'existe pas, ou plus</span></div>
-				<div class="err404__row"><span class="err404__key">hint</span><span class="err404__val" data-i18n="hint">reviens à un point connu ↓</span></div>
-			</div>
+			<h1 class="err404__title" data-i18n-html="title">Aucun signal sur le radar<span class="en">No signal on the radar</span></h1>
+			<p class="err404__lead" data-i18n="lead">La page que tu cherches a quitté la zone, ou n'a jamais existé.</p>
 
 			<div class="err404__cta">
 				<a class="err404__btn err404__btn--primary" id="e4-home" href="/fr/" data-i18n="home">Accueil</a>
-				<a class="err404__btn err404__btn--ghost" id="e4-blog" href="/fr/blog" data-i18n="blog">Blog</a>
+				<a class="err404__btn err404__btn--ghost" id="e4-radar" href="/fr/tech-radar/" data-i18n="radar">Tech Radar</a>
 			</div>
+
 		</div>
 	</main>
 
-	<!-- i18n + vrai path : FR par défaut, EN si l'URL est /en/... -->
+	<!-- i18n : FR par défaut, EN si l'URL commence par /en/ -->
 	<script>
 		(function () {
 			var T = {
-				fr: { message: "cette page n'existe pas, ou plus", hint: "reviens à un point connu ↓", home: "Accueil", blog: "Blog", homeHref: "/fr/", blogHref: "/fr/blog" },
-				en: { message: "this page doesn't exist, or no longer does", hint: "head back to safe ground ↓", home: "Home", blog: "Blog", homeHref: "/en/", blogHref: "/en/blog" }
+				fr: { title: "Aucun signal sur le radar<span class=\"en\">No signal on the radar</span>", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", radar: "Tech Radar", homeHref: "/fr/", radarHref: "/fr/tech-radar/" },
+				en: { title: "No signal on the radar<span class=\"en\">Aucun signal sur le radar</span>", lead: "The page you're looking for left the area, or never existed.", home: "Home", radar: "Tech Radar", homeHref: "/en/", radarHref: "/en/tech-radar/" }
 			};
 			var path = window.location.pathname;
 			var lang = path.indexOf('/en') === 0 ? 'en' : 'fr';
@@ -189,22 +165,17 @@
 
 			document.documentElement.lang = lang;
 			document.querySelectorAll('[data-i18n]').forEach(function (el) {
-				var k = el.getAttribute('data-i18n');
-				if (t[k]) el.textContent = t[k];
+				var k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k];
+			});
+			document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+				var k = el.getAttribute('data-i18n-html'); if (t[k]) el.innerHTML = t[k];
 			});
 			document.getElementById('e4-home').setAttribute('href', t.homeHref);
-			document.getElementById('e4-blog').setAttribute('href', t.blogHref);
+			document.getElementById('e4-radar').setAttribute('href', t.radarHref);
 			document.getElementById('e4-logo').setAttribute('href', t.homeHref + '#Home');
-
-			// lang toggle : marquer la langue active
 			document.querySelectorAll('.lang-toggle').forEach(function (b) {
 				b.classList.toggle('active', b.dataset.lang === lang);
 			});
-
-			// afficher le vrai chemin demandé (tronqué si trop long)
-			var p = path && path !== '/' ? path : '/page-introuvable';
-			if (p.length > 42) p = p.slice(0, 41) + '…';
-			document.getElementById('e4-path').textContent = p;
 		})();
 	</script>
 
