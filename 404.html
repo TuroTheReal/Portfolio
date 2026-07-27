@@ -159,8 +159,12 @@
 				fr: { title: "Aucun signal sur le radar<span class=\"en\">No signal on the radar</span>", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", radar: "Tech Radar", homeHref: "/fr/", radarHref: "/fr/tech-radar/" },
 				en: { title: "No signal on the radar<span class=\"en\">Aucun signal sur le radar</span>", lead: "The page you're looking for left the area, or never existed.", home: "Home", radar: "Tech Radar", homeHref: "/en/", radarHref: "/en/tech-radar/" }
 			};
+			// Langue : préfixe d'URL prioritaire, sinon langue du navigateur (défaut EN = x-default du site)
 			var path = window.location.pathname;
-			var lang = path.indexOf('/en') === 0 ? 'en' : 'fr';
+			var lang;
+			if (path.indexOf('/fr') === 0) lang = 'fr';
+			else if (path.indexOf('/en') === 0) lang = 'en';
+			else lang = (navigator.language || '').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
 			var t = T[lang];
 
 			document.documentElement.lang = lang;
