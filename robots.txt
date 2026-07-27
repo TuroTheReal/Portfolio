@@ -10,81 +10,95 @@ Disallow: /fr/blog/article-template
 User-agent: GPTBot
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 User-agent: ChatGPT-User
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # Anthropic
 User-agent: anthropic-ai
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 User-agent: ClaudeBot
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # Google AI (Gemini) — pas le search, juste l'IA
 User-agent: Google-Extended
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # Meta
 User-agent: FacebookBot
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 User-agent: Meta-ExternalAgent
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # CommonCrawl (datasets IA)
 User-agent: CCBot
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # ByteDance / TikTok
 User-agent: Bytespider
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # Apple AI
 User-agent: Applebot-Extended
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # DeepSeek
 User-agent: DeepSeekBot
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # Perplexity
 User-agent: PerplexityBot
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # Cohere
 User-agent: cohere-ai
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 # xAI (Grok)
 User-agent: xAI-AI
 Allow: /en/blog/
 Allow: /fr/blog/
+Allow: /llms.txt
 Disallow: /
 
 Sitemap: https://arthurbernard.dev/sitemap.xml
