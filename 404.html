@@ -159,24 +159,36 @@
 				fr: { title: "Aucun signal sur le radar", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", blog: "Blog", radar: "Tech Radar", homeHref: "/fr/", blogHref: "/fr/blog", radarHref: "/fr/tech-radar/" },
 				en: { title: "No signal on the radar", lead: "The page you're looking for left the area, or never existed.", home: "Home", blog: "Blog", radar: "Tech Radar", homeHref: "/en/", blogHref: "/en/blog", radarHref: "/en/tech-radar/" }
 			};
-			// Langue : préfixe d'URL prioritaire, sinon langue du navigateur (défaut EN = x-default du site)
-			var path = window.location.pathname;
-			var lang;
-			if (path.indexOf('/fr') === 0) lang = 'fr';
-			else if (path.indexOf('/en') === 0) lang = 'en';
-			else lang = (navigator.language || '').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
-			var t = T[lang];
+			function applyLang(lang) {
+				var t = T[lang];
+				document.documentElement.lang = lang;
+				document.querySelectorAll('[data-i18n]').forEach(function (el) {
+					var k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k];
+				});
+				document.getElementById('e4-home').setAttribute('href', t.homeHref);
+				document.getElementById('e4-blog').setAttribute('href', t.blogHref);
+				document.getElementById('e4-radar').setAttribute('href', t.radarHref);
+				document.getElementById('e4-logo').setAttribute('href', t.homeHref + '#Home');
+				document.querySelectorAll('.lang-toggle').forEach(function (b) {
+					b.classList.toggle('active', b.dataset.lang === lang);
+				});
+			}
 
-			document.documentElement.lang = lang;
-			document.querySelectorAll('[data-i18n]').forEach(function (el) {
-				var k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k];
-			});
-			document.getElementById('e4-home').setAttribute('href', t.homeHref);
-			document.getElementById('e4-blog').setAttribute('href', t.blogHref);
-			document.getElementById('e4-radar').setAttribute('href', t.radarHref);
-			document.getElementById('e4-logo').setAttribute('href', t.homeHref + '#Home');
+			// Detection initiale : prefixe d'URL prioritaire, sinon langue du navigateur (defaut EN = x-default)
+			var path = window.location.pathname;
+			applyLang(
+				path.indexOf('/fr') === 0 ? 'fr'
+				: path.indexOf('/en') === 0 ? 'en'
+				: (navigator.language || '').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en'
+			);
+
+			// Toggle FR/EN : bascule le contenu sur place (sans quitter la 404 ni recharger)
 			document.querySelectorAll('.lang-toggle').forEach(function (b) {
-				b.classList.toggle('active', b.dataset.lang === lang);
+				b.addEventListener('click', function (e) {
+					e.preventDefault();
+					e.stopImmediatePropagation(); // neutralise la navigation de script.js
+					applyLang(b.dataset.lang);
+				});
 			});
 		})();
 	</script>
