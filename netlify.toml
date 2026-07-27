@@ -74,3 +74,14 @@
   from = "/resume_fr.html"
   to = "/fr/resume"
   status = 301
+
+# En-têtes de sécurité (defense-in-depth). HSTS déjà ajouté par Netlify.
+# CSP volontairement omise pour l'instant (site statique, scripts inline + GA
+# à hasher : sur-investissement vs le gain réel).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), browsing-topics=()"
