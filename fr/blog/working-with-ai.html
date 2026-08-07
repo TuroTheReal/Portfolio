@@ -170,9 +170,9 @@
 			<!-- Corps de l'article -->
 			<div class="article-body" data-fade>
 
-				<p>Une bonne partie de mon site a été écrite par une IA. Je le dis sans gêne, parce que la question intéressante n'est plus de savoir si l'IA peut coder à ta place : elle le fait déjà, tous les jours. La vraie question, c'est ce qu'il te reste à faire, et comment tu gardes la main sans te raconter d'histoires.</p>
+				<p>Une bonne partie de mon site a été écrite par une IA. Ce n'est plus une hypothèse ni quelque chose qui arrivera un jour : aujourd'hui, l'IA écrit du code en production, tous les jours, jusque dans les entreprises qui la conçoivent. La question n'est plus de savoir si elle peut coder à ma place, mais ce qu'il me reste à faire, et comment je garde les commandes.</p>
 
-				<p>J'ai une réponse, forcément partielle, et mon site en est un bon exemple. Je l'ai commencé en ne connaissant ni HTML ni CSS, il est aujourd'hui bien plus abouti qu'à ses débuts, et il me sert ici à expliquer, concrètement, comment je travaille avec l'IA.</p>
+				<p>Mon site répond mieux que n'importe quel discours. Je l'ai commencé sans connaître ni HTML ni CSS ; il est aujourd'hui bien plus abouti qu'à ses débuts, et il montre concrètement comment je travaille avec l'IA.</p>
 
 				<h2>Comprendre avant de déléguer</h2>
 
@@ -184,15 +184,15 @@
 
 				<h2>Le jugement d'abord, le code ensuite</h2>
 
-				<p>Une fois les bases posées, l'IA devient un exécutant très rapide. Mais un exécutant a besoin de quelqu'un qui décide, et c'est là qu'est mon travail : presque entièrement en amont et en aval du code.</p>
+				<p>Une fois les bases posées, l'IA devient un exécutant très rapide. Mais un exécutant a besoin de quelqu'un qui décide, et c'est là qu'est mon travail : avant et après le code, bien plus que pendant.</p>
 
-				<p>Quand j'ai voulu faire passer le site d'un projet d'étudiant à quelque chose de plus pro, je n'ai pas lâché « refais-moi un beau site » dans le vide. J'ai posé une idée claire, des guidelines, un cadre. Mes guidelines tiennent en quelques contraintes explicites : pas de framework, réutiliser les composants déjà présents, garder le site rapide et lisible. L'IA travaille dans ce cadre, pas à côté. J'ai pesé le pour et le contre des options. L'IA a codé, j'ai testé, j'ai itéré, et je n'ai publié que quand le résultat correspondait à ce que je voulais. <a href="/fr/blog/weekly-tech-radar">La veille technique du site</a>, en revanche, ce pipeline qui publie une édition chaque semaine, je l'ai quasiment tout codée moi-même : je n'ai confié à l'IA que la régénération des pages HTML, la partie répétitive. C'est mon terrain, l'automatisation, alors j'y mets les mains.</p>
+				<p>Quand j'ai voulu faire passer le site d'un projet d'étudiant à quelque chose de plus pro, je ne me suis pas contenté de lui demander « refais-moi un beau site ». J'ai posé une idée claire, des guidelines, un cadre. Mes guidelines tiennent en quelques contraintes explicites : pas de framework, réutiliser les composants déjà présents, garder le site rapide et lisible. L'IA travaille dans ce cadre, pas à côté. J'ai pesé le pour et le contre des options. L'IA a codé, j'ai testé, j'ai itéré, et je n'ai publié que quand le résultat correspondait à ce que je voulais. <a href="/fr/blog/weekly-tech-radar">La veille technique du site</a>, en revanche, ce pipeline qui publie une édition chaque semaine, je l'ai quasiment tout codée moi-même : je n'ai confié à l'IA que la régénération des pages HTML, la partie répétitive. L'automatisation, c'est mon terrain : c'est là que je veux continuer à explorer et à apprendre.</p>
 
-				<p>C'est peut-être ce que l'IA change le plus dans le métier. Faire quelque chose, ce n'est plus forcément l'écrire soi-même, c'est le décider, le cadrer, et savoir reconnaître quand c'est bon. Le clavier compte moins, le jugement davantage.</p>
+				<p>C'est peut-être ce que l'IA change le plus dans le métier. Faire quelque chose, ce n'est plus forcément l'écrire soi-même : c'est le concevoir, le cadrer, le décider, et savoir reconnaître quand c'est bon. Le clavier compte moins, l'architecture et le jugement davantage.</p>
 
-				<h2>Contrôler le résultat, pas chaque ligne</h2>
+				<h2>Contrôler le résultat</h2>
 
-				<p>Je ne relis pas chaque ligne de ce que produit l'IA. Le JavaScript de mon site, par exemple, je ne l'ai pas épluché. Ce que je sais, c'est quoi tester pour vérifier qu'un changement fonctionne et n'a rien cassé ailleurs. Mon contrôle porte sur le comportement, pas sur chaque instruction. Concrètement, dès que l'IA touche au CSS ou au JavaScript, je vérifie toujours les mêmes points : l'affichage en clair et en sombre, sur mobile comme sur desktop, dans les deux langues, et le fait qu'une page sans rapport n'ait pas bougé. Pas besoin de lire la diff ligne à ligne pour ça ; il faut savoir ce qui peut casser, et aller le regarder.</p>
+				<p>Je ne relis pas chaque ligne de ce que produit l'IA. Le JavaScript de mon site, par exemple, je ne l'ai pas épluché. Ce que je sais, c'est quoi tester pour vérifier qu'un changement fonctionne et n'a rien cassé ailleurs. Mon contrôle porte sur le comportement, pas sur chaque instruction. Concrètement, je ne pars pas du contenu de la diff mais de ce qu'elle peut casser. Une retouche de CSS se juge à l'écran, pas que dans le code. Le vrai réflexe, c'est de savoir ce qu'un changement peut toucher ailleurs, y compris là où on ne s'y attend pas, et d'aller le vérifier plutôt que de tout relire.</p>
 
 				<p>Cela ne veut pas dire tout survoler. Le niveau de compréhension que je m'impose dépend du domaine. Sur le front, j'assume de déléguer et de ne pas tout maîtriser, ce n'est pas là que je concentre mon attention. Sur le DevOps et le cloud, c'est différent : là, même sans connaître le code par cœur, je veux comprendre ce que je fais et pourquoi, parce que c'est mon terrain et que je serai jugé dessus. Savoir où placer le curseur de sa compréhension, c'est déjà une décision.</p>
 
@@ -202,13 +202,13 @@
 
 				<p>Ce n'est pas qu'une question de principe. Un jour, en entretien ou face à un collègue, il faudra défendre ces choix et expliquer ce qui tourne. Celui qui fait passer pour sien du code qu'il n'a ni écrit ni compris se fait démasquer en trois questions. On ne défend bien que ce qu'on assume vraiment.</p>
 
-				<p>Cette honnêteté a un effet secondaire utile : elle oblige à savoir exactement où l'on en est. Ce qu'on maîtrise, ce qu'on délègue, ce qu'on devrait creuser. C'est inconfortable, et c'est précisément pour ça que c'est sain.</p>
+				<p>Cette honnêteté a un effet secondaire utile : elle oblige à savoir exactement où l'on en est. Ce qu'on maîtrise, ce qu'on délègue, ce qu'on devrait creuser. Ce n'est pas confortable, mais c'est ce qui oblige à rester lucide.</p>
 
-				<h2>Ce que ça donne</h2>
+				<h2>Ce que l'IA n'a pas changé</h2>
 
-				<p>Travailler ainsi ne fait pas de moi un meilleur codeur. Ça fait de moi quelqu'un qui se sert de l'IA sans se diluer dedans : plus rapide sur ce qui n'est pas mon cœur de métier, concentré sur ce qui compte, et toujours capable d'expliquer et de faire évoluer ce que je livre.</p>
+				<p>Cette façon de travailler ne fait pas de moi un meilleur codeur, et ce n'est pas ce que je lui demande. Elle fait de moi quelqu'un qui se sert de l'IA sans s'y diluer : plus rapide sur ce qui n'est pas mon cœur de métier, concentré sur l'essentiel, et toujours capable d'expliquer et de faire évoluer ce que je livre.</p>
 
-				<p>L'IA n'a pas changé ce que j'attends de moi. Elle m'a seulement forcé à être clair sur ce que je maîtrise, ce que je délègue, et ce qu'il me reste à apprendre. Elle écrira toujours du code plus vite que moi ; elle ne comprendra pas le problème à ma place, et ne choisira pas la bonne solution pour mon contexte. C'est encore là que se joue le métier, et c'est là que je veux devenir bon.</p>
+				<p>L'IA n'a pas changé ce que j'attends de moi. Elle m'a seulement forcé à être clair sur ce que je maîtrise, ce que je délègue, et ce qu'il me reste à apprendre. Elle écrira toujours du code plus vite que moi ; elle ne comprendra pas le problème à ma place, et ne choisira pas la bonne solution pour mon contexte. C'est là que se joue le métier.</p>
 
 				<p>Ce site est le premier endroit où je m'y exerce, à découvert. Le code est public, si tu veux voir : <a href="https://github.com/TuroTheReal/Portfolio" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/Portfolio</a>.</p>
 
