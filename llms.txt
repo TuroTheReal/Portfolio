@@ -26,6 +26,7 @@ with identical slugs. Links below point to the English version.
 - [How I Landed My Internship at Alan](https://arthurbernard.dev/en/blog/landing-alan-internship): Python learned in 10 days, 4-step process
 - [My Learning System: Obsidian + Claude](https://arthurbernard.dev/en/blog/obsidian-claude-learning-system): GitHub repo as knowledge vault, AI-assisted learning without dependency
 - [Weekly Tech Radar](https://arthurbernard.dev/en/blog/weekly-tech-radar): automated tech-watch pipeline with Python and Claude Haiku, and keeping engineer control over AI output
+- [What AI Won't Do for Me](https://arthurbernard.dev/en/blog/working-with-ai): how I work with AI without delegating my judgment, using my own site as the example
 
 ## Optional
 
