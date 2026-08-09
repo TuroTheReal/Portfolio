@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5R3CELDV2W"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-5R3CELDV2W');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<meta name="description" content="Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce qu'un incident m'apprend sur les dépendances cachées et le rollback.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Le jour où j'ai fait tomber la prod | Arthur Bernard</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Le jour où j'ai fait tomber la prod">
+	<meta property="og:description" content="Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce qu'un incident m'apprend sur les dépendances cachées et le rollback.">
+	<meta property="og:url" content="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="800">
+	<meta property="article:published_time" content="2026-08-09">
+	<meta property="article:author" content="Arthur Bernard">
+	<meta property="article:tag" content="Incident">
+	<meta property="article:tag" content="DevOps">
+	<meta property="article:tag" content="Cloud">
+	<meta property="article:tag" content="Retour d'expérience">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Le jour où j'ai fait tomber la prod">
+	<meta name="twitter:description" content="Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce qu'un incident m'apprend sur les dépendances cachées et le rollback.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
+
+	<!-- JSON-LD Article -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "Le jour où j'ai fait tomber la prod",
+		"description": "Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce qu'un incident m'apprend sur les dépendances cachées et le rollback.",
+		"image": "https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp",
+		"datePublished": "2026-08-09",
+		"dateModified": "2026-08-09",
+		"inLanguage": "fr",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/fr/blog/the-day-i-broke-prod"
+	}
+	</script>
+
+	<!-- JSON-LD BreadcrumbList -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://arthurbernard.dev/fr/"},
+			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/fr/blog"},
+			{"@type": "ListItem", "position": 3, "name": "Le jour où j'ai fait tomber la prod", "item": "https://arthurbernard.dev/fr/blog/the-day-i-broke-prod"}
+		]
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
+
+	<link rel="canonical" href="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap"></noscript>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/fr/#Home" class="logo">A.</a>
+		<nav class="nav" aria-label="Navigation principale">
+			<a href="/fr/#Home">Accueil</a>
+			<a href="/fr/#About">À propos</a>
+			<a href="/fr/#Work">Projets</a>
+			<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/">Tech Radar</a>
+			<a href="/fr/resume">CV</a>
+			<a href="/fr/#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle active" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/fr/#Home">Accueil</a>
+				<a href="/fr/#About">À propos</a>
+				<a href="/fr/#Work">Projets</a>
+				<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/">Tech Radar</a>
+				<a href="/fr/resume">CV</a>
+				<a href="/fr/#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle active" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<article class="blog-article">
+
+			<!-- En-tête article -->
+			<header class="article-header" data-fade>
+				<a href="/fr/blog" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Blog</a>
+				<h1>Le jour où j'ai fait tomber la prod</h1>
+				<div class="article-meta">
+					<time datetime="2026-08-09">9 août 2026</time>
+					<span class="article-read-time">4 min de lecture</span>
+				</div>
+				<div class="article-tags">
+					<span>DevOps</span>
+					<span>Incident</span>
+					<span>Retex</span>
+				</div>
+			</header>
+
+			<!-- Image hero -->
+			<div class="article-hero" data-fade>
+				<img src="../../assets/img/blog/the-day-i-broke-prod.webp" alt="Tour de blocs qui s'effondre après le retrait d'une pièce" fetchpriority="high">
+			</div>
+
+			<!-- Corps de l'article -->
+			<div class="article-body" data-fade>
+
+				<p>Le message arrive au moment où je pense en avoir terminé : un outil interne ne répond plus. Je le relis, incrédule, car rien dans ce que je viens de faire n'aurait dû l'atteindre. Je n'y ai pas touché ; je ne l'ai même pas vu tomber. C'est un collègue qui me prévient.</p>
+
+				<p>Quelques minutes plus tôt, je corrigeais un problème d'une tout autre nature, sur une brique qui paraissait sans lien avec le reste. Un correctif modeste, propre, que j'avais pris soin de tester. Le genre d'intervention que l'on range, presque sans y penser, dans la catégorie rassurante des changements sans risque.</p>
+
+				<p>C'est précisément cette catégorie qui m'a piégé. Ce jour-là, j'ai compris pour de bon une évidence que l'on récite sans y croire : dans une infrastructure partagée, l'isolement n'existe pas.</p>
+
+				<h2>Un changement réputé sans risque</h2>
+
+				<p>Tout part d'une migration d'hébergement. Un tag marketing avait cessé de fonctionner sur notre domaine principal, et il fallait le rétablir. La solution tenait en un ajustement de routage : une seule entrée, sur un seul domaine, pour une seule raison. Rien, nulle part, ne la reliait à un autre service. À ce stade, l'affaire semblait close avant même d'avoir commencé.</p>
+
+				<h2>Un test qui rassure</h2>
+
+				<p>Je n'avais pourtant pas travaillé à l'aveugle. J'avais reproduit la configuration dans un environnement de test, appliqué le correctif, vérifié que tout fonctionnait sans la moindre interruption. L'essai était concluant ; je suis passé en production avec la tranquillité de celui qui a fait ses devoirs.</p>
+
+				<p>Mon erreur n'était pas d'avoir négligé le test. Elle était d'avoir cru qu'il disait toute la vérité. Un environnement de test reproduit ce que l'on connaît du système ; il reste muet sur ce que l'on ignore.</p>
+
+				<h2>Le point d'appui invisible</h2>
+
+				<p>Ce que j'ignorais, c'est que le domaine que je modifiais servait discrètement de point d'appui à d'autres services, rattachés à lui sans qu'aucun lien apparent ne le signale. En retirant ma brique, j'ai changé ce point d'appui en impasse. Tous ceux qui s'y adossaient sans le savoir se sont retrouvés sans fondations.</p>
+
+				<p>L'outil interne qui est tombé, celui dont dépendent les équipes qui suivent nos plus gros clients, n'était que le plus visible ; d'autres services ont sans doute vacillé, que personne n'a remarqués. Aucun client final n'était directement touché, mais les personnes chargées des comptes les plus sensibles se retrouvaient, elles, sans outil.</p>
+
+				<p>Mon changement ne portait pas sur une entrée dans un domaine, mais sur le sol qui soutenait un nombre inconnu de services. L'ampleur des dégâts n'avait aucun rapport avec la taille de la modification.</p>
+
+				<h2>Ce qui a sauvé la situation</h2>
+
+				<p>Je n'ai rien détecté par moi-même : c'est un collègue qui a donné l'alerte. Voilà le détail qui dérange, et sans doute le plus honnête : je surveillais ce que je venais de modifier, pas ce qui pouvait céder autour.</p>
+
+				<p>Restait une chose que j'avais eu la prudence de préparer avant d'intervenir : un retour arrière, prêt et vérifié. Je l'ai déclenché, et en quelques secondes tout était rétabli. Le correctif auquel j'avais consacré mon attention n'a pas sauvé la journée. C'est la précaution prise « au cas où », sans y croire vraiment, qui l'a fait.</p>
+
+				<h2>Comprendre, après coup</h2>
+
+				<p>À vrai dire, je ne maîtrisais pas encore le mécanisme en cause : la manière dont cette brique décide vers quelle origine envoyer chaque requête, et comment d'autres services finissent par en dépendre. J'ai creusé le sujet après l'incident, pour comprendre ce que j'avais réellement provoqué. J'en ai tiré une bien meilleure idée, sans pouvoir affirmer avec certitude la cause exacte ni toutes ses raisons. C'est la partie la moins confortable à écrire, et sans doute la plus honnête : la réparation a précédé la compréhension, et cette compréhension, je suis allé la chercher ensuite.</p>
+
+				<h2>Ce que j'en retiens</h2>
+
+				<p>Depuis, je tiens le mot « isolé » pour une hypothèse à démontrer, jamais pour un acquis, surtout dans ces systèmes anciens où les dépendances ne sont consignées nulle part. Un test réussi ne prouve pas l'absence de liens cachés ; il atteste seulement que ce que l'on a su reproduire fonctionne. Quant au retour arrière, j'ai cessé de le voir comme une roue de secours : c'est la première chose à préparer, avant même le correctif. Et je regarde aujourd'hui autant ce qui peut céder que ce que je change.</p>
+
+				<p>Casser une production, en stage, n'a rien de glorieux. Mais de tout cet épisode, ce n'est pas le correctif qui m'a formé, c'est le retour arrière. J'ai cessé de croire qu'un changement pouvait être petit. J'ai appris à le supposer partagé.</p>
+
+			</div>
+
+			<!-- Pied d'article -->
+			<footer class="article-footer" data-fade>
+				<div class="article-nav">
+					<a href="/fr/blog/working-with-ai" class="article-nav-link article-nav-prev">
+						<span class="article-nav-label"><span aria-hidden="true">&larr;</span> Précédent</span>
+						<span class="article-nav-title">Garder les commandes quand l'IA code</span>
+					</a>
+				</div>
+			</footer>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<p class="footer-heading">Travaillons ensemble.</p>
+		<a href="mailto:arthurbernard.dev@gmail.com" class="footer-cta">arthurbernard.dev@gmail.com</a>
+		<div class="footer-social">
+			<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+			<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+		</div>
+		<p class="footer-copy">&copy; 2026 Arthur Bernard</p>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>
