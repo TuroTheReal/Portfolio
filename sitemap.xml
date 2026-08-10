@@ -163,6 +163,22 @@
   </url>
 
   <url>
+    <loc>https://arthurbernard.dev/en/blog/the-spof-was-me</loc>
+    <lastmod>2026-08-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-spof-was-me"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-spof-was-me"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-spof-was-me"/>
+  </url>
+
+  <url>
+    <loc>https://arthurbernard.dev/fr/blog/the-spof-was-me</loc>
+    <lastmod>2026-08-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-spof-was-me"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-spof-was-me"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-spof-was-me"/>
+  </url>
+
+  <url>
     <loc>https://arthurbernard.dev/en/blog/the-day-i-broke-prod</loc>
     <lastmod>2026-08-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod"/>
