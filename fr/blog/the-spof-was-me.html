@@ -14,46 +14,46 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce que l'incident m'a appris sur les dépendances cachées et le rollback.">
+	<meta name="description" content="Pendant mon stage, un incident m'a fait réaliser que j'étais un point de défaillance unique (SPOF). Comment la documentation m'a permis de ne plus l'être.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>Le jour où j'ai fait tomber la prod | Arthur Bernard</title>
+	<title>Le SPOF, c'était moi | Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Le jour où j'ai fait tomber la prod">
-	<meta property="og:description" content="Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce que l'incident m'a appris sur les dépendances cachées et le rollback.">
-	<meta property="og:url" content="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
+	<meta property="og:title" content="Le SPOF, c'était moi">
+	<meta property="og:description" content="Pendant mon stage, un incident m'a fait réaliser que j'étais un point de défaillance unique (SPOF). Comment la documentation m'a permis de ne plus l'être.">
+	<meta property="og:url" content="https://arthurbernard.dev/fr/blog/the-spof-was-me">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="fr_FR">
 	<meta property="og:locale:alternate" content="en_US">
 	<meta property="og:site_name" content="Arthur Bernard">
-	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/the-spof-was-me.webp">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="800">
-	<meta property="article:published_time" content="2026-08-09">
+	<meta property="article:published_time" content="2026-08-10">
 	<meta property="article:author" content="Arthur Bernard">
-	<meta property="article:tag" content="Incident">
+	<meta property="article:tag" content="Documentation">
 	<meta property="article:tag" content="DevOps">
-	<meta property="article:tag" content="Cloud">
+	<meta property="article:tag" content="SPOF">
 	<meta property="article:tag" content="Retour d'expérience">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Le jour où j'ai fait tomber la prod">
-	<meta name="twitter:description" content="Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce que l'incident m'a appris sur les dépendances cachées et le rollback.">
-	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
+	<meta name="twitter:title" content="Le SPOF, c'était moi">
+	<meta name="twitter:description" content="Pendant mon stage, un incident m'a fait réaliser que j'étais un point de défaillance unique (SPOF). Comment la documentation m'a permis de ne plus l'être.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/the-spof-was-me.webp">
 
 	<!-- JSON-LD Article -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
-		"headline": "Le jour où j'ai fait tomber la prod",
-		"description": "Pendant mon stage, j'ai fait tomber un outil interne en modifiant autre chose. Ce que l'incident m'a appris sur les dépendances cachées et le rollback.",
-		"image": "https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp",
-		"datePublished": "2026-08-09",
-		"dateModified": "2026-08-09",
+		"headline": "Le SPOF, c'était moi",
+		"description": "Pendant mon stage, un incident m'a fait réaliser que j'étais un point de défaillance unique (SPOF). Comment la documentation m'a permis de ne plus l'être.",
+		"image": "https://arthurbernard.dev/assets/img/blog/the-spof-was-me.webp",
+		"datePublished": "2026-08-10",
+		"dateModified": "2026-08-10",
 		"inLanguage": "fr",
 		"author": {
 			"@type": "Person",
@@ -64,7 +64,7 @@
 			"@type": "Person",
 			"name": "Arthur Bernard"
 		},
-		"mainEntityOfPage": "https://arthurbernard.dev/fr/blog/the-day-i-broke-prod"
+		"mainEntityOfPage": "https://arthurbernard.dev/fr/blog/the-spof-was-me"
 	}
 	</script>
 
@@ -76,17 +76,17 @@
 		"itemListElement": [
 			{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://arthurbernard.dev/fr/"},
 			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/fr/blog"},
-			{"@type": "ListItem", "position": 3, "name": "Le jour où j'ai fait tomber la prod", "item": "https://arthurbernard.dev/fr/blog/the-day-i-broke-prod"}
+			{"@type": "ListItem", "position": 3, "name": "Le SPOF, c'était moi", "item": "https://arthurbernard.dev/fr/blog/the-spof-was-me"}
 		]
 	}
 	</script>
 
 	<!-- Hreflang -->
-	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
-	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
-	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-spof-was-me">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-spof-was-me">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-spof-was-me">
 
-	<link rel="canonical" href="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
+	<link rel="canonical" href="https://arthurbernard.dev/fr/blog/the-spof-was-me">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
@@ -150,9 +150,9 @@
 			<!-- En-tête article -->
 			<header class="article-header" data-fade>
 				<a href="/fr/blog" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Blog</a>
-				<h1>Le jour où j'ai fait tomber la prod</h1>
+				<h1>Le SPOF, c'était moi</h1>
 				<div class="article-meta">
-					<time datetime="2026-08-09">9 août 2026</time>
+					<time datetime="2026-08-10">10 août 2026</time>
 					<span class="article-read-time">4 min de lecture</span>
 				</div>
 				<div class="article-tags">
@@ -163,64 +163,50 @@
 
 			<!-- Image hero -->
 			<div class="article-hero" data-fade>
-				<img src="../../assets/img/blog/the-day-i-broke-prod.webp" alt="Tour de blocs qui s'effondre après le retrait d'une pièce" fetchpriority="high">
+				<img src="../../assets/img/blog/the-spof-was-me.webp" alt="Une clé unique qui se diffuse en plusieurs clés partagées" fetchpriority="high">
 			</div>
 
 			<!-- Corps de l'article -->
 			<div class="article-body" data-fade>
 
-				<p>Ce jour-là, je corrigeais un problème mineur sur un composant qui paraissait sans lien avec le reste. Un correctif modeste, propre, que j'avais pris soin de tester avant de le mettre en production. Le genre d'intervention que l'on classe, presque sans y penser, dans la catégorie rassurante des changements sans risque.</p>
+				<p>Pendant <a href="/fr/blog/the-day-i-broke-prod">l'incident que j'ai raconté récemment</a>, une pensée m'a traversé une fois la prod rétablie : et si je n'avais pas été là ? Injoignable, ou incapable de me rappeler les commandes que je venais de lancer, personne n'aurait pu reprendre. Le système ne tenait pas à un serveur fragile. Il tenait à moi.</p>
 
-				<p>Quelques minutes plus tard, un collègue me prévient : un outil interne ne répond plus. Je relis mon changement, incrédule, car rien dans ce que je venais de faire n'aurait dû l'atteindre. Je n'y avais pas touché ; je ne l'avais même pas vu tomber.</p>
+				<p>En fiabilité, un point de défaillance unique (SPOF) est le composant dont la panne fait tomber tout le reste. Appliqué à une personne, c'est simple : si tu es le seul à savoir, ton absence est la panne. Ce jour-là, le SPOF, c'était moi.</p>
 
-				<p>C'est cette catégorie rassurante qui m'a piégé. Ce jour-là, j'ai compris pour de bon une évidence que l'on récite sans y croire : dans une infrastructure partagée, l'isolement n'existe pas.</p>
+				<h2>Un plan n'est pas un état</h2>
 
-				<h2>Un changement sans risque</h2>
+				<p>Avant la migration, j'avais pourtant écrit un document. Il expliquait ce que j'allais faire : le plan, les étapes prévues. Sur le papier, j'étais couvert.</p>
 
-				<p>Tout part d'une migration d'hébergement. Un tag marketing avait cessé de fonctionner sur notre domaine principal, et il fallait le rétablir. La solution tenait en un ajustement de routage : une seule entrée, sur un seul domaine, pour une seule raison. Rien, nulle part, ne la reliait à un autre service. À ce stade, l'affaire semblait close avant même d'avoir commencé.</p>
+				<p>Sauf qu'un plan et un état, ce sont deux choses différentes. Mon document disait où je voulais aller, pas où j'en étais. En plein incident, la seule question qui compte, c'est la seconde : qu'est-ce qui a déjà été fait, quelles commandes ont tourné, comment revenir en arrière. Rien de tout ça n'était écrit : ça vivait dans ma tête, et ce qui n'existe que dans une tête ne se transmet pas.</p>
 
-				<h2>Un test qui rassure</h2>
+				<h2>Être irremplaçable est un piège</h2>
 
-				<p>Je n'avais pourtant pas travaillé à l'aveugle. J'avais reproduit la configuration dans un environnement de test, appliqué le correctif, vérifié que tout fonctionnait sans la moindre interruption. L'essai était concluant ; je suis passé en production avec la tranquillité de celui qui a fait ses devoirs.</p>
+				<p>On croit souvent qu'être le seul à maîtriser un sujet est une position de force. C'est l'inverse. Tant que tu es le seul à savoir, tu es le maillon dont la défaillance bloque tout le monde : la moindre absence, maladie ou vacances, et plus personne ne peut avancer. Et ce n'est pas qu'un risque pour l'équipe, c'en est un pour toi : tu deviens irremplaçable au mauvais sens, celui qui empêche de déléguer et de passer à autre chose.</p>
 
-				<p>Mon erreur n'était pas d'avoir négligé le test. Elle était d'avoir cru qu'il disait toute la vérité. Un environnement de test reproduit ce que l'on connaît du système ; il reste muet sur ce que l'on ignore.</p>
+				<h2>Ce que j'ai changé</h2>
 
-				<h2>Le point d'appui invisible</h2>
+				<p>J'ai repris mon document et je l'ai transformé, d'un plan en un état vivant. J'y ai ajouté ce qui manquait : le contexte et le pourquoi, l'état réel du système, les étapes déjà faites avec leurs commandes exactes, et la procédure de rollback. De quoi savoir à tout moment où on en est, et reprendre à froid.</p>
 
-				<p>Ce que j'ignorais, c'est que le domaine que je modifiais servait discrètement de point d'appui à d'autres services, rattachés à lui sans qu'aucun lien apparent ne le signale. En retirant mon composant, j'ai changé ce point d'appui en impasse. Tous ceux qui s'y adossaient sans le savoir se sont retrouvés sans fondations.</p>
+				<p>J'ai aussi repris mes scripts. Ils marchaient, mais ils n'étaient pas lisibles, et surtout sans un mot sur le quoi et le pourquoi. Je les ai commentés, puis reliés au document : le document pointe vers le script, le script renvoie au document. Plus de boîte noire. N'importe qui peut désormais reprendre à froid.</p>
 
-				<p>L'outil interne qui est tombé, celui dont dépendent les équipes qui suivent nos plus gros clients, n'était que le plus visible ; d'autres services ont sans doute vacillé, que personne n'a remarqués. Aucun client final n'était directement touché, mais les personnes chargées des comptes les plus sensibles se retrouvaient, elles, sans outil.</p>
+				<h2>Documenter, c'est aussi communiquer</h2>
 
-				<p>Mon changement ne portait pas sur une entrée dans un domaine, mais sur le sol qui soutenait un nombre inconnu de services. L'ampleur des dégâts n'avait aucun rapport avec la taille de la modification.</p>
-
-				<h2>Ce qui a sauvé la situation</h2>
-
-				<p>Je n'ai rien détecté par moi-même : c'est un collègue qui a donné l'alerte. Voilà le détail qui dérange, et sans doute le plus honnête : je surveillais ce que je venais de modifier, pas ce qui pouvait céder autour.</p>
-
-				<p>Restait une chose que j'avais eu la prudence de préparer avant d'intervenir : un retour arrière, prêt et vérifié. Je l'ai déclenché, et en quelques secondes tout était rétabli. Le correctif auquel j'avais consacré mon attention n'a pas sauvé la journée. C'est la précaution prise « au cas où », sans y croire vraiment, qui l'a fait.</p>
-
-				<h2>Comprendre, après coup</h2>
-
-				<p>À vrai dire, avant cet incident, j'ignorais jusqu'à l'existence du mécanisme en cause : la façon dont ce composant décide vers quelle origine envoyer chaque requête, et comment d'autres services finissent par en dépendre. On ne se méfie pas d'un piège dont on ne soupçonne pas la présence. Je l'ai donc découvert après coup, en creusant pour comprendre ce que j'avais réellement provoqué. C'est inconfortable à écrire, mais c'est souvent comme ça qu'on apprend vraiment : une notion croisée dans la douleur, on ne l'oublie plus.</p>
+				<p>Écrire ne suffit pas si personne ne sait au bon moment. La documentation est une communication asynchrone ; il y a aussi la communication tout court. La règle que j'en ai tirée : calibrer la communication à l'ampleur du changement. Prévenir tout le monde pour une modif mineure, c'est du bruit ; ne prévenir personne pour un changement à fort impact, c'est l'incident assuré. Avant de toucher un environnement de démo, par exemple, je préviens les équipes commerciales : une démo qui tombe en plein rendez-vous client, c'est leur problème avant d'être le mien. Qui est impacté décide qui tu préviens, et combien de temps à l'avance.</p>
 
 				<h2>Ce que j'en retiens</h2>
 
-				<p>Depuis, je tiens le mot « isolé » pour une hypothèse à démontrer, jamais pour un acquis, surtout dans ces systèmes anciens où les dépendances ne sont consignées nulle part. Un test réussi ne prouve pas l'absence de liens cachés ; il atteste seulement que ce que l'on a su reproduire fonctionne. Quant au retour arrière, j'ai cessé de le voir comme une roue de secours : c'est la première chose à préparer, avant même le correctif. Et je regarde aujourd'hui autant ce qui peut céder que ce que je change. J'ai aussi appris à écrire ce que je fais et ce dont un système dépend : une dépendance que personne n'a documentée est un piège qui attend le suivant.</p>
+				<p>Documenter, ce n'est pas de la perte de temps. C'est ce qui fait que le système, et l'équipe, ne dépendent ni de ma mémoire ni de ma présence. Et paradoxalement, cesser d'être indispensable m'a rendu plus utile : on te confie des choses plus importantes quand ce que tu fais ne repart pas avec toi.</p>
 
-				<p>Casser la production, ça arrive, et ça arrivera encore. On doit tout faire pour l'éviter, mais le jour où ça tombe, l'important n'est pas de se flageller : c'est de comprendre pourquoi et comment, pour que ça ne recommence pas. Même les infrastructures les mieux tenues finissent par tomber. Ce qui distingue un bon ingénieur, ce n'est pas de ne jamais rien casser, c'est ce qu'il fait de ses incidents.</p>
+				<p>J'ai même transformé ce document en <a href="https://github.com/TuroTheReal/devops-cloud_tools/blob/main/templates/docs/one-pager.md" target="_blank" rel="noopener noreferrer">modèle réutilisable</a>, pour ne plus repartir d'une page blanche au prochain projet.</p>
 
 			</div>
 
 			<!-- Pied d'article -->
 			<footer class="article-footer" data-fade>
 				<div class="article-nav">
-					<a href="/fr/blog/working-with-ai" class="article-nav-link article-nav-prev">
+					<a href="/fr/blog/the-day-i-broke-prod" class="article-nav-link article-nav-prev">
 						<span class="article-nav-label"><span aria-hidden="true">&larr;</span> Précédent</span>
-						<span class="article-nav-title">Garder les commandes quand l'IA code</span>
-					</a>
-					<a href="/fr/blog/the-spof-was-me" class="article-nav-link article-nav-next">
-						<span class="article-nav-label">Suivant &rarr;</span>
-						<span class="article-nav-title">Le SPOF, c'était moi</span>
+						<span class="article-nav-title">Le jour où j'ai fait tomber la prod</span>
 					</a>
 				</div>
 			</footer>

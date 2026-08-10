@@ -14,46 +14,46 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.">
+	<meta name="description" content="During my internship, an incident made me realize I was a single point of failure (SPOF). How documentation stopped me from being one.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>The Day I Took Down Production | Arthur Bernard</title>
+	<title>I Was the SPOF | Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="The Day I Took Down Production">
-	<meta property="og:description" content="During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.">
-	<meta property="og:url" content="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
+	<meta property="og:title" content="I Was the SPOF">
+	<meta property="og:description" content="During my internship, an incident made me realize I was a single point of failure (SPOF). How documentation stopped me from being one.">
+	<meta property="og:url" content="https://arthurbernard.dev/en/blog/the-spof-was-me">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:locale:alternate" content="fr_FR">
 	<meta property="og:site_name" content="Arthur Bernard">
-	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/the-spof-was-me.webp">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="800">
-	<meta property="article:published_time" content="2026-08-09">
+	<meta property="article:published_time" content="2026-08-10">
 	<meta property="article:author" content="Arthur Bernard">
-	<meta property="article:tag" content="Incident">
+	<meta property="article:tag" content="Documentation">
 	<meta property="article:tag" content="DevOps">
-	<meta property="article:tag" content="Cloud">
+	<meta property="article:tag" content="SPOF">
 	<meta property="article:tag" content="Lessons">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="The Day I Took Down Production">
-	<meta name="twitter:description" content="During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.">
-	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
+	<meta name="twitter:title" content="I Was the SPOF">
+	<meta name="twitter:description" content="During my internship, an incident made me realize I was a single point of failure (SPOF). How documentation stopped me from being one.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/the-spof-was-me.webp">
 
 	<!-- JSON-LD Article -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
-		"headline": "The Day I Took Down Production",
-		"description": "During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.",
-		"image": "https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp",
-		"datePublished": "2026-08-09",
-		"dateModified": "2026-08-09",
+		"headline": "I Was the SPOF",
+		"description": "During my internship, an incident made me realize I was a single point of failure (SPOF). How documentation stopped me from being one.",
+		"image": "https://arthurbernard.dev/assets/img/blog/the-spof-was-me.webp",
+		"datePublished": "2026-08-10",
+		"dateModified": "2026-08-10",
 		"inLanguage": "en",
 		"author": {
 			"@type": "Person",
@@ -64,7 +64,7 @@
 			"@type": "Person",
 			"name": "Arthur Bernard"
 		},
-		"mainEntityOfPage": "https://arthurbernard.dev/en/blog/the-day-i-broke-prod"
+		"mainEntityOfPage": "https://arthurbernard.dev/en/blog/the-spof-was-me"
 	}
 	</script>
 
@@ -76,17 +76,17 @@
 		"itemListElement": [
 			{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthurbernard.dev/en/"},
 			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/en/blog"},
-			{"@type": "ListItem", "position": 3, "name": "The Day I Took Down Production", "item": "https://arthurbernard.dev/en/blog/the-day-i-broke-prod"}
+			{"@type": "ListItem", "position": 3, "name": "I Was the SPOF", "item": "https://arthurbernard.dev/en/blog/the-spof-was-me"}
 		]
 	}
 	</script>
 
 	<!-- Hreflang -->
-	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
-	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
-	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-spof-was-me">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-spof-was-me">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-spof-was-me">
 
-	<link rel="canonical" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
+	<link rel="canonical" href="https://arthurbernard.dev/en/blog/the-spof-was-me">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
@@ -150,9 +150,9 @@
 			<!-- Article header -->
 			<header class="article-header" data-fade>
 				<a href="/en/blog" class="article-back"><span aria-hidden="true">&larr;</span> Back to Blog</a>
-				<h1>The Day I Took Down Production</h1>
+				<h1>I Was the SPOF</h1>
 				<div class="article-meta">
-					<time datetime="2026-08-09">Aug 9, 2026</time>
+					<time datetime="2026-08-10">Aug 10, 2026</time>
 					<span class="article-read-time">4 min read</span>
 				</div>
 				<div class="article-tags">
@@ -163,64 +163,50 @@
 
 			<!-- Hero image -->
 			<div class="article-hero" data-fade>
-				<img src="../../assets/img/blog/the-day-i-broke-prod.webp" alt="A tower of blocks collapsing after one piece is removed" fetchpriority="high">
+				<img src="../../assets/img/blog/the-spof-was-me.webp" alt="A single key branching into several shared keys" fetchpriority="high">
 			</div>
 
 			<!-- Article body -->
 			<div class="article-body" data-fade>
 
-				<p>That day, I was fixing a minor problem on a component that seemed unrelated to the rest. A modest, clean fix that I had taken care to test before shipping it to production. The kind of change you file, almost without thinking, in the reassuring category of harmless ones.</p>
+				<p>During <a href="/en/blog/the-day-i-broke-prod">the incident I wrote about recently</a>, a thought hit me once production was back: what if I hadn't been there? Unreachable, or unable to recall the commands I'd just run, no one could have taken over. The system didn't hang on a fragile server. It hung on me.</p>
 
-				<p>A few minutes later, a colleague tells me: an internal tool is no longer responding. I reread my change, incredulous, because nothing in what I had just done should have reached it. I hadn't touched it; I hadn't even seen it fall.</p>
+				<p>In reliability, a single point of failure (SPOF) is the component whose failure brings down everything else. Applied to a person, it's simple: if you're the only one who knows, your absence is the outage. That day, the SPOF was me.</p>
 
-				<p>That reassuring category is exactly what trapped me. That day, I truly understood an obvious truth we recite without believing it: in shared infrastructure, isolation does not exist.</p>
+				<h2>A plan is not a state</h2>
 
-				<h2>A harmless change</h2>
+				<p>Before the migration, I had written a document. It described what I was going to do: the plan, the planned steps. On paper, I was covered.</p>
 
-				<p>It all starts with a hosting migration. A marketing tag had stopped working on our main domain, and it needed to be restored. The solution came down to a routing adjustment: a single entry, on a single domain, for a single reason. Nothing, anywhere, tied it to another service. At that point, the matter seemed closed before it had even begun.</p>
+				<p>But a plan and a state are two different things. My document said where I wanted to go, not where I was. In the middle of an incident, the only question that matters is the second one: what has already been done, which commands ran, how to roll back. None of that was written down: it lived in my head, and what exists only in one head can't be handed over.</p>
 
-				<h2>A reassuring test</h2>
+				<h2>Being irreplaceable is a trap</h2>
 
-				<p>I hadn't worked blind, though. I had reproduced the setup in a test environment, applied the fix, checked that everything worked without the slightest interruption. The trial was conclusive; I moved to production with the calm of someone who had done his homework.</p>
+				<p>We often think being the only one who masters a topic is a position of strength. It's the opposite. As long as you're the only one who knows, you're the link whose failure blocks everyone: the slightest absence, a sick day or a holiday, and no one can move forward. And it's not just a risk for the team, it's one for you: you become irreplaceable in the bad sense, the one who keeps things from being delegated and from moving on.</p>
 
-				<p>My mistake wasn't neglecting the test. It was believing it told the whole truth. A test environment reproduces what you know about the system; it stays silent about what you don't.</p>
+				<h2>What I changed</h2>
 
-				<h2>The invisible pillar</h2>
+				<p>I took my document and turned it from a plan into a living state. I added what was missing: the context and the why, the real state of the system, the steps already done with their exact commands, and the rollback procedure. Enough to know at any moment where things stand, and resume cold.</p>
 
-				<p>What I didn't know is that the domain I was changing quietly served as a support for other services, attached to it without any visible link to signal it. By removing my piece, I turned that support into a dead end. Everyone leaning on it without knowing found themselves without foundations.</p>
+				<p>I also went back to my scripts. They worked, but they weren't readable, and above all had not a word on the what and the why. I commented them, then linked them to the document: the document points to the script, the script points back to the document. No more black box. Anyone can now resume cold.</p>
 
-				<p>The internal tool that fell, the one the teams handling our biggest clients depend on, was only the most visible; other services probably wobbled too, unnoticed. No end client was directly affected, but the people in charge of the most sensitive accounts were left without their tool.</p>
+				<h2>Documenting is also communicating</h2>
 
-				<p>My change wasn't about one entry in a domain, but about the floor holding up an unknown number of services. The scale of the damage had nothing to do with the size of the modification.</p>
-
-				<h2>What saved the day</h2>
-
-				<p>I detected nothing myself: a colleague raised the alarm. That's the uncomfortable detail, and probably the most honest one: I was watching what I had just changed, not what might give way around it.</p>
-
-				<p>One thing remained, which I'd had the caution to prepare before acting: a rollback, ready and tested. I triggered it, and within seconds everything was restored. The fix I had devoted my attention to didn't save the day. The precaution taken "just in case", without really believing in it, did.</p>
-
-				<h2>Understanding, afterward</h2>
-
-				<p>To be honest, before this incident I didn't even know the mechanism at play existed: the way that component decides which origin each request goes to, and how other services end up depending on it. You can't watch for a trap you don't suspect is there. So I discovered it afterward, digging in to understand what I had actually set off. It's uncomfortable to admit, but that's often how you really learn: a concept met the hard way is one you never forget.</p>
+				<p>Writing isn't enough if no one knows at the right time. Documentation is asynchronous communication; there is also communication, plain and simple. The rule I drew from it: scale the communication to the size of the change. Warning everyone about a minor change is noise; warning no one about a high-impact change is a guaranteed incident. Before touching a demo environment, for example, I warn the sales teams: a demo that goes down in the middle of a client meeting is their problem before it's mine. Who is affected decides who you warn, and how far in advance.</p>
 
 				<h2>What I take from it</h2>
 
-				<p>Since then, I treat the word "isolated" as a hypothesis to prove, never as a given, especially in those older systems where dependencies are written down nowhere. A successful test doesn't prove the absence of hidden links; it only attests that what you managed to reproduce works. As for the rollback, I've stopped seeing it as a spare wheel: it's the first thing to prepare, before the fix itself. And I now watch what can give way as much as what I change. I also learned to write down what I do and what a system depends on: an undocumented dependency is a trap waiting for the next person.</p>
+				<p>Documenting isn't a waste of time. It's what keeps the system, and the team, from depending on my memory or my presence. And paradoxically, ceasing to be indispensable made me more useful: you get trusted with more important things when what you do doesn't leave with you.</p>
 
-				<p>Breaking production happens, and it will happen again. You do everything to avoid it, but the day it goes down, what matters isn't beating yourself up: it's understanding why and how, so it doesn't happen again. Even the best-run infrastructures fall eventually. What sets a good engineer apart isn't never breaking anything, it's what they do with their incidents.</p>
+				<p>I even turned that document into a <a href="https://github.com/TuroTheReal/devops-cloud_tools/blob/main/templates/docs/one-pager.md" target="_blank" rel="noopener noreferrer">reusable template</a>, so I don't start from a blank page on the next project.</p>
 
 			</div>
 
 			<!-- Article footer -->
 			<footer class="article-footer" data-fade>
 				<div class="article-nav">
-					<a href="/en/blog/working-with-ai" class="article-nav-link article-nav-prev">
+					<a href="/en/blog/the-day-i-broke-prod" class="article-nav-link article-nav-prev">
 						<span class="article-nav-label"><span aria-hidden="true">&larr;</span> Previous</span>
-						<span class="article-nav-title">Keeping the Controls When AI Codes</span>
-					</a>
-					<a href="/en/blog/the-spof-was-me" class="article-nav-link article-nav-next">
-						<span class="article-nav-label">Next &rarr;</span>
-						<span class="article-nav-title">I Was the SPOF</span>
+						<span class="article-nav-title">The Day I Took Down Production</span>
 					</a>
 				</div>
 			</footer>

@@ -28,6 +28,7 @@ with identical slugs. Links below point to the English version.
 - [Weekly Tech Radar](https://arthurbernard.dev/en/blog/weekly-tech-radar): automated tech-watch pipeline with Python and Claude Haiku, and keeping engineer control over AI output
 - [Keeping the Controls When AI Codes](https://arthurbernard.dev/en/blog/working-with-ai): how I work with AI without delegating my judgment, using my own site as the example
 - [The Day I Took Down Production](https://arthurbernard.dev/en/blog/the-day-i-broke-prod): how a small change took down an internal tool, and what the incident taught me about hidden dependencies and rollbacks
+- [I Was the SPOF](https://arthurbernard.dev/en/blog/the-spof-was-me): how an incident revealed I was a single point of failure, and how documentation and scaled communication fixed it
 
 ## Optional
 
