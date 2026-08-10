@@ -169,13 +169,13 @@
 			<!-- Corps de l'article -->
 			<div class="article-body" data-fade>
 
-				<p>Ce jour-là, je corrigeais un problème mineur sur une brique qui paraissait sans lien avec le reste. Un correctif modeste, propre, que j'avais pris soin de tester avant de le mettre en production. Le genre d'intervention que l'on classe, presque sans y penser, dans la catégorie rassurante des changements sans risque.</p>
+				<p>Ce jour-là, je corrigeais un problème mineur sur un composant qui paraissait sans lien avec le reste. Un correctif modeste, propre, que j'avais pris soin de tester avant de le mettre en production. Le genre d'intervention que l'on classe, presque sans y penser, dans la catégorie rassurante des changements sans risque.</p>
 
 				<p>Quelques minutes plus tard, un collègue me prévient : un outil interne ne répond plus. Je relis mon changement, incrédule, car rien dans ce que je venais de faire n'aurait dû l'atteindre. Je n'y avais pas touché ; je ne l'avais même pas vu tomber.</p>
 
 				<p>C'est cette catégorie rassurante qui m'a piégé. Ce jour-là, j'ai compris pour de bon une évidence que l'on récite sans y croire : dans une infrastructure partagée, l'isolement n'existe pas.</p>
 
-				<h2>Un changement réputé sans risque</h2>
+				<h2>Un changement sans risque</h2>
 
 				<p>Tout part d'une migration d'hébergement. Un tag marketing avait cessé de fonctionner sur notre domaine principal, et il fallait le rétablir. La solution tenait en un ajustement de routage : une seule entrée, sur un seul domaine, pour une seule raison. Rien, nulle part, ne la reliait à un autre service. À ce stade, l'affaire semblait close avant même d'avoir commencé.</p>
 
@@ -187,7 +187,7 @@
 
 				<h2>Le point d'appui invisible</h2>
 
-				<p>Ce que j'ignorais, c'est que le domaine que je modifiais servait discrètement de point d'appui à d'autres services, rattachés à lui sans qu'aucun lien apparent ne le signale. En retirant ma brique, j'ai changé ce point d'appui en impasse. Tous ceux qui s'y adossaient sans le savoir se sont retrouvés sans fondations.</p>
+				<p>Ce que j'ignorais, c'est que le domaine que je modifiais servait discrètement de point d'appui à d'autres services, rattachés à lui sans qu'aucun lien apparent ne le signale. En retirant mon composant, j'ai changé ce point d'appui en impasse. Tous ceux qui s'y adossaient sans le savoir se sont retrouvés sans fondations.</p>
 
 				<p>L'outil interne qui est tombé, celui dont dépendent les équipes qui suivent nos plus gros clients, n'était que le plus visible ; d'autres services ont sans doute vacillé, que personne n'a remarqués. Aucun client final n'était directement touché, mais les personnes chargées des comptes les plus sensibles se retrouvaient, elles, sans outil.</p>
 
@@ -201,7 +201,7 @@
 
 				<h2>Comprendre, après coup</h2>
 
-				<p>À vrai dire, avant cet incident, j'ignorais jusqu'à l'existence du mécanisme en cause : la façon dont cette brique décide vers quelle origine envoyer chaque requête, et comment d'autres services finissent par en dépendre. On ne se méfie pas d'un piège dont on ne soupçonne pas la présence. Je l'ai donc découvert après coup, en creusant pour comprendre ce que j'avais réellement provoqué. C'est inconfortable à écrire, mais c'est souvent comme ça qu'on apprend vraiment : une notion croisée dans la douleur, on ne l'oublie plus.</p>
+				<p>À vrai dire, avant cet incident, j'ignorais jusqu'à l'existence du mécanisme en cause : la façon dont ce composant décide vers quelle origine envoyer chaque requête, et comment d'autres services finissent par en dépendre. On ne se méfie pas d'un piège dont on ne soupçonne pas la présence. Je l'ai donc découvert après coup, en creusant pour comprendre ce que j'avais réellement provoqué. C'est inconfortable à écrire, mais c'est souvent comme ça qu'on apprend vraiment : une notion croisée dans la douleur, on ne l'oublie plus.</p>
 
 				<h2>Ce que j'en retiens</h2>
 
