@@ -14,46 +14,46 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="AI wrote part of my site. How I work with it: understand before delegating, keep the judgment, control the result, stay honest.">
+	<meta name="description" content="During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>Keeping the Controls When AI Codes | Arthur Bernard</title>
+	<title>The Day I Took Down Production | Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Keeping the Controls When AI Codes">
-	<meta property="og:description" content="AI wrote part of my site. How I work with it: understand before delegating, keep the judgment, control the result, stay honest.">
-	<meta property="og:url" content="https://arthurbernard.dev/en/blog/working-with-ai">
+	<meta property="og:title" content="The Day I Took Down Production">
+	<meta property="og:description" content="During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.">
+	<meta property="og:url" content="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:locale:alternate" content="fr_FR">
 	<meta property="og:site_name" content="Arthur Bernard">
-	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/working-with-ai.webp">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="800">
-	<meta property="article:published_time" content="2026-08-07">
+	<meta property="article:published_time" content="2026-08-09">
 	<meta property="article:author" content="Arthur Bernard">
-	<meta property="article:tag" content="AI">
-	<meta property="article:tag" content="Method">
+	<meta property="article:tag" content="Incident">
 	<meta property="article:tag" content="DevOps">
-	<meta property="article:tag" content="Career">
+	<meta property="article:tag" content="Cloud">
+	<meta property="article:tag" content="Lessons">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Keeping the Controls When AI Codes">
-	<meta name="twitter:description" content="AI wrote part of my site. How I work with it: understand before delegating, keep the judgment, control the result, stay honest.">
-	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/working-with-ai.webp">
+	<meta name="twitter:title" content="The Day I Took Down Production">
+	<meta name="twitter:description" content="During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp">
 
 	<!-- JSON-LD Article -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
-		"headline": "Keeping the Controls When AI Codes",
-		"description": "AI wrote part of my site. How I work with it: understand before delegating, keep the judgment, control the result, stay honest.",
-		"image": "https://arthurbernard.dev/assets/img/blog/working-with-ai.webp",
-		"datePublished": "2026-08-07",
-		"dateModified": "2026-08-07",
+		"headline": "The Day I Took Down Production",
+		"description": "During my internship, I took down an internal tool by changing something else. What the incident taught me about hidden dependencies and rollbacks.",
+		"image": "https://arthurbernard.dev/assets/img/blog/the-day-i-broke-prod.webp",
+		"datePublished": "2026-08-09",
+		"dateModified": "2026-08-09",
 		"inLanguage": "en",
 		"author": {
 			"@type": "Person",
@@ -64,7 +64,7 @@
 			"@type": "Person",
 			"name": "Arthur Bernard"
 		},
-		"mainEntityOfPage": "https://arthurbernard.dev/en/blog/working-with-ai"
+		"mainEntityOfPage": "https://arthurbernard.dev/en/blog/the-day-i-broke-prod"
 	}
 	</script>
 
@@ -76,17 +76,17 @@
 		"itemListElement": [
 			{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthurbernard.dev/en/"},
 			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/en/blog"},
-			{"@type": "ListItem", "position": 3, "name": "Keeping the Controls When AI Codes", "item": "https://arthurbernard.dev/en/blog/working-with-ai"}
+			{"@type": "ListItem", "position": 3, "name": "The Day I Took Down Production", "item": "https://arthurbernard.dev/en/blog/the-day-i-broke-prod"}
 		]
 	}
 	</script>
 
 	<!-- Hreflang -->
-	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/working-with-ai">
-	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/working-with-ai">
-	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/working-with-ai">
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/the-day-i-broke-prod">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
 
-	<link rel="canonical" href="https://arthurbernard.dev/en/blog/working-with-ai">
+	<link rel="canonical" href="https://arthurbernard.dev/en/blog/the-day-i-broke-prod">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
@@ -150,80 +150,73 @@
 			<!-- Article header -->
 			<header class="article-header" data-fade>
 				<a href="/en/blog" class="article-back"><span aria-hidden="true">&larr;</span> Back to Blog</a>
-				<h1>Keeping the Controls When AI Codes</h1>
+				<h1>The Day I Took Down Production</h1>
 				<div class="article-meta">
-					<time datetime="2026-08-07">Aug 7, 2026</time>
-					<span class="article-read-time">5 min read</span>
+					<time datetime="2026-08-09">Aug 9, 2026</time>
+					<span class="article-read-time">4 min read</span>
 				</div>
 				<div class="article-tags">
-					<span>AI</span>
 					<span>DevOps</span>
-					<span>Method</span>
+					<span>Career</span>
 				</div>
 			</header>
 
 			<!-- Hero image -->
 			<div class="article-hero" data-fade>
-				<img src="../../assets/img/blog/working-with-ai.webp" alt="Working with AI without delegating your judgment" fetchpriority="high">
+				<img src="../../assets/img/blog/the-day-i-broke-prod.webp" alt="A tower of blocks collapsing after one piece is removed" fetchpriority="high">
 			</div>
 
 			<!-- Article body -->
 			<div class="article-body" data-fade>
 
-				<p>A good part of my site was written by an AI. Today, it writes production code every day, right up to the companies that build it: this is no longer a hypothesis, it's already the reality. The question is no longer whether it can code, but how to adapt and stay at the controls.</p>
+				<p>That day, I was fixing a minor problem on a component that seemed unrelated to the rest. A modest, clean fix that I had taken care to test before shipping it to production. The kind of change you file, almost without thinking, in the reassuring category of harmless ones.</p>
 
-				<p>My site answers that better than any speech. I started it knowing neither HTML nor CSS; it is far more polished today than at its beginnings, and it shows concretely how I work with AI.</p>
+				<p>A few minutes later, a colleague tells me: an internal tool is no longer responding. I reread my change, incredulous, because nothing in what I had just done should have reached it. I hadn't touched it; I hadn't even seen it fall.</p>
 
-				<h2>Understand before delegating</h2>
+				<p>That reassuring category is exactly what trapped me. That day, I truly understood an obvious truth we recite without believing it: in shared infrastructure, isolation does not exist.</p>
 
-				<p>I don't delegate what I've never understood, even a little. That's my first rule, and it's where the site began.</p>
+				<h2>A harmless change</h2>
 
-				<p>At first, I wanted to learn HTML and CSS. I designed a mockup in Figma, then built it by hand, almost without JavaScript. It was slow, sometimes clumsy, but every line showed me how a page holds together. Reproducing a mockup when you're discovering CSS is a good lesson in humility: you quickly realize that even centering an element properly means understanding what's happening underneath. I didn't come out of it an expert, only able to understand the basics and use them. That was the point.</p>
+				<p>It all starts with a hosting migration. A marketing tag had stopped working on our main domain, and it needed to be restored. The solution came down to a routing adjustment: a single entry, on a single domain, for a single reason. Nothing, anywhere, tied it to another service. At that point, the matter seemed closed before it had even begun.</p>
 
-				<p>Why bother, since the AI would have churned all that out in minutes? Because a tool you don't understand ends up owning you. The day it breaks, or the day you have to explain a choice, you're stuck. Understanding the foundations, even modestly, is what later lets you delegate without becoming a hostage to what you delegated.</p>
+				<h2>A reassuring test</h2>
 
-				<h2>Judgment first, code second</h2>
+				<p>I hadn't worked blind, though. I had reproduced the setup in a test environment, applied the fix, checked that everything worked without the slightest interruption. The trial was conclusive; I moved to production with the calm of someone who had done his homework.</p>
 
-				<p>Once the basics are in place, the AI becomes a very fast executor. But an executor needs someone to decide, and that's where my work is: before and after the code, far more than during.</p>
+				<p>My mistake wasn't neglecting the test. It was believing it told the whole truth. A test environment reproduces what you know about the system; it stays silent about what you don't.</p>
 
-				<p>When I wanted to move the site from a student project to something more professional, I didn't settle for asking it to "make me a nice site". I set a clear idea of what I wanted. But an AI left to itself drifts everywhere; it needs a frame and a clear context. That's where my AI harness comes in, a topic that deserves its own article: the guidelines I feed it every time to keep it on my rails. No framework, reuse the components already there, keep the site fast and readable. I weighed the pros and cons of the options. The AI coded, I tested, I iterated, and I only published when the result matched what I wanted. On the other hand, the site's <a href="/en/blog/weekly-tech-radar">tech watch</a>, that pipeline publishing an edition every week, I coded almost entirely myself: I only handed the AI the regeneration of the HTML pages, the repetitive part. Automation is my turf: it's where I want to keep exploring and learning.</p>
+				<h2>The invisible pillar</h2>
 
-				<p>This is maybe what AI changes most about the job. Making something is no longer necessarily writing it yourself: it's designing it, framing it, deciding it, and knowing how to recognize when it's good. Writing the code matters less, the architecture and the judgment more.</p>
+				<p>What I didn't know is that the domain I was changing quietly served as a support for other services, attached to it without any visible link to signal it. By removing my piece, I turned that support into a dead end. Everyone leaning on it without knowing found themselves without foundations.</p>
 
-				<h2>Control the result</h2>
+				<p>The internal tool that fell, the one the teams handling our biggest clients depend on, was only the most visible; other services probably wobbled too, unnoticed. No end client was directly affected, but the people in charge of the most sensitive accounts were left without their tool.</p>
 
-				<p>I don't read every line of what the AI produces. My site's JavaScript, for instance, I haven't combed through. What I do know is what to test to check that a change works and hasn't broken anything else. My control is on the behavior, not on each instruction. Concretely, I don't start from what the diff contains but from what it can break. A CSS tweak is judged on screen, not only in the code. The real reflex is knowing what a change can affect elsewhere, including where you don't expect it, and going to check that rather than rereading everything.</p>
+				<p>My change wasn't about one entry in a domain, but about the floor holding up an unknown number of services. The scale of the damage had nothing to do with the size of the modification.</p>
 
-				<p>That doesn't mean skimming everything. The level of understanding I demand of myself depends on the domain. On the front end, I accept delegating and not mastering everything; that's not where I focus my attention. On DevOps and cloud, it's different: there, even without knowing the code by heart, I want to understand what I'm doing and why, because it's my turf and I'll be judged on it. Knowing where to set the cursor of your understanding is already a decision.</p>
+				<h2>What saved the day</h2>
 
-				<h2>Be honest</h2>
+				<p>I detected nothing myself: a colleague raised the alarm. That's the uncomfortable detail, and probably the most honest one: I was watching what I had just changed, not what might give way around it.</p>
 
-				<p>The last rule is the simplest and the most important: owning what comes from me and what comes from the AI.</p>
+				<p>One thing remained, which I'd had the caution to prepare before acting: a rollback, ready and tested. I triggered it, and within seconds everything was restored. The fix I had devoted my attention to didn't save the day. The precaution taken "just in case", without really believing in it, did.</p>
 
-				<p>It's not a matter of posture. You can only defend, explain, and evolve what you truly understand. Code you claim without having understood it isn't an asset, it's a debt: sooner or later, you have to know what it does and why.</p>
+				<h2>Understanding, afterward</h2>
 
-				<p>This clarity is an asset, not a constraint: it tells me at every moment what I master, what I delegate, and what I need to dig into. It's the map I need to move in the right direction.</p>
+				<p>To be honest, before this incident I didn't even know the mechanism at play existed: the way that component decides which origin each request goes to, and how other services end up depending on it. You can't watch for a trap you don't suspect is there. So I discovered it afterward, digging in to understand what I had actually set off. It's uncomfortable to admit, but that's often how you really learn: a concept met the hard way is one you never forget.</p>
 
-				<h2>Where I make the difference</h2>
+				<h2>What I take from it</h2>
 
-				<p>In a single year, the developer's job has changed faster than ever: AI now writes part of the code, and my value has shifted elsewhere. My expertise now concentrates on the engineering: understanding the problem, solving it, and staying able to explain and evolve what I ship. I lean on AI to speed up my learning and to hand off the repetitive or secondary tasks.</p>
+				<p>Since then, I treat the word "isolated" as a hypothesis to prove, never as a given, especially in those older systems where dependencies are written down nowhere. A successful test doesn't prove the absence of hidden links; it only attests that what you managed to reproduce works. As for the rollback, I've stopped seeing it as a spare wheel: it's the first thing to prepare, before the fix itself. And I now watch what can give way as much as what I change. I also learned to write down what I do and what a system depends on: an undocumented dependency is a trap waiting for the next person.</p>
 
-				<p>AI produces code better and better, and faster and faster. Putting my attention on how to write that code rather than on the problem to solve would mean losing my value. My difference is there: on the problem.</p>
-
-				<p>This site is the first place I practice it, and it's all visible. The code is public, if you want to see: <a href="https://github.com/TuroTheReal/Portfolio" target="_blank" rel="noopener noreferrer">github.com/TuroTheReal/Portfolio</a>.</p>
+				<p>Breaking production happens, and it will happen again. You do everything to avoid it, but the day it goes down, what matters isn't beating yourself up: it's understanding why and how, so it doesn't happen again. Even the best-run infrastructures fall eventually. What sets a good engineer apart isn't never breaking anything, it's what they do with their incidents.</p>
 
 			</div>
 
 			<!-- Article footer -->
 			<footer class="article-footer" data-fade>
 				<div class="article-nav">
-					<a href="/en/blog/weekly-tech-radar" class="article-nav-link article-nav-prev">
+					<a href="/en/blog/working-with-ai" class="article-nav-link article-nav-prev">
 						<span class="article-nav-label"><span aria-hidden="true">&larr;</span> Previous</span>
-						<span class="article-nav-title">Weekly Tech Radar: Automating My Tech Watch With AI, and Staying the Engineer</span>
-					</a>
-					<a href="/en/blog/the-day-i-broke-prod" class="article-nav-link article-nav-next">
-						<span class="article-nav-label">Next &rarr;</span>
-						<span class="article-nav-title">The Day I Took Down Production</span>
+						<span class="article-nav-title">Keeping the Controls When AI Codes</span>
 					</a>
 				</div>
 			</footer>
