@@ -157,8 +157,7 @@
 				</div>
 				<div class="article-tags">
 					<span>DevOps</span>
-					<span>Incident</span>
-					<span>Lessons</span>
+					<span>Career</span>
 				</div>
 			</header>
 
@@ -202,13 +201,13 @@
 
 				<h2>Understanding, afterward</h2>
 
-				<p>To be honest, I didn't yet grasp the mechanism at play: the way that component decides which origin each request is sent to, and how other services end up depending on it. I dug into the subject after the incident, to understand what I had actually set off. I came away with a much better idea, without being able to state the exact cause or all its reasons with certainty. It's the least comfortable part to write, and probably the most honest: the repair came before the understanding, and that understanding, I went looking for it afterward.</p>
+				<p>To be honest, before this incident I didn't even know the mechanism at play existed: the way that component decides which origin each request goes to, and how other services end up depending on it. You can't watch for a trap you don't suspect is there. So I discovered it afterward, digging in to understand what I had actually set off. It's uncomfortable to admit, but that's often how you really learn: a concept met the hard way is one you never forget.</p>
 
 				<h2>What I take from it</h2>
 
 				<p>Since then, I treat the word "isolated" as a hypothesis to prove, never as a given, especially in those older systems where dependencies are written down nowhere. A successful test doesn't prove the absence of hidden links; it only attests that what you managed to reproduce works. As for the rollback, I've stopped seeing it as a spare wheel: it's the first thing to prepare, before the fix itself. And I now watch what can give way as much as what I change.</p>
 
-				<p>Breaking production, as an intern, is nothing to be proud of. But of this whole episode, it wasn't the fix that taught me, it was the rollback. I've stopped believing a change can be small. I've learned to assume it's shared.</p>
+				<p>Breaking production happens, and it will happen again. You do everything to avoid it, but the day it goes down, what matters isn't beating yourself up: it's understanding why and how, so it doesn't happen again. Even the best-run infrastructures fall eventually. What sets a good engineer apart isn't never breaking anything, it's what they do with their incidents.</p>
 
 			</div>
 
