@@ -14,14 +14,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="Glasck — First launch of a project into production. Docker Compose, Traefik, Prometheus/Grafana monitoring, and lessons from a real service with real users.">
+	<meta name="description" content="Glasck: First launch of a project into production. Docker Compose, Traefik, Prometheus/Grafana monitoring, and lessons from a real service with real users.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>Glasck — First Production Launch | Arthur Bernard</title>
+	<title>Glasck: First Production Launch | Arthur Bernard</title>
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Glasck — First Launch of a Project Into Production">
+	<meta property="og:title" content="Glasck: First Launch of a Project Into Production">
 	<meta property="og:description" content="Docker Compose, Traefik, Prometheus/Grafana monitoring, and lessons from a real service with real users.">
 	<meta property="og:url" content="https://arthurbernard.dev/en/blog/glasck-first-production-launch">
 	<meta property="og:type" content="article">
@@ -41,7 +41,7 @@
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Glasck — First Launch of a Project Into Production">
+	<meta name="twitter:title" content="Glasck: First Launch of a Project Into Production">
 	<meta name="twitter:description" content="Docker Compose, Traefik, Prometheus/Grafana monitoring, and lessons from a real service with real users.">
 	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/glasck-first-production-launch.webp">
 
@@ -50,7 +50,7 @@
 	{
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
-		"headline": "Glasck — First Launch of a Project Into Production",
+		"headline": "Glasck: First Launch of a Project Into Production",
 		"description": "Docker Compose, Traefik, Prometheus/Grafana monitoring, and lessons from a real service with real users.",
 		"image": "https://arthurbernard.dev/assets/img/blog/glasck-first-production-launch.webp",
 		"datePublished": "2026-02-15",
@@ -77,7 +77,7 @@
 		"itemListElement": [
 			{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthurbernard.dev/en/"},
 			{"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthurbernard.dev/en/blog"},
-			{"@type": "ListItem", "position": 3, "name": "Glasck — First Launch of a Project Into Production", "item": "https://arthurbernard.dev/en/blog/glasck-first-production-launch"}
+			{"@type": "ListItem", "position": 3, "name": "Glasck: First Launch of a Project Into Production", "item": "https://arthurbernard.dev/en/blog/glasck-first-production-launch"}
 		]
 	}
 	</script>
@@ -151,7 +151,7 @@
 			<!-- Article header -->
 			<header class="article-header" data-fade>
 				<a href="/en/blog" class="article-back"><span aria-hidden="true">&larr;</span> Back to Blog</a>
-				<h1>Glasck — First Launch of a Project Into Production</h1>
+				<h1>Glasck: First Launch of a Project Into Production</h1>
 				<div class="article-meta">
 					<time datetime="2026-02-15">February 15, 2026</time>
 					<span class="article-read-time">6 min read</span>
@@ -164,15 +164,15 @@
 
 			<!-- Hero image -->
 			<div class="article-hero" data-fade>
-				<img src="../../assets/img/blog/glasck-first-production-launch.webp" alt="Glasck — First Launch of a Project Into Production" fetchpriority="high">
+				<img src="../../assets/img/blog/glasck-first-production-launch.webp" alt="Glasck: First Launch of a Project Into Production" fetchpriority="high">
 			</div>
 
 			<!-- Article body -->
 			<div class="article-body" data-fade>
 
-				<p>Glasck is an esport data platform for League of Legends — for now. The project started because a friend wanted to build it. He began on his own, and a few months later, he told me about it. I liked the idea, the database already existed. I joined along with another friend, we started working on the design together, and things took off from there.</p>
+				<p>Glasck is an esport data platform for League of Legends, for now. The project started because a friend wanted to build it. He began on his own, and a few months later, he told me about it. I liked the idea, the database already existed. I joined along with another friend, we started working on the design together, and things took off from there.</p>
 
-				<p>There are four of us on the project. Three developers — myself included — and a fourth person handling project management, marketing, and legal. On the dev side, I handle the infrastructure. I also work on design with the team and manage communication on LinkedIn. Big-picture decisions about the project's direction, we make those together.</p>
+				<p>There are four of us on the project. Three developers, myself included, and a fourth person handling project management, marketing, and legal. On the dev side, I handle the infrastructure. I also work on design with the team and manage communication on LinkedIn. Big-picture decisions about the project's direction, we make those together.</p>
 
 				<h2>My Approach</h2>
 
@@ -180,15 +180,15 @@
 
 				<p>User first. Every technical decision should serve the user, not the developer's ego. ROI and tradeoffs: our time is limited, every choice has a cost. If a solution that's 80% as good takes three times less effort, we go with it.</p>
 
-				<p>Everything I build has to be understandable by the rest of the team. No black boxes that only I can maintain. I refuse to be a SPOF — a Single Point of Failure, the one person whose absence blocks everything. If I'm unavailable, the project shouldn't stop.</p>
+				<p>Everything I build has to be understandable by the rest of the team. No black boxes that only I can maintain. I refuse to be a SPOF, a Single Point of Failure, the one person whose absence blocks everything. If I'm unavailable, the project shouldn't stop.</p>
 
-				<h2>The Stack — and Why These Choices</h2>
+				<h2>The Stack, and Why These Choices</h2>
 
-				<p>Docker Compose in production on a single VPS. No cluster, no Kubernetes. We're three devs with limited time — complexity has to be proportional to the team. With Taskfile — a command-line task automation tool — it's deployable and upgradable in a single command. Everyone on the team uses it.</p>
+				<p>Docker Compose in production on a single VPS. No cluster, no Kubernetes. We're three devs with limited time, complexity has to be proportional to the team. With Taskfile, a command-line task automation tool, it's deployable and upgradable in a single command. Everyone on the team uses it.</p>
 
 				<p>Traefik as a reverse proxy instead of Nginx. When a new Docker service starts, Traefik discovers it automatically through labels in the Compose file. HTTPS certificates are generated automatically via Let's Encrypt, the dashboard is built in. In practice, exposing a new service is three lines of config, not an Nginx file to write and reload.</p>
 
-<pre><code># Docker-compose excerpt — Traefik labels on frontend
+<pre><code># Docker-compose excerpt, Traefik labels on frontend
 labels:
   - "traefik.enable=true"
   - "traefik.http.routers.frontend.rule=Host(`glasck.gg`)"
@@ -197,7 +197,7 @@ labels:
 
 				<p>Rate limiting at 50 req/s on the front, 100 req/s on the back. Sticky sessions for user session management.</p>
 
-				<p>PostgreSQL with PgBouncer for connection pooling — two separate databases, one for data, one for authentication. Redis for caching with an LRU policy and destructive commands disabled in production. This was the project's initial stack, already in place before I joined. I adapted and integrated it into the Docker infrastructure. I don't manage the databases yet — that's an area I'm working on.</p>
+				<p>PostgreSQL with PgBouncer for connection pooling, two separate databases, one for data, one for authentication. Redis for caching with an LRU policy and destructive commands disabled in production. This was the project's initial stack, already in place before I joined. I adapted and integrated it into the Docker infrastructure. I don't manage the databases yet, that's an area I'm working on.</p>
 
 				<p>The Docker network is segmented into three isolated subnets:</p>
 
@@ -207,23 +207,23 @@ glasck-monitoring       → separate monitoring stack</code></pre>
 
 				<p>A compromised service on the public network can't reach the backend or monitoring. It's basic segmentation, but it limits the attack surface.</p>
 
-				<p>Docker Swarm runs in staging, but the VPS is limited — faithfully replicating the production stack for reliable staging is still a work in progress. Kubernetes, maybe later, if traffic and team size justify it. For now, no automatic rolling updates — there's downtime during deployments, but it's short and acceptable for our stage.</p>
+				<p>Docker Swarm runs in staging, but the VPS is limited, faithfully replicating the production stack for reliable staging is still a work in progress. Kubernetes, maybe later, if traffic and team size justify it. For now, no automatic rolling updates, there's downtime during deployments, but it's short and acceptable for our stage.</p>
 
 				<h2>20 Minutes After Going Live, the Site Is Down</h2>
 
-				<p>Twenty minutes after the site went live, the server crashed. Bots crawling the site in droves, no rate limiting in place, no visibility into what was happening. The VPS buckled under the load. I restricted access through Traefik configuration — that solved the problem. But without metrics, we were reacting instead of anticipating.</p>
+				<p>Twenty minutes after the site went live, the server crashed. Bots crawling the site in droves, no rate limiting in place, no visibility into what was happening. The VPS buckled under the load. I restricted access through Traefik configuration, that solved the problem. But without metrics, we were reacting instead of anticipating.</p>
 
-				<p>The first OOM came a bit later. I didn't even see it in the logs. I found out by opening the site — blank page. The container had crashed silently. I had to dig through manually to figure out what happened, with no view on memory usage, no history. How long was the site down before I noticed? No idea.</p>
+				<p>The first OOM came a bit later. I didn't even see it in the logs. I found out by opening the site, blank page. The container had crashed silently. I had to dig through manually to figure out what happened, with no view on memory usage, no history. How long was the site down before I noticed? No idea.</p>
 
 				<p>Before monitoring, when something broke, I'd go straight to the VPS. SSH, <code>docker logs</code>, container by container. No dashboard, no alerts. You discover problems instead of anticipating them.</p>
 
 				<p>It was after these episodes that I built the monitoring stack. I should have started there.</p>
 
-				<h2>Monitoring — Eyes on Production</h2>
+				<h2>Monitoring, Eyes on Production</h2>
 
 				<p>The starting point is the four Golden Signals: latency, traffic, errors, saturation. If you watch these four metrics, you catch the majority of problems before they become critical. It's what you look at first, every day.</p>
 
-				<p>But we didn't stop there. We monitor every component — Redis metrics (hit rate, memory, connections), Traefik metrics (requests per second, HTTP codes, latency per route), PostgreSQL metrics (active connections, slow queries), state of every Docker container. The Golden Signals give you the big picture. The rest is for digging deeper when something's off.</p>
+				<p>But we didn't stop there. We monitor every component, Redis metrics (hit rate, memory, connections), Traefik metrics (requests per second, HTTP codes, latency per route), PostgreSQL metrics (active connections, slow queries), state of every Docker container. The Golden Signals give you the big picture. The rest is for digging deeper when something's off.</p>
 
 				<p>The architecture:</p>
 
@@ -239,23 +239,23 @@ UptimeRobot → external monitoring (is the site responding from outside?)</code
 
 				<p>Seven exporters: node-exporter for the machine, cAdvisor for containers, redis-exporter, two postgres-exporters (one per database), uptimerobot-exporter, and Traefik's built-in metrics.</p>
 
-				<p>Nine Grafana dashboards — overview with Golden Signals, Docker, node, Redis, Traefik, PostgreSQL, Fastify API, Next.js frontend, and centralized logs via Loki.</p>
+				<p>Nine Grafana dashboards, overview with Golden Signals, Docker, node, Redis, Traefik, PostgreSQL, Fastify API, Next.js frontend, and centralized logs via Loki.</p>
 
-				<p>Eight alert rules: ServiceDown (critical, 2-minute threshold to avoid false positives), HighCPU, HighMemory, DiskSpaceLow, ExternalDown. Alerts go to Discord — that's where the team is. Emails are for those who don't check Discord often enough.</p>
+				<p>Eight alert rules: ServiceDown (critical, 2-minute threshold to avoid false positives), HighCPU, HighMemory, DiskSpaceLow, ExternalDown. Alerts go to Discord, that's where the team is. Emails are for those who don't check Discord often enough.</p>
 
 				<p>Traces will be the next step. For now, metrics and logs cover our needs.</p>
 
-				<p>Today, I see everything. A container restarting, a slow request, a suspicious traffic spike — I know in real time.</p>
+				<p>Today, I see everything. A container restarting, a slow request, a suspicious traffic spike, I know in real time.</p>
 
 				<h2>The Story That Sums It All Up</h2>
 
-				<p>After an update, the site slows down. Response times spike on the Grafana dashboard. A request on the application side gets queued and causes every other request to timeout — the domino effect.</p>
+				<p>After an update, the site slows down. Response times spike on the Grafana dashboard. A request on the application side gets queued and causes every other request to timeout, the domino effect.</p>
 
-				<p>Monitoring does its job. I see latency metrics climbing, error logs surface in Loki, I know exactly which service is affected. But I can't fix it — it's application code, not infrastructure.</p>
+				<p>Monitoring does its job. I see latency metrics climbing, error logs surface in Loki, I know exactly which service is affected. But I can't fix it, it's application code, not infrastructure.</p>
 
 				<p>I restart the container to buy some uptime until the request occurs a second time. Meanwhile, I send the logs and metrics to my developer friend. He identifies the issue and fixes it. The service recovers.</p>
 
-				<p>That moment stuck with me. Seeing the problem, diagnosing it, but not being able to fix it because it's not your domain — that's frustrating. It's one of the reasons I want to become a T-shaped engineer: strong on infrastructure, but able to understand and step into the code when needed.</p>
+				<p>That moment stuck with me. Seeing the problem, diagnosing it, but not being able to fix it because it's not your domain, that's frustrating. It's one of the reasons I want to become a T-shaped engineer: strong on infrastructure, but able to understand and step into the code when needed.</p>
 
 				<h2>Useful Mistakes</h2>
 
@@ -269,9 +269,9 @@ UptimeRobot → external monitoring (is the site responding from outside?)</code
 
 				<h2>And Now</h2>
 
-				<p>Glasck is my first real project in production. Not an exercise, not a school project. The site is there — <a href="https://glasck.gg" target="_blank" rel="noopener noreferrer">glasck.gg</a>. It's running, with real users, real sessions, real traffic. It's tangible. When something breaks, real people are affected.</p>
+				<p>Glasck is my first real project in production. Not an exercise, not a school project. The site is there, <a href="https://glasck.gg" target="_blank" rel="noopener noreferrer">glasck.gg</a>. It's running, with real users, real sessions, real traffic. It's tangible. When something breaks, real people are affected.</p>
 
-				<p>We're still working on it. No pressure, everyone moves at their own pace — but we have clear goals for the site. It changes the way you think. Every technical decision becomes a tradeoff between what you want to do, the time available, and above all what the user expects. Does it work? Is it reliable? Is the experience right? That's what matters, not the most impressive stack.</p>
+				<p>We're still working on it. No pressure, everyone moves at their own pace, but we have clear goals for the site. It changes the way you think. Every technical decision becomes a tradeoff between what you want to do, the time available, and above all what the user expects. Does it work? Is it reliable? Is the experience right? That's what matters, not the most impressive stack.</p>
 
 				<p>Monitoring isn't a bonus. Working in a team means making your work readable by others. Managing the infrastructure of a real project showed me how much I still have to learn. That's why I keep going.</p>
 

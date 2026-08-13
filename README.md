@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <i>Personal portfolio website — DevOps & Cloud Engineer</i>
+  <i>Personal portfolio website, DevOps & Cloud Engineer</i>
 </p>
 
 ---
@@ -32,7 +32,7 @@
 ## 📌 About
 
 Bilingual (EN/FR) portfolio website showcasing my projects, skills, and professional background as a DevOps & Cloud Engineer.
-Built with vanilla HTML5, CSS3, and JavaScript — no frameworks, no dependencies. Dark/light theme, fully responsive, deployed on Netlify.
+Built with vanilla HTML5, CSS3, and JavaScript, no frameworks, no dependencies. Dark/light theme, fully responsive, deployed on Netlify.
 
 ### Tech Stack
 
@@ -67,15 +67,15 @@ Portfolio/
 │   │   └── Arthur_Bernard_CV.pdf
 │   └── script.js                 # Burger menu, scroll, theme/lang toggle, observers
 ├── en/
-│   ├── index.html                # Homepage — English
-│   ├── resume.html               # Resume/CV — English
-│   ├── blog/                     # Blog articles + index — English
-│   └── tech-radar/               # Tech Radar listing & editions — English
+│   ├── index.html                # Homepage, English
+│   ├── resume.html               # Resume/CV, English
+│   ├── blog/                     # Blog articles + index, English
+│   └── tech-radar/               # Tech Radar listing & editions, English
 ├── fr/
-│   ├── index.html                # Homepage — French
-│   ├── resume.html               # Resume/CV — French
-│   ├── blog/                     # Blog articles + index — French
-│   └── tech-radar/               # Tech Radar listing & editions — French
+│   ├── index.html                # Homepage, French
+│   ├── resume.html               # Resume/CV, French
+│   ├── blog/                     # Blog articles + index, French
+│   └── tech-radar/               # Tech Radar listing & editions, French
 ├── index.html                    # Root redirect (lang detection → /en/ or /fr/)
 ├── _redirects                    # Netlify 301 redirects (old URLs → new folder-based)
 ├── netlify.toml                  # Netlify build config + redirects
@@ -91,7 +91,7 @@ Portfolio/
 
 ## ✅ Prerequisites
 
-None. Static site — just a browser.
+None. Static site, just a browser.
 
 For local development:
 
@@ -121,21 +121,21 @@ python3 -m http.server 8080
 
 ## 📖 Features
 
-- **Bilingual** — Full EN/FR versions with folder-based i18n (`/en/`, `/fr/`), seamless language switching (preserves scroll position)
-- **Dark/Light theme** — Toggle with localStorage persistence, separate color palettes (AAA contrast)
-- **Responsive** — Mobile-first design with slide panel menu, tablet grid, desktop navigation
-- **Blog** — Bilingual articles with tag-based filtering, category system, featured post highlight
-- **Tech Radar** — Weekly tech watch with category filters, edition navigation, automated via [weekly-tech-radar](https://github.com/TuroTheReal/weekly-tech-radar) pipeline
-- **Smooth scroll** — Variable speed easeInOutCubic scroll-to-section on filter/nav clicks
-- **Smooth animations** — Scroll-based fade-in (IntersectionObserver), animated mesh gradient blobs, hover effects
-- **Active nav tracking** — Ratio-based IntersectionObserver highlights current section
-- **Auto-hide header** — Header hides on scroll down, reveals on scroll up (mobile only)
-- **Resume/CV page** — Downloadable PDF, responsive grid layout, animated link underlines
-- **Performance** — No dependencies, no build step, Google Fonts CDN, lazy-loaded images, WebP with JPG fallback
-- **SEO optimized** — Sitemap with hreflang, robots.txt, Open Graph, Twitter Cards, canonical URLs
-- **Structured data (JSON-LD)** — Person, BlogPosting, BreadcrumbList, ProfilePage schemas for rich search results
-- **AI-friendly** — `llms.txt` instructions + structured data for ChatGPT, Perplexity, Google AI Overview
-- **Accessibility** — Semantic HTML, ARIA labels, prefers-reduced-motion support
+- **Bilingual**, Full EN/FR versions with folder-based i18n (`/en/`, `/fr/`), seamless language switching (preserves scroll position)
+- **Dark/Light theme**, Toggle with localStorage persistence, separate color palettes (AAA contrast)
+- **Responsive**, Mobile-first design with slide panel menu, tablet grid, desktop navigation
+- **Blog**, Bilingual articles with tag-based filtering, category system, featured post highlight
+- **Tech Radar**, Weekly tech watch with category filters, edition navigation, automated via [weekly-tech-radar](https://github.com/TuroTheReal/weekly-tech-radar) pipeline
+- **Smooth scroll**, Variable speed easeInOutCubic scroll-to-section on filter/nav clicks
+- **Smooth animations**, Scroll-based fade-in (IntersectionObserver), animated mesh gradient blobs, hover effects
+- **Active nav tracking**, Ratio-based IntersectionObserver highlights current section
+- **Auto-hide header**, Header hides on scroll down, reveals on scroll up (mobile only)
+- **Resume/CV page**, Downloadable PDF, responsive grid layout, animated link underlines
+- **Performance**, No dependencies, no build step, Google Fonts CDN, lazy-loaded images, WebP with JPG fallback
+- **SEO optimized**, Sitemap with hreflang, robots.txt, Open Graph, Twitter Cards, canonical URLs
+- **Structured data (JSON-LD)**, Person, BlogPosting, BreadcrumbList, ProfilePage schemas for rich search results
+- **AI-friendly**, `llms.txt` instructions + structured data for ChatGPT, Perplexity, Google AI Overview
+- **Accessibility**, Semantic HTML, ARIA labels, prefers-reduced-motion support
 
 ---
 
@@ -143,14 +143,14 @@ python3 -m http.server 8080
 
 The blog hosted on this portfolio documents the DevOps/Cloud learning journey behind it:
 
-- 📝 [Blog](https://arthurbernard.dev/en/blog) — All articles
+- 📝 [Blog](https://arthurbernard.dev/en/blog), All articles
 
 Featured posts:
 
-- 📝 [My DevOps/Cloud Engineer Roadmap](https://arthurbernard.dev/en/blog/devops-roadmap) — 6-month plan from 42 to DevOps/Cloud
-- 📝 [Building a Learning System with Obsidian + Claude](https://arthurbernard.dev/en/blog/obsidian-claude-learning-system) — Personal knowledge vault setup
-- 📝 [AWS + Terraform + Ansible: Infrastructure as Code](https://arthurbernard.dev/en/blog/aws-terraform-ansible) — Deep dive on IaC automation
-- 📝 [Landing a DevOps Internship at Alan](https://arthurbernard.dev/en/blog/landing-alan-internship) — Interview process and feedback
+- 📝 [My DevOps/Cloud Engineer Roadmap](https://arthurbernard.dev/en/blog/devops-roadmap), 6-month plan from 42 to DevOps/Cloud
+- 📝 [Building a Learning System with Obsidian + Claude](https://arthurbernard.dev/en/blog/obsidian-claude-learning-system), Personal knowledge vault setup
+- 📝 [AWS + Terraform + Ansible: Infrastructure as Code](https://arthurbernard.dev/en/blog/aws-terraform-ansible), Deep dive on IaC automation
+- 📝 [Landing a DevOps Internship at Alan](https://arthurbernard.dev/en/blog/landing-alan-internship), Interview process and feedback
 
 ---
 
@@ -162,14 +162,14 @@ Featured posts:
 
 ## 📄 License
 
-This project is open source under the **MIT License** — feel free to use it as inspiration for your own portfolio.
+This project is open source under the **MIT License**, feel free to use it as inspiration for your own portfolio.
 
-If you found this useful, consider giving it a ⭐ — it's always appreciated!
+If you found this useful, consider giving it a ⭐, it's always appreciated!
 
 ---
 
 <p align="center">
-  <b>Arthur Bernard</b> — DevOps & Cloud Engineer
+  <b>Arthur Bernard</b>, DevOps & Cloud Engineer
   <br>
   <a href="https://www.linkedin.com/in/arthurbernard92/">LinkedIn</a> · <a href="https://github.com/TuroTheReal">GitHub</a> · <a href="mailto:arthurbernard.dev@gmail.com">Email</a>
 </p>

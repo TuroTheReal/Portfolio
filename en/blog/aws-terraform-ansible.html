@@ -14,15 +14,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="theme-color" content="#121212">
-	<meta name="description" content="Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker Compose, Nginx reverse proxy — hands-on infrastructure project.">
+	<meta name="description" content="Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker Compose, Nginx reverse proxy, hands-on infrastructure project.">
 	<meta name="author" content="Arthur Bernard">
 	<meta name="robots" content="index, follow">
 
-	<title>AWS Automation — Terraform & Ansible | Arthur Bernard</title>
+	<title>AWS Automation, Terraform & Ansible | Arthur Bernard</title>
 
 	<!-- Open Graph -->
 	<meta property="og:title" content="AWS Infrastructure Automation With Terraform & Ansible">
-	<meta property="og:description" content="Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker, Nginx — hands-on infra project.">
+	<meta property="og:description" content="Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker, Nginx, hands-on infra project.">
 	<meta property="og:url" content="https://arthurbernard.dev/en/blog/aws-terraform-ansible">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
@@ -41,7 +41,7 @@
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="AWS Infrastructure Automation With Terraform & Ansible">
-	<meta name="twitter:description" content="Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker, Nginx — hands-on infra project.">
+	<meta name="twitter:description" content="Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker, Nginx, hands-on infra project.">
 	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/blog/aws-terraform-ansible.webp">
 
 	<!-- JSON-LD Article -->
@@ -50,7 +50,7 @@
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
 		"headline": "AWS Infrastructure Automation With Terraform & Ansible",
-		"description": "Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker Compose, Nginx reverse proxy — hands-on infrastructure project.",
+		"description": "Automated deployment on AWS with Terraform and Ansible. Free Tier, IAM, Docker Compose, Nginx reverse proxy, hands-on infrastructure project.",
 		"image": "https://arthurbernard.dev/assets/img/blog/aws-terraform-ansible.webp",
 		"datePublished": "2026-03-28",
 		"dateModified": "2026-03-28",
@@ -170,18 +170,18 @@
 			<div class="article-body" data-fade>
 
 				<h2>Why This Project?</h2>
-				<p>I wanted to see cloud for real. Not a tutorial, not a sandbox — a real service, used in companies, deployed on real infrastructure with real costs.</p>
+				<p>I wanted to see cloud for real. Not a tutorial, not a sandbox, a real service, used in companies, deployed on real infrastructure with real costs.</p>
 
 				<p>The goal: deploy a containerized application on AWS, fully automated, using Terraform for provisioning and Ansible for configuration. All while staying within the AWS Free Tier to avoid surprise bills.</p>
 
-				<p>It's a modest project. There are dozens of ways to set up this kind of infra — ALB, HTTPS with ACM, managed RDS, ECS for orchestration. I deliberately ignored all of that. The point wasn't to build a production-ready architecture — it was to understand the fundamentals: declarative programming, provisioning, automated configuration, and how these building blocks fit together.</p>
+				<p>It's a modest project. There are dozens of ways to set up this kind of infra, ALB, HTTPS with ACM, managed RDS, ECS for orchestration. I deliberately ignored all of that. The point wasn't to build a production-ready architecture, it was to understand the fundamentals: declarative programming, provisioning, automated configuration, and how these building blocks fit together.</p>
 
 				<h2>Two Tools, Two Roles</h2>
 				<p>One thing that took me a while to fully grasp: Terraform and Ansible don't do the same thing.</p>
 
-				<p><strong>Terraform creates infrastructure.</strong> It declares the desired state — two EC2 instances, a security group, a region — and AWS makes it real. It's declarative programming: you describe the "what", not the "how". If a resource already exists and matches the declaration, Terraform won't recreate it. If it differs, it modifies or replaces it.</p>
+				<p><strong>Terraform creates infrastructure.</strong> It declares the desired state, two EC2 instances, a security group, a region, and AWS makes it real. It's declarative programming: you describe the "what", not the "how". If a resource already exists and matches the declaration, Terraform won't recreate it. If it differs, it modifies or replaces it.</p>
 
-				<p><strong>Ansible configures what runs on it.</strong> Once the machines are created and reachable via SSH, Ansible connects and runs playbooks: install Docker, deploy containers, configure Nginx. It's configuration management. Playbooks are idempotent — you can replay them without breaking what's already in place.</p>
+				<p><strong>Ansible configures what runs on it.</strong> Once the machines are created and reachable via SSH, Ansible connects and runs playbooks: install Docker, deploy containers, configure Nginx. It's configuration management. Playbooks are idempotent, you can replay them without breaking what's already in place.</p>
 
 				<p>The full flow looks like this:</p>
 
@@ -240,29 +240,29 @@ resource "null_resource" "run_ansible" {
 				<h2>The Architecture</h2>
 				<p>Two EC2 instances (Ubuntu 24.04) in the default VPC, eu-west-3 region. A security group allowing SSH (port 22) and HTTP (port 80).</p>
 
-				<p>No HTTPS: that requires either an ALB (Application Load Balancer) with an ACM certificate, or a fixed Elastic IP to point a domain — both are outside the Free Tier. The project stays HTTP only.</p>
+				<p>No HTTPS: that requires either an ALB (Application Load Balancer) with an ACM certificate, or a fixed Elastic IP to point a domain, both are outside the Free Tier. The project stays HTTP only.</p>
 
 				<p>On each instance, four Docker containers orchestrated with Docker Compose:</p>
 
 				<ul>
-					<li><strong>Nginx</strong> — reverse proxy at the front, listens on port 80 and routes traffic</li>
-					<li><strong>WordPress</strong> — the application, behind Nginx</li>
-					<li><strong>MariaDB</strong> — the database, isolated in a private Docker network</li>
-					<li><strong>PHPMyAdmin</strong> — DB interface, accessible via <code>/phpmyadmin/</code> through Nginx</li>
+					<li><strong>Nginx</strong>, reverse proxy at the front, listens on port 80 and routes traffic</li>
+					<li><strong>WordPress</strong>, the application, behind Nginx</li>
+					<li><strong>MariaDB</strong>, the database, isolated in a private Docker network</li>
+					<li><strong>PHPMyAdmin</strong>, DB interface, accessible via <code>/phpmyadmin/</code> through Nginx</li>
 				</ul>
 
 				<pre><code>Internet → Nginx (:80)
              ├─ /           → WordPress → MariaDB (private network)
              └─ /phpmyadmin → PHPMyAdmin → MariaDB (private network)</code></pre>
 
-				<p>Nginx acts as a reverse proxy: it receives all HTTP requests and redirects them to the right container based on the path. MariaDB is never directly exposed — it lives in an internal Docker network, accessible only by WordPress and PHPMyAdmin.</p>
+				<p>Nginx acts as a reverse proxy: it receives all HTTP requests and redirects them to the right container based on the path. MariaDB is never directly exposed, it lives in an internal Docker network, accessible only by WordPress and PHPMyAdmin.</p>
 
 				<p>The two instances are independent. No data synchronization between them. That's an accepted limitation of the Free Tier scope.</p>
 
 				<h2>IAM: The First Real Lesson</h2>
 				<p>At first, I did everything with the AWS root account. Terraform, the console, everything. It worked, but it's exactly what you shouldn't do.</p>
 
-				<p>The root account has full power over the entire AWS account. Using it for day-to-day operations is like permanently working in <code>sudo</code> on a Linux server — it works until a bad command causes real damage.</p>
+				<p>The root account has full power over the entire AWS account. Using it for day-to-day operations is like permanently working in <code>sudo</code> on a Linux server, it works until a bad command causes real damage.</p>
 
 				<p>The problem showed up concretely: caller identity errors, poorly defined permissions, IAM groups and users that didn't exist or didn't have the right policies attached.</p>
 
@@ -281,11 +281,11 @@ resource "null_resource" "run_ansible" {
 				</blockquote>
 
 				<h2>The Struggles</h2>
-				<p><strong>Credentials.</strong> Correctly configuring the Terraform provider with a dedicated AWS CLI profile instead of root wasn't immediate. Understanding the authentication chain — CLI profile, access key, secret key, caller identity — took several attempts. It's an area where I'm only scratching the surface; I need more practice to truly master it.</p>
+				<p><strong>Credentials.</strong> Correctly configuring the Terraform provider with a dedicated AWS CLI profile instead of root wasn't immediate. Understanding the authentication chain, CLI profile, access key, secret key, caller identity, took several attempts. It's an area where I'm only scratching the surface; I need more practice to truly master it.</p>
 
 				<p><strong>Healthchecks and startup order.</strong> Terraform creates EC2 instances, but they're not immediately ready to accept SSH connections. If Ansible starts too early, everything fails. I had to add a wait mechanism: a loop that tests the SSH connection with a timeout and retry interval before triggering the playbooks.</p>
 
-				<p>Same issue on the container side. WordPress depends on MariaDB, Nginx depends on WordPress. If a service starts before its dependency is ready, it crashes or gets stuck. Docker Compose handles <code>depends_on</code>, but that doesn't guarantee the service is actually operational — just that the container has started. I had to add HTTP checks in Ansible to make sure WordPress was really responding before moving to the next step:</p>
+				<p>Same issue on the container side. WordPress depends on MariaDB, Nginx depends on WordPress. If a service starts before its dependency is ready, it crashes or gets stuck. Docker Compose handles <code>depends_on</code>, but that doesn't guarantee the service is actually operational, just that the container has started. I had to add HTTP checks in Ansible to make sure WordPress was really responding before moving to the next step:</p>
 
 				<pre><code>- name: Pause play until a URL is reachable from this host
   ansible.builtin.uri:
@@ -302,7 +302,7 @@ resource "null_resource" "run_ansible" {
 				<p><strong>Networking.</strong> The part I understand the least. I configured Docker networks (a public one for Nginx/WordPress, a private one for MariaDB), the AWS security group, and Nginx routing. It works. But I know there are gaps in my understanding of AWS network layers (subnets, route tables, NAT gateways) that I didn't need to touch here thanks to the default VPC. That's clearly an area to dig deeper into next.</p>
 
 				<h2>Watch the Costs</h2>
-				<p>Something to plan for from day one: AWS is real. Every <code>terraform apply</code> creates resources that cost money. The Free Tier offers 750 hours/month of t2.micro, 30 GB of EBS — but if you exceed that, or forget to destroy your resources, the bill comes.</p>
+				<p>Something to plan for from day one: AWS is real. Every <code>terraform apply</code> creates resources that cost money. The Free Tier offers 750 hours/month of t2.micro, 30 GB of EBS, but if you exceed that, or forget to destroy your resources, the bill comes.</p>
 
 				<p>A few habits I picked up:</p>
 
@@ -322,7 +322,7 @@ resource "null_resource" "run_ansible" {
 					<li><strong>The Free Tier is a good learning framework.</strong> It forces you to make choices, to understand what you're using and why.</li>
 				</ul>
 
-				<p>This project helped me build the foundations of IaC and understand how Terraform and Ansible work together on a real use case. AWS networking — subnets, route tables, NAT, peering — still needs to be explored further; the default VPC hides a lot. Same goes for Kubernetes, which is the logical next step after Docker Compose for orchestration. There's still a lot to explore, and that's what makes this field interesting.</p>
+				<p>This project helped me build the foundations of IaC and understand how Terraform and Ansible work together on a real use case. AWS networking, subnets, route tables, NAT, peering, still needs to be explored further; the default VPC hides a lot. Same goes for Kubernetes, which is the logical next step after Docker Compose for orchestration. There's still a lot to explore, and that's what makes this field interesting.</p>
 
 			</div>
 

@@ -18,7 +18,7 @@
 [build.processing.images]
   compress = true
 
-# Redirections 301 — migration domaine (arthur-portfolio.com → arthurbernard.dev)
+# Redirections 301, migration domaine (arthur-portfolio.com → arthurbernard.dev)
 # Note : Netlify auto-upgrade HTTP → HTTPS avant d'évaluer ces règles, donc seules
 # les règles HTTPS sont effectives. La chaîne HTTP→HTTPS→nouveau-domaine reste OK
 # pour le SEO (Google suit les redirects, max 2 hops).
@@ -34,7 +34,7 @@
   status = 301
   force = true
 
-# Redirections 301 — migration i18n (ancien suffix → folder-based)
+# Redirections 301, migration i18n (ancien suffix → folder-based)
 [[redirects]]
   from = "/index_en"
   to = "/en/"

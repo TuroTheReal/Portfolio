@@ -147,7 +147,7 @@
   text-decoration-color: var(--accent-hover);
 }
 
-/* Contact section — coordonnées en blanc */
+/* Contact section, coordonnées en blanc */
 .resume-section:last-child .resume-item p {
   color: var(--text-primary);
 }

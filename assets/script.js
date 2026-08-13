@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
   themeInputs.forEach(input => input.addEventListener('change', toggleTheme));
 
   /* ============================================
-     SCROLL FADE — indicateurs de scroll horizontal
+     SCROLL FADE, indicateurs de scroll horizontal
      ============================================ */
   function initScrollFade(el, fadeTarget) {
     if (!el) return;
@@ -528,7 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ============================================
-     TECH RADAR — LOAD MORE
+     TECH RADAR, LOAD MORE
      ============================================ */
   const radarLoadMore = document.querySelector('.radar-load-more');
   if (radarLoadMore) {
@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ============================================
-     TECH RADAR — CATEGORY FILTER (scroll to section)
+     TECH RADAR, CATEGORY FILTER (scroll to section)
      ============================================ */
   const radarFilter = document.querySelector('.radar-tags-filter');
   if (radarFilter) {

@@ -1,5 +1,5 @@
 /* ============================================
-   BLOG — Listing + Cards
+   BLOG, Listing + Cards
    Mobile-first, suit le design system du portfolio
    ============================================ */
 
@@ -27,7 +27,7 @@
 	margin-bottom: 2.5rem;
 }
 
-/* Tags filter bar — scroll horizontal, sticky, adapte au header auto-hide */
+/* Tags filter bar, scroll horizontal, sticky, adapte au header auto-hide */
 .blog-tags-filter {
 	position: sticky;
 	top: var(--header-height, 3.5rem);
@@ -147,7 +147,7 @@
 	gap: 1.5rem;
 }
 
-/* Single card — ombre permanente comme projets */
+/* Single card, ombre permanente comme projets */
 .blog-card {
 	display: flex;
 	flex-direction: column;
@@ -188,7 +188,7 @@
 	transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Image au hover désactivé — scale card suffit */
+/* Image au hover désactivé, scale card suffit */
 
 /* Card content */
 .blog-card-content {
@@ -270,7 +270,7 @@ body.light-theme .blog-card-tags span {
 }
 
 /* ============================================
-   HOMEPAGE — Blog preview (Latest Articles)
+   HOMEPAGE, Blog preview (Latest Articles)
    ============================================ */
 
 .blog-preview {
@@ -322,7 +322,7 @@ body.light-theme .blog-card-tags span {
 }
 
 /* ============================================
-   ARTICLE — Page template
+   ARTICLE, Page template
    ============================================ */
 
 .blog-article {
@@ -412,7 +412,7 @@ body.light-theme .article-tags span {
 	display: block;
 }
 
-/* Article body — typography */
+/* Article body, typography */
 .article-body {
 	font-family: var(--font-text);
 	font-size: clamp(0.95rem, 1.3vw + 0.3rem, 1.05rem);
@@ -507,7 +507,7 @@ body.light-theme .article-body pre {
 	font-style: italic;
 }
 
-/* Article footer — navigation */
+/* Article footer, navigation */
 .article-footer {
 	margin-top: 3rem;
 	padding-top: 2rem;
