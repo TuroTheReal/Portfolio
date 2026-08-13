@@ -14,7 +14,7 @@
   border: 0;
 }
 
-/* === VARIABLES — Dark mode (défaut) === */
+/* === VARIABLES, Dark mode (défaut) === */
 :root {
   --bg-primary:     #121212;
   --bg-secondary:   #1a1a1a;
@@ -154,12 +154,12 @@ section {
   color: var(--accent);
 }
 
-/* Navigation desktop — cachée sur mobile */
+/* Navigation desktop, cachée sur mobile */
 .nav {
   display: none;
 }
 
-/* Actions header (lang + theme) — cachées sur mobile */
+/* Actions header (lang + theme), cachées sur mobile */
 .header-actions {
   display: none;
 }
@@ -222,7 +222,7 @@ section {
   visibility: visible;
 }
 
-/* Backdrop — clic pour fermer */
+/* Backdrop, clic pour fermer */
 .overlay::before {
   content: '';
   position: absolute;
@@ -428,7 +428,7 @@ section {
   background-color: var(--bg-hero);
 }
 
-/* Mesh gradient — blobs indépendants */
+/* Mesh gradient, blobs indépendants */
 .hero-mesh {
   position: absolute;
   inset: 0;
@@ -436,7 +436,7 @@ section {
   overflow: hidden;
 }
 
-/* Grain texture — hero uniquement, sous le texte */
+/* Grain texture, hero uniquement, sous le texte */
 .hero-mesh::after {
   content: '';
   position: absolute;
@@ -614,7 +614,7 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
   margin: 0 auto;
 }
 
-/* Projet item — mobile : empilé */
+/* Projet item, mobile : empilé */
 .work-item {
   display: flex;
   flex-direction: column;
@@ -630,7 +630,7 @@ body.light-theme .work-tags span {
   font-weight: 500;
 }
 
-/* Image — mobile : pleine largeur */
+/* Image, mobile : pleine largeur */
 .work-item-image {
   display: block;
   width: 100%;
@@ -837,7 +837,7 @@ body.light-theme .img-light {
     max-width: 500px;
   }
 
-  /* Projects bento — 2 colonnes dès tablette */
+  /* Projects bento, 2 colonnes dès tablette */
   .work {
     padding: 5rem 2rem;
   }
@@ -955,7 +955,7 @@ body.light-theme .img-light {
     max-width: 550px;
   }
 
-  /* Projects desktop — agrandir */
+  /* Projects desktop, agrandir */
   .work {
     padding: 6rem 3rem;
   }
@@ -1217,7 +1217,7 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	text-decoration-color: var(--accent);
 }
 
-/* Radar Tags Filter (edition page) — même layout que blog-tags-filter */
+/* Radar Tags Filter (edition page), même layout que blog-tags-filter */
 .radar-tags-filter {
 	position: sticky;
 	top: var(--header-height, 3.5rem);
@@ -1320,7 +1320,7 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	transform: scale(1.1);
 }
 
-/* Bouton "Tous/All" — style accent comme le blog */
+/* Bouton "Tous/All", style accent comme le blog */
 .radar-tags-filter .radar-filter-btn[data-category="all"] {
 	opacity: 1;
 }
@@ -1348,7 +1348,7 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="all"].activ
 	outline-offset: 3px;
 }
 
-/* Couleurs boutons filtre — dark */
+/* Couleurs boutons filtre, dark */
 .radar-tags-filter .radar-filter-btn[data-category="cloud"]      { color: #8cb4ff; border-color: #8cb4ff; }
 .radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #8cffa0; border-color: #8cffa0; }
 .radar-tags-filter .radar-filter-btn[data-category="ia"]         { color: #c78cff; border-color: #c78cff; }
@@ -1364,7 +1364,7 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="all"].activ
 .radar-tags-filter .radar-filter-btn[data-category="tech"].active { background: rgba(255, 218, 140, 0.8); color: var(--bg-primary); }
 .radar-tags-filter .radar-filter-btn[data-category="secu"].active       { background: rgba(255, 140, 140, 0.8); color: var(--bg-primary); }
 
-/* Couleurs boutons filtre — light */
+/* Couleurs boutons filtre, light */
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="cloud"]      { color: #2563eb; border-color: #2563eb; }
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="devops"]     { color: #15803d; border-color: #15803d; }
 body.light-theme .radar-tags-filter .radar-filter-btn[data-category="ia"]         { color: #7c3aed; border-color: #7c3aed; }
@@ -1434,7 +1434,7 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"].acti
 	}
 }
 
-/* === LARGE SCREENS (≥ 1440px) — fluid scaling === */
+/* === LARGE SCREENS (≥ 1440px), fluid scaling === */
 @media (min-width: 1440px) {
   .work-list {
     max-width: 1200px;

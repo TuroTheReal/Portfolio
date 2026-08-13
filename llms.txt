@@ -1,4 +1,4 @@
-# Arthur Bernard — Portfolio
+# Arthur Bernard | Portfolio
 
 > DevOps & Cloud Engineer based in France, former 42 student (core curriculum completed).
 > Focused on automation, infrastructure as code, CI/CD and cloud-native technologies.
@@ -19,7 +19,7 @@ with identical slugs. Links below point to the English version.
 
 - [From Pastry to Development](https://arthurbernard.dev/en/blog/from-pastry-to-development): career switch from pastry chef to engineer
 - [42 Piscine and Core Curriculum](https://arthurbernard.dev/en/blog/42-piscine-and-core-curriculum): experience at 42 school
-- [Glasck — First Production Launch](https://arthurbernard.dev/en/blog/glasck-first-production-launch): deploying a SaaS project to production
+- [Glasck: First Production Launch](https://arthurbernard.dev/en/blog/glasck-first-production-launch): deploying a SaaS project to production
 - [My DevOps Roadmap](https://arthurbernard.dev/en/blog/devops-roadmap): learning path and technology priorities
 - [AWS Infrastructure Automation With Terraform & Ansible](https://arthurbernard.dev/en/blog/aws-terraform-ansible): IaC project on AWS Free Tier
 - [How I Failed My Criteo Interview](https://arthurbernard.dev/en/blog/criteo-interview): post-mortem on a missed SRE interview

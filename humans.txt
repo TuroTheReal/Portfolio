@@ -13,4 +13,4 @@ IDE: VS Code
 Standards: HTML5, CSS3, ES6+, WCAG 2.1 AA
 
 /* THANKS */
-42 School — for the fundamentals
+42 School, for the fundamentals

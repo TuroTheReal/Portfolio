@@ -1,10 +1,10 @@
-# Moteurs de recherche — autorisés
+# Moteurs de recherche, autorisés
 User-agent: *
 Allow: /
 Disallow: /en/blog/article-template
 Disallow: /fr/blog/article-template
 
-# AI crawlers — blog autorisé, reste bloqué
+# AI crawlers, blog autorisé, reste bloqué
 
 # OpenAI
 User-agent: GPTBot
@@ -32,7 +32,7 @@ Allow: /fr/blog/
 Allow: /llms.txt
 Disallow: /
 
-# Google AI (Gemini) — pas le search, juste l'IA
+# Google AI (Gemini), pas le search, juste l'IA
 User-agent: Google-Extended
 Allow: /en/blog/
 Allow: /fr/blog/
