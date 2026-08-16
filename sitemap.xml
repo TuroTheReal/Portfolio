@@ -163,6 +163,22 @@
   </url>
 
   <url>
+    <loc>https://arthurbernard.dev/en/blog/ai-harness</loc>
+    <lastmod>2026-08-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/ai-harness"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/ai-harness"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/ai-harness"/>
+  </url>
+
+  <url>
+    <loc>https://arthurbernard.dev/fr/blog/ai-harness</loc>
+    <lastmod>2026-08-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/ai-harness"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/blog/ai-harness"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/blog/ai-harness"/>
+  </url>
+
+  <url>
     <loc>https://arthurbernard.dev/en/blog/the-spof-was-me</loc>
     <lastmod>2026-08-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/blog/the-spof-was-me"/>
