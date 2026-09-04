@@ -30,6 +30,7 @@ with identical slugs. Links below point to the English version.
 - [The Day I Took Down Production](https://arthurbernard.dev/en/blog/the-day-i-broke-prod): how a small change took down an internal tool, and what the incident taught me about hidden dependencies and rollbacks
 - [I Was the SPOF](https://arthurbernard.dev/en/blog/the-spof-was-me): how an incident revealed I was a single point of failure, and how documentation and scaled communication fixed it
 - [My AI Harness](https://arthurbernard.dev/en/blog/ai-harness): the frame I give an AI instead of chasing prompts, a constitution, a triple context vault, destructive-command guardrails and reusable skills
+- [The App I Didn't Code](https://arthurbernard.dev/en/blog/the-app-i-didnt-code): designing an aquarium app whose code was written by AI, and the product, business-model and architecture thinking behind it
 
 ## Optional
 
