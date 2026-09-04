@@ -182,15 +182,40 @@
 
 				<p>Un produit commence par un problème, pas par une liste de fonctions. Le mien tenait en une phrase : rendre lisible une eau qui dérive en silence. Tout le reste en découle. Transformer un test en verdict, prévenir avant la casse : ce ne sont pas des choix techniques, mais la traduction directe de ce problème.</p>
 
-				<p>L'un de mes concurrents les plus sérieux n'est pas une application : c'est un tableur. N'importe quel aquariophile note ses relevés dans un Google Sheet, gratuitement et sans limite. Inutile de rivaliser sur le nombre de fonctions, une feuille de calcul est infinie. Je ne peux me distinguer que sur ce qu'elle ne fera jamais : lire une tendance d'un coup d'œil, se remplir en quelques secondes sur un téléphone, connaître les seuils propres à chaque espèce, suivre une reproduction. Là où le tableur enregistre, le produit accompagne. Chaque fois que j'ai voulu ajouter une fonction « parce qu'elle serait bien », c'est cette feuille de calcul qui m'a rappelé à l'ordre : décider ce que l'on fait, et surtout ce que l'on ne fait pas, est une décision de produit.</p>
+				<p>L'un de mes concurrents les plus sérieux n'est pas une application : c'est un tableur. N'importe quel aquariophile note ses relevés dans un Google Sheet, gratuitement et sans limite. Inutile de rivaliser sur le nombre de fonctions, une feuille de calcul est infinie. Je ne peux me distinguer que sur ce qu'elle ne fera jamais :</p>
+
+				<ul>
+					<li>lire une tendance d'un coup d'œil ;</li>
+					<li>se remplir en quelques secondes sur un téléphone ;</li>
+					<li>connaître les seuils propres à chaque espèce ;</li>
+					<li>suivre une reproduction.</li>
+				</ul>
+
+				<p>Là où le tableur enregistre, le produit accompagne. Chaque fois que j'ai voulu ajouter une fonction « parce qu'elle serait bien », c'est cette feuille de calcul qui m'a rappelé à l'ordre : <strong>décider ce que l'on fait, et surtout ce que l'on ne fait pas, est une décision de produit.</strong></p>
 
 				<h2>Penser le modèle</h2>
 
-				<p>Ce produit, je l'ai d'abord conçu pour moi. J'ai des aquariums, j'avais le problème, et le régler moi-même me plaisait. Il est ensuite devenu un terrain d'expérience : un endroit pour éprouver ma manière de travailler avec l'IA et la façon dont je conçois un produit, à commencer par son volet économique.</p>
+				<p>Ce produit, je l'ai d'abord conçu pour moi. J'ai des aquariums, j'avais le problème, et le régler moi-même me plaisait. Il est ensuite devenu un terrain d'expérience : un endroit pour éprouver <a href="/fr/blog/working-with-ai">ma manière de travailler avec l'IA</a> et la façon dont je conçois un produit, à commencer par son volet économique.</p>
 
-				<p>Car même un projet fait pour soi mérite qu'on regarde s'il tient debout. J'ai donc regardé les chiffres avant de m'emballer. Une application concurrente plafonne autour de huit mille installations, pas des millions ; l'aquariophilie d'eau douce recule depuis une dizaine d'années, même si le nano et la crevette progressent ; la disposition à payer reste modérée. J'en ai tiré une conclusion sans me raconter d'histoire : ce sera un revenu d'appoint et une pièce de portfolio, pas un produit qui paie un salaire. L'avoir conçu pour moi d'abord rend ce plafond facile à assumer, et surtout utile : il fixe ce que j'y investis, le temps que j'y passe, le point où je m'arrête.</p>
+				<p>Car même un projet fait pour soi mérite qu'on regarde s'il tient debout. J'ai donc regardé les chiffres avant de m'emballer :</p>
 
-				<p>Le budget obéit à la même règle. Rien pour l'hébergement tant qu'il n'y a pas un client, rien pour la publicité tant que l'acquisition naturelle n'a pas prouvé qu'elle convertit. Un prix pensé pour l'audience : un abonnement mensuel accessible pour lever la première barrière, un forfait annuel pour la fidélité, une formule à vie pour une niche qui se méfie des abonnements. La dépense suit la preuve, jamais l'inverse.</p>
+				<ul>
+					<li>une application concurrente plafonne autour de huit mille installations, pas des millions ;</li>
+					<li>l'aquariophilie d'eau douce recule depuis une dizaine d'années, même si le nano et la crevette progressent ;</li>
+					<li>la disposition à payer reste modérée.</li>
+				</ul>
+
+				<p>J'en ai tiré une conclusion sans me raconter d'histoire : ce sera <strong>un revenu d'appoint et une pièce de portfolio, pas un produit qui paie un salaire.</strong> L'avoir conçu pour moi d'abord rend ce plafond facile à assumer, et surtout utile : il fixe ce que j'y investis, le temps que j'y passe, le point où je m'arrête.</p>
+
+				<p>Le budget obéit à la même règle :</p>
+
+				<ul>
+					<li>rien pour l'hébergement tant qu'il n'y a pas un client ;</li>
+					<li>rien pour la publicité tant que l'acquisition naturelle n'a pas prouvé qu'elle convertit ;</li>
+					<li>un prix pensé pour l'audience : un abonnement mensuel accessible pour lever la première barrière, un forfait annuel pour la fidélité, une formule à vie pour une niche qui se méfie des abonnements.</li>
+				</ul>
+
+				<p><strong>La dépense suit la preuve, jamais l'inverse.</strong></p>
 
 				<h2>Décider l'architecture</h2>
 
@@ -198,7 +223,7 @@
 
 				<p>Je sais précisément ce que j'utilise, et pourquoi, sans en avoir écrit une ligne. Un front statique et Supabase derrière, pour m'appuyer sur une base Postgres, une authentification et des règles d'accès gérées plutôt que d'administrer un serveur. L'offre gratuite tant que le produit ne rapporte rien, avec un chemin tracé vers l'offre payante le moment venu. Une installation en PWA pour se passer des magasins d'applications au départ. J'ai voulu que les limites du modèle payant soient vérifiées dans la base, et pas seulement dans l'interface, car une barrière qui ne vit que dans le navigateur se contourne. Et j'ai regroupé tous les accès à la base en un seul point, pour qu'en changer un jour tienne en quelques lignes.</p>
 
-				<p>Aucun de ces choix ne relève de l'écriture du code : ce sont des décisions. Quels services, pour quelles raisons, avec quels compromis. Savoir ce que l'on assemble et pourquoi, c'est le cœur de ce métier.</p>
+				<p>Aucun de ces choix ne relève de l'écriture du code : ce sont des décisions. Quels services, pour quelles raisons, avec quels compromis. <strong>Savoir ce que l'on assemble et pourquoi, c'est le cœur de ce métier.</strong></p>
 
 				<h2>Ce qui fait un produit</h2>
 

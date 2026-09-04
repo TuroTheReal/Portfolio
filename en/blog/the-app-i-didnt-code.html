@@ -182,15 +182,40 @@
 
 				<p>A product begins with a problem, not with a list of features. Mine fit in one sentence: make a silently drifting body of water readable. Everything else follows from it. Turning a test into a verdict, warning before the damage: these are not technical choices, but the direct translation of that problem.</p>
 
-				<p>One of my most serious competitors is not an application: it is a spreadsheet. Any aquarist records their readings in a Google Sheet, for free and without limit. There is no point competing on the number of features, a spreadsheet is infinite. I can only stand out on what it will never do: read a trend at a glance, fill in seconds on a phone, know the thresholds specific to each species, follow a breeding line. Where the spreadsheet records, the product accompanies. Every time I wanted to add a feature "because it would be nice", it was that spreadsheet that brought me back in line: deciding what you do, and above all what you don't do, is a product decision.</p>
+				<p>One of my most serious competitors is not an application: it is a spreadsheet. Any aquarist records their readings in a Google Sheet, for free and without limit. There is no point competing on the number of features, a spreadsheet is infinite. I can only stand out on what it will never do:</p>
+
+				<ul>
+					<li>read a trend at a glance;</li>
+					<li>fill in seconds on a phone;</li>
+					<li>know the thresholds specific to each species;</li>
+					<li>follow a breeding line.</li>
+				</ul>
+
+				<p>Where the spreadsheet records, the product accompanies. Every time I wanted to add a feature "because it would be nice", it was that spreadsheet that brought me back in line: <strong>deciding what you do, and above all what you don't do, is a product decision.</strong></p>
 
 				<h2>Thinking the model</h2>
 
-				<p>I built this product for myself first. I keep aquariums, I had the problem, and solving it myself appealed to me. Only then did it become a testing ground: a place to sharpen the way I work with AI and the way I design a product, starting with its economics.</p>
+				<p>I built this product for myself first. I keep aquariums, I had the problem, and solving it myself appealed to me. Only then did it become a testing ground: a place to sharpen <a href="/en/blog/working-with-ai">the way I work with AI</a> and the way I design a product, starting with its economics.</p>
 
-				<p>Because even a project made for yourself deserves a look at whether it holds up. So I looked at the numbers before getting carried away. A competing application tops out around eight thousand installs, not millions; freshwater fishkeeping has been declining for about a decade, even if nano tanks and shrimp are growing; willingness to pay stays moderate. I drew a conclusion without kidding myself: this will be a side income and a portfolio piece, not a product that pays a salary. Having built it for myself first makes that ceiling easy to accept, and above all useful: it sets what I invest, the time I spend, the point where I stop.</p>
+				<p>Because even a project made for yourself deserves a look at whether it holds up. So I looked at the numbers before getting carried away:</p>
 
-				<p>The budget follows the same rule. Nothing on hosting until there is a paying customer, nothing on advertising until organic acquisition has proven it converts. A price designed for the audience: an affordable monthly plan to lower the first barrier, an annual plan for loyalty, a lifetime plan for a niche that distrusts subscriptions. Spending follows proof, never the other way around.</p>
+				<ul>
+					<li>a competing application tops out around eight thousand installs, not millions;</li>
+					<li>freshwater fishkeeping has been declining for about a decade, even if nano tanks and shrimp are growing;</li>
+					<li>willingness to pay stays moderate.</li>
+				</ul>
+
+				<p>I drew a conclusion without kidding myself: this will be <strong>a side income and a portfolio piece, not a product that pays a salary.</strong> Having built it for myself first makes that ceiling easy to accept, and above all useful: it sets what I invest, the time I spend, the point where I stop.</p>
+
+				<p>The budget follows the same rule:</p>
+
+				<ul>
+					<li>nothing on hosting until there is a paying customer;</li>
+					<li>nothing on advertising until organic acquisition has proven it converts;</li>
+					<li>a price designed for the audience: an affordable monthly plan to lower the first barrier, an annual plan for loyalty, a lifetime plan for a niche that distrusts subscriptions.</li>
+				</ul>
+
+				<p><strong>Spending follows proof, never the other way around.</strong></p>
 
 				<h2>Deciding the architecture</h2>
 
@@ -198,7 +223,7 @@
 
 				<p>I know exactly what I use, and why, without having written a line of it. A static front end with Supabase behind it, to rely on a managed Postgres database, authentication and access rules rather than running a server. The free tier as long as the product earns nothing, with a clear path to the paid tier when the time comes. A PWA install to skip the app stores at the start. I wanted the paid model's limits checked in the database, not only in the interface, because a barrier that lives only in the browser can be bypassed. And I funneled every database access through a single point, so that switching providers one day comes down to a few lines.</p>
 
-				<p>None of these choices is a line of code I typed: they are decisions. Which services, for what reasons, with what trade-offs. Knowing what you assemble and why is the heart of that job.</p>
+				<p>None of these choices is a line of code I typed: they are decisions. Which services, for what reasons, with what trade-offs. <strong>Knowing what you assemble and why is the heart of that job.</strong></p>
 
 				<h2>What makes a product</h2>
 
