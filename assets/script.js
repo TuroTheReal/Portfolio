@@ -353,15 +353,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     const lang = path.startsWith('/fr') ? 'fr' : 'en';
     const isResume = path.includes('resume');
+    const isServices = path.includes('services');
     const isBlog = path.includes('blog');
     const isRadar = path.includes('tech-radar');
-    return { lang, isResume, isBlog, isRadar };
+    return { lang, isResume, isServices, isBlog, isRadar };
   }
 
   langToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const targetLang = toggle.dataset.lang;
-      const { lang: currentLang, isResume, isBlog, isRadar } = getCurrentLangAndPage();
+      const { lang: currentLang, isResume, isServices, isBlog, isRadar } = getCurrentLangAndPage();
       const currentHash = window.location.hash;
 
       if (targetLang === currentLang) return;
@@ -374,6 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
         newPath = path.replace(/^\/(en|fr)\//, `/${targetLang}/`);
       } else if (isResume) {
         newPath = `/${targetLang}/resume`;
+      } else if (isServices) {
+        newPath = `/${targetLang}/services`;
       } else {
         newPath = `/${targetLang}/`;
       }

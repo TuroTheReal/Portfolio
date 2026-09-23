@@ -1,0 +1,582 @@
+/* ============================================
+   SERVICES, page prestations
+   Utilise les variables de style.css. Aucune police
+   ni token supplémentaire.
+
+   Règle de composant, tenue sans exception :
+   .svc-card   contenu hétérogène + action  -> les 4 prestations
+   .svc-steps  séquence homogène            -> méthode
+   .svc-cases  contenu homogène balayable   -> études de cas
+   details     divulgation progressive      -> questions fréquentes
+   Aucune ombre en dehors de .svc-card.
+   ============================================ */
+
+/* ============================================
+   ÉCHELLE D'ESPACEMENT
+   ============================================ */
+:root {
+	--svc-s1: 0.5rem;
+	--svc-s2: 1rem;
+	--svc-s3: 1.5rem;
+	--svc-s4: 2rem;
+	--svc-s5: 3rem;
+	--svc-s6: 4rem;
+	--svc-s7: 6rem;
+}
+
+/* ============================================
+   OSSATURE, anatomie unique de section
+   ============================================ */
+.svc-wrap {
+	width: 100%;
+	max-width: 1120px;
+	margin: 0 auto;
+	padding-inline: var(--svc-s3);
+}
+
+.svc-sec {
+	padding-block: var(--svc-s6);
+	border-top: 1px solid var(--accent-muted);
+	scroll-margin-top: var(--header-height);
+}
+
+.svc-head {
+	max-width: 52ch;
+	margin-bottom: var(--svc-s5);
+}
+
+.svc-head h2 {
+	font-size: clamp(1.45rem, 3.2vw, 2rem);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
+.svc-intro {
+	color: var(--text-secondary);
+	margin-top: var(--svc-s1);
+}
+
+.svc-kicker {
+	display: block;
+	font-family: var(--font-title);
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-bottom: 0.6rem;
+}
+
+/* ============================================
+   HERO
+   Reprend le mesh de la page d'accueil, en plus court
+   ============================================ */
+.svc-hero {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 58vh;
+	padding: calc(var(--header-height) + var(--svc-s6)) var(--svc-s3) var(--svc-s6);
+	text-align: center;
+	overflow: hidden;
+	background-color: var(--bg-hero);
+}
+
+.svc-hero > * {
+	position: relative;
+	z-index: 2;
+}
+
+.svc-hero h1 {
+	font-size: clamp(1.85rem, 4.6vw, 3.1rem);
+	font-weight: 600;
+	letter-spacing: -0.022em;
+	max-width: 20ch;
+	margin-bottom: var(--svc-s2);
+}
+
+.svc-hero-sub {
+	font-size: clamp(1rem, 2vw, 1.15rem);
+	color: var(--text-secondary);
+	max-width: 56ch;
+}
+
+.svc-hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: var(--svc-s2) var(--svc-s3);
+	margin-top: var(--svc-s4);
+}
+
+/* Lien souligné animé, motif du site */
+.svc-ulink {
+	display: inline-block;
+	font-family: var(--font-text);
+	font-size: 0.95rem;
+	font-weight: 500;
+	color: var(--accent);
+	position: relative;
+	padding-bottom: 3px;
+}
+
+.svc-ulink::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1.5px;
+	background: var(--accent);
+	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.svc-ulink:hover::after {
+	width: 100%;
+}
+
+/* ============================================
+   PRESTATIONS
+   Carte cliquable, titre en haut, prix en bas.
+   Les rangées s'alignent entre colonnes via subgrid.
+   ============================================ */
+.svc-cards {
+	display: grid;
+	gap: var(--svc-s3);
+}
+
+.svc-card {
+	display: grid;
+	gap: 0.7rem;
+	align-content: start;
+	padding: var(--svc-s3);
+	border-radius: 12px;
+	background: var(--bg-card);
+	box-shadow: var(--shadow-card);
+	color: inherit;
+	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+	.svc-card:hover {
+		transform: scale(1.02);
+	}
+}
+
+.svc-card h3 {
+	font-size: 1.05rem;
+	font-weight: 600;
+}
+
+.svc-card-sym {
+	color: var(--text-secondary);
+	font-size: 0.88rem;
+}
+
+.svc-card-feats {
+	display: grid;
+	gap: 0.4rem;
+	align-content: start;
+	list-style: none;
+	font-size: 0.87rem;
+}
+
+.svc-card-feats li {
+	position: relative;
+	padding-left: 1.15rem;
+}
+
+.svc-card-feats li::before {
+	content: "";
+	position: absolute;
+	left: 0.15rem;
+	top: 0.6em;
+	width: 0.3rem;
+	height: 0.3rem;
+	border-radius: 50%;
+	background: var(--accent);
+}
+
+.svc-card-foot {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.6rem;
+	padding-top: 0.7rem;
+	border-top: 1px solid var(--accent-muted);
+}
+
+.svc-from {
+	display: block;
+	font-family: var(--font-title);
+	font-size: 0.66rem;
+	font-weight: 400;
+	font-style: italic;
+	letter-spacing: 0.06em;
+	color: var(--text-secondary);
+	margin-bottom: 0.1rem;
+}
+
+.svc-amount {
+	font-family: var(--font-title);
+	font-size: 1.25rem;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+}
+
+.svc-go {
+	display: inline-block;
+	font-size: 0.85rem;
+	color: var(--accent);
+	white-space: nowrap;
+	transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+	.svc-card:hover .svc-go {
+		transform: translateX(3px);
+	}
+}
+
+/* ============================================
+   MÉTHODE, frise
+   ============================================ */
+.svc-steps {
+	display: grid;
+	gap: var(--svc-s3);
+	counter-reset: svc-phase;
+	list-style: none;
+}
+
+.svc-steps li {
+	counter-increment: svc-phase;
+	position: relative;
+	display: grid;
+	gap: 0.3rem;
+	align-content: start;
+	padding-top: var(--svc-s4);
+}
+
+.svc-steps li::before {
+	content: counter(svc-phase, decimal-leading-zero);
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-family: var(--font-title);
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	color: var(--accent);
+}
+
+.svc-steps li::after {
+	content: "";
+	position: absolute;
+	top: 1.9rem;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: var(--accent-muted);
+}
+
+.svc-steps-dot {
+	position: absolute;
+	top: 1.9rem;
+	left: 0;
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background: var(--accent);
+	transform: translateY(-50%);
+}
+
+.svc-steps strong {
+	font-family: var(--font-title);
+	font-size: 1rem;
+	font-weight: 500;
+	margin-top: 0.5rem;
+}
+
+.svc-steps span:not(.svc-steps-dot) {
+	color: var(--text-secondary);
+	font-size: 0.87rem;
+}
+
+/* ============================================
+   ÉTUDES DE CAS, récit
+   ============================================ */
+.svc-cases article {
+	display: grid;
+	gap: 0.7rem;
+	padding-block: var(--svc-s4);
+	border-bottom: 1px solid var(--accent-muted);
+}
+
+.svc-cases article:first-child {
+	padding-top: 0;
+}
+
+.svc-cases article:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+.svc-case-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.3rem 0.85rem;
+}
+
+.svc-case-head h3 {
+	font-size: 1.05rem;
+	font-weight: 600;
+}
+
+.svc-case-stack {
+	font-family: var(--font-title);
+	font-size: 0.72rem;
+	color: var(--text-secondary);
+}
+
+.svc-cases p {
+	font-size: 1rem;
+	max-width: 72ch;
+	color: var(--text-secondary);
+}
+
+.svc-cases p b {
+	color: var(--text-primary);
+	font-weight: 500;
+}
+
+/* ============================================
+   QUESTIONS FRÉQUENTES
+   ============================================ */
+.svc-faq {
+	display: grid;
+	max-width: 54rem;
+}
+
+.svc-faq details {
+	border-bottom: 1px solid var(--accent-muted);
+}
+
+.svc-faq summary {
+	position: relative;
+	display: block;
+	cursor: pointer;
+	list-style: none;
+	padding: var(--svc-s3) 2.2rem var(--svc-s3) 0;
+	font-family: var(--font-title);
+	font-size: 0.98rem;
+	font-weight: 500;
+}
+
+.svc-faq summary::-webkit-details-marker {
+	display: none;
+}
+
+.svc-faq summary::after {
+	content: "";
+	position: absolute;
+	right: 0.4rem;
+	top: 50%;
+	width: 0.5rem;
+	height: 0.5rem;
+	margin-top: -0.4rem;
+	border-right: 1.5px solid var(--accent);
+	border-bottom: 1.5px solid var(--accent);
+	transform: rotate(45deg);
+	transition: transform 0.3s ease;
+}
+
+.svc-faq details[open] summary::after {
+	transform: rotate(-135deg);
+}
+
+.svc-faq-body {
+	display: grid;
+	gap: 0.45rem;
+	padding-bottom: var(--svc-s3);
+	max-width: 70ch;
+	color: var(--text-secondary);
+	font-size: 0.92rem;
+	list-style: none;
+}
+
+.svc-faq-body li {
+	position: relative;
+	padding-left: 1.1rem;
+}
+
+.svc-faq-body li::before {
+	content: "\2014";
+	position: absolute;
+	left: 0;
+	color: var(--accent);
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.svc-contact {
+	display: grid;
+	gap: var(--svc-s4);
+	align-items: start;
+}
+
+.svc-contact-side {
+	display: grid;
+	gap: var(--svc-s2);
+	align-content: start;
+}
+
+.svc-contact-side p {
+	color: var(--text-secondary);
+	font-size: 0.95rem;
+}
+
+.svc-form {
+	display: grid;
+	gap: var(--svc-s2);
+}
+
+.svc-form-row {
+	display: grid;
+	gap: var(--svc-s2);
+}
+
+.svc-field {
+	display: grid;
+	gap: 0.35rem;
+}
+
+.svc-field label {
+	font-family: var(--font-title);
+	font-size: 0.76rem;
+	font-weight: 500;
+	color: var(--text-secondary);
+}
+
+.svc-field input,
+.svc-field select,
+.svc-field textarea {
+	width: 100%;
+	padding: 0.7rem 0.85rem;
+	font-family: var(--font-text);
+	font-size: 0.93rem;
+	color: var(--text-primary);
+	background: var(--bg-secondary);
+	border: 1px solid var(--accent-muted);
+	border-radius: 8px;
+}
+
+.svc-field textarea {
+	min-height: 6.5rem;
+	resize: vertical;
+}
+
+.svc-field input:focus,
+.svc-field select:focus,
+.svc-field textarea:focus {
+	outline: none;
+	border-color: var(--accent);
+}
+
+.svc-form-note {
+	font-size: 0.76rem;
+	color: var(--text-secondary);
+}
+
+/* ============================================
+   TABLETTE, 700px
+   ============================================ */
+@media (min-width: 700px) {
+	.svc-cards {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, auto auto 1fr auto);
+	}
+
+	.svc-card {
+		grid-row: span 4;
+		grid-template-rows: subgrid;
+	}
+
+	.svc-form-row {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+/* ============================================
+   TABLETTE LARGE, 900px
+   ============================================ */
+@media (min-width: 900px) {
+	.svc-sec {
+		padding-block: var(--svc-s7);
+	}
+
+	.svc-steps {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 0;
+	}
+
+	.svc-steps li {
+		padding-right: var(--svc-s2);
+	}
+
+	.svc-contact {
+		grid-template-columns: 0.85fr 1.15fr;
+		gap: var(--svc-s5);
+	}
+}
+
+/* ============================================
+   DESKTOP, 1100px
+   ============================================ */
+@media (min-width: 1100px) {
+	.svc-cards {
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto auto 1fr auto;
+	}
+}
+
+/* ============================================
+   IMPRESSION
+   Un acheteur exporte la page pour faire valider un budget
+   ============================================ */
+@media print {
+	.header,
+	.overlay,
+	.svc-form,
+	.footer-social {
+		display: none !important;
+	}
+
+	.svc-hero {
+		min-height: auto;
+		padding: var(--svc-s3);
+	}
+
+	.hero-mesh {
+		display: none !important;
+	}
+
+	.svc-card {
+		box-shadow: none !important;
+		border: 1px solid var(--accent-muted);
+	}
+
+	.svc-sec {
+		padding-block: var(--svc-s3);
+		page-break-inside: avoid;
+	}
+
+	.svc-faq details {
+		display: block;
+	}
+}
