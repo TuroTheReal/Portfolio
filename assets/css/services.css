@@ -537,13 +537,15 @@ body.light-theme {
 	gap: 0.5rem 2rem;
 	margin: var(--svc-s3) 0 var(--svc-s4);
 	list-style: none;
-	font-size: 0.88rem;
-	color: var(--text-secondary);
 }
 
 .svc-facts li {
 	position: relative;
 	padding-left: 0.95rem;
+	font-family: var(--font-title);
+	font-size: 0.88rem;
+	font-weight: 500;
+	color: var(--text-primary);
 }
 
 .svc-facts li::before {
@@ -555,12 +557,6 @@ body.light-theme {
 	height: 0.32rem;
 	border-radius: 50%;
 	background: var(--accent);
-}
-
-.svc-facts b {
-	font-family: var(--font-title);
-	font-weight: 500;
-	color: var(--text-primary);
 }
 
 .svc-form {
