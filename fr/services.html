@@ -246,27 +246,21 @@
 				<div class="svc-cases" data-fade>
 
 					<article>
-						<div class="svc-case-head">
-							<h3>Alan, migration de la production frontend</h3>
-							<span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform</span>
-						</div>
-						<p>La plateforme qui hébergeait la production frontend arrivait en fin de vie. Chez un assureur santé, <b>aucune fenêtre de coupure n'est négociable</b>. J'ai mené la bascule vers Workers <b>application par application</b>, en écrivant les scripts de bascule et de retour arrière, en éprouvant le rollback avant chaque étape, puis en reprenant les routes en infrastructure as code avant de décommissionner l'ancienne plateforme. <b>Les surfaces critiques, dont alan.com, sont passées sans interruption constatée.</b></p>
+						<div class="svc-case-meta"><span class="svc-case-who">Alan</span><span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform</span></div>
+						<p class="svc-case-out">Toute la production frontend migrée, sans interruption constatée</p>
+						<p class="svc-case-txt">La plateforme d'hébergement arrivait en fin de vie et <b>aucune fenêtre de coupure n'était négociable</b>. J'ai mené la bascule application par application, en écrivant les scripts de bascule et de retour arrière, et en éprouvant le rollback avant chaque étape, jusqu'aux surfaces critiques dont alan.com.</p>
 					</article>
 
 					<article>
-						<div class="svc-case-head">
-							<h3>Glasck, plateforme de données esport</h3>
-							<span class="svc-case-stack">Docker &middot; Traefik &middot; PostgreSQL &middot; Prometheus</span>
-						</div>
-						<p>Une équipe de quatre, du trafic réel, et <b>une seule personne capable de déployer</b>. J'ai conçu et je maintiens toute l'infrastructure : Docker Compose, Traefik avec TLS automatisé, PostgreSQL avec pooling de connexions, Redis, segmentation réseau et supervision Prometheus et Grafana, le tout déployable en une commande. <b>N'importe quel membre de l'équipe peut aujourd'hui remonter le service</b>, ce qui était l'objectif : ne pas remplacer un point de défaillance unique par un autre.</p>
+						<div class="svc-case-meta"><span class="svc-case-who">Glasck</span><span class="svc-case-stack">Docker &middot; Traefik &middot; PostgreSQL &middot; Prometheus</span></div>
+						<p class="svc-case-out">D'une seule personne capable de déployer à une équipe entière</p>
+						<p class="svc-case-txt">Une plateforme de données esport à trafic réel, <b>sans aucune infrastructure et sans rien de reproductible</b>. J'ai conçu et je maintiens l'ensemble, déployable en une commande par n'importe lequel des quatre membres de l'équipe.</p>
 					</article>
 
 					<article>
-						<div class="svc-case-head">
-							<h3>Suiton, produit public en exploitation</h3>
-							<span class="svc-case-stack">CI/CD &middot; Supabase &middot; PWA</span>
-						</div>
-						<p>Un produit ouvert au public que <b>j'exploite seul depuis sa mise en ligne</b> : domaine et TLS, déploiement automatisé à chaque push, application installable, 18 langues, règles d'accès par utilisateur, sauvegardes et tâches planifiées. C'est mon terrain d'exploitation permanent, et c'est là que je traite des incidents réels, comme <b>un cache qui resservait du code périmé après déploiement</b> et faisait perdre leurs réglages aux utilisateurs. Le code applicatif est généré avec de l'IA ; la mise en production et l'exploitation sont les miennes.</p>
+						<div class="svc-case-meta"><span class="svc-case-who">Suiton</span><span class="svc-case-stack">CI/CD &middot; Supabase &middot; PWA</span></div>
+						<p class="svc-case-out">Un produit public que j'exploite seul depuis sa mise en ligne</p>
+						<p class="svc-case-txt">Domaine et TLS, déploiement automatisé à chaque push, 18 langues, règles d'accès par utilisateur, sauvegardes et tâches planifiées. C'est mon terrain d'incidents réels, comme <b>ce cache qui resservait du code périmé après déploiement</b>.</p>
 					</article>
 
 				</div>
@@ -349,55 +343,48 @@
 					<h2>Contact</h2>
 					<p class="svc-intro">Décrivez votre contexte, je réponds sous 48 heures ouvrées.</p>
 				</div>
-				<div class="svc-contact" data-fade>
-					<div class="svc-contact-side">
-						<p>Vous recevez soit un premier chiffrage, soit une réponse claire indiquant que ce n'est pas mon périmètre.</p>
-						<ul class="svc-facts">
-							<li><b>Réponse sous 48 heures ouvrées</b><span>Y compris pour dire non.</span></li>
-							<li><b>Échange de 30 minutes</b><span>Gratuit, proposé si le sujet le justifie.</span></li>
-							<li><b>Devis ferme sous une semaine</b><span>Périmètre, exclusions et délai écrits.</span></li>
-						</ul>
-					</div>
+				<ul class="svc-facts" data-fade>
+					<li><b>Réponse sous 48 heures ouvrées</b>, y compris pour dire non</li>
+					<li><b>Échange de 30 minutes</b>, gratuit</li>
+					<li><b>Devis ferme sous une semaine</b></li>
+				</ul>
 
-					<form class="svc-form" name="devis" method="POST" data-netlify="true" netlify-honeypot="societe-web">
-						<p hidden><label>Ne pas remplir <input name="societe-web"></label></p>
-						<input type="hidden" name="subject" value="arthurbernard.dev, demande de devis">
-						<div class="svc-form-row">
-							<div class="svc-field">
-								<label for="svc-nom">Nom</label>
-								<input id="svc-nom" name="nom" type="text" autocomplete="name" required>
-							</div>
-							<div class="svc-field">
-								<label for="svc-mail">Email professionnel</label>
-								<input id="svc-mail" name="email" type="email" autocomplete="email" required>
-							</div>
-						</div>
-						<div class="svc-form-row">
-							<div class="svc-field">
-								<label for="svc-presta">Prestation concernée</label>
-								<select id="svc-presta" name="prestation">
-									<option>À déterminer</option>
-									<option>Revue de mise en production</option>
-									<option>Industrialisation des déploiements</option>
-									<option>Conteneurisation et hébergement</option>
-									<option>Migration sans interruption</option>
-								</select>
-							</div>
-							<div class="svc-field">
-								<label for="svc-quand">Échéance visée</label>
-								<input id="svc-quand" name="echeance" type="text" placeholder="ex. novembre 2026">
-							</div>
+				<form class="svc-form" name="devis" method="POST" data-netlify="true" netlify-honeypot="societe-web" data-fade>
+					<p hidden><label>Ne pas remplir <input name="societe-web"></label></p>
+					<input type="hidden" name="subject" value="arthurbernard.dev, demande de devis">
+					<div class="svc-form-row">
+						<div class="svc-field">
+							<label for="svc-nom">Nom</label>
+							<input id="svc-nom" name="nom" type="text" autocomplete="name" required>
 						</div>
 						<div class="svc-field">
-							<label for="svc-ctx">Contexte et stack actuelle</label>
-							<textarea id="svc-ctx" name="contexte" required></textarea>
+							<label for="svc-mail">Email professionnel</label>
+							<input id="svc-mail" name="email" type="email" autocomplete="email" required>
 						</div>
-						<div class="svc-form-submit">
-							<button class="hero-cta" type="submit">Envoyer ma demande</button>
+						<div class="svc-field">
+							<label for="svc-quand">Échéance visée</label>
+							<input id="svc-quand" name="echeance" type="text" placeholder="ex. novembre 2026">
 						</div>
-						<p class="svc-form-note">Vos informations servent uniquement à traiter votre demande. Aucun envoi commercial.</p>
-					</form>
-				</div>
+					</div>
+					<div class="svc-field">
+						<label for="svc-presta">Prestation concernée</label>
+						<select id="svc-presta" name="prestation">
+							<option>À déterminer</option>
+							<option>Revue de mise en production</option>
+							<option>Industrialisation des déploiements</option>
+							<option>Conteneurisation et hébergement</option>
+							<option>Migration sans interruption</option>
+						</select>
+					</div>
+					<div class="svc-field">
+						<label for="svc-ctx">Contexte et stack actuelle</label>
+						<textarea id="svc-ctx" name="contexte" required></textarea>
+					</div>
+					<div class="svc-form-submit">
+						<button class="hero-cta" type="submit">Envoyer ma demande</button>
+					</div>
+					<p class="svc-form-note">Vos informations servent uniquement à traiter votre demande. Aucun envoi commercial.</p>
+				</form>
 			</div>
 		</section>
 

@@ -22,6 +22,17 @@
 	--svc-s5: 3rem;
 	--svc-s6: 4rem;
 	--svc-s7: 6rem;
+	--svc-hi: rgba(255, 255, 255, 0.05);
+	--svc-lift: 0 14px 32px -16px rgba(0, 0, 0, 0.7);
+	--svc-lift-hover: 0 22px 44px -18px rgba(0, 0, 0, 0.85);
+	--svc-line: rgba(140, 150, 255, 0.18);
+}
+
+body.light-theme {
+	--svc-hi: rgba(255, 255, 255, 1);
+	--svc-lift: 0 12px 26px -18px rgba(69, 64, 208, 0.3);
+	--svc-lift-hover: 0 18px 34px -20px rgba(69, 64, 208, 0.38);
+	--svc-line: rgba(69, 64, 208, 0.18);
 }
 
 /* ============================================
@@ -143,14 +154,17 @@
 	padding: var(--svc-s3);
 	border-radius: 12px;
 	background: var(--bg-card);
-	box-shadow: var(--shadow-card);
+	border: 1px solid var(--svc-line);
+	box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift);
 	color: inherit;
-	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 @media (hover: hover) {
 	.svc-card:hover {
 		transform: scale(1.02);
+		border-color: var(--accent-muted);
+		box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift-hover);
 	}
 }
 
@@ -185,7 +199,7 @@
 	width: 0.3rem;
 	height: 0.3rem;
 	border-radius: 50%;
-	background: var(--text-secondary);
+	background: var(--accent);
 }
 
 .svc-card-foot {
@@ -382,11 +396,13 @@
 }
 
 /* ============================================
-   ÉTUDES DE CAS, récit
+   ÉTUDES DE CAS
+   Contexte, résultat, récit. Le nom du client se lit
+   comme un nom, la pile technique s'efface.
    ============================================ */
 .svc-cases article {
 	display: grid;
-	gap: 0.7rem;
+	gap: 0.3rem;
 	padding-block: var(--svc-s4);
 	border-bottom: 1px solid var(--accent-muted);
 }
@@ -400,31 +416,45 @@
 	padding-bottom: 0;
 }
 
-.svc-case-head {
+.svc-case-meta {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
-	gap: 0.3rem 0.85rem;
+	gap: 0.25rem 0.7rem;
+	margin-bottom: 0.15rem;
 }
 
-.svc-case-head h3 {
-	font-size: 1.05rem;
+.svc-case-who {
+	font-family: var(--font-title);
+	font-size: 0.78rem;
 	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent);
 }
 
 .svc-case-stack {
-	font-family: var(--font-title);
 	font-size: 0.72rem;
 	color: var(--text-secondary);
+	opacity: 0.75;
 }
 
-.svc-cases p {
-	font-size: 1rem;
-	max-width: 72ch;
+.svc-case-out {
+	font-family: var(--font-title);
+	font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+	font-weight: 600;
+	letter-spacing: -0.015em;
+	max-width: 32ch;
+}
+
+.svc-case-txt {
+	margin-top: 0.35rem;
+	max-width: 70ch;
+	font-size: 0.95rem;
 	color: var(--text-secondary);
 }
 
-.svc-cases p b {
+.svc-case-txt b {
 	color: var(--text-primary);
 	font-weight: 500;
 }
@@ -498,44 +528,29 @@
 
 /* ============================================
    CONTACT
+   Aucune colonne latérale : engagements en ligne,
+   puis un formulaire large en panneau.
    ============================================ */
-.svc-contact {
-	display: grid;
-	gap: var(--svc-s4);
-	align-items: start;
-}
-
-.svc-contact-side {
-	display: grid;
-	gap: var(--svc-s3);
-	align-content: start;
-}
-
-.svc-contact-side > p {
-	color: var(--text-secondary);
-	font-size: 0.95rem;
-	max-width: 42ch;
-}
-
-/* Les trois faits qui repondent aux questions muettes */
 .svc-facts {
-	display: grid;
-	gap: 0.65rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 2rem;
+	margin: var(--svc-s3) 0 var(--svc-s4);
 	list-style: none;
+	font-size: 0.88rem;
+	color: var(--text-secondary);
 }
 
 .svc-facts li {
-	display: grid;
-	gap: 0.05rem;
-	padding-left: 1.1rem;
 	position: relative;
+	padding-left: 0.95rem;
 }
 
 .svc-facts li::before {
 	content: "";
 	position: absolute;
 	left: 0;
-	top: 0.62em;
+	top: 0.6em;
 	width: 0.32rem;
 	height: 0.32rem;
 	border-radius: 50%;
@@ -544,32 +559,19 @@
 
 .svc-facts b {
 	font-family: var(--font-title);
-	font-size: 0.88rem;
 	font-weight: 500;
+	color: var(--text-primary);
 }
 
-.svc-facts span {
-	font-size: 0.82rem;
-	color: var(--text-secondary);
-}
-
-/* Le formulaire devient un panneau, il ne flotte plus */
 .svc-form {
 	display: grid;
 	gap: var(--svc-s2);
+	max-width: 64rem;
 	padding: var(--svc-s3);
 	border-radius: 12px;
 	background: var(--bg-card);
-	box-shadow: var(--shadow-card);
-}
-
-.svc-form-submit {
-	margin-top: 0.3rem;
-}
-
-.svc-form-submit .hero-cta {
-	width: 100%;
-	text-align: center;
+	border: 1px solid var(--svc-line);
+	box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift);
 }
 
 .svc-form-row {
@@ -593,7 +595,7 @@
 .svc-field select,
 .svc-field textarea {
 	width: 100%;
-	padding: 0.7rem 0.85rem;
+	padding: 0.75rem 0.9rem;
 	font-family: var(--font-text);
 	font-size: 0.93rem;
 	color: var(--text-primary);
@@ -603,7 +605,7 @@
 }
 
 .svc-field textarea {
-	min-height: 6.5rem;
+	min-height: 7rem;
 	resize: vertical;
 }
 
@@ -614,8 +616,13 @@
 	border-color: var(--accent);
 }
 
+.svc-form-submit .hero-cta {
+	width: 100%;
+	text-align: center;
+}
+
 .svc-form-note {
-	font-size: 0.76rem;
+	font-size: 0.78rem;
 	color: var(--text-secondary);
 }
 
@@ -634,7 +641,11 @@
 	}
 
 	.svc-form-row {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.svc-form-submit .hero-cta {
+		width: auto;
 	}
 }
 
@@ -655,17 +666,8 @@
 		padding-right: var(--svc-s2);
 	}
 
-	.svc-contact {
-		grid-template-columns: 0.8fr 1.2fr;
-		gap: var(--svc-s5);
-	}
-
 	.svc-form {
 		padding: var(--svc-s4);
-	}
-
-	.svc-form-submit .hero-cta {
-		width: auto;
 	}
 }
 

@@ -246,27 +246,21 @@
 				<div class="svc-cases" data-fade>
 
 					<article>
-						<div class="svc-case-head">
-							<h3>Alan, frontend production migration</h3>
-							<span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform</span>
-						</div>
-						<p>The platform hosting the frontend production was reaching end of life. At a health insurer, <b>no downtime window is negotiable</b>. I drove the switch to Workers <b>application by application</b>, writing the cutover and rollback scripts myself, proving the rollback before every step, then reconciling the routes into infrastructure as code before decommissioning the old platform. <b>Critical surfaces, including alan.com, went through with no interruption observed.</b></p>
+						<div class="svc-case-meta"><span class="svc-case-who">Alan</span><span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform</span></div>
+						<p class="svc-case-out">An entire frontend production migrated, with no interruption observed</p>
+						<p class="svc-case-txt">The hosting platform was reaching end of life and <b>no downtime window was negotiable</b>. I drove the switch application by application, writing the cutover and rollback scripts myself, and proving the rollback before every step, up to critical surfaces such as alan.com.</p>
 					</article>
 
 					<article>
-						<div class="svc-case-head">
-							<h3>Glasck, esport data platform</h3>
-							<span class="svc-case-stack">Docker &middot; Traefik &middot; PostgreSQL &middot; Prometheus</span>
-						</div>
-						<p>A team of four, real traffic, and <b>one single person able to deploy</b>. I designed and still maintain the whole infrastructure: Docker Compose, Traefik with automated TLS, PostgreSQL with connection pooling, Redis, network segmentation and Prometheus and Grafana monitoring, all deployable with one command. <b>Anyone on the team can now bring the service back up</b>, which was the point: not replacing one single point of failure with another.</p>
+						<div class="svc-case-meta"><span class="svc-case-who">Glasck</span><span class="svc-case-stack">Docker &middot; Traefik &middot; PostgreSQL &middot; Prometheus</span></div>
+						<p class="svc-case-out">From one single person able to deploy to the whole team</p>
+						<p class="svc-case-txt">An esport data platform with real traffic, <b>no infrastructure at all and nothing reproducible</b>. I designed and still maintain the whole thing, deployable with one command by any of the four people on the team.</p>
 					</article>
 
 					<article>
-						<div class="svc-case-head">
-							<h3>Suiton, a public product in operation</h3>
-							<span class="svc-case-stack">CI/CD &middot; Supabase &middot; PWA</span>
-						</div>
-						<p>A product open to the public that <b>I have operated on my own since launch</b>: domain and TLS, automated deployment on every push, installable app, 18 languages, per-user access rules, backups and scheduled jobs. It is my permanent operations ground, and where I handle real incidents, such as <b>a cache serving stale code after a deployment</b> that was losing users their settings. The application code is generated with AI; the production setup and the operations are mine.</p>
+						<div class="svc-case-meta"><span class="svc-case-who">Suiton</span><span class="svc-case-stack">CI/CD &middot; Supabase &middot; PWA</span></div>
+						<p class="svc-case-out">A public product I have operated on my own since launch</p>
+						<p class="svc-case-txt">Domain and TLS, automated deployment on every push, 18 languages, per-user access rules, backups and scheduled jobs. It is my ground for real incidents, such as <b>a cache serving stale code after a deployment</b>.</p>
 					</article>
 
 				</div>
@@ -349,55 +343,48 @@
 					<h2>Contact</h2>
 					<p class="svc-intro">Describe your context, I answer within two working days.</p>
 				</div>
-				<div class="svc-contact" data-fade>
-					<div class="svc-contact-side">
-						<p>You get either a first estimate, or a clear answer saying it is outside my scope.</p>
-						<ul class="svc-facts">
-							<li><b>An answer within two working days</b><span>Including when the answer is no.</span></li>
-							<li><b>A 30-minute call</b><span>Free, offered when the subject warrants it.</span></li>
-							<li><b>A firm quote within a week</b><span>Scope, exclusions and deadline in writing.</span></li>
-						</ul>
-					</div>
+				<ul class="svc-facts" data-fade>
+					<li><b>An answer within two working days</b>, including when it is no</li>
+					<li><b>A 30-minute call</b>, free</li>
+					<li><b>A firm quote within a week</b></li>
+				</ul>
 
-					<form class="svc-form" name="devis" method="POST" data-netlify="true" netlify-honeypot="societe-web">
-						<p hidden><label>Do not fill <input name="societe-web"></label></p>
-						<input type="hidden" name="subject" value="arthurbernard.dev, demande de devis">
-						<div class="svc-form-row">
-							<div class="svc-field">
-								<label for="svc-nom">Name</label>
-								<input id="svc-nom" name="nom" type="text" autocomplete="name" required>
-							</div>
-							<div class="svc-field">
-								<label for="svc-mail">Work email</label>
-								<input id="svc-mail" name="email" type="email" autocomplete="email" required>
-							</div>
-						</div>
-						<div class="svc-form-row">
-							<div class="svc-field">
-								<label for="svc-presta">Service</label>
-								<select id="svc-presta" name="prestation">
-									<option>Not sure yet</option>
-									<option>Production readiness review</option>
-									<option>Deployment automation</option>
-									<option>Containerisation and hosting</option>
-									<option>Zero-downtime migration</option>
-								</select>
-							</div>
-							<div class="svc-field">
-								<label for="svc-quand">Target date</label>
-								<input id="svc-quand" name="echeance" type="text" placeholder="e.g. November 2026">
-							</div>
+				<form class="svc-form" name="devis" method="POST" data-netlify="true" netlify-honeypot="societe-web" data-fade>
+					<p hidden><label>Do not fill <input name="societe-web"></label></p>
+					<input type="hidden" name="subject" value="arthurbernard.dev, demande de devis">
+					<div class="svc-form-row">
+						<div class="svc-field">
+							<label for="svc-nom">Name</label>
+							<input id="svc-nom" name="nom" type="text" autocomplete="name" required>
 						</div>
 						<div class="svc-field">
-							<label for="svc-ctx">Context and current stack</label>
-							<textarea id="svc-ctx" name="contexte" required></textarea>
+							<label for="svc-mail">Work email</label>
+							<input id="svc-mail" name="email" type="email" autocomplete="email" required>
 						</div>
-						<div class="svc-form-submit">
-							<button class="hero-cta" type="submit">Send my request</button>
+						<div class="svc-field">
+							<label for="svc-quand">Target date</label>
+							<input id="svc-quand" name="echeance" type="text" placeholder="e.g. November 2026">
 						</div>
-						<p class="svc-form-note">Your details are used only to handle your request. No marketing email.</p>
-					</form>
-				</div>
+					</div>
+					<div class="svc-field">
+						<label for="svc-presta">Service</label>
+						<select id="svc-presta" name="prestation">
+							<option>Not sure yet</option>
+							<option>Production readiness review</option>
+							<option>Deployment automation</option>
+							<option>Containerisation and hosting</option>
+							<option>Zero-downtime migration</option>
+						</select>
+					</div>
+					<div class="svc-field">
+						<label for="svc-ctx">Context and current stack</label>
+						<textarea id="svc-ctx" name="contexte" required></textarea>
+					</div>
+					<div class="svc-form-submit">
+						<button class="hero-cta" type="submit">Send my request</button>
+					</div>
+					<p class="svc-form-note">Your details are used only to handle your request. No marketing email.</p>
+				</form>
 			</div>
 		</section>
 
