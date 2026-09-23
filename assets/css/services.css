@@ -148,6 +148,8 @@ body.light-theme {
 }
 
 .svc-card {
+	position: relative;
+	overflow: hidden;
 	display: grid;
 	gap: 0.7rem;
 	align-content: start;
@@ -160,7 +162,23 @@ body.light-theme {
 	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
+.svc-card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background: var(--accent);
+	opacity: 0.45;
+	transition: opacity 0.35s ease;
+}
+
 @media (hover: hover) {
+	.svc-card:hover::before {
+		opacity: 1;
+	}
+
 	.svc-card:hover {
 		transform: scale(1.02);
 		border-color: var(--accent-muted);
@@ -204,10 +222,8 @@ body.light-theme {
 
 .svc-card-foot {
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: 0.45rem;
-	padding-top: 0.7rem;
-	border-top: 1px solid var(--accent-muted);
+	gap: 0.05rem;
+	padding-top: 0.2rem;
 }
 
 .svc-card-price {
@@ -215,13 +231,15 @@ body.light-theme {
 	gap: 0.05rem;
 }
 
-/* Livrable de la prestation, au-dessus du prix */
+/* Résultat de la prestation, au-dessus du filet, pas dans le pied */
 .svc-card-out {
 	font-family: var(--font-title);
 	font-size: 0.8rem;
 	font-weight: 500;
 	line-height: 1.45;
 	color: var(--text-primary);
+	padding-top: 0.55rem;
+	border-top: 1px solid var(--accent-muted);
 }
 
 .svc-from {
@@ -250,31 +268,24 @@ body.light-theme {
    ============================================ */
 .svc-recos {
 	display: grid;
-	gap: var(--svc-s4);
-	max-width: 62rem;
+	gap: var(--svc-s3);
+	max-width: 68rem;
 }
 
 .svc-recos figure {
 	display: grid;
-	gap: var(--svc-s2);
+	gap: var(--svc-s3);
 	margin: 0;
-	padding-block: var(--svc-s3);
-	border-bottom: 1px solid var(--accent-muted);
-}
-
-.svc-recos figure:first-child {
-	padding-top: 0;
-}
-
-.svc-recos figure:last-child {
-	border-bottom: 0;
-	padding-bottom: 0;
+	padding: var(--svc-s3);
+	border: 1px solid var(--svc-line);
+	border-radius: 12px;
+	align-content: start;
 }
 
 .svc-recos blockquote {
 	margin: 0;
-	font-size: 1rem;
-	max-width: 68ch;
+	font-size: 0.97rem;
+	line-height: 1.6;
 }
 
 .svc-recos blockquote::before {
@@ -291,6 +302,9 @@ body.light-theme {
 	display: flex;
 	align-items: center;
 	gap: 0.8rem;
+	margin-top: auto;
+	padding-top: var(--svc-s2);
+	border-top: 1px solid var(--accent-muted);
 }
 
 .svc-reco-av {
@@ -638,6 +652,10 @@ body.light-theme {
 
 	.svc-form-row {
 		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.svc-recos {
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.svc-form-submit .hero-cta {
