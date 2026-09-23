@@ -169,7 +169,7 @@
 						</ul>
 						<div class="svc-card-foot">
 							<p class="svc-card-out">Rapport écrit, risques classés par gravité, plan de remédiation chiffré.</p>
-							<span class="svc-from">prix ferme, HT, 1 journée</span><span class="svc-amount">600 &euro;</span>
+							<span class="svc-card-price"><span class="svc-from">prix ferme, HT, 1 journée</span><span class="svc-amount">600 &euro;</span></span>
 						</div>
 					</a>
 
@@ -184,7 +184,7 @@
 						</ul>
 						<div class="svc-card-foot">
 							<p class="svc-card-out">Un push déploie, et le retour arrière est documenté.</p>
-							<span class="svc-from">à partir de, HT</span><span class="svc-amount">2 500 &euro;</span>
+							<span class="svc-card-price"><span class="svc-from">à partir de, HT</span><span class="svc-amount">2 500 &euro;</span></span>
 						</div>
 					</a>
 
@@ -199,7 +199,7 @@
 						</ul>
 						<div class="svc-card-foot">
 							<p class="svc-card-out">Une application que n'importe qui de votre équipe peut remonter.</p>
-							<span class="svc-from">à partir de, HT</span><span class="svc-amount">3 500 &euro;</span>
+							<span class="svc-card-price"><span class="svc-from">à partir de, HT</span><span class="svc-amount">3 500 &euro;</span></span>
 						</div>
 					</a>
 
@@ -214,7 +214,7 @@
 						</ul>
 						<div class="svc-card-foot">
 							<p class="svc-card-out">Une bascule terminée, sans coupure constatée.</p>
-							<span class="svc-from">à partir de, HT</span><span class="svc-amount">4 500 &euro;</span>
+							<span class="svc-card-price"><span class="svc-from">à partir de, HT</span><span class="svc-amount">4 500 &euro;</span></span>
 						</div>
 					</a>
 
@@ -251,10 +251,10 @@
 
 					<article>
 						<div class="svc-case-head">
-							<h3>Production d'un assureur santé</h3>
+							<h3>Alan, migration de la production frontend</h3>
 							<span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform</span>
 						</div>
-						<p>La plateforme qui hébergeait toute la production arrivait en fin de vie, et <b>aucune fenêtre de coupure n'était envisageable</b>. J'ai basculé <b>application par application</b>, avec un retour arrière écrit et essayé avant chaque étape, puis repris les routes en infrastructure as code avant de décommissionner l'ancienne plateforme. <b>Aucune interruption de service n'a été constatée.</b></p>
+						<p>La plateforme qui hébergeait la production frontend arrivait en fin de vie. Chez un assureur santé, <b>aucune fenêtre de coupure n'est négociable</b>. J'ai mené la bascule vers Workers <b>application par application</b>, en écrivant les scripts de bascule et de retour arrière, en éprouvant le rollback avant chaque étape, puis en reprenant les routes en infrastructure as code avant de décommissionner l'ancienne plateforme. <b>Les surfaces critiques, dont alan.com, sont passées sans interruption constatée.</b></p>
 					</article>
 
 					<article>
@@ -262,15 +262,15 @@
 							<h3>Glasck, plateforme de données esport</h3>
 							<span class="svc-case-stack">Docker &middot; Traefik &middot; PostgreSQL &middot; Prometheus</span>
 						</div>
-						<p>Le projet n'avait pas d'infrastructure : <b>le déploiement dépendait d'une seule personne</b> et rien n'était reproductible. J'ai monté Docker Compose, Traefik avec TLS automatisé, PostgreSQL avec pooling de connexions, Redis et une segmentation réseau, le tout supervisé et déployable en une commande. <b>Les quatre membres de l'équipe peuvent aujourd'hui remonter le service</b>, pas seulement moi.</p>
+						<p>Une équipe de quatre, du trafic réel, et <b>une seule personne capable de déployer</b>. J'ai conçu et je maintiens toute l'infrastructure : Docker Compose, Traefik avec TLS automatisé, PostgreSQL avec pooling de connexions, Redis, segmentation réseau et supervision Prometheus et Grafana, le tout déployable en une commande. <b>N'importe quel membre de l'équipe peut aujourd'hui remonter le service</b>, ce qui était l'objectif : ne pas remplacer un point de défaillance unique par un autre.</p>
 					</article>
 
 					<article>
 						<div class="svc-case-head">
-							<h3>Suiton, produit public</h3>
-							<span class="svc-case-stack">Exploitation &middot; CI/CD &middot; Supabase</span>
+							<h3>Suiton, produit public en exploitation</h3>
+							<span class="svc-case-stack">CI/CD &middot; Supabase &middot; PWA</span>
 						</div>
-						<p>Produit que j'ai conçu, fait générer par IA, puis <b>mis en production et exploité seul</b> : domaine, TLS, déploiement automatisé, 18 langues, règles d'accès par utilisateur, sauvegardes et tâches planifiées. C'est là que j'ai diagnostiqué mes incidents les plus instructifs, dont <b>un cache qui resservait du code périmé après déploiement</b>.</p>
+						<p>Un produit ouvert au public que <b>j'exploite seul depuis sa mise en ligne</b> : domaine et TLS, déploiement automatisé à chaque push, application installable, 18 langues, règles d'accès par utilisateur, sauvegardes et tâches planifiées. C'est mon terrain d'exploitation permanent, et c'est là que je traite des incidents réels, comme <b>un cache qui resservait du code périmé après déploiement</b> et faisait perdre leurs réglages aux utilisateurs. Le code applicatif est généré avec de l'IA ; la mise en production et l'exploitation sont les miennes.</p>
 					</article>
 
 				</div>
@@ -348,29 +348,27 @@
 				</div>
 				<div class="svc-recos" data-fade>
 
-					<!-- À REMPLACER par la recommandation LinkedIn, reprise mot pour mot -->
 					<figure>
-						<blockquote>Texte de la première recommandation LinkedIn, repris mot pour mot. Deux à quatre phrases suffisent, on garde la plus concrète.</blockquote>
+						<blockquote lang="en">Arthur joined at the end of March without prior knowledge of our stack, and progressively took ownership of a complex infrastructure project, eventually driving a large part of the migration independently, including production work and critical surfaces such as alan.com.</blockquote>
 						<figcaption class="svc-reco-who">
-							<span class="svc-reco-av" aria-hidden="true">??</span>
+							<span class="svc-reco-av" aria-hidden="true">WO</span>
 							<span>
-								<span class="svc-reco-name">Prénom Nom</span>
-								<span class="svc-reco-role">Poste, Entreprise</span>
+								<span class="svc-reco-name">William Occelli</span>
+								<span class="svc-reco-role">Platform Engineer, Alan</span>
 							</span>
-							<a class="svc-reco-li" href="#" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+							<a class="svc-reco-li" href="https://www.linkedin.com/in/arthurbernard92/details/recommendations/" target="_blank" rel="noopener noreferrer" aria-label="Recommandation sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
 						</figcaption>
 					</figure>
 
-					<!-- À REMPLACER par la seconde recommandation -->
 					<figure>
-						<blockquote>Texte de la seconde recommandation. Ce bloc se duplique ou se remplace en une minute, on garde les deux plus fortes ou les deux plus récentes.</blockquote>
+						<blockquote lang="en">While working on migrating our frontend infrastructure from Cloudflare Pages to Workers, Arthur took the time to understand the broader context and get familiar with the tools involved. He approached the project thoughtfully, showed strong ownership, asked the right questions, and knew when to involve others.</blockquote>
 						<figcaption class="svc-reco-who">
-							<span class="svc-reco-av" aria-hidden="true">??</span>
+							<span class="svc-reco-av" aria-hidden="true">ER</span>
 							<span>
-								<span class="svc-reco-name">Prénom Nom</span>
-								<span class="svc-reco-role">Poste, Entreprise</span>
+								<span class="svc-reco-name">Eya Ridene</span>
+								<span class="svc-reco-role">Software Engineer, Alan</span>
 							</span>
-							<a class="svc-reco-li" href="#" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+							<a class="svc-reco-li" href="https://www.linkedin.com/in/arthurbernard92/details/recommendations/" target="_blank" rel="noopener noreferrer" aria-label="Recommandation sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
 						</figcaption>
 					</figure>
 
@@ -394,7 +392,6 @@
 							<li><b>Échange de 45 minutes</b><span>Proposé si le sujet le justifie, sans engagement.</span></li>
 							<li><b>Devis ferme sous une semaine</b><span>Périmètre, exclusions et délai écrits.</span></li>
 						</ul>
-						<p><a class="svc-ulink" href="mailto:arthurbernard.dev@gmail.com">arthurbernard.dev@gmail.com</a></p>
 					</div>
 
 					<form class="svc-form" name="devis" method="POST" data-netlify="true" netlify-honeypot="societe-web">

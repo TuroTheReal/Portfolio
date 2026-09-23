@@ -46,9 +46,8 @@
 }
 
 .svc-head h2 {
-	font-size: clamp(1.45rem, 3.2vw, 2rem);
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
 	font-weight: 600;
-	letter-spacing: -0.02em;
 }
 
 .svc-intro {
@@ -90,15 +89,15 @@
 }
 
 .svc-hero h1 {
-	font-size: clamp(1.85rem, 4.6vw, 3.1rem);
+	font-size: clamp(2rem, 5vw, 3.5rem);
 	font-weight: 600;
-	letter-spacing: -0.022em;
+	letter-spacing: -0.02em;
 	max-width: 20ch;
 	margin-bottom: var(--svc-s2);
 }
 
 .svc-hero-sub {
-	font-size: clamp(1rem, 2vw, 1.15rem);
+	font-size: clamp(1rem, 2vw, 1.25rem);
 	color: var(--text-secondary);
 	max-width: 56ch;
 }
@@ -201,17 +200,25 @@
 }
 
 .svc-card-foot {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.45rem;
 	padding-top: 0.7rem;
 	border-top: 1px solid var(--accent-muted);
+}
+
+.svc-card-price {
+	display: grid;
+	gap: 0.05rem;
 }
 
 /* Livrable de la prestation, au-dessus du prix */
 .svc-card-out {
 	font-family: var(--font-title);
-	font-size: 0.78rem;
+	font-size: 0.8rem;
 	font-weight: 500;
+	line-height: 1.45;
 	color: var(--accent);
-	margin-bottom: 0.45rem;
 }
 
 .svc-from {
@@ -226,8 +233,9 @@
 }
 
 .svc-amount {
+	display: block;
 	font-family: var(--font-title);
-	font-size: 1.25rem;
+	font-size: 1.35rem;
 	font-weight: 600;
 	letter-spacing: -0.02em;
 	font-variant-numeric: tabular-nums;
