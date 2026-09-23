@@ -215,17 +215,6 @@ body.light-theme {
 	gap: 0.05rem;
 }
 
-/* Résultat de la prestation, au-dessus du filet, pas dans le pied */
-.svc-card-out {
-	font-family: var(--font-title);
-	font-size: 0.8rem;
-	font-weight: 500;
-	line-height: 1.45;
-	color: var(--text-primary);
-	padding-top: 0.55rem;
-	border-top: 1px solid var(--accent-muted);
-}
-
 .svc-from {
 	display: block;
 	font-family: var(--font-title);
@@ -636,12 +625,13 @@ body.light-theme {
 @media (min-width: 700px) {
 	.svc-cards {
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(2, auto auto 1fr auto auto);
+		grid-template-rows: repeat(2, auto auto 1fr auto);
 	}
 
 	.svc-card {
-		grid-row: span 5;
+		grid-row: span 4;
 		grid-template-rows: subgrid;
+		align-content: space-between;
 	}
 
 	.svc-form-row {
@@ -685,7 +675,7 @@ body.light-theme {
 @media (min-width: 1100px) {
 	.svc-cards {
 		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: auto auto 1fr auto auto;
+		grid-template-rows: auto auto 1fr auto;
 	}
 }
 

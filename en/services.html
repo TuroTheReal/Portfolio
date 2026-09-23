@@ -150,21 +150,19 @@
 			<div class="svc-wrap">
 				<div class="svc-head" data-fade>
 					<h2>Services</h2>
-					<p class="svc-intro">These are not four tiers of the same service: each one answers a specific situation.</p>
 				</div>
 
 				<div class="svc-cards" data-fade>
 
 					<a class="svc-card" href="#contact" data-presta="Production readiness review">
 						<h3>Production readiness review</h3>
-						<p class="svc-card-sym">You are taking over a production you did not build, and you do not know what will break first.</p>
+						<p class="svc-card-sym">You are taking over a production you did not build.</p>
 						<ul class="svc-card-feats">
 							<li>Backup restore, actually tested</li>
 							<li>Reproducible deployment</li>
 							<li>Single points of failure</li>
-							<li>Secrets and access</li>
+							<li>Written report and costed plan</li>
 						</ul>
-						<p class="svc-card-out">A written report, risks ranked by severity, and what it costs to fix them.</p>
 						<div class="svc-card-foot">
 							<span class="svc-from">firm price, excl. VAT, 1 day</span><span class="svc-amount">600 &euro;</span>
 						</div>
@@ -172,14 +170,13 @@
 
 					<a class="svc-card" href="#contact" data-presta="Deployment automation">
 						<h3>Deployment automation</h3>
-						<p class="svc-card-sym">Deploying means commands typed by hand, and only one person knows which ones.</p>
+						<p class="svc-card-sym">You deploy by hand, and only one person knows how.</p>
 						<ul class="svc-card-feats">
 							<li>GitHub Actions pipeline</li>
 							<li>Secrets out of the repository</li>
 							<li>Documented rollback</li>
 							<li>Operations documentation</li>
 						</ul>
-						<p class="svc-card-out">A push deploys, and anyone can roll it back.</p>
 						<div class="svc-card-foot">
 							<span class="svc-from">from, excl. VAT</span><span class="svc-amount">2 500 &euro;</span>
 						</div>
@@ -187,14 +184,13 @@
 
 					<a class="svc-card" href="#contact" data-presta="Containerisation and hosting">
 						<h3>Containerisation and hosting</h3>
-						<p class="svc-card-sym">Your application runs on a hand-configured machine that nobody knows how to rebuild elsewhere.</p>
+						<p class="svc-card-sym">You run on a hand-configured machine nobody can rebuild.</p>
 						<ul class="svc-card-feats">
 							<li>Production image</li>
 							<li>Reverse proxy and automated TLS</li>
-							<li>Backups, with a verified restore</li>
+							<li>Backups and verified restore</li>
 							<li>Operations runbook</li>
 						</ul>
-						<p class="svc-card-out">An application that restarts with one command, on any server.</p>
 						<div class="svc-card-foot">
 							<span class="svc-from">from, excl. VAT</span><span class="svc-amount">3 500 &euro;</span>
 						</div>
@@ -202,14 +198,13 @@
 
 					<a class="svc-card" href="#contact" data-presta="Zero-downtime migration">
 						<h3>Zero-downtime migration</h3>
-						<p class="svc-card-sym">You have to change provider or platform without the service stopping.</p>
+						<p class="svc-card-sym">You are changing platform without being able to stop the service.</p>
 						<ul class="svc-card-feats">
 							<li>Switch, application by application</li>
 							<li>Rollback before every step</li>
 							<li>Continuous deployment preserved</li>
 							<li>The saving quantified upfront</li>
 						</ul>
-						<p class="svc-card-out">A completed switchover, with no downtime observed.</p>
 						<div class="svc-card-foot">
 							<span class="svc-from">from, excl. VAT</span><span class="svc-amount">4 500 &euro;</span>
 						</div>
@@ -224,13 +219,13 @@
 			<div class="svc-wrap">
 				<div class="svc-head" data-fade>
 					<h2>Method</h2>
-					<p class="svc-intro">Five stages, from the first access to the warranty.</p>
+					<p class="svc-intro">Five stages, from the quote to the warranty.</p>
 				</div>
 				<ol class="svc-steps" data-fade>
-					<li><span class="svc-steps-dot"></span><strong>Planning</strong><span>I survey what exists, I write the intervention plan and the rollback procedure, we set the window.</span></li>
-					<li><span class="svc-steps-dot"></span><strong>Execution</strong><span>A backup restored before the first change, then I move in reversible steps.</span></li>
-					<li><span class="svc-steps-dot"></span><strong>Delivery</strong><span>You check the acceptance criteria written into the quote and you sign off.</span></li>
-					<li><span class="svc-steps-dot"></span><strong>Handover</strong><span>Runbook, a session with your team, my access revoked.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Planning</strong><span>I survey what exists and I write the intervention plan.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Execution</strong><span>Backup and rollback ready, I make the changes in reversible steps.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Delivery</strong><span>I deliver against the acceptance criteria written into the quote.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Handover</strong><span>I hand over a runbook, I run the handover session, my access is revoked.</span></li>
 					<li><span class="svc-steps-dot"></span><strong>Warranty</strong><span>Thirty days of corrections, at no charge.</span></li>
 				</ol>
 			</div>
@@ -247,7 +242,7 @@
 					<article>
 						<div class="svc-case-meta"><span class="svc-case-who">Alan</span><span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform</span></div>
 						<p class="svc-case-out">A health insurer's production migrated, with no downtime</p>
-						<p class="svc-case-txt">The hosting platform was reaching end of life and <b>no downtime window was negotiable</b>. I switched the production over application by application, live, every step reversible. <b>Critical surfaces such as alan.com went through without a second of downtime.</b></p>
+						<p class="svc-case-txt">A production serving <b>over a million members</b> and 37,000 companies, on a hosting platform reaching end of life, with no downtime window negotiable. I switched the production over application by application, live, every step reversible. <b>Critical surfaces such as alan.com went through without a second of downtime.</b></p>
 					</article>
 
 					<article>
