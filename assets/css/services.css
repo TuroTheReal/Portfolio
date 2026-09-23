@@ -201,12 +201,17 @@
 }
 
 .svc-card-foot {
-	display: flex;
-	align-items: baseline;
-	justify-content: space-between;
-	gap: 0.6rem;
 	padding-top: 0.7rem;
 	border-top: 1px solid var(--accent-muted);
+}
+
+/* Livrable de la prestation, au-dessus du prix */
+.svc-card-out {
+	font-family: var(--font-title);
+	font-size: 0.78rem;
+	font-weight: 500;
+	color: var(--accent);
+	margin-bottom: 0.45rem;
 }
 
 .svc-from {
@@ -228,18 +233,91 @@
 	font-variant-numeric: tabular-nums;
 }
 
-.svc-go {
-	display: inline-block;
-	font-size: 0.85rem;
-	color: var(--accent);
-	white-space: nowrap;
-	transition: transform 0.3s ease;
+/* ============================================
+   RECOMMANDATIONS
+   Contenu homogene, donc une liste, pas des cartes
+   ============================================ */
+.svc-recos {
+	display: grid;
+	gap: var(--svc-s4);
+	max-width: 62rem;
 }
 
-@media (hover: hover) {
-	.svc-card:hover .svc-go {
-		transform: translateX(3px);
-	}
+.svc-recos figure {
+	display: grid;
+	gap: var(--svc-s2);
+	margin: 0;
+	padding-block: var(--svc-s3);
+	border-bottom: 1px solid var(--accent-muted);
+}
+
+.svc-recos figure:first-child {
+	padding-top: 0;
+}
+
+.svc-recos figure:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+.svc-recos blockquote {
+	margin: 0;
+	font-size: 1rem;
+	max-width: 68ch;
+}
+
+.svc-recos blockquote::before {
+	content: "\00AB\00A0";
+	color: var(--accent);
+}
+
+.svc-recos blockquote::after {
+	content: "\00A0\00BB";
+	color: var(--accent);
+}
+
+.svc-reco-who {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
+
+.svc-reco-av {
+	flex: none;
+	display: grid;
+	place-items: center;
+	width: 2.4rem;
+	height: 2.4rem;
+	border-radius: 50%;
+	background: var(--accent-muted);
+	color: var(--accent);
+	font-family: var(--font-title);
+	font-size: 0.82rem;
+	font-weight: 600;
+}
+
+.svc-reco-name {
+	display: block;
+	font-family: var(--font-title);
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.svc-reco-role {
+	display: block;
+	font-size: 0.8rem;
+	color: var(--text-secondary);
+}
+
+.svc-reco-li {
+	margin-left: auto;
+	display: flex;
+	color: var(--text-secondary);
+	transition: color 0.3s ease;
+}
+
+.svc-reco-li:hover {
+	color: var(--accent);
 }
 
 /* ============================================
@@ -432,18 +510,69 @@
 
 .svc-contact-side {
 	display: grid;
-	gap: var(--svc-s2);
+	gap: var(--svc-s3);
 	align-content: start;
 }
 
-.svc-contact-side p {
+.svc-contact-side > p {
 	color: var(--text-secondary);
 	font-size: 0.95rem;
+	max-width: 42ch;
 }
 
+/* Les trois faits qui repondent aux questions muettes */
+.svc-facts {
+	display: grid;
+	gap: 0.65rem;
+	list-style: none;
+}
+
+.svc-facts li {
+	display: grid;
+	gap: 0.05rem;
+	padding-left: 1.1rem;
+	position: relative;
+}
+
+.svc-facts li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.62em;
+	width: 0.32rem;
+	height: 0.32rem;
+	border-radius: 50%;
+	background: var(--accent);
+}
+
+.svc-facts b {
+	font-family: var(--font-title);
+	font-size: 0.88rem;
+	font-weight: 500;
+}
+
+.svc-facts span {
+	font-size: 0.82rem;
+	color: var(--text-secondary);
+}
+
+/* Le formulaire devient un panneau, il ne flotte plus */
 .svc-form {
 	display: grid;
 	gap: var(--svc-s2);
+	padding: var(--svc-s3);
+	border-radius: 12px;
+	background: var(--bg-card);
+	box-shadow: var(--shadow-card);
+}
+
+.svc-form-submit {
+	margin-top: 0.3rem;
+}
+
+.svc-form-submit .hero-cta {
+	width: 100%;
+	text-align: center;
 }
 
 .svc-form-row {
@@ -530,8 +659,16 @@
 	}
 
 	.svc-contact {
-		grid-template-columns: 0.85fr 1.15fr;
+		grid-template-columns: 0.8fr 1.2fr;
 		gap: var(--svc-s5);
+	}
+
+	.svc-form {
+		padding: var(--svc-s4);
+	}
+
+	.svc-form-submit .hero-cta {
+		width: auto;
 	}
 }
 
