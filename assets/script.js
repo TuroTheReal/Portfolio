@@ -353,16 +353,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     const lang = path.startsWith('/fr') ? 'fr' : 'en';
     const isResume = path.includes('resume');
-    const isServices = path.includes('services');
     const isBlog = path.includes('blog');
     const isRadar = path.includes('tech-radar');
-    return { lang, isResume, isServices, isBlog, isRadar };
+    return { lang, isResume, isBlog, isRadar };
+  }
+
+  // Les sections de l'accueil n'ont pas le même id d'une langue à l'autre :
+  // sans cette table, changer de langue en cours de lecture renvoie sur une
+  // ancre inexistante, donc en haut de page.
+  const SECTION_IDS = {
+    prestations: 'services', references: 'references',
+    apropos: 'about', methode: 'method', contact: 'contact'
+  };
+  const SECTION_IDS_EN = Object.fromEntries(
+    Object.entries(SECTION_IDS).map(([fr, en]) => [en, fr])
+  );
+
+  function translateHash(hash, targetLang) {
+    if (!hash) return '';
+    const id = hash.slice(1);
+    const map = targetLang === 'en' ? SECTION_IDS : SECTION_IDS_EN;
+    return map[id] ? '#' + map[id] : hash;
   }
 
   langToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const targetLang = toggle.dataset.lang;
-      const { lang: currentLang, isResume, isServices, isBlog, isRadar } = getCurrentLangAndPage();
+      const { lang: currentLang, isResume, isBlog, isRadar } = getCurrentLangAndPage();
       const currentHash = window.location.hash;
 
       if (targetLang === currentLang) return;
@@ -375,15 +392,13 @@ document.addEventListener('DOMContentLoaded', () => {
         newPath = path.replace(/^\/(en|fr)\//, `/${targetLang}/`);
       } else if (isResume) {
         newPath = `/${targetLang}/resume`;
-      } else if (isServices) {
-        newPath = `/${targetLang}/services`;
       } else {
         newPath = `/${targetLang}/`;
       }
 
       // Sauvegarder la position de scroll pour la restaurer après rechargement
       sessionStorage.setItem('scrollPos', window.scrollY);
-      window.location.href = newPath + currentHash;
+      window.location.href = newPath + translateHash(currentHash, targetLang);
     });
   });
 

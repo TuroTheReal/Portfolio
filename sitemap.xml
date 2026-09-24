@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://arthurbernard.dev/en/</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/"/>
@@ -12,7 +12,7 @@
 
   <url>
     <loc>https://arthurbernard.dev/fr/</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/"/>
@@ -737,20 +737,5 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-38"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-38"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-38"/>
-  </url>
-  <url>
-    <loc>https://arthurbernard.dev/en/services</loc>
-    <lastmod>2026-09-24</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/services"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/services"/>
-  </url>
-
-  <url>
-    <loc>https://arthurbernard.dev/fr/services</loc>
-    <lastmod>2026-09-24</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/services"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/services"/>
   </url>
 </urlset>

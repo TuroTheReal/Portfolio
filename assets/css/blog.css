@@ -674,3 +674,49 @@ body.light-theme .article-body pre {
 	}
 
 }
+
+/* === FIN D'ARTICLE, passerelle vers les prestations ===
+   Le blog amene le trafic, la page d'accueil convertit.
+   Sans ce relais les deux ne se parlent pas : c'est le seul
+   endroit ou un lecteur d'article croise l'offre. */
+.post-cta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem 1.5rem;
+	margin: 3.5rem 0 0;
+	padding: 1.5rem;
+	border: 1px solid var(--accent-muted);
+	border-radius: 12px;
+	background: var(--bg-card);
+}
+
+.post-cta-txt {
+	flex: 1 1 22rem;
+	min-width: 0;
+}
+
+.post-cta-txt b {
+	display: block;
+	font-family: var(--font-title);
+	font-size: 1rem;
+	font-weight: 500;
+	margin-bottom: 0.35rem;
+}
+
+.post-cta-txt p {
+	font-size: 0.9rem;
+	color: var(--text-secondary);
+	max-width: 58ch;
+}
+
+.post-cta .hero-cta {
+	flex: 0 0 auto;
+}
+
+@media print {
+	.post-cta {
+		display: none;
+	}
+}

@@ -117,7 +117,7 @@
 
 	<!-- Header allégé (logo + langue + thème) -->
 	<header class="header">
-		<a href="/fr/#Home" class="logo" id="e4-logo">A.</a>
+		<a href="/fr/" class="logo" id="e4-logo">A.</a>
 		<div class="header-actions">
 			<button class="lang-toggle" data-lang="en">EN</button>
 			<span class="lang-sep" aria-hidden="true">|</span>
@@ -168,7 +168,7 @@
 				document.getElementById('e4-home').setAttribute('href', t.homeHref);
 				document.getElementById('e4-blog').setAttribute('href', t.blogHref);
 				document.getElementById('e4-radar').setAttribute('href', t.radarHref);
-				document.getElementById('e4-logo').setAttribute('href', t.homeHref + '#Home');
+				document.getElementById('e4-logo').setAttribute('href', t.homeHref);
 				document.querySelectorAll('.lang-toggle').forEach(function (b) {
 					b.classList.toggle('active', b.dataset.lang === lang);
 				});

@@ -75,6 +75,32 @@
   to = "/fr/resume"
   status = 301
 
+# Fusion de la page Prestations dans l'accueil (une seule page de vente).
+# force = true : la redirection prime meme si l'ancien fichier traine encore.
+[[redirects]]
+  from = "/fr/services"
+  to = "/fr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr/services.html"
+  to = "/fr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/services"
+  to = "/en/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/services.html"
+  to = "/en/"
+  status = 301
+  force = true
+
 # En-têtes de sécurité (defense-in-depth). HSTS déjà ajouté par Netlify.
 # CSP volontairement omise pour l'instant (site statique, scripts inline + GA
 # à hasher : sur-investissement vs le gain réel).

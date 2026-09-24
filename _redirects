@@ -11,3 +11,9 @@
 
 # Ancien nom de fichier PDF (avec espaces)
 /assets/link/Arthur%20Bernard%20CV%20-%20FR.pdf  /assets/link/Arthur_Bernard_CV.pdf  301
+
+# La page Prestations a fusionne avec l'accueil : une seule page de vente
+/fr/services      /fr/    301!
+/fr/services.html /fr/    301!
+/en/services      /en/    301!
+/en/services.html /en/    301!

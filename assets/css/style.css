@@ -804,121 +804,53 @@ body.light-theme .img-light {
   margin-top: 1rem;
 }
 
-
-/* === PRESTATIONS, aperçu sur la page d'accueil === */
-.home-services {
-	padding: 4rem 1.5rem;
-	border-top: 1px solid var(--accent-muted);
-}
-
-.home-services-in {
-	max-width: 900px;
-	margin: 0 auto;
-}
-
-.home-services h2 {
-	font-size: clamp(1.5rem, 3vw, 2.25rem);
-	font-weight: 600;
-	margin-bottom: 0.75rem;
-}
-
-.home-services-lead {
-	color: var(--text-secondary);
-	max-width: 56ch;
-	margin-bottom: 2rem;
-}
-
-.home-services ul {
-	list-style: none;
-}
-
-.home-services li {
-	display: grid;
-	gap: 0.15rem;
-	padding: 1rem 0;
-	border-bottom: 1px solid var(--accent-muted);
-}
-
-.home-services li:last-child {
-	border-bottom: 0;
-}
-
-.home-services .hs-name {
+/* === BOUTON DE DEVIS DANS L'EN-TÊTE ===
+   Présent sur toutes les pages, articles compris : c'est le
+   seul chemin vers le devis qui ne dépend pas du scroll. */
+.nav-cta {
+	padding: 0.35rem 0.9rem;
+	border: 1px solid var(--accent);
+	border-radius: 999px;
 	font-family: var(--font-title);
-	font-size: 1.02rem;
+	font-size: 0.82rem;
 	font-weight: 500;
-}
-
-.home-services .hs-price {
-	font-family: var(--font-title);
-	font-size: 0.85rem;
 	color: var(--accent);
 	white-space: nowrap;
-	font-variant-numeric: tabular-nums;
+	transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.home-services .hs-desc {
-	color: var(--text-secondary);
-	font-size: 0.89rem;
-}
-
-.home-services-link {
-	display: inline-block;
-	margin-top: 2rem;
-	font-family: var(--font-text);
-	font-size: 0.95rem;
-	font-weight: 500;
-	color: var(--accent);
-	position: relative;
-	padding-bottom: 3px;
-}
-
-.home-services-link::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1.5px;
+.nav-cta:hover {
 	background: var(--accent);
-	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	color: var(--bg-primary);
 }
 
-.home-services-link:hover::after {
-	width: 100%;
+.overlay-panel .nav-cta {
+	display: inline-block;
+	align-self: flex-start;
+	margin-top: 0.75rem;
+	font-size: 1rem;
+	padding: 0.5rem 1.25rem;
 }
 
-/* Deux actions dans le hero */
-.hero-actions {
+/* === LIENS SECONDAIRES DU PIED DE PAGE ===
+   Ce que la navigation abandonne reste joignable ici :
+   radar, dossier de compétences, mentions. */
+.footer-links {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
 	justify-content: center;
-	gap: 1rem 1.75rem;
+	gap: 0.5rem 1.5rem;
+	margin-top: 1.75rem;
+	font-size: 0.82rem;
 }
 
-.hero-second {
-	font-family: var(--font-text);
-	font-size: 0.95rem;
-	font-weight: 500;
+.footer-links a {
+	color: var(--text-secondary);
+	transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
 	color: var(--accent);
-	position: relative;
-	padding-bottom: 3px;
-}
-
-.hero-second::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1.5px;
-	background: var(--accent);
-	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.hero-second:hover::after {
-	width: 100%;
 }
 
 /* Mentions légales du pied de page */
@@ -928,30 +860,6 @@ body.light-theme .img-light {
 	opacity: 0.75;
 	max-width: 52ch;
 	margin-top: 0.5rem;
-}
-
-@media (min-width: 640px) {
-	.home-services li {
-		grid-template-columns: 1fr 8rem;
-		column-gap: 1.5rem;
-		align-items: baseline;
-	}
-
-	.home-services .hs-price {
-		grid-column: 2;
-		grid-row: 1;
-		text-align: right;
-	}
-
-	.home-services .hs-desc {
-		grid-column: 1;
-	}
-}
-
-@media (min-width: 768px) {
-	.home-services {
-		padding: 5rem 2rem;
-	}
 }
 
 /* === FADE-IN AU SCROLL === */
@@ -1070,6 +978,22 @@ body.light-theme .img-light {
 
   .nav a.active::after {
     transform: scaleX(1);
+  }
+
+  /* Le bouton de devis n'est pas un lien de nav : il reprend la
+     specificite de .nav a pour garder son padding et perdre le
+     soulignement anime. */
+  .nav a.nav-cta {
+    padding: 0.4rem 1rem;
+    color: var(--accent);
+  }
+
+  .nav a.nav-cta::after {
+    content: none;
+  }
+
+  .nav a.nav-cta:hover {
+    color: var(--bg-primary);
   }
 
   .header-actions {
