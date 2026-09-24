@@ -189,17 +189,17 @@ body.light-theme {
 }
 
 .svc-card-feats li {
-	position: relative;
-	padding-left: 1.15rem;
+	display: grid;
+	grid-template-columns: 0.32rem 1fr;
+	gap: 0.55rem;
+	align-items: start;
 }
 
 .svc-card-feats li::before {
 	content: "";
-	position: absolute;
-	left: 0.15rem;
-	top: 0.6em;
-	width: 0.3rem;
-	height: 0.3rem;
+	width: 0.32rem;
+	height: 0.32rem;
+	margin-top: 0.62em;
 	border-radius: 50%;
 	background: var(--accent);
 }
