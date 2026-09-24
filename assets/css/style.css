@@ -805,6 +805,155 @@ body.light-theme .img-light {
 }
 
 
+/* === PRESTATIONS, aperçu sur la page d'accueil === */
+.home-services {
+	padding: 4rem 1.5rem;
+	border-top: 1px solid var(--accent-muted);
+}
+
+.home-services-in {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.home-services h2 {
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	font-weight: 600;
+	margin-bottom: 0.75rem;
+}
+
+.home-services-lead {
+	color: var(--text-secondary);
+	max-width: 56ch;
+	margin-bottom: 2rem;
+}
+
+.home-services ul {
+	list-style: none;
+}
+
+.home-services li {
+	display: grid;
+	gap: 0.15rem;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--accent-muted);
+}
+
+.home-services li:last-child {
+	border-bottom: 0;
+}
+
+.home-services .hs-name {
+	font-family: var(--font-title);
+	font-size: 1.02rem;
+	font-weight: 500;
+}
+
+.home-services .hs-price {
+	font-family: var(--font-title);
+	font-size: 0.85rem;
+	color: var(--accent);
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+.home-services .hs-desc {
+	color: var(--text-secondary);
+	font-size: 0.89rem;
+}
+
+.home-services-link {
+	display: inline-block;
+	margin-top: 2rem;
+	font-family: var(--font-text);
+	font-size: 0.95rem;
+	font-weight: 500;
+	color: var(--accent);
+	position: relative;
+	padding-bottom: 3px;
+}
+
+.home-services-link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1.5px;
+	background: var(--accent);
+	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.home-services-link:hover::after {
+	width: 100%;
+}
+
+/* Deux actions dans le hero */
+.hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem 1.75rem;
+}
+
+.hero-second {
+	font-family: var(--font-text);
+	font-size: 0.95rem;
+	font-weight: 500;
+	color: var(--accent);
+	position: relative;
+	padding-bottom: 3px;
+}
+
+.hero-second::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1.5px;
+	background: var(--accent);
+	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-second:hover::after {
+	width: 100%;
+}
+
+/* Mentions légales du pied de page */
+.footer-legal {
+	font-size: 0.72rem;
+	color: var(--text-secondary);
+	opacity: 0.75;
+	max-width: 52ch;
+	margin-top: 0.5rem;
+}
+
+@media (min-width: 640px) {
+	.home-services li {
+		grid-template-columns: 1fr 8rem;
+		column-gap: 1.5rem;
+		align-items: baseline;
+	}
+
+	.home-services .hs-price {
+		grid-column: 2;
+		grid-row: 1;
+		text-align: right;
+	}
+
+	.home-services .hs-desc {
+		grid-column: 1;
+	}
+}
+
+@media (min-width: 768px) {
+	.home-services {
+		padding: 5rem 2rem;
+	}
+}
+
 /* === FADE-IN AU SCROLL === */
 [data-fade] {
   opacity: 0;
