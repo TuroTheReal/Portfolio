@@ -431,6 +431,29 @@ body.light-theme {
 	color: var(--accent);
 }
 
+.svc-case-site {
+	font-family: var(--font-title);
+	font-size: 0.74rem;
+	font-weight: 500;
+	color: var(--accent);
+	position: relative;
+}
+
+.svc-case-site::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background: var(--accent);
+	transition: width 0.3s ease;
+}
+
+.svc-case-site:hover::after {
+	width: 100%;
+}
+
 .svc-case-stack {
 	font-size: 0.72rem;
 	color: var(--text-secondary);
