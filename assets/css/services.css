@@ -638,6 +638,93 @@ body.light-theme {
 	text-align: center;
 }
 
+.svc-delay {
+	font-family: var(--font-title);
+	font-size: 0.68rem;
+	color: var(--text-secondary);
+	margin-top: 0.25rem;
+}
+
+/* Confirmation apres envoi, prend la place du formulaire */
+.svc-sent {
+	display: none;
+	grid-template-columns: auto 1fr;
+	gap: 0.3rem 1rem;
+	align-items: start;
+	max-width: 64rem;
+	padding: var(--svc-s4);
+	border-radius: 12px;
+	background: var(--bg-card);
+	border: 1px solid var(--accent);
+	box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift);
+}
+
+.svc-sent.is-on {
+	display: grid;
+}
+
+.svc-form.is-off {
+	display: none;
+}
+
+.svc-sent-ic {
+	grid-row: span 2;
+	display: grid;
+	place-items: center;
+	width: 2.2rem;
+	height: 2.2rem;
+	border-radius: 50%;
+	background: var(--accent-muted);
+	color: var(--accent);
+}
+
+.svc-sent b {
+	font-family: var(--font-title);
+	font-size: 1.05rem;
+	font-weight: 600;
+}
+
+.svc-sent span {
+	font-size: 0.92rem;
+	color: var(--text-secondary);
+}
+
+.svc-again {
+	display: inline-block;
+	margin-top: 0.6rem;
+	font-family: var(--font-title);
+	font-size: 0.85rem;
+	font-weight: 500;
+	color: var(--accent);
+	position: relative;
+	padding-bottom: 2px;
+}
+
+.svc-again::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 1px;
+	background: var(--accent);
+	transition: width 0.3s ease;
+}
+
+.svc-again:hover::after {
+	width: 100%;
+}
+
+.svc-form-error {
+	display: none;
+	font-size: 0.85rem;
+	color: #ff8c8c;
+}
+
+.svc-form-error.is-on {
+	display: block;
+}
+
 .svc-form-note {
 	font-size: 0.78rem;
 	color: var(--text-secondary);

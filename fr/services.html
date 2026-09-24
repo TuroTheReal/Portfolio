@@ -178,7 +178,7 @@
 							<li>Doc d'exploitation</li>
 						</ul>
 						<div class="svc-card-foot">
-							<span class="svc-from">à partir de, HT</span><span class="svc-amount">2 500 &euro;</span>
+							<span class="svc-from">à partir de, HT</span><span class="svc-amount">2 500 &euro;</span><span class="svc-delay">2 à 3 semaines</span>
 						</div>
 					</a>
 
@@ -192,7 +192,7 @@
 							<li>Runbook d'exploitation</li>
 						</ul>
 						<div class="svc-card-foot">
-							<span class="svc-from">à partir de, HT</span><span class="svc-amount">3 500 &euro;</span>
+							<span class="svc-from">à partir de, HT</span><span class="svc-amount">3 500 &euro;</span><span class="svc-delay">3 à 4 semaines</span>
 						</div>
 					</a>
 
@@ -206,7 +206,7 @@
 							<li>Gain chiffré en amont</li>
 						</ul>
 						<div class="svc-card-foot">
-							<span class="svc-from">à partir de, HT</span><span class="svc-amount">4 500 &euro;</span>
+							<span class="svc-from">à partir de, HT</span><span class="svc-amount">4 500 &euro;</span><span class="svc-delay">4 à 6 semaines</span>
 						</div>
 					</a>
 
@@ -343,9 +343,10 @@
 					<li>Devis sous une semaine</li>
 				</ul>
 
-				<form class="svc-form" name="devis" method="POST" data-netlify="true" netlify-honeypot="societe-web" data-fade>
+				<form class="svc-form" id="svc-form" name="devis" method="POST" data-netlify="true" netlify-honeypot="societe-web" data-fade>
 					<p hidden><label>Ne pas remplir <input name="societe-web"></label></p>
-					<input type="hidden" name="subject" value="arthurbernard.dev, demande de devis">
+					<input type="hidden" name="form-name" value="devis">
+						<input type="hidden" name="subject" value="arthurbernard.dev, demande de devis">
 					<div class="svc-form-row">
 						<div class="svc-field">
 							<label for="svc-nom">Nom</label>
@@ -377,8 +378,14 @@
 					<div class="svc-form-submit">
 						<button class="hero-cta" type="submit">Envoyer ma demande</button>
 					</div>
-					<p class="svc-form-note">Vos informations servent uniquement à traiter votre demande.</p>
+					<p class="svc-form-error" id="svc-error">L'envoi a échoué. Réessayez, ou écrivez-moi à arthurbernard.dev@gmail.com.</p>
+						<p class="svc-form-note">Vos informations servent uniquement à traiter votre demande.</p>
 				</form>
+					<div class="svc-sent" id="svc-sent" role="status" aria-live="polite" tabindex="-1">
+						<span class="svc-sent-ic" aria-hidden="true">&#10003;</span>
+						<b>Demande envoyée</b>
+						<span>Je reviens vers vous sous 48 heures ouvrées.<br><a class="svc-again" href="#" id="svc-again">Envoyer une autre demande</a></span>
+					</div>
 			</div>
 		</section>
 
@@ -396,20 +403,68 @@
 
 	<script src="../assets/script.js" defer></script>
 	<script>
-	// Pré-sélectionne la prestation dans le formulaire quand on arrive par une carte
-	document.querySelectorAll('.svc-card[data-presta]').forEach(function (card) {
-		card.addEventListener('click', function () {
-			var select = document.getElementById('svc-presta');
-			if (!select) return;
-			var wanted = card.dataset.presta;
-			for (var i = 0; i < select.options.length; i++) {
-				if (select.options[i].textContent.trim() === wanted) {
-					select.selectedIndex = i;
-					break;
+	(function () {
+		var form = document.getElementById('svc-form');
+		var sent = document.getElementById('svc-sent');
+		var again = document.getElementById('svc-again');
+		var error = document.getElementById('svc-error');
+		var select = document.getElementById('svc-presta');
+		if (!form) return;
+
+		function showForm() {
+			sent.classList.remove('is-on');
+			form.classList.remove('is-off');
+			error.classList.remove('is-on');
+		}
+
+		// Une carte de prestation ramene le formulaire et pre-selectionne l offre
+		document.querySelectorAll('.svc-card[data-presta]').forEach(function (card) {
+			card.addEventListener('click', function () {
+				showForm();
+				if (!select) return;
+				var wanted = card.dataset.presta;
+				for (var i = 0; i < select.options.length; i++) {
+					if (select.options[i].textContent.trim() === wanted) {
+						select.selectedIndex = i;
+						break;
+					}
 				}
-			}
+			});
 		});
-	});
+
+		again.addEventListener('click', function (e) {
+			e.preventDefault();
+			showForm();
+			form.reset();
+			form.querySelector('input:not([type="hidden"])').focus();
+		});
+
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			var button = form.querySelector('button[type="submit"]');
+			var label = button.textContent;
+			button.disabled = true;
+			button.textContent = 'Envoi en cours&hellip;';
+			error.classList.remove('is-on');
+
+			fetch('/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams(new FormData(form)).toString()
+			}).then(function (response) {
+				if (!response.ok) throw new Error(response.status);
+				form.reset();
+				form.classList.add('is-off');
+				sent.classList.add('is-on');
+				sent.focus();
+			}).catch(function () {
+				error.classList.add('is-on');
+			}).finally(function () {
+				button.disabled = false;
+				button.textContent = label;
+			});
+		});
+	})();
 	</script>
 
 </body>
