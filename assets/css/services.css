@@ -1,120 +1,120 @@
 /* ============================================
-   LANDING, page d'accueil commerciale
+   SERVICES, page prestations
    Utilise les variables de style.css. Aucune police
    ni token supplémentaire.
 
    Règle de composant, tenue sans exception :
-   .lp-card   contenu hétérogène + action  -> les 4 prestations
-   .lp-steps  séquence homogène            -> méthode
-   .lp-cases  contenu homogène balayable   -> références
+   .svc-card   contenu hétérogène + action  -> les 4 prestations
+   .svc-steps  séquence homogène            -> méthode
+   .svc-cases  contenu homogène balayable   -> études de cas
    details     divulgation progressive      -> questions fréquentes
-   Aucune ombre en dehors de .lp-card.
+   Aucune ombre en dehors de .svc-card.
    ============================================ */
 
 /* ============================================
    ÉCHELLE D'ESPACEMENT
    ============================================ */
 :root {
-	--lp-s1: 0.5rem;
-	--lp-s2: 1rem;
-	--lp-s3: 1.5rem;
-	--lp-s4: 2rem;
-	--lp-s5: 3rem;
-	--lp-s6: 4rem;
-	--lp-s7: 6rem;
-	--lp-hi: rgba(255, 255, 255, 0.05);
-	--lp-lift: 0 14px 32px -16px rgba(0, 0, 0, 0.7);
-	--lp-lift-hover: 0 22px 44px -18px rgba(0, 0, 0, 0.85);
-	--lp-line: rgba(140, 150, 255, 0.18);
-	--lp-error: #ff8c8c;
+	--svc-s1: 0.5rem;
+	--svc-s2: 1rem;
+	--svc-s3: 1.5rem;
+	--svc-s4: 2rem;
+	--svc-s5: 3rem;
+	--svc-s6: 4rem;
+	--svc-s7: 6rem;
+	--svc-hi: rgba(255, 255, 255, 0.05);
+	--svc-lift: 0 14px 32px -16px rgba(0, 0, 0, 0.7);
+	--svc-lift-hover: 0 22px 44px -18px rgba(0, 0, 0, 0.85);
+	--svc-line: rgba(140, 150, 255, 0.18);
+	--svc-error: #ff8c8c;
 }
 
 body.light-theme {
-	--lp-hi: rgba(255, 255, 255, 1);
-	--lp-lift: 0 12px 26px -18px rgba(69, 64, 208, 0.3);
-	--lp-lift-hover: 0 18px 34px -20px rgba(69, 64, 208, 0.38);
-	--lp-line: rgba(69, 64, 208, 0.18);
-	--lp-error: #b91c1c;
+	--svc-hi: rgba(255, 255, 255, 1);
+	--svc-lift: 0 12px 26px -18px rgba(69, 64, 208, 0.3);
+	--svc-lift-hover: 0 18px 34px -20px rgba(69, 64, 208, 0.38);
+	--svc-line: rgba(69, 64, 208, 0.18);
+	--svc-error: #b91c1c;
 }
 
 /* ============================================
    OSSATURE, anatomie unique de section
    ============================================ */
-.lp-wrap {
+.svc-wrap {
 	width: 100%;
 	max-width: 1120px;
 	margin: 0 auto;
-	padding-inline: var(--lp-s3);
+	padding-inline: var(--svc-s3);
 }
 
-.lp-sec {
-	padding-block: var(--lp-s6);
+.svc-sec {
+	padding-block: var(--svc-s6);
 	border-top: 1px solid var(--accent-muted);
 	scroll-margin-top: var(--header-height);
 }
 
-.lp-head {
+.svc-head {
 	max-width: 52ch;
-	margin-bottom: var(--lp-s5);
+	margin-bottom: var(--svc-s5);
 }
 
-.lp-head h2 {
+.svc-head h2 {
 	font-size: clamp(1.5rem, 3vw, 2.25rem);
 	font-weight: 600;
 }
 
-.lp-intro {
+.svc-intro {
 	color: var(--text-secondary);
-	margin-top: var(--lp-s1);
+	margin-top: var(--svc-s1);
 }
 
 /* ============================================
    HERO
    Reprend le mesh de la page d'accueil, en plus court
    ============================================ */
-.lp-hero {
+.svc-hero {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	min-height: 58vh;
-	padding: calc(var(--header-height) + var(--lp-s6)) var(--lp-s3) var(--lp-s6);
+	padding: calc(var(--header-height) + var(--svc-s6)) var(--svc-s3) var(--svc-s6);
 	text-align: center;
 	overflow: hidden;
 	background-color: var(--bg-hero);
 }
 
-.lp-hero > *:not(.hero-mesh) {
+.svc-hero > *:not(.hero-mesh) {
 	position: relative;
 	z-index: 2;
 }
 
-.lp-hero h1 {
+.svc-hero h1 {
 	font-size: clamp(2rem, 5vw, 3.5rem);
 	font-weight: 600;
 	letter-spacing: -0.02em;
 	max-width: 20ch;
-	margin-bottom: var(--lp-s2);
+	margin-bottom: var(--svc-s2);
 }
 
-.lp-hero-sub {
+.svc-hero-sub {
 	font-size: clamp(1rem, 2vw, 1.25rem);
 	color: var(--text-secondary);
 	max-width: 56ch;
 }
 
-.lp-hero-actions {
+.svc-hero-actions {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	gap: var(--lp-s2) var(--lp-s3);
-	margin-top: var(--lp-s4);
+	gap: var(--svc-s2) var(--svc-s3);
+	margin-top: var(--svc-s4);
 }
 
 /* Lien souligné animé, motif du site */
-.lp-ulink {
+.svc-ulink {
 	display: inline-block;
 	font-family: var(--font-text);
 	font-size: 0.95rem;
@@ -124,7 +124,7 @@ body.light-theme {
 	padding-bottom: 3px;
 }
 
-.lp-ulink::after {
+.svc-ulink::after {
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -135,7 +135,7 @@ body.light-theme {
 	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.lp-ulink:hover::after {
+.svc-ulink:hover::after {
 	width: 100%;
 }
 
@@ -144,45 +144,45 @@ body.light-theme {
    Carte cliquable, titre en haut, prix en bas.
    Les rangées s'alignent entre colonnes via subgrid.
    ============================================ */
-.lp-cards {
+.svc-cards {
 	display: grid;
-	gap: var(--lp-s3);
+	gap: var(--svc-s3);
 }
 
-.lp-card {
+.svc-card {
 	position: relative;
 	overflow: hidden;
 	display: grid;
 	gap: 0.7rem;
 	align-content: start;
-	padding: var(--lp-s3);
+	padding: var(--svc-s3);
 	border-radius: 12px;
 	background: var(--bg-card);
-	border: 1px solid var(--lp-line);
-	box-shadow: inset 0 1px 0 var(--lp-hi), var(--lp-lift);
+	border: 1px solid var(--svc-line);
+	box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift);
 	color: inherit;
 	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 @media (hover: hover) {
-	.lp-card:hover {
+	.svc-card:hover {
 		transform: scale(1.02);
 		border-color: var(--accent);
-		box-shadow: inset 0 1px 0 var(--lp-hi), var(--lp-lift-hover);
+		box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift-hover);
 	}
 }
 
-.lp-card h3 {
+.svc-card h3 {
 	font-size: 1.05rem;
 	font-weight: 600;
 }
 
-.lp-card-sym {
+.svc-card-sym {
 	color: var(--text-secondary);
 	font-size: 0.88rem;
 }
 
-.lp-card-feats {
+.svc-card-feats {
 	display: grid;
 	gap: 0.4rem;
 	align-content: start;
@@ -190,14 +190,14 @@ body.light-theme {
 	font-size: 0.87rem;
 }
 
-.lp-card-feats li {
+.svc-card-feats li {
 	display: grid;
 	grid-template-columns: 0.32rem 1fr;
 	gap: 0.55rem;
 	align-items: start;
 }
 
-.lp-card-feats li::before {
+.svc-card-feats li::before {
 	content: "";
 	width: 0.32rem;
 	height: 0.32rem;
@@ -206,19 +206,19 @@ body.light-theme {
 	background: var(--accent);
 }
 
-.lp-card-foot {
+.svc-card-foot {
 	display: grid;
 	gap: 0.05rem;
 	padding-top: 0.85rem;
 	border-top: 1px solid var(--accent-muted);
 }
 
-.lp-card-price {
+.svc-card-price {
 	display: grid;
 	gap: 0.05rem;
 }
 
-.lp-from {
+.svc-from {
 	display: block;
 	font-family: var(--font-title);
 	font-size: 0.75rem;
@@ -229,7 +229,7 @@ body.light-theme {
 	margin-bottom: 0.1rem;
 }
 
-.lp-amount {
+.svc-amount {
 	display: block;
 	font-family: var(--font-title);
 	font-size: 1.35rem;
@@ -242,47 +242,47 @@ body.light-theme {
    RECOMMANDATIONS
    Contenu homogene, donc une liste, pas des cartes
    ============================================ */
-.lp-recos {
+.svc-recos {
 	display: grid;
-	gap: var(--lp-s3);
+	gap: var(--svc-s3);
 	max-width: 68rem;
 }
 
-.lp-recos figure {
+.svc-recos figure {
 	display: grid;
 	grid-template-rows: 1fr auto;
-	gap: var(--lp-s3);
+	gap: var(--svc-s3);
 	margin: 0;
-	padding: var(--lp-s3);
-	border: 1px solid var(--lp-line);
+	padding: var(--svc-s3);
+	border: 1px solid var(--svc-line);
 	border-radius: 12px;
 }
 
-.lp-recos blockquote {
+.svc-recos blockquote {
 	margin: 0;
 	font-size: 0.97rem;
 	line-height: 1.6;
 }
 
-.lp-recos blockquote::before {
+.svc-recos blockquote::before {
 	content: "\00AB\00A0";
 	color: var(--accent);
 }
 
-.lp-recos blockquote::after {
+.svc-recos blockquote::after {
 	content: "\00A0\00BB";
 	color: var(--accent);
 }
 
-.lp-reco-who {
+.svc-reco-who {
 	display: flex;
 	align-items: center;
 	gap: 0.8rem;
-	padding-top: var(--lp-s2);
+	padding-top: var(--svc-s2);
 	border-top: 1px solid var(--accent-muted);
 }
 
-.lp-reco-av {
+.svc-reco-av {
 	flex: none;
 	display: grid;
 	place-items: center;
@@ -296,20 +296,20 @@ body.light-theme {
 	font-weight: 600;
 }
 
-.lp-reco-name {
+.svc-reco-name {
 	display: block;
 	font-family: var(--font-title);
 	font-size: 0.9rem;
 	font-weight: 500;
 }
 
-.lp-reco-role {
+.svc-reco-role {
 	display: block;
 	font-size: 0.8rem;
 	color: var(--text-secondary);
 }
 
-.lp-reco-li {
+.svc-reco-li {
 	margin-left: auto;
 	display: flex;
 	align-items: center;
@@ -318,40 +318,40 @@ body.light-theme {
 	transition: color 0.3s ease;
 }
 
-.lp-reco-li svg {
+.svc-reco-li svg {
 	display: block;
 }
 
-.lp-reco-name,
-.lp-reco-role {
+.svc-reco-name,
+.svc-reco-role {
 	line-height: 1.35;
 }
 
-.lp-reco-li:hover {
+.svc-reco-li:hover {
 	color: var(--accent);
 }
 
 /* ============================================
    MÉTHODE, frise
    ============================================ */
-.lp-steps {
+.svc-steps {
 	display: grid;
-	gap: var(--lp-s3);
-	counter-reset: lp-phase;
+	gap: var(--svc-s3);
+	counter-reset: svc-phase;
 	list-style: none;
 }
 
-.lp-steps li {
-	counter-increment: lp-phase;
+.svc-steps li {
+	counter-increment: svc-phase;
 	position: relative;
 	display: grid;
 	gap: 0.3rem;
 	align-content: start;
-	padding-top: var(--lp-s4);
+	padding-top: var(--svc-s4);
 }
 
-.lp-steps li::before {
-	content: counter(lp-phase, decimal-leading-zero);
+.svc-steps li::before {
+	content: counter(svc-phase, decimal-leading-zero);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -362,7 +362,7 @@ body.light-theme {
 	color: var(--accent);
 }
 
-.lp-steps li::after {
+.svc-steps li::after {
 	content: "";
 	position: absolute;
 	top: 1.9rem;
@@ -372,7 +372,7 @@ body.light-theme {
 	background: var(--accent-muted);
 }
 
-.lp-steps-dot {
+.svc-steps-dot {
 	position: absolute;
 	top: 1.9rem;
 	left: 0;
@@ -383,14 +383,14 @@ body.light-theme {
 	transform: translateY(-50%);
 }
 
-.lp-steps strong {
+.svc-steps strong {
 	font-family: var(--font-title);
 	font-size: 1rem;
 	font-weight: 500;
 	margin-top: 0.5rem;
 }
 
-.lp-steps span:not(.lp-steps-dot) {
+.svc-steps span:not(.svc-steps-dot) {
 	color: var(--text-secondary);
 	font-size: 0.87rem;
 }
@@ -400,23 +400,23 @@ body.light-theme {
    Contexte, résultat, récit. Le nom du client se lit
    comme un nom, la pile technique s'efface.
    ============================================ */
-.lp-cases article {
+.svc-cases article {
 	display: grid;
 	gap: 0.3rem;
-	padding-block: var(--lp-s4);
+	padding-block: var(--svc-s4);
 	border-bottom: 1px solid var(--accent-muted);
 }
 
-.lp-cases article:first-child {
+.svc-cases article:first-child {
 	padding-top: 0;
 }
 
-.lp-cases article:last-child {
+.svc-cases article:last-child {
 	border-bottom: 0;
 	padding-bottom: 0;
 }
 
-.lp-case-meta {
+.svc-case-meta {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
@@ -424,7 +424,7 @@ body.light-theme {
 	margin-bottom: 0.15rem;
 }
 
-.lp-case-who {
+.svc-case-who {
 	font-family: var(--font-title);
 	font-size: 0.78rem;
 	font-weight: 600;
@@ -433,7 +433,7 @@ body.light-theme {
 	color: var(--accent);
 }
 
-.lp-case-site {
+.svc-case-site {
 	font-family: var(--font-title);
 	font-size: 0.74rem;
 	font-weight: 500;
@@ -441,7 +441,7 @@ body.light-theme {
 	position: relative;
 }
 
-.lp-case-site::after {
+.svc-case-site::after {
 	content: '';
 	position: absolute;
 	bottom: -2px;
@@ -452,17 +452,17 @@ body.light-theme {
 	transition: width 0.3s ease;
 }
 
-.lp-case-site:hover::after {
+.svc-case-site:hover::after {
 	width: 100%;
 }
 
-.lp-case-stack {
+.svc-case-stack {
 	font-size: 0.72rem;
 	color: var(--text-secondary);
 	opacity: 0.75;
 }
 
-.lp-case-out {
+.svc-case-out {
 	font-family: var(--font-title);
 	font-size: clamp(1.1rem, 2.4vw, 1.4rem);
 	font-weight: 600;
@@ -470,14 +470,14 @@ body.light-theme {
 	max-width: 32ch;
 }
 
-.lp-case-txt {
+.svc-case-txt {
 	margin-top: 0.35rem;
 	max-width: 70ch;
 	font-size: 0.95rem;
 	color: var(--text-secondary);
 }
 
-.lp-case-txt b {
+.svc-case-txt b {
 	color: var(--text-primary);
 	font-weight: 500;
 }
@@ -485,31 +485,31 @@ body.light-theme {
 /* ============================================
    QUESTIONS FRÉQUENTES
    ============================================ */
-.lp-faq {
+.svc-faq {
 	display: grid;
 	max-width: 54rem;
 }
 
-.lp-faq details {
+.svc-faq details {
 	border-bottom: 1px solid var(--accent-muted);
 }
 
-.lp-faq summary {
+.svc-faq summary {
 	position: relative;
 	display: block;
 	cursor: pointer;
 	list-style: none;
-	padding: var(--lp-s3) 2.2rem var(--lp-s3) 0;
+	padding: var(--svc-s3) 2.2rem var(--svc-s3) 0;
 	font-family: var(--font-title);
 	font-size: 0.98rem;
 	font-weight: 500;
 }
 
-.lp-faq summary::-webkit-details-marker {
+.svc-faq summary::-webkit-details-marker {
 	display: none;
 }
 
-.lp-faq summary::after {
+.svc-faq summary::after {
 	content: "";
 	position: absolute;
 	right: 0.4rem;
@@ -523,26 +523,26 @@ body.light-theme {
 	transition: transform 0.3s ease;
 }
 
-.lp-faq details[open] summary::after {
+.svc-faq details[open] summary::after {
 	transform: rotate(-135deg);
 }
 
-.lp-faq-body {
+.svc-faq-body {
 	display: grid;
 	gap: 0.45rem;
-	padding-bottom: var(--lp-s3);
+	padding-bottom: var(--svc-s3);
 	max-width: 70ch;
 	color: var(--text-secondary);
 	font-size: 0.92rem;
 	list-style: none;
 }
 
-.lp-faq-body li {
+.svc-faq-body li {
 	position: relative;
 	padding-left: 1.1rem;
 }
 
-.lp-faq-body li::before {
+.svc-faq-body li::before {
 	content: "\2014";
 	position: absolute;
 	left: 0;
@@ -554,15 +554,15 @@ body.light-theme {
    Aucune colonne latérale : engagements en ligne,
    puis un formulaire large en panneau.
    ============================================ */
-.lp-facts {
+.svc-facts {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem 2rem;
-	margin: var(--lp-s3) 0 var(--lp-s4);
+	margin: var(--svc-s3) 0 var(--svc-s4);
 	list-style: none;
 }
 
-.lp-facts li {
+.svc-facts li {
 	position: relative;
 	padding-left: 0.95rem;
 	font-family: var(--font-title);
@@ -571,7 +571,7 @@ body.light-theme {
 	color: var(--text-primary);
 }
 
-.lp-facts li::before {
+.svc-facts li::before {
 	content: "";
 	position: absolute;
 	left: 0;
@@ -582,37 +582,37 @@ body.light-theme {
 	background: var(--accent);
 }
 
-.lp-form {
+.svc-form {
 	display: grid;
-	gap: var(--lp-s2);
+	gap: var(--svc-s2);
 	max-width: 64rem;
-	padding: var(--lp-s3);
+	padding: var(--svc-s3);
 	border-radius: 12px;
 	background: var(--bg-card);
-	border: 1px solid var(--lp-line);
-	box-shadow: inset 0 1px 0 var(--lp-hi), var(--lp-lift);
+	border: 1px solid var(--svc-line);
+	box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift);
 }
 
-.lp-form-row {
+.svc-form-row {
 	display: grid;
-	gap: var(--lp-s2);
+	gap: var(--svc-s2);
 }
 
-.lp-field {
+.svc-field {
 	display: grid;
 	gap: 0.35rem;
 }
 
-.lp-field label {
+.svc-field label {
 	font-family: var(--font-title);
 	font-size: 0.76rem;
 	font-weight: 500;
 	color: var(--text-secondary);
 }
 
-.lp-field input,
-.lp-field select,
-.lp-field textarea {
+.svc-field input,
+.svc-field select,
+.svc-field textarea {
 	width: 100%;
 	padding: 0.75rem 0.9rem;
 	font-family: var(--font-text);
@@ -623,24 +623,24 @@ body.light-theme {
 	border-radius: 8px;
 }
 
-.lp-field textarea {
+.svc-field textarea {
 	min-height: 7rem;
 	resize: vertical;
 }
 
-.lp-field input:focus,
-.lp-field select:focus,
-.lp-field textarea:focus {
+.svc-field input:focus,
+.svc-field select:focus,
+.svc-field textarea:focus {
 	outline: none;
 	border-color: var(--accent);
 }
 
-.lp-form-submit .hero-cta {
+.svc-form-submit .hero-cta {
 	width: 100%;
 	text-align: center;
 }
 
-.lp-delay {
+.svc-delay {
 	font-family: var(--font-title);
 	font-size: 0.75rem;
 	color: var(--text-secondary);
@@ -648,28 +648,28 @@ body.light-theme {
 }
 
 /* Confirmation apres envoi, prend la place du formulaire */
-.lp-sent {
+.svc-sent {
 	display: none;
 	grid-template-columns: auto 1fr;
 	gap: 0.3rem 1rem;
 	align-items: start;
 	max-width: 64rem;
-	padding: var(--lp-s4);
+	padding: var(--svc-s4);
 	border-radius: 12px;
 	background: var(--bg-card);
 	border: 1px solid var(--accent);
-	box-shadow: inset 0 1px 0 var(--lp-hi), var(--lp-lift);
+	box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift);
 }
 
-.lp-sent.is-on {
+.svc-sent.is-on {
 	display: grid;
 }
 
-.lp-form.is-off {
+.svc-form.is-off {
 	display: none;
 }
 
-.lp-sent-ic {
+.svc-sent-ic {
 	grid-row: span 2;
 	display: grid;
 	place-items: center;
@@ -680,18 +680,18 @@ body.light-theme {
 	color: var(--accent);
 }
 
-.lp-sent b {
+.svc-sent b {
 	font-family: var(--font-title);
 	font-size: 1.05rem;
 	font-weight: 600;
 }
 
-.lp-sent span {
+.svc-sent span {
 	font-size: 0.92rem;
 	color: var(--text-secondary);
 }
 
-.lp-again {
+.svc-again {
 	display: inline-block;
 	margin-top: 0.6rem;
 	font-family: var(--font-title);
@@ -702,7 +702,7 @@ body.light-theme {
 	padding-bottom: 2px;
 }
 
-.lp-again::after {
+.svc-again::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -713,21 +713,21 @@ body.light-theme {
 	transition: width 0.3s ease;
 }
 
-.lp-again:hover::after {
+.svc-again:hover::after {
 	width: 100%;
 }
 
-.lp-form-error {
+.svc-form-error {
 	display: none;
 	font-size: 0.85rem;
-	color: var(--lp-error);
+	color: var(--svc-error);
 }
 
-.lp-form-error.is-on {
+.svc-form-error.is-on {
 	display: block;
 }
 
-.lp-form-note {
+.svc-form-note {
 	font-size: 0.78rem;
 	color: var(--text-secondary);
 }
@@ -736,26 +736,26 @@ body.light-theme {
    TABLETTE, 700px
    ============================================ */
 @media (min-width: 700px) {
-	.lp-cards {
+	.svc-cards {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: repeat(2, auto auto auto auto);
 	}
 
-	.lp-card {
+	.svc-card {
 		grid-row: span 4;
 		grid-template-rows: subgrid;
 		align-content: space-between;
 	}
 
-	.lp-form-row {
+	.svc-form-row {
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	.lp-recos {
+	.svc-recos {
 		grid-template-columns: 1fr 1fr;
 	}
 
-	.lp-form-submit .hero-cta {
+	.svc-form-submit .hero-cta {
 		width: auto;
 	}
 }
@@ -764,21 +764,21 @@ body.light-theme {
    TABLETTE LARGE, 900px
    ============================================ */
 @media (min-width: 900px) {
-	.lp-sec {
-		padding-block: var(--lp-s7);
+	.svc-sec {
+		padding-block: var(--svc-s7);
 	}
 
-	.lp-steps {
+	.svc-steps {
 		grid-template-columns: repeat(5, 1fr);
 		gap: 0;
 	}
 
-	.lp-steps li {
-		padding-right: var(--lp-s2);
+	.svc-steps li {
+		padding-right: var(--svc-s2);
 	}
 
-	.lp-form {
-		padding: var(--lp-s4);
+	.svc-form {
+		padding: var(--svc-s4);
 	}
 }
 
@@ -786,7 +786,7 @@ body.light-theme {
    DESKTOP, 1100px
    ============================================ */
 @media (min-width: 1100px) {
-	.lp-cards {
+	.svc-cards {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: auto auto auto auto;
 	}
@@ -799,177 +799,32 @@ body.light-theme {
 @media print {
 	.header,
 	.overlay,
-	.lp-form,
-	.lp-sent,
+	.svc-form,
+	.svc-sent,
 	.footer-social {
 		display: none !important;
 	}
 
-	.lp-hero {
+	.svc-hero {
 		min-height: auto;
-		padding: var(--lp-s3);
+		padding: var(--svc-s3);
 	}
 
 	.hero-mesh {
 		display: none !important;
 	}
 
-	.lp-card {
+	.svc-card {
 		box-shadow: none !important;
 		border: 1px solid var(--accent-muted);
 	}
 
-	.lp-sec {
-		padding-block: var(--lp-s3);
+	.svc-sec {
+		padding-block: var(--svc-s3);
 		page-break-inside: avoid;
 	}
 
-	.lp-faq details {
+	.svc-faq details {
 		display: block;
-	}
-}
-
-/* ============================================
-   AJOUTS LANDING, accueil commercial
-   La page est un argument en trois mouvements :
-   ce que j'achète, pourquoi j'y crois, comment ca se passe.
-   Le fond alterne pour marquer les mouvements sans
-   ajouter de composant.
-   ============================================ */
-.lp-sec.lp-alt {
-	background: var(--bg-secondary);
-}
-
-/* Surtitre du hero : l'identite passe au-dessus, le h1
-   porte la promesse. Dix secondes pour etre compris. */
-.lp-eyebrow {
-	font-family: var(--font-title);
-	font-size: 0.82rem;
-	font-weight: 500;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: var(--accent);
-	margin-bottom: var(--lp-s2);
-}
-
-/* Une seule preuve dans le hero, pour que le lecteur
-   continue. Le reste de la preuve arrive plus bas. */
-.lp-hero-proof {
-	max-width: 54ch;
-	margin-top: var(--lp-s3);
-	padding-left: var(--lp-s2);
-	border-left: 2px solid var(--accent);
-	text-align: left;
-	font-size: 0.98rem;
-	color: var(--text-secondary);
-}
-
-.lp-hero-proof b {
-	color: var(--text-primary);
-	font-weight: 500;
-}
-
-.lp-hero .lp-facts {
-	justify-content: center;
-	margin: var(--lp-s4) 0 0;
-}
-
-/* Phrase de liaison en fin de section : chaque section
-   passe la main a la suivante au lieu de s'arreter net. */
-.lp-relay {
-	margin-top: var(--lp-s4);
-	color: var(--text-secondary);
-	font-size: 0.95rem;
-}
-
-/* Les recommandations ne sont plus une section : elles
-   justifient la reference a laquelle elles se rattachent. */
-.lp-cases .lp-recos {
-	margin-top: var(--lp-s3);
-	max-width: 56rem;
-}
-
-.lp-cases .lp-recos figure {
-	padding: var(--lp-s2) var(--lp-s3);
-}
-
-.lp-cases .lp-recos blockquote {
-	font-size: 0.92rem;
-}
-
-/* Sous-titre interne : la FAQ vit dans la section methode,
-   les deux repondent a « est-ce que ca va casser ». */
-.lp-subhead {
-	margin: var(--lp-s6) 0 var(--lp-s3);
-	padding-top: var(--lp-s4);
-	border-top: 1px solid var(--accent-muted);
-	font-family: var(--font-title);
-	font-size: 0.8rem;
-	font-weight: 500;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--text-secondary);
-}
-
-/* Qui vous aurez en face : place tard, une fois que le
-   lecteur sait ce qu'on vend et qu'on sait faire. */
-.lp-bio {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: var(--lp-s3) var(--lp-s4);
-	align-items: start;
-	max-width: 62rem;
-}
-
-.lp-bio img {
-	width: 7rem;
-	height: 7rem;
-	border-radius: 50%;
-	object-fit: cover;
-	border: 1px solid var(--lp-line);
-}
-
-.lp-bio-txt p {
-	color: var(--text-secondary);
-	max-width: 62ch;
-}
-
-.lp-bio-txt p + p {
-	margin-top: var(--lp-s2);
-}
-
-.lp-bio-txt b {
-	color: var(--text-primary);
-	font-weight: 500;
-}
-
-@media (max-width: 640px) {
-	.lp-bio {
-		grid-template-columns: 1fr;
-		justify-items: center;
-		text-align: center;
-	}
-
-	.lp-bio-txt p {
-		text-align: left;
-	}
-}
-
-/* Le lien vers LinkedIn se rattache aux citations qu'il prolonge,
-   pas a la fin de la liste des references. */
-.lp-recos-more {
-	margin-top: var(--lp-s2);
-	font-size: 0.9rem;
-}
-
-/* Mobile : les trois engagements en colonne alignee a gauche.
-   Centres, ils cassaient sur des nombres de lignes differents. */
-@media (max-width: 560px) {
-	.lp-hero .lp-facts {
-		flex-direction: column;
-		align-items: flex-start;
-		width: fit-content;
-		margin-inline: auto;
-		gap: 0.4rem;
 	}
 }
