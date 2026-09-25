@@ -150,6 +150,9 @@ body.light-theme {
 }
 
 .svc-card {
+	/* L accueil renvoie vers une carte precise : sans cette marge,
+	   l ancre la cale sous l en-tete fixe. */
+	scroll-margin-top: calc(var(--header-height) + 1rem);
 	position: relative;
 	overflow: hidden;
 	display: grid;
