@@ -155,10 +155,11 @@
 	padding: 1.5rem;
 	border-radius: 12px;
 	background: var(--bg-card);
+	border: 1px solid transparent;
 	box-shadow: var(--shadow-card);
 	text-decoration: none;
 	color: inherit;
-	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 /* Card masquée par le filtre tag */
@@ -166,10 +167,13 @@
 	display: none;
 }
 
-/* Léger scale sur la card au hover (devices avec hover uniquement) */
+/* Meme comportement que les cartes de prestations : la bordure d accent
+   dit « ceci est actif » sans deplacer le texte ni empieter sur la
+   carte voisine. */
 @media (hover: hover) {
 	.blog-card:hover {
-		transform: scale(1.03);
+		border-color: var(--accent);
+		transform: translateY(-2px);
 	}
 }
 

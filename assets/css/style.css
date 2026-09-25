@@ -893,19 +893,17 @@ body.light-theme .img-light {
 
 .home-recos-list {
 	display: grid;
-	gap: 1.25rem;
+	gap: 1.75rem;
 	grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
+	padding-bottom: 0.75rem;
 }
 
 .home-recos figure {
 	display: grid;
-	grid-template-rows: 1fr auto;
-	gap: 1.25rem;
+	gap: 1rem;
 	margin: 0;
-	padding: 1.25rem 1.4rem;
-	border: 1px solid var(--accent-muted);
-	border-radius: 12px;
-	background: var(--bg-card);
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--accent-muted);
 }
 
 .home-recos blockquote {
@@ -1150,10 +1148,11 @@ body.light-theme .img-light {
 	text-decoration: none;
 	color: inherit;
 	background: var(--bg-card);
+	border: 1px solid transparent;
 	border-radius: 12px;
 	padding: 1.5rem;
 	box-shadow: var(--shadow-card);
-	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: border-color 0.2s ease, transform 0.2s ease;
 	min-width: 0;
 	overflow: hidden;
 }
@@ -1514,7 +1513,8 @@ body.light-theme .radar-tags-filter .radar-filter-btn[data-category="secu"].acti
 	}
 
 	.radar-card:hover {
-		transform: scale(1.03);
+		border-color: var(--accent);
+		transform: translateY(-2px);
 	}
 }
 
