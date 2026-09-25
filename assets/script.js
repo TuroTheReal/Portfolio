@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const isBlogPage = window.location.pathname.includes('blog');
   const isResumePage = window.location.pathname.includes('resume');
   const isRadarPage = window.location.pathname.includes('/tech-radar');
+  const isServicesPage = window.location.pathname.includes('/services');
 
   function updateActiveNav(sectionId) {
     navLinks.forEach(link => {
@@ -156,7 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.remove('active');
       link.removeAttribute('aria-current');
       const href = link.getAttribute('href');
-      if (isResumePage && href.includes('resume')) {
+      if (isServicesPage && href.includes('/services')) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      } else if (isResumePage && href.includes('resume')) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
       } else if (isRadarPage && href.includes('tech-radar')) {
@@ -195,11 +199,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Si en bas de page, forcer Contact (homepage seulement)
-      if (!isBlogPage && !isResumePage && !isRadarPage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+      if (!isBlogPage && !isResumePage && !isRadarPage && !isServicesPage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
         bestId = 'Contact';
       }
 
-      if (isBlogPage || isResumePage || isRadarPage) {
+      if (isBlogPage || isResumePage || isRadarPage || isServicesPage) {
         // Sur une page secondaire, la navigation signale la page ou on se
         // trouve, pas la section visible : le pied de page #Contact prenait
         // le dessus et la page CV finissait par surligner « Contact ».
