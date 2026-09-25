@@ -63,10 +63,10 @@
 			"@type": "OfferCatalog",
 			"name": "Prestations",
 			"itemListElement": [
-				{ "@type": "Offer", "name": "Revue de mise en production", "price": "600", "priceCurrency": "EUR" },
+				{ "@type": "Offer", "name": "Audit DevOps", "price": "600", "priceCurrency": "EUR" },
 				{ "@type": "Offer", "name": "Industrialisation des déploiements", "price": "2500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Conteneurisation et hébergement", "price": "3500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Migration sans interruption", "price": "4500", "priceCurrency": "EUR" }
+				{ "@type": "Offer", "name": "Mise en production et hébergement", "price": "3500", "priceCurrency": "EUR" },
+				{ "@type": "Offer", "name": "Migration de production", "price": "4500", "priceCurrency": "EUR" }
 			]
 		}
 	}
@@ -90,6 +90,7 @@
 		<a href="/fr/#Home" class="logo">A.</a>
 		<nav class="nav" aria-label="Navigation principale">
 			<a href="/fr/#Home">Accueil</a>
+			<a href="/fr/#About">À propos</a>
 			<a href="/fr/services" aria-current="page">Prestations</a>
 			<a href="/fr/blog">Blog</a>
 			<a href="/fr/tech-radar/">Tech Radar</a>
@@ -110,6 +111,7 @@
 		<div class="overlay-panel">
 			<nav aria-label="Menu">
 				<a href="/fr/#Home">Accueil</a>
+				<a href="/fr/#About">À propos</a>
 				<a href="/fr/services">Prestations</a>
 				<a href="/fr/blog">Blog</a>
 				<a href="/fr/tech-radar/">Tech Radar</a>
@@ -146,15 +148,12 @@
 		<!-- Prestations -->
 		<section class="svc-sec" id="prestations">
 			<div class="svc-wrap">
-				<div class="svc-head" data-fade>
-					<h2>Prestations</h2>
-				</div>
 
 				<div class="svc-cards" data-fade>
 
-					<a class="svc-card" href="#contact" data-presta="Revue de mise en production">
-						<h3>Revue de mise en production</h3>
-						<p class="svc-card-sym">Vous reprenez une production que vous n'avez pas construite.</p>
+					<a class="svc-card" href="#contact" data-presta="Audit DevOps">
+						<h3>Audit DevOps</h3>
+						<p class="svc-card-sym">Personne ne sait ce qui se passe le jour où votre production tombe.</p>
 						<ul class="svc-card-feats">
 							<li>Restauration testée</li>
 							<li>Déploiement reproductible</li>
@@ -168,7 +167,7 @@
 
 					<a class="svc-card" href="#contact" data-presta="Industrialisation des déploiements">
 						<h3>Industrialisation des déploiements</h3>
-						<p class="svc-card-sym">Vous déployez à la main, et une seule personne sait le faire.</p>
+						<p class="svc-card-sym">Une seule personne sait mettre à jour ce qui est en ligne.</p>
 						<ul class="svc-card-feats">
 							<li>Pipeline GitHub Actions</li>
 							<li>Secrets hors du dépôt</li>
@@ -180,9 +179,9 @@
 						</div>
 					</a>
 
-					<a class="svc-card" href="#contact" data-presta="Conteneurisation et hébergement">
-						<h3>Conteneurisation et hébergement</h3>
-						<p class="svc-card-sym">Vous tournez sur une machine que personne ne sait remonter.</p>
+					<a class="svc-card" href="#contact" data-presta="Mise en production et hébergement">
+						<h3>Mise en production et hébergement</h3>
+						<p class="svc-card-sym">Tout repose sur une installation que personne ne sait refaire.</p>
 						<ul class="svc-card-feats">
 							<li>Image de production</li>
 							<li>TLS automatisé</li>
@@ -194,9 +193,9 @@
 						</div>
 					</a>
 
-					<a class="svc-card" href="#contact" data-presta="Migration sans interruption">
-						<h3>Migration sans interruption</h3>
-						<p class="svc-card-sym">Vous changez de plateforme sans pouvoir arrêter le service.</p>
+					<a class="svc-card" href="#contact" data-presta="Migration de production">
+						<h3>Migration de production</h3>
+						<p class="svc-card-sym">Vous devez déplacer votre production sans une minute de coupure.</p>
 						<ul class="svc-card-feats">
 							<li>Bascule app par app</li>
 							<li>Retour arrière par étape</li>
@@ -363,10 +362,10 @@
 						<label for="svc-presta">Prestation concernée</label>
 						<select id="svc-presta" name="prestation">
 							<option>À déterminer</option>
-							<option>Revue de mise en production</option>
+							<option>Audit DevOps</option>
 							<option>Industrialisation des déploiements</option>
-							<option>Conteneurisation et hébergement</option>
-							<option>Migration sans interruption</option>
+							<option>Mise en production et hébergement</option>
+							<option>Migration de production</option>
 						</select>
 					</div>
 					<div class="svc-field">

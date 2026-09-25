@@ -515,12 +515,15 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
   position: relative;
+  /* Sans borne, la phrase s allonge avec l ecran pendant que le
+     sous-titre reste bride : la forme part en entonnoir. */
+  max-width: 19ch;
 }
 
 .hero p {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--text-secondary);
-  max-width: 500px;
+  max-width: 48ch;
   margin-bottom: 2rem;
 }
 
@@ -541,27 +544,54 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
 }
 
 /* === ABOUT === */
+/* Meme ossature que les autres sections : conteneur cale sur --col,
+   tout aligne a gauche. C etait la seule section centree de la page,
+   et un texte centre sur six lignes se lit mal. */
 .about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5rem 1.5rem;
-  text-align: center;
-  gap: 1.5rem;
-  border-top: 1px solid var(--accent-muted);
+	padding: 5rem 1.5rem;
+	border-top: 1px solid var(--accent-muted);
+}
+
+.about-in {
+	width: 100%;
+	max-width: var(--col);
+	margin-inline: auto;
 }
 
 .about h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	font-weight: 600;
+	margin-bottom: 1.75rem;
+}
+
+.about-row {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 1.5rem 2rem;
+	align-items: start;
+}
+
+.about-photo {
+	width: 6.5rem;
+	height: 6.5rem;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 1px solid var(--accent-muted);
 }
 
 .about-bio {
-  max-width: 600px;
-  color: var(--text-secondary);
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  line-height: 1.8;
+	margin: 0;
+	color: var(--text-secondary);
+	font-size: clamp(1rem, 1.5vw, 1.1rem);
+	line-height: 1.8;
+	max-width: 62ch;
+}
+
+@media (max-width: 640px) {
+	.about-row {
+		grid-template-columns: 1fr;
+		justify-items: center;
+	}
 }
 
 .about-link {
@@ -774,36 +804,59 @@ body.light-theme .img-light {
 	margin-bottom: 0.75rem;
 }
 
-.home-services-lead {
-	color: var(--text-secondary);
-	max-width: 56ch;
-	margin-bottom: 2rem;
-}
-
+/* Quatre cartes en ligne, meme famille que celles de la page
+   Prestations, sans les prix ni les puces : le lecteur retrouve la
+   grille qu il vient de voir en arrivant sur le detail. */
 .home-services ul {
-	list-style: none;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(4, 1fr);
+	/* Deux rangees partagees : sans subgrid, la description demarre plus
+	   bas dans les cartes dont le titre tient sur deux lignes. */
+	grid-template-rows: auto auto;
 }
 
 .home-services li {
 	display: grid;
-	gap: 0.15rem;
-	padding: 1rem 0;
-	border-bottom: 1px solid var(--accent-muted);
+	grid-template-rows: subgrid;
+	grid-row: span 2;
+	gap: 0.45rem;
+	padding: 1.15rem;
+	background: var(--bg-card);
+	border: 1px solid var(--accent-muted);
+	border-radius: 12px;
+	box-shadow: var(--shadow-card);
+	transition: border-color 0.2s ease;
 }
 
-.home-services li:last-child {
-	border-bottom: 0;
+@media (hover: hover) {
+	.home-services li:hover {
+		border-color: var(--accent);
+	}
 }
 
 .home-services .hs-name {
 	font-family: var(--font-title);
-	font-size: 1.02rem;
+	font-size: 0.97rem;
 	font-weight: 500;
+	line-height: 1.35;
 }
 
 .home-services .hs-desc {
 	color: var(--text-secondary);
-	font-size: 0.89rem;
+	font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+	.home-services ul {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.home-services ul {
+		grid-template-columns: 1fr;
+	}
 }
 
 .home-services-link {
@@ -862,11 +915,6 @@ body.light-theme .img-light {
 	font-size: clamp(1.5rem, 3vw, 2.25rem);
 	font-weight: 600;
 	margin-bottom: 0.4rem;
-}
-
-.home-recos-lead {
-	color: var(--text-secondary);
-	margin-bottom: 2rem;
 }
 
 .home-recos-list {
@@ -936,16 +984,6 @@ body.light-theme .img-light {
 	margin-top: 1.75rem;
 	color: var(--accent);
 	font-weight: 500;
-}
-
-/* Portrait dans la section A propos : quand on vend seul, c est le
-   signal de confiance le moins cher. La section reste centree. */
-.about-photo {
-	width: 7rem;
-	height: 7rem;
-	border-radius: 50%;
-	object-fit: cover;
-	border: 1px solid var(--accent-muted);
 }
 
 /* === FADE-IN AU SCROLL === */
@@ -1061,13 +1099,8 @@ body.light-theme .img-light {
     max-width: 550px;
   }
 
-  /* About desktop */
   .about {
-    padding: 6rem 2rem;
-  }
-
-  .about-bio {
-    max-width: 550px;
+    padding-block: 6rem;
   }
 
 }

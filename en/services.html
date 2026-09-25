@@ -63,10 +63,10 @@
 			"@type": "OfferCatalog",
 			"name": "Services",
 			"itemListElement": [
-				{ "@type": "Offer", "name": "Production readiness review", "price": "600", "priceCurrency": "EUR" },
+				{ "@type": "Offer", "name": "DevOps audit", "price": "600", "priceCurrency": "EUR" },
 				{ "@type": "Offer", "name": "Deployment automation", "price": "2500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Containerisation and hosting", "price": "3500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Zero-downtime migration", "price": "4500", "priceCurrency": "EUR" }
+				{ "@type": "Offer", "name": "Production setup and hosting", "price": "3500", "priceCurrency": "EUR" },
+				{ "@type": "Offer", "name": "Production migration", "price": "4500", "priceCurrency": "EUR" }
 			]
 		}
 	}
@@ -90,6 +90,7 @@
 		<a href="/en/#Home" class="logo">A.</a>
 		<nav class="nav" aria-label="Main navigation">
 			<a href="/en/#Home">Home</a>
+			<a href="/en/#About">About</a>
 			<a href="/en/services" aria-current="page">Services</a>
 			<a href="/en/blog">Blog</a>
 			<a href="/en/tech-radar/">Tech Radar</a>
@@ -110,6 +111,7 @@
 		<div class="overlay-panel">
 			<nav aria-label="Menu">
 				<a href="/en/#Home">Home</a>
+				<a href="/en/#About">About</a>
 				<a href="/en/services">Services</a>
 				<a href="/en/blog">Blog</a>
 				<a href="/en/tech-radar/">Tech Radar</a>
@@ -146,15 +148,12 @@
 		<!-- Prestations -->
 		<section class="svc-sec" id="prestations">
 			<div class="svc-wrap">
-				<div class="svc-head" data-fade>
-					<h2>Services</h2>
-				</div>
 
 				<div class="svc-cards" data-fade>
 
-					<a class="svc-card" href="#contact" data-presta="Production readiness review">
-						<h3>Production readiness review</h3>
-						<p class="svc-card-sym">You are taking over a production you did not build.</p>
+					<a class="svc-card" href="#contact" data-presta="DevOps audit">
+						<h3>DevOps audit</h3>
+						<p class="svc-card-sym">Nobody knows what happens the day your production goes down.</p>
 						<ul class="svc-card-feats">
 							<li>Restore actually tested</li>
 							<li>Reproducible deployment</li>
@@ -168,7 +167,7 @@
 
 					<a class="svc-card" href="#contact" data-presta="Deployment automation">
 						<h3>Deployment automation</h3>
-						<p class="svc-card-sym">You deploy by hand, and only one person knows how.</p>
+						<p class="svc-card-sym">Only one person knows how to update what is live.</p>
 						<ul class="svc-card-feats">
 							<li>GitHub Actions pipeline</li>
 							<li>Secrets out of the repo</li>
@@ -180,9 +179,9 @@
 						</div>
 					</a>
 
-					<a class="svc-card" href="#contact" data-presta="Containerisation and hosting">
-						<h3>Containerisation and hosting</h3>
-						<p class="svc-card-sym">You run on a machine nobody knows how to rebuild.</p>
+					<a class="svc-card" href="#contact" data-presta="Production setup and hosting">
+						<h3>Production setup and hosting</h3>
+						<p class="svc-card-sym">Everything rests on a setup nobody knows how to rebuild.</p>
 						<ul class="svc-card-feats">
 							<li>Production image</li>
 							<li>Automated TLS</li>
@@ -194,9 +193,9 @@
 						</div>
 					</a>
 
-					<a class="svc-card" href="#contact" data-presta="Zero-downtime migration">
-						<h3>Zero-downtime migration</h3>
-						<p class="svc-card-sym">You are changing platform without stopping the service.</p>
+					<a class="svc-card" href="#contact" data-presta="Production migration">
+						<h3>Production migration</h3>
+						<p class="svc-card-sym">You have to move your production without a minute of downtime.</p>
 						<ul class="svc-card-feats">
 							<li>App by app switchover</li>
 							<li>Rollback per step</li>
@@ -363,10 +362,10 @@
 						<label for="svc-presta">Service</label>
 						<select id="svc-presta" name="prestation">
 							<option>Not sure yet</option>
-							<option>Production readiness review</option>
+							<option>DevOps audit</option>
 							<option>Deployment automation</option>
-							<option>Containerisation and hosting</option>
-							<option>Zero-downtime migration</option>
+							<option>Production setup and hosting</option>
+							<option>Production migration</option>
 						</select>
 					</div>
 					<div class="svc-field">
