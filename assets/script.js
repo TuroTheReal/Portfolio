@@ -200,12 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (isBlogPage || isResumePage || isRadarPage) {
-        // Sur blog/resume : seul Contact (>30% visible) peut override le défaut
-        if (bestId === 'Contact' && bestRatio >= 0.3) {
-          updateActiveNav(bestId);
-        } else {
-          setDefaultActiveNav();
-        }
+        // Sur une page secondaire, la navigation signale la page ou on se
+        // trouve, pas la section visible : le pied de page #Contact prenait
+        // le dessus et la page CV finissait par surligner « Contact ».
+        setDefaultActiveNav();
       } else {
         if (bestId) updateActiveNav(bestId);
       }

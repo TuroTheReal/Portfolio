@@ -517,7 +517,7 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
   position: relative;
   /* Sans borne, la phrase s allonge avec l ecran pendant que le
      sous-titre reste bride : la forme part en entonnoir. */
-  max-width: 19ch;
+  max-width: 27ch;
 }
 
 .hero p {
@@ -572,19 +572,22 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
 }
 
 .about-photo {
-	width: 6.5rem;
-	height: 6.5rem;
+	width: 9rem;
+	height: 9rem;
 	border-radius: 50%;
 	object-fit: cover;
 	border: 1px solid var(--accent-muted);
 }
 
 .about-bio {
-	margin: 0;
-	color: var(--text-secondary);
-	font-size: clamp(1rem, 1.5vw, 1.1rem);
-	line-height: 1.8;
 	max-width: 62ch;
+	color: var(--text-secondary);
+	font-size: clamp(0.98rem, 1.4vw, 1.05rem);
+	line-height: 1.75;
+}
+
+.about-bio p + p {
+	margin-top: 1rem;
 }
 
 @media (max-width: 640px) {
@@ -596,7 +599,7 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
 
 .about-link {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-size: 1rem;
   color: var(--accent);
   font-weight: 500;
@@ -982,8 +985,19 @@ body.light-theme .img-light {
 .home-recos-link {
 	display: inline-block;
 	margin-top: 1.75rem;
-	color: var(--accent);
+	padding: 0.7rem 1.5rem;
+	border: 1px solid var(--accent);
+	border-radius: 100px;
+	font-family: var(--font-text);
+	font-size: 0.95rem;
 	font-weight: 500;
+	color: var(--accent);
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-recos-link:hover {
+	background-color: var(--accent);
+	color: var(--bg-primary);
 }
 
 /* === FADE-IN AU SCROLL === */
