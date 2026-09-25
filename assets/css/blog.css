@@ -294,33 +294,6 @@ body.light-theme .blog-card-tags span {
 	gap: 1.5rem;
 }
 
-.blog-preview-link {
-	display: inline-block;
-	font-family: var(--font-text);
-	font-size: 0.95rem;
-	color: var(--accent);
-	font-weight: 500;
-	text-decoration: none;
-	position: relative;
-	padding-bottom: 3px;
-	margin-top: 2rem;
-}
-
-.blog-preview-link::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1.5px;
-	background: var(--accent);
-	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.blog-preview-link:hover::after {
-	width: 100%;
-}
-
 /* ============================================
    ARTICLE, Page template
    ============================================ */
@@ -669,9 +642,6 @@ body.light-theme .article-body pre {
 	.article-back,
 	.article-nav-link,
 	.blog-preview-link,
-	.blog-preview-link::after {
-		transition: none;
-	}
 
 }
 

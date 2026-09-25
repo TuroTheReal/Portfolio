@@ -624,33 +624,6 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
 	}
 }
 
-.about-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  color: var(--accent);
-  font-weight: 500;
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 3px;
-}
-
-.about-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1.5px;
-  background: var(--accent);
-  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.about-link:hover::after,
-[data-fade].visible.about-link:hover::after {
-  width: 100%;
-}
-
 /* === PROJECTS === */
 
 /* Projet item, mobile : empilé */
@@ -886,32 +859,6 @@ body.light-theme .img-light {
 	}
 }
 
-.home-services-link {
-	display: inline-block;
-	margin-top: 2rem;
-	font-family: var(--font-text);
-	font-size: 0.95rem;
-	font-weight: 500;
-	color: var(--accent);
-	position: relative;
-	padding-bottom: 3px;
-}
-
-.home-services-link::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1.5px;
-	background: var(--accent);
-	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.home-services-link:hover::after {
-	width: 100%;
-}
-
 /* Deux actions dans le hero */
 /* Mentions légales du pied de page */
 .footer-legal {
@@ -1006,11 +953,57 @@ body.light-theme .img-light {
 	color: var(--text-secondary);
 }
 
-.home-recos-link {
+/* === LIEN DE FIN DE SECTION ===
+   Un seul traitement pour les cinq sections de l accueil. Ils avaient
+   diverge : taille, marge, et pour deux d entre eux un soulignement
+   absent ou etire sur toute la colonne parce que le lien etait etire
+   par la grille parente. */
+.home-services-link,
+.home-recos-link,
+.about-link,
+.blog-preview-link,
+.radar-preview-link {
 	display: inline-block;
-	margin-top: 1.75rem;
-	color: var(--accent);
+	justify-self: start;
+	margin-top: 2rem;
+	font-family: var(--font-text);
+	font-size: 0.95rem;
 	font-weight: 500;
+	color: var(--accent);
+	text-decoration: none;
+	position: relative;
+	padding-bottom: 3px;
+}
+
+.home-services-link::after,
+.home-recos-link::after,
+.about-link::after,
+.blog-preview-link::after,
+.radar-preview-link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1.5px;
+	background: var(--accent);
+	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.home-services-link:hover::after,
+.home-recos-link:hover::after,
+.about-link:hover::after,
+.blog-preview-link:hover::after,
+.radar-preview-link:hover::after {
+	width: 100%;
+}
+
+/* Variante courte, sur les editions du radar. Doit suivre la regle
+   commune ci-dessus, sinon celle-ci ecrase sa taille et sa marge. */
+.radar-preview-link--small {
+	font-size: 0.8rem;
+	font-style: italic;
+	margin-top: 1.5rem;
 }
 
 /* === FADE-IN AU SCROLL === */
@@ -1249,39 +1242,6 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	border-top: 1px solid var(--accent-muted);
 	font-size: 0.85rem;
 	color: var(--text-secondary);
-}
-
-.radar-preview-link {
-	display: inline-block;
-	font-family: var(--font-text);
-	font-size: 0.95rem;
-	color: var(--accent);
-	font-weight: 500;
-	text-decoration: none;
-	position: relative;
-	padding-bottom: 3px;
-	margin-top: 2rem;
-}
-
-.radar-preview-link::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1.5px;
-	background: var(--accent);
-	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.radar-preview-link:hover::after {
-	width: 100%;
-}
-
-.radar-preview-link--small {
-	font-size: 0.8rem;
-	font-style: italic;
-	margin-top: 1.5rem;
 }
 
 /* Lien style "Lire l'article" (accent + italique + underline animé) utilisable inline */
