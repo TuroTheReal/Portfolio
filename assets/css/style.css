@@ -960,7 +960,8 @@ body.light-theme .img-light {
 .home-recos-link,
 .about-link,
 .blog-preview-link,
-.radar-preview-link {
+.radar-preview-link,
+.radar-source-link {
 	display: inline-block;
 	justify-self: start;
 	margin-top: 2rem;
@@ -977,7 +978,8 @@ body.light-theme .img-light {
 .home-recos-link::after,
 .about-link::after,
 .blog-preview-link::after,
-.radar-preview-link::after {
+.radar-preview-link::after,
+.radar-source-link::after {
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -992,7 +994,8 @@ body.light-theme .img-light {
 .home-recos-link:hover::after,
 .about-link:hover::after,
 .blog-preview-link:hover::after,
-.radar-preview-link:hover::after {
+.radar-preview-link:hover::after,
+.radar-source-link:hover::after {
 	width: 100%;
 }
 
@@ -1243,20 +1246,12 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 	color: var(--text-secondary);
 }
 
-/* Lien style "Lire l'article" (accent + italique + underline animé) utilisable inline */
+/* Lien de méthodologie, sous le chapeau du Tech Radar. Il était en
+   italique au fil du paragraphe, avec un soulignement qui ne suivait pas
+   le reste du site. Sorti sur sa ligne, il prend le traitement commun
+   ci-dessus ; il ouvre la section au lieu de la fermer, d'où la marge. */
 .radar-source-link {
-	font-style: italic;
-	color: var(--accent);
-	font-weight: 500;
-	text-decoration: underline;
-	text-decoration-thickness: 1px;
-	text-underline-offset: 3px;
-	text-decoration-color: transparent;
-	transition: text-decoration-color 0.35s ease;
-}
-
-.radar-source-link:hover {
-	text-decoration-color: var(--accent);
+	margin-top: 0.85rem;
 }
 
 .radar-card--hidden {
