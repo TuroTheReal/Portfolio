@@ -138,13 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Retirer active de TOUS les liens (y compris blog, resume)
       link.classList.remove('active');
       link.removeAttribute('aria-current');
-      // Trois entrees de la nav pointent vers une page et non vers une ancre
-      // (Prestations, Blog, Tech Radar). Sans data-section elles ne pouvaient
-      // jamais s allumer alors que la section correspondante est a l ecran.
-      // Liste : « Temoignages » n a pas d entree dans la nav, il est rattache
-      // a Prestations, sinon le surlignage disparait le temps de la section.
-      const owned = (link.getAttribute('data-section') || '').split(' ');
-      if ((href.includes('#') && href.endsWith(`#${sectionId}`)) || owned.includes(sectionId)) {
+      // Activer le lien qui matche la section visible (uniquement les liens avec hash)
+      if (href.includes('#') && href.endsWith(`#${sectionId}`)) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
       }
@@ -185,31 +180,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (sections.length > 0 && 'IntersectionObserver' in window) {
 
-    // Hauteur visible de chaque section, en pixels
-    const sectionVisible = {};
+    // Stocker la section la plus visible
+    const sectionRatios = {};
 
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // Hauteur reellement visible, pas le ratio propre a l element : une
-        // section courte entierement visible battait une section longue qui
-        // occupe tout l ecran.
-        sectionVisible[entry.target.id] = entry.intersectionRect.height;
+        sectionRatios[entry.target.id] = entry.intersectionRatio;
       });
 
-      // Trouver la section qui occupe le plus d ecran
+      // Trouver la section avec le plus grand ratio visible
       let bestId = null;
-      let bestVisible = 0;
-      for (const [id, visible] of Object.entries(sectionVisible)) {
-        if (visible > bestVisible) {
-          bestVisible = visible;
+      let bestRatio = 0;
+      for (const [id, ratio] of Object.entries(sectionRatios)) {
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
           bestId = id;
         }
       }
 
-      // Tout en bas, Contact. Le pied de page fait 247px pour 900px de
-      // fenetre : il ne peut jamais gagner a la hauteur visible, donc il
-      // lui faut ce coup de pouce. Il ne porte que sur les 50 derniers
-      // pixels, le Tech Radar garde le surlignage sur toute sa section.
+      // Si en bas de page, forcer Contact (homepage seulement)
       if (!isBlogPage && !isResumePage && !isRadarPage && !isServicesPage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
         bestId = 'Contact';
       }

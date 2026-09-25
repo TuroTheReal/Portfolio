@@ -1249,9 +1249,16 @@ body.light-theme .radar-tag--secu       { color: #dc2626; background: rgba(220, 
 /* Lien de méthodologie, sous le chapeau du Tech Radar. Il était en
    italique au fil du paragraphe, avec un soulignement qui ne suivait pas
    le reste du site. Sorti sur sa ligne, il prend le traitement commun
-   ci-dessus ; il ouvre la section au lieu de la fermer, d'où la marge. */
+   ci-dessus, mais collé au chapeau : il se lit comme sa dernière ligne,
+   pas comme un bloc séparé. Il reprend donc l'écart que le chapeau
+   laissait sous lui avant la grille des éditions. */
+.blog-subtitle:has(+ .radar-source-link) {
+	margin-bottom: 0;
+}
+
 .radar-source-link {
-	margin-top: 0.85rem;
+	margin-top: 0.25rem;
+	margin-bottom: 2.5rem;
 }
 
 .radar-card--hidden {
