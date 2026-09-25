@@ -835,11 +835,11 @@ body.light-theme .img-light {
    grille qu il vient de voir en arrivant sur le detail. */
 .home-services ul {
 	display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat(4, 1fr);
-	/* Deux rangees partagees : sans subgrid, la description demarre plus
-	   bas dans les cartes dont le titre tient sur deux lignes. */
-	grid-template-rows: auto auto;
+	gap: 1.25rem;
+	grid-template-columns: repeat(2, 1fr);
+	/* Deux rangees partagees par paire : sans subgrid, la description
+	   demarre plus bas dans les cartes dont le titre tient sur deux lignes. */
+	grid-auto-rows: auto auto;
 }
 
 .home-services li {
@@ -852,8 +852,8 @@ body.light-theme .img-light {
 	display: grid;
 	grid-template-rows: subgrid;
 	grid-row: span 2;
-	gap: 0.45rem;
-	padding: 1.15rem;
+	gap: 0.55rem;
+	padding: 1.6rem;
 	background: var(--bg-card);
 	border: 1px solid var(--accent-muted);
 	border-radius: 12px;
@@ -870,20 +870,14 @@ body.light-theme .img-light {
 
 .home-services .hs-name {
 	font-family: var(--font-title);
-	font-size: 0.97rem;
+	font-size: 1.15rem;
 	font-weight: 500;
 	line-height: 1.35;
 }
 
 .home-services .hs-desc {
 	color: var(--text-secondary);
-	font-size: 0.85rem;
-}
-
-@media (max-width: 900px) {
-	.home-services ul {
-		grid-template-columns: repeat(2, 1fr);
-	}
+	font-size: 0.95rem;
 }
 
 @media (max-width: 560px) {
