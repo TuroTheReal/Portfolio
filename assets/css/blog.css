@@ -155,10 +155,11 @@
 	padding: 1.5rem;
 	border-radius: 12px;
 	background: var(--bg-card);
+	border: 1px solid transparent;
 	box-shadow: var(--shadow-card);
 	text-decoration: none;
 	color: inherit;
-	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 /* Card masquée par le filtre tag */
@@ -166,10 +167,13 @@
 	display: none;
 }
 
-/* Léger scale sur la card au hover (devices avec hover uniquement) */
+/* Meme comportement que les cartes de prestations : la bordure d accent
+   dit « ceci est actif » sans deplacer le texte ni empieter sur la
+   carte voisine. */
 @media (hover: hover) {
 	.blog-card:hover {
-		transform: scale(1.03);
+		border-color: var(--accent);
+		transform: translateY(-2px);
 	}
 }
 
@@ -273,10 +277,15 @@ body.light-theme .blog-card-tags span {
    HOMEPAGE, Blog preview (Latest Articles)
    ============================================ */
 
+/* Blog et Tech Radar etaient des boites centrees, pas des sections
+   pleine largeur : c est pourquoi elles n avaient pas de filet, un
+   border-top s y serait arrete a 1000px. La section prend donc toute la
+   largeur, et le padding lateral recentre la colonne de contenu sur
+   --col, comme le font les trois autres sections avec leur div -in. */
 .blog-preview {
-	padding: 2rem 1.5rem 4rem;
-	max-width: 900px;
-	margin: 0 auto;
+	padding-block: 4rem;
+	padding-inline: max(1.5rem, (100% - var(--col)) / 2);
+	border-top: 1px solid var(--accent-muted);
 	scroll-margin-top: var(--header-height);
 }
 
@@ -292,33 +301,6 @@ body.light-theme .blog-card-tags span {
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
-}
-
-.blog-preview-link {
-	display: inline-block;
-	font-family: var(--font-text);
-	font-size: 0.95rem;
-	color: var(--accent);
-	font-weight: 500;
-	text-decoration: none;
-	position: relative;
-	padding-bottom: 3px;
-	margin-top: 2rem;
-}
-
-.blog-preview-link::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1.5px;
-	background: var(--accent);
-	transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.blog-preview-link:hover::after {
-	width: 100%;
 }
 
 /* ============================================
@@ -620,11 +602,6 @@ body.light-theme .article-body pre {
 		gap: 2rem;
 	}
 
-	.blog-preview {
-		padding: 3rem 3rem 5rem;
-		max-width: 1000px;
-	}
-
 	.blog-preview-grid {
 		gap: 2rem;
 	}
@@ -649,10 +626,6 @@ body.light-theme .article-body pre {
 	.blog-listing {
 		max-width: 1100px;
 	}
-
-	.blog-preview {
-		max-width: 1100px;
-	}
 }
 
 /* ============================================
@@ -669,8 +642,52 @@ body.light-theme .article-body pre {
 	.article-back,
 	.article-nav-link,
 	.blog-preview-link,
-	.blog-preview-link::after {
-		transition: none;
-	}
 
+}
+
+/* === FIN D'ARTICLE, passerelle vers les prestations ===
+   Le blog amene le trafic, la page Prestations vend. Sans ce relais
+   les deux ne se parlent pas : c'est le seul endroit ou un lecteur
+   d'article croise l'offre. Le bloc s'ajoute avant le pied d'article,
+   il ne remplace rien. */
+.post-cta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem 1.5rem;
+	margin: 3.5rem 0 0;
+	padding: 1.5rem;
+	border: 1px solid var(--accent-muted);
+	border-radius: 12px;
+	background: var(--bg-card);
+}
+
+.post-cta-txt {
+	flex: 1 1 22rem;
+	min-width: 0;
+}
+
+.post-cta-txt b {
+	display: block;
+	font-family: var(--font-title);
+	font-size: 1rem;
+	font-weight: 500;
+	margin-bottom: 0.35rem;
+}
+
+.post-cta-txt p {
+	font-size: 0.9rem;
+	color: var(--text-secondary);
+	max-width: 58ch;
+}
+
+.post-cta .hero-cta {
+	flex: 0 0 auto;
+}
+
+@media print {
+	.post-cta {
+		display: none;
+	}
 }

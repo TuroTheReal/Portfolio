@@ -130,24 +130,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const isBlogPage = window.location.pathname.includes('blog');
   const isResumePage = window.location.pathname.includes('resume');
   const isRadarPage = window.location.pathname.includes('/tech-radar');
+  const isServicesPage = window.location.pathname.includes('/services');
 
+  // Seules les ancres pures (« #contact ») visent la page courante. Un lien
+  // comme « /fr/#Contact » vu depuis le blog mene ailleurs : l allumer
+  // reviendrait a annoncer une page ou l on n est pas.
   function updateActiveNav(sectionId) {
+    let matched = false;
     navLinks.forEach(link => {
-      const href = link.getAttribute('href');
+      const href = link.getAttribute('href') || '';
       // Retirer active de TOUS les liens (y compris blog, resume)
       link.classList.remove('active');
       link.removeAttribute('aria-current');
-      // Activer le lien qui matche la section visible (uniquement les liens avec hash)
-      if (href.includes('#') && href.endsWith(`#${sectionId}`)) {
+      if (href.startsWith('#') && href.slice(1) === sectionId) {
         link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
+        // « location » et non « page » : c est une section de la page
+        // courante, pas une autre page.
+        link.setAttribute('aria-current', 'location');
+        matched = true;
       }
     });
-    // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf pages resume/blog)
-    const pagePath = window.location.pathname;
-    if (sectionId && !pagePath.includes('resume') && !pagePath.includes('blog') && !pagePath.includes('tech-radar') && window.location.hash !== `#${sectionId}`) {
+    // Met à jour le hash sans ajouter d'entrée dans l'historique. Accueil
+    // seulement : depuis que cette fonction tourne aussi sur les pages
+    // secondaires, elle réécrirait l'URL de la page Prestations à chaque
+    // section franchie.
+    const isHome = !isBlogPage && !isResumePage && !isRadarPage && !isServicesPage;
+    if (sectionId && isHome && window.location.hash !== `#${sectionId}`) {
       history.replaceState(null, '', `#${sectionId}`);
     }
+    return matched;
   }
 
   // Pages secondaires : activer le lien correspondant par défaut
@@ -156,7 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.remove('active');
       link.removeAttribute('aria-current');
       const href = link.getAttribute('href');
-      if (isResumePage && href.includes('resume')) {
+      if (isServicesPage && href.includes('/services')) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      } else if (isResumePage && href.includes('resume')) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
       } else if (isRadarPage && href.includes('tech-radar')) {
@@ -195,20 +209,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Si en bas de page, forcer Contact (homepage seulement)
-      if (!isBlogPage && !isResumePage && !isRadarPage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+      if (!isBlogPage && !isResumePage && !isRadarPage && !isServicesPage && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
         bestId = 'Contact';
       }
 
-      if (isBlogPage || isResumePage || isRadarPage) {
-        // Sur blog/resume : seul Contact (>30% visible) peut override le défaut
-        if (bestId === 'Contact' && bestRatio >= 0.3) {
-          updateActiveNav(bestId);
-        } else {
-          setDefaultActiveNav();
-        }
-      } else {
-        if (bestId) updateActiveNav(bestId);
-      }
+      // Une seule regle pour toutes les pages : si la section lue a une
+      // ancre dans la barre, elle prend le surlignage ; sinon la barre
+      // retombe sur la page ou l on se trouve. C est ce qui permet a
+      // « Contact » de s allumer dans le formulaire de la page Prestations,
+      // sans jamais s allumer sur le blog ou le CV, ou il mene ailleurs.
+      if (!bestId || !updateActiveNav(bestId)) setDefaultActiveNav();
     }, {
       threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1],
       rootMargin: `-${headerPx}px 0px 0px 0px`
@@ -353,15 +363,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     const lang = path.startsWith('/fr') ? 'fr' : 'en';
     const isResume = path.includes('resume');
+    const isServices = path.includes('services');
     const isBlog = path.includes('blog');
     const isRadar = path.includes('tech-radar');
-    return { lang, isResume, isBlog, isRadar };
+    return { lang, isResume, isServices, isBlog, isRadar };
   }
 
   langToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const targetLang = toggle.dataset.lang;
-      const { lang: currentLang, isResume, isBlog, isRadar } = getCurrentLangAndPage();
+      const { lang: currentLang, isResume, isServices, isBlog, isRadar } = getCurrentLangAndPage();
       const currentHash = window.location.hash;
 
       if (targetLang === currentLang) return;
@@ -374,6 +385,8 @@ document.addEventListener('DOMContentLoaded', () => {
         newPath = path.replace(/^\/(en|fr)\//, `/${targetLang}/`);
       } else if (isResume) {
         newPath = `/${targetLang}/resume`;
+      } else if (isServices) {
+        newPath = `/${targetLang}/services`;
       } else {
         newPath = `/${targetLang}/`;
       }
