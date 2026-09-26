@@ -357,39 +357,20 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================ */
   const langToggles = document.querySelectorAll('.lang-toggle');
 
-  // Déterminer la langue et la page actuelle depuis l'URL folder-based
-  // Structure : /en/, /en/resume, /en/blog, /en/tech-radar, /fr/, /fr/resume, /fr/blog, /fr/tech-radar
-  function getCurrentLangAndPage() {
-    const path = window.location.pathname;
-    const lang = path.startsWith('/fr') ? 'fr' : 'en';
-    const isResume = path.includes('resume');
-    const isServices = path.includes('services');
-    const isBlog = path.includes('blog');
-    const isRadar = path.includes('tech-radar');
-    return { lang, isResume, isServices, isBlog, isRadar };
-  }
-
   langToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const targetLang = toggle.dataset.lang;
-      const { lang: currentLang, isResume, isServices, isBlog, isRadar } = getCurrentLangAndPage();
+      const path = window.location.pathname;
+      const currentLang = path.startsWith('/fr') ? 'fr' : 'en';
       const currentHash = window.location.hash;
 
       if (targetLang === currentLang) return;
 
-      // Construire le nouveau path en remplaçant /en/ ou /fr/ par la langue cible
-      const path = window.location.pathname;
-      let newPath;
-      if (isBlog || isRadar) {
-        // Remplace /en/blog/... ou /fr/blog/... ou /en/tech-radar/... par /{targetLang}/...
-        newPath = path.replace(/^\/(en|fr)\//, `/${targetLang}/`);
-      } else if (isResume) {
-        newPath = `/${targetLang}/resume`;
-      } else if (isServices) {
-        newPath = `/${targetLang}/services`;
-      } else {
-        newPath = `/${targetLang}/`;
-      }
+      // Les arborescences /fr et /en sont identiques, page pour page : il
+      // suffit d echanger le prefixe. L ancienne version listait les pages
+      // une par une et retombait sur l accueil pour toute page inconnue,
+      // ce qui perdait le visiteur des qu une page etait ajoutee.
+      const newPath = path.replace(/^\/(en|fr)(?=\/|$)/, `/${targetLang}`);
 
       // Sauvegarder la position de scroll pour la restaurer après rechargement
       sessionStorage.setItem('scrollPos', window.scrollY);
