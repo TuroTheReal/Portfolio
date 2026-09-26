@@ -548,7 +548,7 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
    tout aligne a gauche. C etait la seule section centree de la page,
    et un texte centre sur six lignes se lit mal. */
 .about {
-	padding: 5rem 1.5rem;
+	padding: 4rem 1.5rem;
 	border-top: 1px solid var(--accent-muted);
 }
 
@@ -886,13 +886,6 @@ body.light-theme .img-light {
 	margin-top: 0.5rem;
 }
 
-@media (min-width: 768px) {
-	.home-services,
-	.home-recos {
-		padding-block: 5rem;
-	}
-}
-
 /* === RECOMMANDATIONS, page d'accueil ===
    L accueil affirmait sans rien montrer. Meme composant que la page
    Prestations, deux citations, puis un lien vers les etudes de cas :
@@ -1134,19 +1127,12 @@ body.light-theme .img-light {
     max-width: 550px;
   }
 
-  .about {
-    padding-block: 6rem;
-  }
-
 }
 
 /* ───── Tech Radar Preview ───── */
 
-.radar-preview {
-	max-width: 900px;
-	margin: 0 auto;
-	padding: 2rem 1.5rem 4rem;
-}
+/* La mise en page vient de .blog-preview dans blog.css, charge apres :
+   la section porte les deux classes. Rien a redeclarer ici. */
 
 .radar-preview h2 {
 	font-family: var(--font-title);

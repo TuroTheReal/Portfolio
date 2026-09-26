@@ -277,10 +277,15 @@ body.light-theme .blog-card-tags span {
    HOMEPAGE, Blog preview (Latest Articles)
    ============================================ */
 
+/* Blog et Tech Radar etaient des boites centrees, pas des sections
+   pleine largeur : c est pourquoi elles n avaient pas de filet, un
+   border-top s y serait arrete a 1000px. La section prend donc toute la
+   largeur, et le padding lateral recentre la colonne de contenu sur
+   --col, comme le font les trois autres sections avec leur div -in. */
 .blog-preview {
-	padding: 2rem 1.5rem 4rem;
-	max-width: 900px;
-	margin: 0 auto;
+	padding-block: 4rem;
+	padding-inline: max(1.5rem, (100% - var(--col)) / 2);
+	border-top: 1px solid var(--accent-muted);
 	scroll-margin-top: var(--header-height);
 }
 
@@ -597,11 +602,6 @@ body.light-theme .article-body pre {
 		gap: 2rem;
 	}
 
-	.blog-preview {
-		padding: 3rem 3rem 5rem;
-		max-width: 1000px;
-	}
-
 	.blog-preview-grid {
 		gap: 2rem;
 	}
@@ -624,10 +624,6 @@ body.light-theme .article-body pre {
    ============================================ */
 @media (min-width: 1440px) {
 	.blog-listing {
-		max-width: 1100px;
-	}
-
-	.blog-preview {
 		max-width: 1100px;
 	}
 }
