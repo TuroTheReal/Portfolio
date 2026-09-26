@@ -1016,6 +1016,13 @@ body.light-theme .img-light {
 	width: 100%;
 }
 
+/* « Mon parcours » est le seul des cinq liens pose dans une grille.
+   Le gap de .about-row s ajoutait au margin-top commun : 70px sous le
+   texte, contre 32px pour les quatre autres. On retranche le gap. */
+.about-link {
+	margin-top: calc(2rem - 1.75rem);
+}
+
 /* Variante courte, sur les editions du radar. Doit suivre la regle
    commune ci-dessus, sinon celle-ci ecrase sa taille et sa marge. */
 .radar-preview-link--small {
