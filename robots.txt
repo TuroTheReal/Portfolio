@@ -5,6 +5,9 @@ Disallow: /en/blog/article-template
 Disallow: /fr/blog/article-template
 Disallow: /en/tech-radar/edition-template
 Disallow: /fr/tech-radar/edition-template
+# Fichiers de test pousses par erreur, a supprimer du depot
+Disallow: /_shot_
+Disallow: /_probe_
 
 # AI crawlers, blog autorisé, reste bloqué
 
