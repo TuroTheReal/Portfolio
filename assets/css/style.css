@@ -885,10 +885,12 @@ body.light-theme .img-light {
 	border-top: 1px solid var(--accent-muted);
 }
 
+/* 1.75rem comme « A propos » : le filet au-dessus des citations portait
+   l ecart, il fallait le rendre au titre en le retirant. */
 .home-recos h2 {
 	font-size: clamp(1.5rem, 3vw, 2.25rem);
 	font-weight: 600;
-	margin-bottom: 0.4rem;
+	margin-bottom: 1.75rem;
 }
 
 .home-recos-list {
@@ -902,8 +904,6 @@ body.light-theme .img-light {
 	display: grid;
 	gap: 1rem;
 	margin: 0;
-	padding-top: 1.25rem;
-	border-top: 1px solid var(--accent-muted);
 }
 
 .home-recos blockquote {

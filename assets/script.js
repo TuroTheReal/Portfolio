@@ -132,23 +132,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const isRadarPage = window.location.pathname.includes('/tech-radar');
   const isServicesPage = window.location.pathname.includes('/services');
 
+  // Seules les ancres pures (« #contact ») visent la page courante. Un lien
+  // comme « /fr/#Contact » vu depuis le blog mene ailleurs : l allumer
+  // reviendrait a annoncer une page ou l on n est pas.
   function updateActiveNav(sectionId) {
+    let matched = false;
     navLinks.forEach(link => {
-      const href = link.getAttribute('href');
+      const href = link.getAttribute('href') || '';
       // Retirer active de TOUS les liens (y compris blog, resume)
       link.classList.remove('active');
       link.removeAttribute('aria-current');
-      // Activer le lien qui matche la section visible (uniquement les liens avec hash)
-      if (href.includes('#') && href.endsWith(`#${sectionId}`)) {
+      if (href.startsWith('#') && href.slice(1) === sectionId) {
         link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
+        // « location » et non « page » : c est une section de la page
+        // courante, pas une autre page.
+        link.setAttribute('aria-current', 'location');
+        matched = true;
       }
     });
-    // Met à jour le hash sans ajouter d'entrée dans l'historique (sauf pages resume/blog)
-    const pagePath = window.location.pathname;
-    if (sectionId && !pagePath.includes('resume') && !pagePath.includes('blog') && !pagePath.includes('tech-radar') && window.location.hash !== `#${sectionId}`) {
+    // Met à jour le hash sans ajouter d'entrée dans l'historique. Accueil
+    // seulement : depuis que cette fonction tourne aussi sur les pages
+    // secondaires, elle réécrirait l'URL de la page Prestations à chaque
+    // section franchie.
+    const isHome = !isBlogPage && !isResumePage && !isRadarPage && !isServicesPage;
+    if (sectionId && isHome && window.location.hash !== `#${sectionId}`) {
       history.replaceState(null, '', `#${sectionId}`);
     }
+    return matched;
   }
 
   // Pages secondaires : activer le lien correspondant par défaut
@@ -203,14 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
         bestId = 'Contact';
       }
 
-      if (isBlogPage || isResumePage || isRadarPage || isServicesPage) {
-        // Sur une page secondaire, la navigation signale la page ou on se
-        // trouve, pas la section visible : le pied de page #Contact prenait
-        // le dessus et la page CV finissait par surligner « Contact ».
-        setDefaultActiveNav();
-      } else {
-        if (bestId) updateActiveNav(bestId);
-      }
+      // Une seule regle pour toutes les pages : si la section lue a une
+      // ancre dans la barre, elle prend le surlignage ; sinon la barre
+      // retombe sur la page ou l on se trouve. C est ce qui permet a
+      // « Contact » de s allumer dans le formulaire de la page Prestations,
+      // sans jamais s allumer sur le blog ou le CV, ou il mene ailleurs.
+      if (!bestId || !updateActiveNav(bestId)) setDefaultActiveNav();
     }, {
       threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1],
       rootMargin: `-${headerPx}px 0px 0px 0px`

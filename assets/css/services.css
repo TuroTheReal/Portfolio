@@ -243,9 +243,9 @@ body.light-theme {
 
 /* ============================================
    RECOMMANDATIONS
-   Meme affichage que la section Temoignages de l accueil : un filet
-   au-dessus de chaque citation, pas de carte. Les deux pages montrent
-   les memes citations, elles ne peuvent pas se ressembler a moitie.
+   Meme affichage que la section Recommandations de l accueil : ni carte
+   ni filet, la citation et son auteur. Les deux pages montrent les memes
+   citations, elles ne peuvent pas se ressembler a moitie.
    ============================================ */
 .svc-recos {
 	display: grid;
@@ -259,8 +259,6 @@ body.light-theme {
 	display: grid;
 	gap: 1rem;
 	margin: 0;
-	padding-top: 1.25rem;
-	border-top: 1px solid var(--accent-muted);
 }
 
 .svc-recos blockquote {
