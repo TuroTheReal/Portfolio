@@ -614,6 +614,23 @@ body.light-theme .hero-mesh .blob { opacity: 0.4; }
 	margin: 0;
 }
 
+/* Glasck.gg et Suiton.app au fil de la bio. La regle generique « a » les
+   rend invisibles ; on les souligne, sans les passer en accent : ils
+   servent a verifier une affirmation, pas a faire sortir le lecteur de
+   la page juste avant le CTA. L accent arrive au survol. */
+.about-bio a {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	text-decoration-color: var(--accent-muted);
+	transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.about-bio a:hover {
+	color: var(--accent);
+	text-decoration-color: var(--accent);
+}
+
 .about-bio p + p {
 	margin-top: 1rem;
 }
