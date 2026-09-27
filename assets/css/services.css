@@ -308,66 +308,6 @@ body.light-theme {
 }
 
 /* ============================================
-   OPTION
-   Une cinquieme carte aurait casse la grille : 2x2 sous 1100px, 4x1
-   au-dessus, donc un orphelin dans les deux cas. L option n est pas
-   une prestation de meme rang, elle se lit sur une ligne sous les
-   quatre. Meme survol que les cartes, c est cliquable pareil.
-   ============================================ */
-.svc-option {
-	display: grid;
-	gap: 0.3rem 1.25rem;
-	margin-top: var(--svc-s3);
-	padding: var(--svc-s3);
-	border-radius: 12px;
-	border: 1px dashed var(--svc-line);
-	color: inherit;
-	transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@media (hover: hover) {
-	.svc-option:hover {
-		border-color: var(--accent);
-		transform: scale(1.01);
-	}
-}
-
-.svc-option-lead {
-	font-size: 0.72rem;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	color: var(--accent);
-}
-
-.svc-option-name {
-	font-family: var(--font-title);
-	font-size: 1.05rem;
-	font-weight: 600;
-}
-
-.svc-option-desc {
-	font-size: 0.88rem;
-	color: var(--text-secondary);
-}
-
-.svc-option-price {
-	font-size: 0.82rem;
-	color: var(--text-secondary);
-}
-
-@media (min-width: 700px) {
-	.svc-option {
-		grid-template-columns: 1fr auto;
-		align-items: baseline;
-	}
-
-	.svc-option-lead { grid-column: 1 / -1; }
-	.svc-option-name { grid-column: 1; }
-	.svc-option-desc { grid-column: 1; }
-	.svc-option-price { grid-column: 2; grid-row: 2 / span 2; align-self: center; white-space: nowrap; }
-}
-
-/* ============================================
    MÉTHODE, frise
    ============================================ */
 .svc-steps {
