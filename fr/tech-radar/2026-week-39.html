@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<!--
+		SEO GUIDELINES, placeholders à remplir :
+		39             → numéro de semaine (ex: 12)
+		{{MONTH_FR}}         → nom du mois en français (ex: mars)
+		{{YEAR}}             → année (ex: 2026)
+		Tech Radar Semaine 39 — Business & Cloud (Septembre 2026)        → "Tech Radar, Semaine 39 ({{MONTH_FR}} {{YEAR}})", max 60 chars
+		Tech Radar Semaine 39, OpenAI prépare un forfait ChatGPT Pro Max à 500 $, AWS améliore les bus d'événements EventBridge et plus. → "X articles : headline1, headline2, … et plus.", max 155 chars
+		2026-09-27         → ISO 8601 complet : YYYY-MM-DDT00:00:00Z
+		2026-week-39.html         → ex: 2026-week-12.html
+		26    → nombre total d'articles
+
+		Mois FR : Janvier, Février, Mars, Avril, Mai, Juin,
+		          Juillet, Août, Septembre, Octobre, Novembre, Décembre
+	-->
+	<meta name="description" content="Tech Radar Semaine 39, OpenAI prépare un forfait ChatGPT Pro Max à 500 $, AWS améliore les bus d'événements EventBridge et plus.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Tech Radar Semaine 39 — Business & Cloud (Septembre 2026)</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Tech Radar Semaine 39 — Business & Cloud (Septembre 2026)">
+	<meta property="og:description" content="Tech Radar Semaine 39, OpenAI prépare un forfait ChatGPT Pro Max à 500 $, AWS améliore les bus d'événements EventBridge et plus.">
+	<meta property="og:url" content="https://arthurbernard.dev/fr/tech-radar/2026-week-39.html">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta property="og:image:alt" content="Tech Radar, Semaine 39 par Arthur Bernard">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="article:published_time" content="2026-09-27">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Tech Radar Semaine 39 — Business & Cloud (Septembre 2026)">
+	<meta name="twitter:description" content="Tech Radar Semaine 39, OpenAI prépare un forfait ChatGPT Pro Max à 500 $, AWS améliore les bus d'événements EventBridge et plus.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta name="twitter:image:alt" content="Tech Radar, Semaine 39 par Arthur Bernard">
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": "Tech Radar Semaine 39 — Business & Cloud (Septembre 2026)",
+		"description": "Tech Radar Semaine 39, OpenAI prépare un forfait ChatGPT Pro Max à 500 $, AWS améliore les bus d'événements EventBridge et plus.",
+		"datePublished": "2026-09-27",
+		"inLanguage": "fr",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/fr/tech-radar/2026-week-39.html"
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-39.html">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-39.html">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-39.html">
+
+	<link rel="canonical" href="https://arthurbernard.dev/fr/tech-radar/2026-week-39.html">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap"></noscript>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='75%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='600' font-size='24' fill='%238c96ff'%3EA.%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/fr/#Home" class="logo">A.</a>
+		<nav class="nav" aria-label="Navigation principale">
+			<a href="/fr/#Home">Accueil</a>
+			<a href="/fr/services">Prestations</a>
+			<a href="/fr/#About">À propos</a>
+			<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/" aria-current="page">Tech Radar</a>
+			<a href="#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle active" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/fr/#Home">Accueil</a>
+				<a href="/fr/services">Prestations</a>
+				<a href="/fr/#About">À propos</a>
+				<a href="/fr/blog">Blog</a>
+				<a href="/fr/tech-radar/" aria-current="page">Tech Radar</a>
+				<a href="#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle active" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<article class="blog-article radar-edition">
+
+			<!-- En-tête édition -->
+			<header class="article-header" data-fade>
+				<a href="/fr/tech-radar/" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Tech Radar</a>
+				<h1>Tech Radar, Semaine 39</h1>
+				<div class="article-meta">
+					<time datetime="2026-09-27">20 - 27 Septembre 2026</time>
+					<span class="article-read-time">26 articles</span>
+				</div>
+			</header>
+
+			<!-- Filtre catégories -->
+			<div class="radar-filter-fade"></div>
+			<div class="radar-tags-filter" role="group" aria-label="Filtrer par catégorie" data-fade>
+				<button class="radar-filter-btn active" data-category="all" aria-pressed="true">Tous</button>
+				<button class="radar-filter-btn" data-category="business" aria-pressed="false">Business</button>
+				<button class="radar-filter-btn" data-category="cloud" aria-pressed="false">Cloud</button>
+				<button class="radar-filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+				<button class="radar-filter-btn" data-category="tech" aria-pressed="false">Tech</button>
+				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Sécurité</button>
+				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">IA</button>
+
+			</div>
+			<div aria-live="polite" class="sr-only" id="filter-status"></div>
+
+			<!-- Corps édition -->
+			<div class="article-body" data-fade>
+
+				<!-- RADAR_CONTENT -->
+
+<h2><span class="radar-tag radar-tag--business">Business</span></h2>
+
+<div class="radar-edition-item">
+    <h3>OpenAI prépare un forfait ChatGPT Pro Max à 500 $</h3>
+    <p>Ce forfait présumé inclurait un accès Codex plus rapide, sans date de lancement connue.</p>
+    <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-a-500-chatgpt-pro-max-plan-with-faster-codex/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : OpenAI prépare un forfait ChatGPT Pro Max à 500 $ (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Anthropic signe un accord cloud avec Akamai</h3>
+    <p>Cet accord de sept ans porte sur 11,6 milliards de dollars, pourrait atteindre 20 milliards, et donne à Anthropic une participation jusqu'à 5% dans Akamai.</p>
+    <a href="https://techcrunch.com/2026/09/25/anthropic-to-pay-akamai-11-6-billion-over-seven-years-in-cloud-deal/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Anthropic signe un accord cloud avec Akamai (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Crusoe abandonne son plan de turbines Boom</h3>
+    <p>Ce plan abandonné de 1,25 milliard de dollars portait sur les centrales stationnaires de Boom, écartées des projets à court terme de Crusoe.</p>
+    <a href="https://techcrunch.com/2026/09/25/crusoe-abandons-1-25b-plan-to-use-boom-turbines-at-ai-data-centers/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Crusoe abandonne son plan de turbines Boom (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Un tribunal autorise le Pentagone à écarter Anthropic</h3>
+    <p>La décision fait suite au refus d'Anthropic d'activer certaines fonctions de Claude, les juges estimant qu'une IA trop contrainte nuirait aux opérations militaires.</p>
+    <a href="https://arstechnica.com/tech-policy/2026/09/court-rules-trump-can-blacklist-anthropic-for-refusing-to-enable-claude-features/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Un tribunal autorise le Pentagone à écarter Anthropic (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Cloudflare CEO discute de l'IA et du web</h3>
+    <p>Cet épisode fait partie d'une série en deux parties sur l'avenir du business, après un précédent entretien vieux de deux ans et demi.</p>
+    <a href="https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Cloudflare CEO discute de l'IA et du web (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Mistral AI rachète Pimento</h3>
+    <p>Pimento est une start-up française spécialisée dans la création publicitaire assistée par IA, troisième acquisition de Mistral après Koyeb et Emmi AI.</p>
+    <a href="https://www.frenchweb.fr/mistral-ai-acquiert-pimento-et-poursuit-sa-remontee-vers-les-applications-metier/463566" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Mistral AI rachète Pimento (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--cloud">Cloud</span></h2>
+
+<div class="radar-edition-item">
+    <h3>AWS améliore les bus d'événements EventBridge</h3>
+    <p>Un bus unique partagé couvre tous les comptes d'une organisation, avec garanties d'ordonnancement et une ressource Subscriber simplifiée.</p>
+    <a href="https://aws.amazon.com/blogs/aws/introducing-enhanced-custom-event-buses-in-amazon-eventbridge-for-enterprise-scale-event-driven-applications/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS améliore les bus d'événements EventBridge (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>AWS lance CloudWatch Omni pour les agents IA</h3>
+    <p>L'outil trace et évalue les agents IA sur n'importe quel framework, depuis un IDE ou une app web autonome, avec des évaluateurs intégrés.</p>
+    <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-ai-powered-observability-for-generative-ai-and-agentic-workloads/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS lance CloudWatch Omni pour les agents IA (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Cloudflare rend Python Workers disponible en GA</h3>
+    <p>Après deux ans de preview, Python tourne compilé en WebAssembly via Pyodide dans le runtime workerd, sans multiprocessing ni threading.</p>
+    <a href="https://simonwillison.net/2026/Sep/21/cloudflare-python-worker/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Cloudflare rend Python Workers disponible en GA (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Huawei Cloud étend ses produits IA d'entreprise</h3>
+    <p>Ce déploiement couvre de nouveaux produits IA dans le portefeuille cloud de Huawei destinés aux entreprises.</p>
+    <a href="https://www.theregister.com/ai-and-ml/2026/09/25/partner-content-huawei-cloud-rolls-out-enterprise-ai-products-across-the-board-building-an-open-agentic-cloud/5298765" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Huawei Cloud étend ses produits IA d'entreprise (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>AWS obtient l'approbation de l'OTAN</h3>
+    <p>Cette approbation permet à AWS de traiter des données classifiées, confirmant la percée du cloud public dans les environnements de défense.</p>
+    <a href="https://www.lemondeinformatique.fr/actualites/lire-aws-obtient-le-feu-vert-de-l-otan-pour-traiter-des-donnees-classifiees-100809.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS obtient l'approbation de l'OTAN (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--devops">DevOps</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Kubernetes v1.37 suit la dernière utilisation des PVC</h3>
+    <p>La fonctionnalité Beta PersistentVolumeClaimUnusedSinceTime ajoute une condition Unused au statut des PVC, signalant les volumes orphelins sans outillage custom.</p>
+    <a href="https://kubernetes.io/blog/2026/09/21/kubernetes-v1-37-pvc-last-used-time/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Kubernetes v1.37 suit la dernière utilisation des PVC (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Terraform pour Google Cloud atteint la version 8.0</h3>
+    <p>La version 8.0 étend la découverte d'infrastructure, modernise les valeurs par défaut et supprime le support des services Google Cloud retirés.</p>
+    <a href="https://www.hashicorp.com/blog/terraform-provider-for-google-cloud-80-now-generally-available" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Terraform pour Google Cloud atteint la version 8.0 (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Docker spécifie les sandboxes d'agents en images OCI</h3>
+    <p>La Sandbox Kit Specification v3 packages les règles réseau, identifiants et volumes d'un agent dans une image OCI figeable.</p>
+    <a href="https://www.docker.com/blog/docker-sandbox-kit-spec/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Docker spécifie les sandboxes d'agents en images OCI (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Docker confie sa Sandbox Kit Spec au CNCF</h3>
+    <p>Ce spec open source des permissions d'agents IA devient un standard neutre bâti sur OCI.</p>
+    <a href="https://www.docker.com/blog/docker-sandbox-kit-spec-cncf/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Docker confie sa Sandbox Kit Spec au CNCF (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Docker lance les Cloud Sandboxes pour agents</h3>
+    <p>Les agents basculent entre sandboxes microVM sur laptop et cloud avec une seule commande, prolongeant la fonctionnalité Docker Sandboxes.</p>
+    <a href="https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Docker lance les Cloud Sandboxes pour agents (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab réduit son code de flows agentiques de 45%</h3>
+    <p>Le framework Flow Registry compile du YAML déclaratif en flows LangGraph, remplaçant les implémentations Python ad hoc par agent.</p>
+    <a href="https://about.gitlab.com/blog/how-gitlab-reduced-code-per-agentic-flow-ratio/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitLab réduit son code de flows agentiques de 45% (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--tech">Tech</span></h2>
+
+<div class="radar-edition-item">
+    <h3>GitHub sonde la demande de code plus efficace</h3>
+    <p>L'étude de GitHub et Yale montre que les développeurs veulent outils, mesures et conseils pour réduire le compute gaspillé.</p>
+    <a href="https://github.blog/news-insights/research/developers-want-more-efficient-software-heres-what-over-1000-github-users-told-us-they-need/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitHub sonde la demande de code plus efficace (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Microsoft abandonne le label Copilot+ PC</h3>
+    <p>Les nouveaux Surface de Microsoft abandonnent ce label sur leurs modèles récents.</p>
+    <a href="https://arstechnica.com/gadgets/2026/09/microsoft-stops-insisting-you-need-a-copilot-pc/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Microsoft abandonne le label Copilot+ PC (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--secu">Sécurité</span></h2>
+
+<div class="radar-edition-item">
+    <h3>HashiCorp sécurise les agents IA avec Boundary</h3>
+    <p>Boundary permet aux agents IA d'accéder aux ressources sous contrôle d'identité, d'accès et d'audit de l'entreprise.</p>
+    <a href="https://www.hashicorp.com/blog/secure-ai-agents-with-hashicorp-boundary" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : HashiCorp sécurise les agents IA avec Boundary (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitHub ajoute le fuzzing IA via Taskflow Agent</h3>
+    <p>Ce nouveau taskflow de fuzzing s'appuie sur le framework IA Taskflow Agent du GitHub Security Lab.</p>
+    <a href="https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitHub ajoute le fuzzing IA via Taskflow Agent (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab publie des correctifs critiques</h3>
+    <p>Les versions 19.4.1, 19.3.3 et 19.2.7 corrigent des failles de sécurité critiques.</p>
+    <a href="https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-4-1-released/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitLab publie des correctifs critiques (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Citrix corrige deux zero-days NetScaler exploités</h3>
+    <p>Confirmées le 27 septembre, ces failles RCE touchent NetScaler ADC et Gateway, l'une affectant tout déploiement en configuration par défaut.</p>
+    <a href="https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Citrix corrige deux zero-days NetScaler exploités (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--ia">IA</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Microsoft ajoute des modèles GPT-6 à Foundry</h3>
+    <p>Astra, Sol et Luna ciblent les agents IA en production, les workflows complexes et les tâches à fort volume dans Foundry.</p>
+    <a href="https://azure.microsoft.com/en-us/blog/gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Microsoft ajoute des modèles GPT-6 à Foundry (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Transformers prend en charge les quants llama.cpp</h3>
+    <p>La bibliothèque peut désormais charger et exécuter des modèles quantifiés GGUF conçus pour llama.cpp.</p>
+    <a href="https://huggingface.co/blog/transformers-llama-cpp-quants" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Transformers prend en charge les quants llama.cpp (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Hugging Face lance tokenizers v1</h3>
+    <p>La version se concentre sur les performances d'encode et decode, avec de nouveaux benchmarks de scalabilité.</p>
+    <a href="https://huggingface.co/blog/tokenizers-v1" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Hugging Face lance tokenizers v1 (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+				<!-- /RADAR_CONTENT -->
+
+			</div>
+
+			<!-- Navigation éditions -->
+			<nav class="article-nav" data-fade>
+<!-- RADAR_NAV -->
+
+<a href="/fr/tech-radar/2026-week-38.html" class="article-nav-link article-nav-prev">
+    <span class="article-nav-label">&larr; Édition précédente</span>
+    <span class="article-nav-title">Semaine 38</span>
+</a>
+<!-- /RADAR_NAV -->
+			</nav>
+
+			<p class="radar-edition-disclaimer">Ce Tech Radar est une veille personnelle. Je ne suis pas journaliste, je relaie des informations de sources que j'estime fiables, mais je ne garantis pas leur exactitude. En cas de doute, référez-vous aux sources originales.</p>
+			<a href="/fr/tech-radar/methodology/" class="radar-preview-link radar-preview-link--small">Méthodologie complète : sources, sélection et limites →</a>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<div class="footer-band">
+			<div class="footer-band-in">
+				<div>
+					<p class="footer-heading">Un projet d'infrastructure ?</p>
+					<p class="footer-sub">Décrivez votre contexte, je réponds sous 48 heures ouvrées.</p>
+				</div>
+				<a href="/fr/services#contact" class="footer-cta">Demander un devis</a>
+			</div>
+		</div>
+		<div class="footer-bar">
+			<div class="footer-bar-in">
+				<nav class="footer-links" aria-label="Liens secondaires">
+				<a href="/fr/services">Prestations</a>
+				<a href="/fr/blog">Blog</a>
+				<a href="/fr/tech-radar/">Tech Radar</a>
+				<a href="/fr/resume">CV</a>
+				<a href="/fr/legal">Mentions légales</a>
+				</nav>
+				<div class="footer-social">
+					<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+					<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+				</div>
+				<p class="footer-copy">Arthur Bernard, entrepreneur individuel (EI). SIRET 109 798 322 00011.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>
