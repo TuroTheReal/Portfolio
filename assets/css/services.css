@@ -811,6 +811,56 @@ body.light-theme {
 /* ============================================
    TABLETTE LARGE, 900px
    ============================================ */
+/* Methode en mobile : la timeline bascule a la verticale.
+   Le miroir du bloc 900px ci-dessous, qui la pose a l'horizontale.
+   Meme balisage, meme compteur, meme puce : seule l'orientation change,
+   et le numero passe sur la ligne du titre au lieu d'etre au-dessus. */
+@media (max-width: 899px) {
+	.svc-steps {
+		gap: 0;
+	}
+
+	.svc-steps li {
+		/* place pour le trait, la puce et le numero, a gauche du contenu */
+		padding: 0 0 var(--svc-s3) 3rem;
+	}
+
+	.svc-steps li:last-child {
+		padding-bottom: 0;
+	}
+
+	/* le numero rejoint la ligne du titre */
+	.svc-steps li::before {
+		top: 0;
+		left: 1.15rem;
+		line-height: 1.6rem;
+	}
+
+	/* le trait relie une etape a la suivante au lieu de souligner chacune */
+	.svc-steps li::after {
+		top: 0.8rem;
+		bottom: 0;
+		left: calc(0.25rem - 0.5px);
+		right: auto;
+		width: 1px;
+		height: auto;
+	}
+
+	.svc-steps li:last-child::after {
+		display: none;
+	}
+
+	.svc-steps-dot {
+		top: 0.8rem;
+		left: 0;
+	}
+
+	.svc-steps strong {
+		margin-top: 0;
+		line-height: 1.6rem;
+	}
+}
+
 @media (min-width: 900px) {
 	.svc-sec {
 		padding-block: var(--svc-s7);
