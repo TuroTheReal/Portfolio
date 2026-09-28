@@ -551,6 +551,19 @@
 			button.textContent = 'Envoi en cours…';
 			error.classList.remove('is-on');
 
+			// Un sujet unique par demande. Sans ca Gmail empile tout dans un seul fil,
+			// une nouvelle demande arrive a l interieur d un fil deja lu et se perd.
+			var sujet = form.querySelector('input[name="subject"]');
+			var champNom = form.querySelector('[name="nom"]');
+			if (sujet && champNom) {
+				var d = new Date();
+				var deuxChiffres = function (n) { return String(n).padStart(2, '0'); };
+				sujet.value = 'arthurbernard.dev, demande de ' + champNom.value.trim().slice(0, 60)
+					+ ' \u2014 ' + deuxChiffres(d.getDate()) + '/' + deuxChiffres(d.getMonth() + 1)
+					+ ' ' + deuxChiffres(d.getHours()) + ':' + deuxChiffres(d.getMinutes())
+					+ ':' + deuxChiffres(d.getSeconds());
+			}
+
 			fetch('/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
