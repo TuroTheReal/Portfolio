@@ -255,11 +255,11 @@
 			</div>
 		</section>
 
-		<!-- Études de cas -->
+		<!-- En production -->
 		<section class="svc-sec" id="cas">
 			<div class="svc-wrap">
 				<div class="svc-head" data-fade>
-					<h2>Études de cas</h2>
+					<h2>En production</h2>
 				</div>
 				<div class="svc-cases" data-fade>
 
@@ -345,7 +345,7 @@
 
 					<details>
 						<summary>Quelles sont les modalités de paiement ?</summary>
-						<div class="svc-faq-body"><p>Acompte de 30 % à la signature du devis, solde une fois la livraison validée par vos soins.</p></div>
+						<div class="svc-faq-body"><p>Acompte de 40 % à la signature du devis, solde une fois la livraison validée par vos soins.</p></div>
 					</details>
 
 				</div>
@@ -477,7 +477,8 @@
 			e.preventDefault();
 			showForm();
 			form.reset();
-			form.querySelector('input:not([type="hidden"])').focus();
+			var first = form.querySelector('input:not([type="hidden"]):not([name="societe-web"])');
+			if (first) first.focus();
 		});
 
 		form.addEventListener('submit', function (e) {
@@ -485,7 +486,7 @@
 			var button = form.querySelector('button[type="submit"]');
 			var label = button.textContent;
 			button.disabled = true;
-			button.textContent = 'Envoi en cours&hellip;';
+			button.textContent = 'Envoi en cours…';
 			error.classList.remove('is-on');
 
 			fetch('/', {
