@@ -37,30 +37,59 @@
 	<!-- JSON-LD -->
 	<script type="application/ld+json">
 	{
-		"@context": "https://schema.org",
-		"@type": "ProfessionalService",
-		"name": "Arthur Bernard, infrastructure services",
-		"description": "Containerisation, CI/CD and zero-downtime migrations, on a fixed-scope basis.",
-		"url": "https://arthurbernard.dev/en/services",
-		"inLanguage": "en",
-		"areaServed": "Worldwide",
-		"provider": {
-			"@type": "Person",
-			"name": "Arthur Bernard",
-			"jobTitle": "DevOps & Cloud Engineer",
-			"knowsLanguage": ["fr", "en"],
-			"url": "https://arthurbernard.dev"
-		},
-		"hasOfferCatalog": {
-			"@type": "OfferCatalog",
-			"name": "Services",
-			"itemListElement": [
-				{ "@type": "Offer", "name": "DevOps audit", "price": "600", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Deployment automation", "price": "2500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Production setup and hosting", "price": "3500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Production migration", "price": "4500", "priceCurrency": "EUR" }
-			]
-		}
+	 "@context": "https://schema.org",
+	 "@type": "ProfessionalService",
+	 "name": "Arthur Bernard, infrastructure services",
+	 "description": "Containerisation, CI/CD and zero-downtime migrations, on a fixed-scope basis.",
+	 "url": "https://arthurbernard.dev/en/services",
+	 "inLanguage": "en",
+	 "areaServed": "Worldwide",
+	 "provider": {
+	  "@type": "Person",
+	  "name": "Arthur Bernard",
+	  "jobTitle": "DevOps & Cloud Engineer",
+	  "knowsLanguage": [
+	   "fr",
+	   "en"
+	  ],
+	  "url": "https://arthurbernard.dev"
+	 },
+	 "hasOfferCatalog": {
+	  "@type": "OfferCatalog",
+	  "name": "Services",
+	  "itemListElement": [
+	   {
+	    "@type": "Offer",
+	    "name": "DevOps audit",
+	    "price": "600",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Monitoring",
+	    "price": "1500",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Deployment automation",
+	    "price": "2500",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Production setup and hosting",
+	    "price": "3500",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Production migration",
+	    "price": "4500",
+	    "priceCurrency": "EUR"
+	   }
+	  ]
+	 }
 	}
 	</script>
 
@@ -142,17 +171,17 @@
 
 				<div class="svc-cards" data-fade>
 
-					<a class="svc-card" id="audit" href="#contact" data-presta="DevOps audit">
-						<h3>DevOps audit</h3>
-						<p class="svc-card-sym">Nobody knows what happens the day your production goes down.</p>
+					<a class="svc-card" id="monitoring" href="#contact" data-presta="Monitoring">
+						<h3>Monitoring</h3>
+						<p class="svc-card-sym">When something breaks, your users are the ones who tell you.</p>
 						<ul class="svc-card-feats">
-							<li>Restore actually tested</li>
-							<li>Reproducible deployment</li>
-							<li>Single points of failure</li>
-							<li>Written, costed report</li>
+							<li>Dashboards</li>
+							<li>Alerts that matter</li>
+							<li>Traces and logs</li>
+							<li>Handed to your team</li>
 						</ul>
 						<div class="svc-card-foot">
-							<span class="svc-from">firm price, excl. VAT, 1 day</span><span class="svc-amount">600 &euro;</span>
+							<span class="svc-from">from, excl. tax</span><span class="svc-amount">&euro;1,500</span><span class="svc-delay">1 week</span>
 						</div>
 					</a>
 
@@ -199,6 +228,13 @@
 					</a>
 
 				</div>
+				<a class="svc-entry" id="audit" href="#contact" data-presta="DevOps audit" data-fade>
+					<span class="svc-entry-lead">Not decided yet?</span>
+					<span class="svc-entry-name">DevOps audit</span>
+					<span class="svc-entry-desc">One day on your production, changing nothing. You receive a written report: backups, deployments and single points of failure, ranked by severity, each with the cost of fixing it.</span>
+					<span class="svc-entry-price"><b>&euro;600</b><br>fixed price, excl. tax, 1 day</span>
+				</a>
+
 			</div>
 		</section>
 
@@ -355,6 +391,7 @@
 							<option>Deployment automation</option>
 							<option>Production setup and hosting</option>
 							<option>Production migration</option>
+							<option>Monitoring</option>
 						</select>
 					</div>
 					<div class="svc-field">
@@ -422,7 +459,7 @@
 		}
 
 		// Une carte de prestation ramene le formulaire et pre-selectionne l offre
-		document.querySelectorAll('.svc-card[data-presta]').forEach(function (card) {
+		document.querySelectorAll('.svc-card[data-presta], .svc-entry[data-presta]').forEach(function (card) {
 			card.addEventListener('click', function () {
 				showForm();
 				if (!select) return;

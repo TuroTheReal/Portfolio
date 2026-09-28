@@ -308,6 +308,82 @@ body.light-theme {
 }
 
 /* ============================================
+   AUDIT, l entree
+   Il ne cree rien la ou les quatre autres construisent : il n est pas
+   une cinquieme carte. La grille fait 2x2 sous 1100px et 4x1 au-dessus,
+   une carte de plus laissait un orphelin dans les deux cas. Bandeau
+   horizontal sous la rangee, meme fond et meme survol que les cartes.
+   Porte id="audit" : l accueil pointe dessus.
+   ============================================ */
+.svc-entry {
+	scroll-margin-top: calc(var(--header-height) + 1rem);
+	display: grid;
+	gap: 0.35rem 1.5rem;
+	margin-top: var(--svc-s3);
+	padding: var(--svc-s3);
+	border-radius: 12px;
+	background: var(--bg-card);
+	border: 1px solid var(--svc-line);
+	box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift);
+	color: inherit;
+	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+@media (hover: hover) {
+	.svc-entry:hover {
+		transform: scale(1.01);
+		border-color: var(--accent);
+		box-shadow: inset 0 1px 0 var(--svc-hi), var(--svc-lift-hover);
+	}
+}
+
+.svc-entry-lead {
+	font-size: 0.72rem;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+
+.svc-entry-name {
+	font-family: var(--font-title);
+	font-size: 1.15rem;
+	font-weight: 600;
+}
+
+.svc-entry-desc {
+	font-size: 0.9rem;
+	color: var(--text-secondary);
+	max-width: 64ch;
+}
+
+.svc-entry-price {
+	font-size: 0.78rem;
+	color: var(--text-secondary);
+}
+
+.svc-entry-price b {
+	font-family: var(--font-title);
+	font-size: 1.5rem;
+	color: var(--text-primary);
+}
+
+@media (min-width: 700px) {
+	.svc-entry {
+		grid-template-columns: 1fr auto;
+		align-items: center;
+	}
+
+	.svc-entry-lead { grid-column: 1 / -1; }
+
+	.svc-entry-price {
+		grid-column: 2;
+		grid-row: 2 / span 2;
+		text-align: right;
+		white-space: nowrap;
+	}
+}
+
+/* ============================================
    MÉTHODE, frise
    ============================================ */
 .svc-steps {

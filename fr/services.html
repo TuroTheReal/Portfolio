@@ -37,30 +37,59 @@
 	<!-- JSON-LD -->
 	<script type="application/ld+json">
 	{
-		"@context": "https://schema.org",
-		"@type": "ProfessionalService",
-		"name": "Arthur Bernard, prestations infrastructure",
-		"description": "Conteneurisation, CI/CD et migrations sans interruption de service, au forfait.",
-		"url": "https://arthurbernard.dev/fr/services",
-		"inLanguage": "fr",
-		"areaServed": "Worldwide",
-		"provider": {
-			"@type": "Person",
-			"name": "Arthur Bernard",
-			"jobTitle": "Ingénieur DevOps & Cloud",
-			"knowsLanguage": ["fr", "en"],
-			"url": "https://arthurbernard.dev"
-		},
-		"hasOfferCatalog": {
-			"@type": "OfferCatalog",
-			"name": "Prestations",
-			"itemListElement": [
-				{ "@type": "Offer", "name": "Audit DevOps", "price": "600", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Industrialisation des déploiements", "price": "2500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Mise en production et hébergement", "price": "3500", "priceCurrency": "EUR" },
-				{ "@type": "Offer", "name": "Migration de production", "price": "4500", "priceCurrency": "EUR" }
-			]
-		}
+	 "@context": "https://schema.org",
+	 "@type": "ProfessionalService",
+	 "name": "Arthur Bernard, prestations infrastructure",
+	 "description": "Conteneurisation, CI/CD et migrations sans interruption de service, au forfait.",
+	 "url": "https://arthurbernard.dev/fr/services",
+	 "inLanguage": "fr",
+	 "areaServed": "Worldwide",
+	 "provider": {
+	  "@type": "Person",
+	  "name": "Arthur Bernard",
+	  "jobTitle": "Ingénieur DevOps & Cloud",
+	  "knowsLanguage": [
+	   "fr",
+	   "en"
+	  ],
+	  "url": "https://arthurbernard.dev"
+	 },
+	 "hasOfferCatalog": {
+	  "@type": "OfferCatalog",
+	  "name": "Prestations",
+	  "itemListElement": [
+	   {
+	    "@type": "Offer",
+	    "name": "Audit DevOps",
+	    "price": "600",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Monitoring",
+	    "price": "1500",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Industrialisation des déploiements",
+	    "price": "2500",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Mise en production et hébergement",
+	    "price": "3500",
+	    "priceCurrency": "EUR"
+	   },
+	   {
+	    "@type": "Offer",
+	    "name": "Migration de production",
+	    "price": "4500",
+	    "priceCurrency": "EUR"
+	   }
+	  ]
+	 }
 	}
 	</script>
 
@@ -142,17 +171,17 @@
 
 				<div class="svc-cards" data-fade>
 
-					<a class="svc-card" id="audit" href="#contact" data-presta="Audit DevOps">
-						<h3>Audit DevOps</h3>
-						<p class="svc-card-sym">Personne ne sait ce qui se passe le jour où votre production tombe.</p>
+					<a class="svc-card" id="monitoring" href="#contact" data-presta="Monitoring">
+						<h3>Monitoring</h3>
+						<p class="svc-card-sym">Quand quelque chose lâche, vous l'apprenez par vos utilisateurs.</p>
 						<ul class="svc-card-feats">
-							<li>Restauration testée</li>
-							<li>Déploiement reproductible</li>
-							<li>Points de défaillance</li>
-							<li>Rapport écrit et chiffré</li>
+							<li>Tableaux de bord</li>
+							<li>Alertes utiles</li>
+							<li>Traces et journaux</li>
+							<li>Remis à votre équipe</li>
 						</ul>
 						<div class="svc-card-foot">
-							<span class="svc-from">prix ferme, HT, 1 journée</span><span class="svc-amount">600 &euro;</span>
+							<span class="svc-from">à partir de, HT</span><span class="svc-amount">1 500 &euro;</span><span class="svc-delay">1 semaine</span>
 						</div>
 					</a>
 
@@ -199,6 +228,13 @@
 					</a>
 
 				</div>
+				<a class="svc-entry" id="audit" href="#contact" data-presta="Audit DevOps" data-fade>
+					<span class="svc-entry-lead">Pas encore décidé ?</span>
+					<span class="svc-entry-name">Audit DevOps</span>
+					<span class="svc-entry-desc">Une journée sur votre production, sans rien modifier. Vous recevez un rapport écrit : sauvegardes, déploiements et points de défaillance, classés par gravité, avec le coût de correction de chacun.</span>
+					<span class="svc-entry-price"><b>600 &euro;</b><br>prix ferme, HT, 1 journée</span>
+				</a>
+
 			</div>
 		</section>
 
@@ -355,6 +391,7 @@
 							<option>Industrialisation des déploiements</option>
 							<option>Mise en production et hébergement</option>
 							<option>Migration de production</option>
+							<option>Monitoring</option>
 						</select>
 					</div>
 					<div class="svc-field">
@@ -422,7 +459,7 @@
 		}
 
 		// Une carte de prestation ramene le formulaire et pre-selectionne l offre
-		document.querySelectorAll('.svc-card[data-presta]').forEach(function (card) {
+		document.querySelectorAll('.svc-card[data-presta], .svc-entry[data-presta]').forEach(function (card) {
 			card.addEventListener('click', function () {
 				showForm();
 				if (!select) return;
