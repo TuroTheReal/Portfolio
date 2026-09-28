@@ -24,23 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
       overlay.classList.toggle('active');
       const isOpen = overlay.classList.contains('active');
       setMenuState(isOpen);
-      if (isOpen) {
-        // L'overlay passe de visibility:hidden à visible par transition. Tant qu'elle
-        // n'a pas abouti, le lien hérite du hidden et focus() reste sans effet : on
-        // attend donc la fin de la transition, avec un filet si elle ne vient pas.
-        const firstLink = overlay.querySelector('nav a');
-        if (firstLink) {
-          let done = false;
-          const focusFirst = () => {
-            if (done) return;
-            done = true;
-            overlay.removeEventListener('transitionend', focusFirst);
-            if (overlay.classList.contains('active')) firstLink.focus();
-          };
-          overlay.addEventListener('transitionend', focusFirst);
-          setTimeout(focusFirst, 500);
-        }
-      }
+      // Pas de deplacement de focus a l ouverture : un double declenchement a ete
+      // constate sur telephone et n a pas pu etre reproduit en emulation. On revient
+      // au comportement d origine. Le piege a focus continue de retenir Tab dans le
+      // menu, seul le premier Tab part du bouton au lieu du premier lien.
     });
 
     // Focus trap : Tab reste dans l'overlay
