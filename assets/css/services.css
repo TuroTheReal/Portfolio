@@ -965,9 +965,6 @@ body.light-theme {
 }
 
 @media (min-width: 900px) {
-	.svc-sec {
-		padding-block: var(--svc-s7);
-	}
 
 	.svc-steps {
 		grid-template-columns: repeat(5, 1fr);
