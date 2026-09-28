@@ -7,18 +7,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.querySelector('.overlay');
 
   if (burger && overlay) {
+    // Le libellé et l'état annoncés se tiennent ici : 100 pages partagent ce bouton.
+    const closedLabel = burger.getAttribute('aria-label') || 'Menu';
+    const openLabel = document.documentElement.lang === 'en' ? 'Close menu' : 'Fermer le menu';
+    burger.setAttribute('aria-expanded', 'false');
+
+    function setMenuState(isOpen) {
+      burger.setAttribute('aria-expanded', String(isOpen));
+      burger.setAttribute('aria-label', isOpen ? openLabel : closedLabel);
+      // Empêcher le scroll du body quand l'overlay est ouvert
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
       overlay.classList.toggle('active');
-      // Empêcher le scroll du body quand l'overlay est ouvert
       const isOpen = overlay.classList.contains('active');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      setMenuState(isOpen);
       if (isOpen) {
-        // Attendre le rendu pour que le focus prenne sur un élément visible
-        requestAnimationFrame(() => {
-          const firstLink = overlay.querySelector('nav a');
-          if (firstLink) firstLink.focus();
-        });
+        // L'overlay passe de visibility:hidden à visible par transition. Tant qu'elle
+        // n'a pas abouti, le lien hérite du hidden et focus() reste sans effet : on
+        // attend donc la fin de la transition, avec un filet si elle ne vient pas.
+        const firstLink = overlay.querySelector('nav a');
+        if (firstLink) {
+          let done = false;
+          const focusFirst = () => {
+            if (done) return;
+            done = true;
+            overlay.removeEventListener('transitionend', focusFirst);
+            if (overlay.classList.contains('active')) firstLink.focus();
+          };
+          overlay.addEventListener('transitionend', focusFirst);
+          setTimeout(focusFirst, 500);
+        }
       }
     });
 
@@ -42,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeOverlay() {
       burger.classList.remove('active');
       overlay.classList.remove('active');
-      document.body.style.overflow = '';
+      setMenuState(false);
       burger.focus();
     }
 
