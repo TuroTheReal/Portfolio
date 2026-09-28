@@ -143,6 +143,10 @@ section {
 }
 
 .logo {
+  /* Un SVG se cale sur la ligne de base comme du texte :
+     sans ca la marque pend de quelques pixels. */
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-weight: 600;
