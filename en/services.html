@@ -40,7 +40,7 @@
 	 "@context": "https://schema.org",
 	 "@type": "ProfessionalService",
 	 "name": "Arthur Bernard, infrastructure services",
-	 "description": "Containerisation, CI/CD and zero-downtime migrations, on a fixed-scope basis.",
+	 "description": "DevOps audit, deployment automation, production setup and hosting, production migration and monitoring. Written scope, firm price.",
 	 "url": "https://arthurbernard.dev/en/services",
 	 "inLanguage": "en",
 	 "areaServed": "Worldwide",
@@ -238,20 +238,51 @@
 			</div>
 		</section>
 
-		<!-- Méthode -->
-		<section class="svc-sec" id="methode">
+		<!-- Technologies -->
+		<section class="svc-sec" id="technologies">
 			<div class="svc-wrap">
 				<div class="svc-head" data-fade>
-					<h2>Method</h2>
-					<p class="svc-intro">Five stages, from the quote to the warranty.</p>
+					<h2>Technologies</h2>
 				</div>
-				<ol class="svc-steps" data-fade>
-					<li><span class="svc-steps-dot"></span><strong>Planning</strong><span>I survey what exists and I write the intervention plan.</span></li>
-					<li><span class="svc-steps-dot"></span><strong>Execution</strong><span>Backup and rollback ready, I make the changes in reversible steps.</span></li>
-					<li><span class="svc-steps-dot"></span><strong>Delivery</strong><span>I deliver against the acceptance criteria written into the quote.</span></li>
-					<li><span class="svc-steps-dot"></span><strong>Handover</strong><span>I hand over a runbook, I run the handover session, my access is revoked.</span></li>
-					<li><span class="svc-steps-dot"></span><strong>Warranty</strong><span>Thirty days of corrections, at no charge.</span></li>
-				</ol>
+				<div class="stack-row" data-fade>
+					<div class="stack-marquee" data-paused="false">
+						<div class="stack-track">
+						<ul class="stack-group">
+							<li>AWS</li>
+							<li>Cloudflare</li>
+							<li>Docker</li>
+							<li>Docker Swarm</li>
+							<li>Kubernetes</li>
+							<li>Traefik</li>
+							<li>Terraform</li>
+							<li>Terramate</li>
+							<li>Ansible</li>
+							<li>GitHub Actions</li>
+							<li>Argo CD</li>
+							<li>Nginx</li>
+							<li>Prometheus</li>
+							<li>Grafana</li>
+						</ul>
+						<ul class="stack-group" aria-hidden="true">
+							<li>AWS</li>
+							<li>Cloudflare</li>
+							<li>Docker</li>
+							<li>Docker Swarm</li>
+							<li>Kubernetes</li>
+							<li>Traefik</li>
+							<li>Terraform</li>
+							<li>Terramate</li>
+							<li>Ansible</li>
+							<li>GitHub Actions</li>
+							<li>Argo CD</li>
+							<li>Nginx</li>
+							<li>Prometheus</li>
+							<li>Grafana</li>
+						</ul>
+						</div>
+					</div>
+					<button type="button" class="stack-pause" aria-pressed="false" aria-label="Pause the scrolling" data-pause="Pause the scrolling" data-play="Resume the scrolling"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><rect class="stack-ic-p" x="4" y="3" width="3" height="10" rx="1"/><rect class="stack-ic-p" x="9" y="3" width="3" height="10" rx="1"/><path class="stack-ic-r" d="M5 3l8 5-8 5z"/></svg></button>
+				</div>
 			</div>
 		</section>
 
@@ -264,7 +295,7 @@
 				<div class="svc-cases" data-fade>
 
 					<article>
-						<div class="svc-case-meta"><span class="svc-case-who">Alan</span><span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform</span></div>
+						<div class="svc-case-meta"><span class="svc-case-who">Alan</span><span class="svc-case-stack">Cloudflare &middot; Workers &middot; Terraform &middot; Terramate</span></div>
 						<h3 class="svc-case-out">A health insurer's production migrated, with no downtime</h3>
 						<p class="svc-case-txt">A production serving <b>over a million members</b> and <b>37,000 companies</b>, on a hosting platform reaching end of life, with no downtime window negotiable. I switched the production over application by application, live, every step reversible. <b>Critical surfaces such as alan.com went through without a second of downtime.</b></p>
 					</article>
@@ -317,6 +348,23 @@
 
 				</div>
 				<p style="margin-top:2rem"><a class="svc-ulink" href="https://www.linkedin.com/in/arthurbernard92/details/recommendations/" target="_blank" rel="noopener noreferrer">All recommendations on LinkedIn &rarr;</a></p>
+			</div>
+		</section>
+
+		<!-- Méthode -->
+		<section class="svc-sec" id="methode">
+			<div class="svc-wrap">
+				<div class="svc-head" data-fade>
+					<h2>Method</h2>
+					<p class="svc-intro">Five stages, from the quote to the warranty.</p>
+				</div>
+				<ol class="svc-steps" data-fade>
+					<li><span class="svc-steps-dot"></span><strong>Planning</strong><span>I survey what exists and I write the intervention plan.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Execution</strong><span>Backup and rollback ready, I make the changes in reversible steps.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Delivery</strong><span>I deliver against the acceptance criteria written into the quote.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Handover</strong><span>I hand over a runbook, I run the handover session, my access is revoked.</span></li>
+					<li><span class="svc-steps-dot"></span><strong>Warranty</strong><span>Thirty days of corrections, at no charge.</span></li>
+				</ol>
 			</div>
 		</section>
 
@@ -444,6 +492,20 @@
 
 	<script src="../assets/script.js" defer></script>
 	<script>
+	// Bannière technologies : le bouton de pause (WCAG 2.2.2)
+	(function () {
+		var zone = document.querySelector('.stack-marquee');
+		var btn = document.querySelector('.stack-pause');
+		if (!zone || !btn) return;
+
+		btn.addEventListener('click', function () {
+			var paused = zone.dataset.paused !== 'true';
+			zone.dataset.paused = String(paused);
+			btn.setAttribute('aria-pressed', String(paused));
+			btn.setAttribute('aria-label', paused ? btn.dataset.play : btn.dataset.pause);
+		});
+	})();
+
 	(function () {
 		var form = document.getElementById('svc-form');
 		var sent = document.getElementById('svc-sent');

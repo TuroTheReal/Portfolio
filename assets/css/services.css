@@ -811,6 +811,109 @@ body.light-theme {
 /* ============================================
    TABLETTE LARGE, 900px
    ============================================ */
+/* Technologies : la rangee defile parce que les 14 pastilles demandent 1243px
+   quand la colonne n en offre que 342 sur telephone. Une copie identique du
+   groupe suit la premiere, donc translateX(-50%) retombe exactement sur elle.
+   Jamais de gap sur le track : il decalerait le raccord d une demi-gap. */
+.stack-row {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin-top: var(--svc-s3);
+}
+
+.stack-marquee {
+	flex: 1;
+	min-width: 0;
+	/* clip et non hidden : hidden ferait un scroll container decalable au clavier */
+	overflow: clip;
+	-webkit-mask-image: linear-gradient(to right, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+	mask-image: linear-gradient(to right, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+}
+
+.stack-track {
+	display: flex;
+	width: max-content;
+	/* transform seule : l animation reste sur le compositor, ni layout ni paint */
+	animation: stack-scroll 45s linear infinite;
+}
+
+.stack-group {
+	display: flex;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+	padding-inline-end: 0.5rem;
+	list-style: none;
+}
+
+.stack-group li {
+	padding: 0.3rem 0.8rem;
+	border-radius: 100px;
+	background: var(--accent-muted);
+	color: var(--accent);
+	font-size: 0.8rem;
+	white-space: nowrap;
+}
+
+@keyframes stack-scroll {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+/* Le bouton repond au critere WCAG 2.2.2, niveau A. Survol et focus sont un
+   complement recommande par le W3C, pas le mecanisme : ils n existent pas au doigt. */
+.stack-marquee[data-paused="true"] .stack-track,
+.stack-marquee:hover .stack-track,
+.stack-marquee:focus-within .stack-track {
+	animation-play-state: paused;
+}
+
+.stack-pause {
+	flex: none;
+	display: grid;
+	place-items: center;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border: 1px solid var(--accent-muted);
+	border-radius: 50%;
+	background: none;
+	color: var(--text-secondary);
+	cursor: pointer;
+}
+
+.stack-pause:hover {
+	color: var(--accent);
+	border-color: var(--accent);
+}
+
+.stack-pause svg {
+	fill: currentColor;
+}
+
+.stack-pause .stack-ic-r {
+	display: none;
+}
+
+.stack-pause[aria-pressed="true"] .stack-ic-p {
+	display: none;
+}
+
+.stack-pause[aria-pressed="true"] .stack-ic-r {
+	display: block;
+}
+
+/* Coupure nette, pas un ralentissement. Le reset global de style.css force
+   animation-duration a 0.01ms : sur une boucle infinie cela ne l arrete pas,
+   cela la fige sur sa derniere keyframe, donc decalee de la moitie du track. */
+@media (prefers-reduced-motion: reduce) {
+	.stack-track {
+		animation: none;
+	}
+}
+
 /* Methode en mobile : la timeline bascule a la verticale.
    Le miroir du bloc 900px ci-dessous, qui la pose a l'horizontale.
    Meme balisage, meme compteur, meme puce : seule l'orientation change,
@@ -924,5 +1027,26 @@ body.light-theme {
 
 	.svc-faq details {
 		display: block;
+	}
+
+	/* A l impression la rangee ne defile pas, elle se deplie */
+	.stack-marquee {
+		overflow: visible;
+		-webkit-mask-image: none;
+		mask-image: none;
+	}
+
+	.stack-track {
+		width: auto;
+		animation: none;
+	}
+
+	.stack-group {
+		flex-wrap: wrap;
+	}
+
+	.stack-group[aria-hidden="true"],
+	.stack-pause {
+		display: none !important;
 	}
 }
