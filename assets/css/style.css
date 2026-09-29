@@ -405,6 +405,8 @@ section {
 /* === THEME SWITCH === */
 /* Moon/Sun morphing icon toggle (inspired by aaroniker) */
 .switch {
+  /* ancre pour l input masque, qui est en position absolue */
+  position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -415,7 +417,16 @@ section {
 }
 
 .switch__input {
-  display: none;
+  /* Surtout pas display:none : un element ainsi masque n est ni focusable au
+     clavier ni expose aux lecteurs d ecran, et le controle de theme devient
+     inutilisable pour eux. On le masque visuellement en le laissant dans
+     l arbre d accessibilite. Les selecteurs freres :checked + .switch__icon
+     continuent de fonctionner, ils portent sur le DOM et non sur la mise en page. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin: 0;
 }
 
 .switch__icon {

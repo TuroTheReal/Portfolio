@@ -683,7 +683,8 @@ body.light-theme {
 .svc-field input:focus,
 .svc-field select:focus,
 .svc-field textarea:focus {
-	outline: none;
+	/* pas d outline: none ici : il ecrasait l anneau global :focus-visible,
+	   precisement la ou un utilisateur au clavier en a le plus besoin */
 	border-color: var(--accent);
 }
 
