@@ -84,6 +84,7 @@
 	<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="stylesheet" href="../../assets/css/style.css">
 	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
 	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 	<link rel="manifest" href="/manifest.json">
@@ -91,7 +92,7 @@
 </head>
 
 <body>
-	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.body.classList.add('light-theme');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#f0f1f2';}})()</script>
 
 	<!-- Header -->
 	<header class="header">

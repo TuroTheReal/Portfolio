@@ -13,6 +13,7 @@
 	<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
 	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 	<link rel="manifest" href="/manifest.json">
@@ -104,7 +105,7 @@
 </head>
 
 <body>
-	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.body.classList.add('light-theme');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#f0f1f2';}})()</script>
 
 	<!-- Header allégé (logo + langue + thème) -->
 	<header class="header">
@@ -113,14 +114,14 @@
 			<button class="lang-toggle" data-lang="en">EN</button>
 			<span class="lang-sep" aria-hidden="true">|</span>
 			<button class="lang-toggle active" data-lang="fr">FR</button>
-			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			<label class="switch" id="e4-theme" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
 		</div>
 	</header>
 
 	<main class="err404">
 		<div class="err404__inner" data-fade>
 
-			<div class="radar" role="img" aria-label="Radar sans signal, 404">
+			<div class="radar" id="e4-radar-img" role="img" aria-label="Radar sans signal, 404">
 				<div class="radar__disc"></div>
 				<div class="radar__ring radar__ring--1"></div>
 				<div class="radar__ring radar__ring--2"></div>
@@ -147,8 +148,8 @@
 	<script>
 		(function () {
 			var T = {
-				fr: { title: "Aucun signal sur le radar", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", blog: "Blog", radar: "Tech Radar", homeHref: "/fr/", blogHref: "/fr/blog", radarHref: "/fr/tech-radar/", logoLabel: "Arthur Bernard, accueil" },
-				en: { title: "No signal on the radar", lead: "The page you're looking for left the area, or never existed.", home: "Home", blog: "Blog", radar: "Tech Radar", homeHref: "/en/", blogHref: "/en/blog", radarHref: "/en/tech-radar/", logoLabel: "Arthur Bernard, home" }
+				fr: { title: "Aucun signal sur le radar", lead: "La page que tu cherches a quitté la zone, ou n'a jamais existé.", home: "Accueil", blog: "Blog", radar: "Tech Radar", homeHref: "/fr/", blogHref: "/fr/blog", radarHref: "/fr/tech-radar/", logoLabel: "Arthur Bernard, accueil", themeLabel: "Changer de thème", radarLabel: "Radar sans signal, 404" },
+				en: { title: "No signal on the radar", lead: "The page you're looking for left the area, or never existed.", home: "Home", blog: "Blog", radar: "Tech Radar", homeHref: "/en/", blogHref: "/en/blog", radarHref: "/en/tech-radar/", logoLabel: "Arthur Bernard, home", themeLabel: "Switch theme", radarLabel: "Radar with no signal, 404" }
 			};
 			function applyLang(lang) {
 				var t = T[lang];
@@ -162,6 +163,8 @@
 				document.getElementById('e4-logo').setAttribute('href', t.homeHref + '#Home');
 				// Le logo n a pas de texte : son nom accessible suit la langue.
 				document.getElementById('e4-logo').setAttribute('aria-label', t.logoLabel);
+				document.getElementById('e4-theme').setAttribute('aria-label', t.themeLabel);
+				document.getElementById('e4-radar-img').setAttribute('aria-label', t.radarLabel);
 				document.querySelectorAll('.lang-toggle').forEach(function (b) {
 					b.classList.toggle('active', b.dataset.lang === lang);
 				});

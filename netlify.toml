@@ -92,6 +92,21 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Images et icones : un an de cache. Meme corollaire que pour les polices, le nom
+# ne portant pas d empreinte : REMPLACER une image impose de la RENOMMER.
+# Le CSS et le JS restent volontairement en max-age=0 must-revalidate, valeur par
+# defaut de Netlify : ils changent a chaque deploiement et ne sont pas empreintes,
+# un cache long y servirait des styles perimes. La revalidation coute un 304.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
 # En-têtes de sécurité (defense-in-depth). HSTS déjà ajouté par Netlify.
 # CSP volontairement omise pour l'instant (site statique, scripts inline + GA
 # à hasher : sur-investissement vs le gain réel).

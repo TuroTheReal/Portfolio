@@ -247,7 +247,10 @@ section {
 }
 
 .burger line {
-  stroke: var(--text-primary);
+  /* forced-colors ne surcharge que color, background-color et border-color,
+     jamais stroke : sans currentColor le burger disparait en contrastes forces. */
+  color: var(--text-primary);
+  stroke: currentColor;
   stroke-width: 1;
   stroke-linecap: round;
   shape-rendering: crispEdges;

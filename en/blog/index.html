@@ -85,6 +85,7 @@
 	<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="stylesheet" href="../../assets/css/style.css">
 	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
 	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 	<link rel="manifest" href="/manifest.json">
@@ -92,7 +93,7 @@
 </head>
 
 <body>
-	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches))document.body.classList.add('light-theme');})()</script>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.body.classList.add('light-theme');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#f0f1f2';}})()</script>
 
 	<!-- Header -->
 	<header class="header">
@@ -171,7 +172,7 @@
 
 				<a href="/en/blog/ai-harness" class="blog-card" data-tags="ai,devops" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/ai-harness.webp" alt="Scattered data passing through a structured frame, emerging as aligned blocks" fetchpriority="high">
+						<img width="1200" height="800" src="../../assets/img/blog/ai-harness.webp" alt="Scattered data passing through a structured frame, emerging as aligned blocks" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -189,7 +190,7 @@
 
 				<a href="/en/blog/the-spof-was-me" class="blog-card" data-tags="career,devops" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/the-spof-was-me.webp" alt="A single key branching into several shared keys" fetchpriority="high">
+						<img width="1200" height="800" src="../../assets/img/blog/the-spof-was-me.webp" alt="A single key branching into several shared keys" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -207,7 +208,7 @@
 
 				<a href="/en/blog/the-day-i-broke-prod" class="blog-card" data-tags="career,devops" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/the-day-i-broke-prod.webp" alt="A tower of blocks collapsing after one piece is removed" fetchpriority="high">
+						<img width="1200" height="800" src="../../assets/img/blog/the-day-i-broke-prod.webp" alt="A tower of blocks collapsing after one piece is removed" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -225,7 +226,7 @@
 
 				<a href="/en/blog/working-with-ai" class="blog-card" data-tags="ai,devops" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/working-with-ai.webp" alt="Working with AI without delegating your judgment" fetchpriority="high">
+						<img width="1200" height="800" src="../../assets/img/blog/working-with-ai.webp" alt="Working with AI without delegating your judgment" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -243,7 +244,7 @@
 
 				<a href="/en/blog/weekly-tech-radar" class="blog-card" data-tags="project,devops,ai" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/weekly-tech-radar.webp" alt="Weekly Tech Radar: my automated tech watch" fetchpriority="high">
+						<img width="1200" height="800" src="../../assets/img/blog/weekly-tech-radar.webp" alt="Weekly Tech Radar: my automated tech watch" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -262,7 +263,7 @@
 
 				<a href="/en/blog/obsidian-claude-learning-system" class="blog-card" data-tags="devops,project" data-fade>
 					<div class="blog-card-image">
-						<img width="1536" height="1024" src="../../assets/img/blog/obsidian-claude-learning-system.webp" alt="My Learning System: Obsidian + Claude" fetchpriority="high">
+						<img width="1536" height="1024" src="../../assets/img/blog/obsidian-claude-learning-system.webp" alt="My Learning System: Obsidian + Claude" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -280,7 +281,7 @@
 
 				<a href="/en/blog/landing-alan-internship" class="blog-card" data-tags="career" data-fade>
 					<div class="blog-card-image">
-						<img width="1536" height="1024" src="../../assets/img/blog/landing-alan-internship.webp" alt="How I Landed My Internship at Alan" fetchpriority="high">
+						<img width="1536" height="1024" src="../../assets/img/blog/landing-alan-internship.webp" alt="How I Landed My Internship at Alan" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -297,7 +298,7 @@
 
 					<a href="/en/blog/criteo-interview" class="blog-card" data-tags="career" data-fade>
 					<div class="blog-card-image">
-						<img width="1536" height="1024" src="../../assets/img/blog/criteo-interview.webp" alt="How I Failed My Criteo Interview" fetchpriority="high">
+						<img width="1536" height="1024" src="../../assets/img/blog/criteo-interview.webp" alt="How I Failed My Criteo Interview" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -314,7 +315,7 @@
 
 					<a href="/en/blog/aws-terraform-ansible" class="blog-card" data-tags="project,devops" data-fade>
 					<div class="blog-card-image">
-						<img width="1536" height="1024" src="../../assets/img/blog/aws-terraform-ansible.webp" alt="AWS Infrastructure Automation With Terraform & Ansible" fetchpriority="high">
+						<img width="1536" height="1024" src="../../assets/img/blog/aws-terraform-ansible.webp" alt="AWS Infrastructure Automation With Terraform & Ansible" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -332,7 +333,7 @@
 
 					<a href="/en/blog/devops-roadmap" class="blog-card" data-tags="career,devops" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/devops-roadmap.webp" alt="My DevOps Roadmap" fetchpriority="high">
+						<img width="1200" height="800" src="../../assets/img/blog/devops-roadmap.webp" alt="My DevOps Roadmap" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -350,7 +351,7 @@
 
 				<a href="/en/blog/glasck-first-production-launch" class="blog-card" data-tags="project,devops" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/glasck-first-production-launch.webp" alt="Glasck: First Launch of a Project Into Production" loading="lazy">
+						<img width="1200" height="800" src="../../assets/img/blog/glasck-first-production-launch.webp" alt="Glasck: First Launch of a Project Into Production" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -368,7 +369,7 @@
 
 				<a href="/en/blog/42-piscine-and-core-curriculum" class="blog-card" data-tags="career" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/42-piscine-and-core-curriculum.webp" alt="How I Passed the 42 Piscine and Core Curriculum" loading="lazy">
+						<img width="1200" height="800" src="../../assets/img/blog/42-piscine-and-core-curriculum.webp" alt="How I Passed the 42 Piscine and Core Curriculum" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
@@ -385,7 +386,7 @@
 
 				<a href="/en/blog/from-pastry-to-development" class="blog-card" data-tags="career" data-fade>
 					<div class="blog-card-image">
-						<img width="1200" height="800" src="../../assets/img/blog/from-pastry-to-development.webp" alt="From Pastry to Development" loading="lazy">
+						<img width="1200" height="800" src="../../assets/img/blog/from-pastry-to-development.webp" alt="From Pastry to Development" loading="lazy" decoding="async">
 					</div>
 					<div class="blog-card-content">
 						<div class="blog-card-meta">
