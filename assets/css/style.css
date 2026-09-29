@@ -22,6 +22,11 @@
   --text-primary:   #e2e8f0;
   --text-secondary: #94a3b8;
   --accent:         #8c96ff;
+
+  /* Couleur de MARQUE, pas couleur de theme : elle ne change pas d un theme a
+     l autre, c est ce qui la rend reconnaissable. Meme valeur que le favicon et
+     que la signature de mail. 4,49:1 sur le fond sombre, 3,69:1 sur le clair. */
+  --brand:          #7066ff;
   --accent-hover:   #7c8aff;
   --accent-muted:   rgba(140, 150, 255, 0.1);
 
@@ -147,16 +152,24 @@ section {
      sans ca la marque pend de quelques pixels. */
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
+  /* En --text-primary, la marque avait la couleur exacte du burger situe a
+     l autre bout de la meme barre, et se lisait comme un second bouton menu. */
+  color: var(--brand);
   transition: color 0.3s ease;
 }
 
+.logo svg {
+  /* En rem, pas en px : la marque suit la taille de police choisie par le
+     visiteur, comme le reste du header. Les attributs width/height du SVG ne
+     servent plus que de repli si la feuille de style ne charge pas. */
+  width: 2rem;
+  height: 2rem;
+}
+
 .logo:hover {
-  color: var(--accent);
+  /* La marque est deja coloree : le survol va vers le neutre, sinon on passe
+     d un violet a un autre et le changement ne se voit pas. */
+  color: var(--text-primary);
 }
 
 /* Navigation desktop, cachée sur mobile */

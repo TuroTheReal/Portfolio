@@ -1,7 +1,10 @@
 {
-  "name": "Arthur Bernard — Ingénieur DevOps & Cloud",
-  "short_name": "A. Bernard",
-  "start_url": "/fr/",
+  "name": "Arthur Bernard — DevOps & Cloud Engineer",
+  "short_name": "Arthur Bernard",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
   "display": "minimal-ui",
   "background_color": "#121212",
   "theme_color": "#121212",
