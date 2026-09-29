@@ -19,7 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = isOpen ? 'hidden' : '';
     }
 
+    // Un tap sur telephone peut produire deux activations rapprochees, clic fantome
+    // ou double emission. Aucun humain ne bascule volontairement deux fois en moins
+    // de 350ms, donc on ignore la seconde. La transition du panneau dure 400ms.
+    let derniereBascule = 0;
+
     burger.addEventListener('click', () => {
+      const maintenant = performance.now();
+      if (maintenant - derniereBascule < 350) return;
+      derniereBascule = maintenant;
+
       burger.classList.toggle('active');
       overlay.classList.toggle('active');
       const isOpen = overlay.classList.contains('active');

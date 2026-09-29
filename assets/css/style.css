@@ -171,6 +171,9 @@ section {
 
 /* === BURGER (SVG 2 barres → X) === */
 .burger {
+  /* Coupe le zoom par double tap sur ce bouton. Sans cela certains navigateurs
+     mobiles retardent le clic et peuvent en emettre un second, fantome. */
+  touch-action: manipulation;
   display: flex;
   align-items: center;
   justify-content: center;
