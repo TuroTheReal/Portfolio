@@ -41,9 +41,9 @@ Built with vanilla HTML5, CSS3, and JavaScript, no frameworks, no dependencies. 
 | Markup | HTML5 (semantic) |
 | Styling | CSS3 (Grid, Flexbox, custom properties, transitions) |
 | Scripting | Vanilla JavaScript (ES6+) |
-| Fonts | Google Fonts (Poppins, DM Sans) |
+| Fonts | Poppins, DM Sans (self-hosted woff2) |
 | Hosting | Netlify |
-| Analytics | Google Analytics (gtag.js) |
+| Analytics | None |
 | Design | Figma |
 
 ---
@@ -131,7 +131,7 @@ python3 -m http.server 8080
 - **Active nav tracking**, Ratio-based IntersectionObserver highlights current section
 - **Auto-hide header**, Header hides on scroll down, reveals on scroll up (mobile only)
 - **Resume/CV page**, Downloadable PDF, responsive grid layout, animated link underlines
-- **Performance**, No dependencies, no build step, Google Fonts CDN, lazy-loaded images, WebP with JPG fallback
+- **Performance**, No dependencies, no build step, self-hosted fonts (no third-party request), lazy-loaded images, WebP with JPG fallback
 - **SEO optimized**, Sitemap with hreflang, robots.txt, Open Graph, Twitter Cards, canonical URLs
 - **Structured data (JSON-LD)**, Person, BlogPosting, BreadcrumbList, ProfilePage schemas for rich search results
 - **AI-friendly**, `llms.txt` instructions + structured data for ChatGPT, Perplexity, Google AI Overview
