@@ -352,6 +352,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         smoothScrollTo(target);
+        // preventDefault supprime aussi le deplacement de focus natif de l ancre.
+        // Sans ce rattrapage, un utilisateur au clavier voit la page defiler mais
+        // reste au meme endroit dans l ordre de tabulation, et le lien d evitement
+        // ne sert a rien. On ne focalise que les cibles qui l ont demande par un
+        // tabindex, pour ne pas changer le comportement des liens de navigation.
+        if (target.hasAttribute('tabindex')) {
+          target.focus({ preventScroll: true });
+        }
       }
     });
   });
