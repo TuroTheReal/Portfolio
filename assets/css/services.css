@@ -178,6 +178,12 @@ body.light-theme {
 .svc-card h3 {
 	font-size: 1.05rem;
 	font-weight: 600;
+	/* A police tres grande, « Industrialisation » seul fait 210px alors que la
+	   colonne n en offre que 159 une fois le padding retire, et la carte etant en
+	   overflow:hidden le mot etait rogne. Il faut « anywhere » et non « break-word » :
+	   seul le premier reduit la taille min-content, donc laisse la carte se
+	   dimensionner. Mesure a 16px : strictement aucun effet, 0 element deplace. */
+	overflow-wrap: anywhere;
 }
 
 .svc-card-sym {

@@ -966,6 +966,8 @@ body.light-theme .img-light {
 	font-size: 1.15rem;
 	font-weight: 500;
 	line-height: 1.35;
+	/* meme garde-fou que sur les cartes de prestations */
+	overflow-wrap: anywhere;
 }
 
 .home-services .hs-desc {
