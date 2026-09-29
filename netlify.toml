@@ -83,6 +83,15 @@
   to = "/assets/img/logo-mail-2x.png"
   status = 301
 
+# Les polices ne changent jamais : un an de cache, et immuable pour que le
+# navigateur ne revalide meme pas. Corollaire a retenir : le nom de fichier ne
+# portant pas d empreinte, REMPLACER une police impose de la RENOMMER, sinon les
+# visiteurs garderont l ancienne version pendant un an.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # En-têtes de sécurité (defense-in-depth). HSTS déjà ajouté par Netlify.
 # CSP volontairement omise pour l'instant (site statique, scripts inline + GA
 # à hasher : sur-investissement vs le gain réel).

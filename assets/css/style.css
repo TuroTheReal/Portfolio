@@ -1,5 +1,47 @@
-/* === IMPORTS === */
-/* Fonts chargées via <link> dans le HTML pour éviter le render-blocking */
+/* === POLICES, AUTO-HEBERGEES === */
+/* Servies depuis ce domaine, donc aucune requete vers un tiers au chargement.
+   C est ce qui rend vraie la phrase des mentions legales : « vos visites ne
+   sont ni comptees, ni suivies, ni transmises a un tiers ». Avec Google Fonts,
+   l adresse IP et le User-Agent de chaque visiteur partaient chez Google LLC.
+
+   Sous-ensemble latin uniquement : sa plage couvre U+0000-00FF, donc tous les
+   accents francais. Verifie au rendu, 33 signes testes, aucun manquant. */
+
+/* DM Sans est une police VARIABLE : un seul fichier couvre les graisses 300 a
+   500, d ou la plage dans font-weight plutot que trois declarations. Verifie :
+   les largeurs rendues different bien d une graisse a l autre. */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/dmsans-var.woff2") format("woff2");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins n est pas variable : une declaration par graisse. */
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/poppins-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/poppins-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/poppins-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* === UTILITAIRES === */
 .sr-only {
