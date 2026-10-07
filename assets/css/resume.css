@@ -195,6 +195,15 @@
   line-height: 1.6;
 }
 
+/* Stack technique sous une expérience : mêmes valeurs que .svc-case-stack
+   (services.css), en retrait pour laisser respirer le récit */
+.resume-item .resume-stack {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  margin-top: 0.5rem;
+}
+
 /* Skills list */
 .skills-list {
   list-style: none;
