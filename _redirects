@@ -11,3 +11,6 @@
 
 # Ancien nom de fichier PDF (avec espaces)
 /assets/link/Arthur%20Bernard%20CV%20-%20FR.pdf  /assets/link/Arthur_Bernard_CV.pdf  301
+
+# QR code des cartes de visite : cible modifiable sans réimprimer (302 = pas de cache navigateur)
+/qr  /fr/resume  302
