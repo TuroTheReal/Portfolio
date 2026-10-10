@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<!--
+		SEO GUIDELINES, placeholders to fill:
+		41             → week number (e.g. 12)
+		{{MONTH_EN}}         → month name in English (e.g. March)
+		{{YEAR}}             → year (e.g. 2026)
+		Tech Radar Week 41 — Business & DevOps (October 2026)        → "Tech Radar, Week 41 ({{MONTH_EN}} {{YEAR}})", max 60 chars
+		Tech Radar Week 41, Amazon drops NDAs for data center deals, AWS CodeDeploy adds RESTART deployment mode and more. → "X articles: headline1, headline2, … and more.", max 155 chars
+		2026-10-10         → full ISO 8601: YYYY-MM-DDT00:00:00Z
+		2026-week-41.html         → e.g. 2026-week-12.html
+		17    → total number of articles
+	-->
+	<meta name="description" content="Tech Radar Week 41, Amazon drops NDAs for data center deals, AWS CodeDeploy adds RESTART deployment mode and more.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Tech Radar Week 41 — Business & DevOps (October 2026)</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Tech Radar Week 41 — Business & DevOps (October 2026)">
+	<meta property="og:description" content="Tech Radar Week 41, Amazon drops NDAs for data center deals, AWS CodeDeploy adds RESTART deployment mode and more.">
+	<meta property="og:url" content="https://arthurbernard.dev/en/tech-radar/2026-week-41.html">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:locale:alternate" content="fr_FR">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta property="og:image:alt" content="Tech Radar, Week 41 by Arthur Bernard">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="article:published_time" content="2026-10-10">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Tech Radar Week 41 — Business & DevOps (October 2026)">
+	<meta name="twitter:description" content="Tech Radar Week 41, Amazon drops NDAs for data center deals, AWS CodeDeploy adds RESTART deployment mode and more.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta name="twitter:image:alt" content="Tech Radar, Week 41 by Arthur Bernard">
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": "Tech Radar Week 41 — Business & DevOps (October 2026)",
+		"description": "Tech Radar Week 41, Amazon drops NDAs for data center deals, AWS CodeDeploy adds RESTART deployment mode and more.",
+		"datePublished": "2026-10-10",
+		"dateModified": "2026-10-10",
+		"image": "https://arthurbernard.dev/assets/img/og-image.webp",
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"inLanguage": "en",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/en/tech-radar/2026-week-41.html"
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-41.html">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-41.html">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-41.html">
+
+	<link rel="canonical" href="https://arthurbernard.dev/en/tech-radar/2026-week-41.html">
+	<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
+	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+	<link rel="manifest" href="/manifest.json">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.body.classList.add('light-theme');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#f0f1f2';}})()</script>
+
+	<a class="skip-link" href="#contenu">Skip to content</a>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/en/#Home" class="logo" aria-label="Arthur Bernard, home"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path fill="currentColor" d="M10.505 7.442L20.959 5.22A2.544 2.544 0 0 1 22.017 10.197L11.563 12.419A2.544 2.544 0 0 1 10.505 7.442ZM5.515 15.786L25.426 11.554A2.544 2.544 0 0 1 26.485 16.531L6.574 20.764A2.544 2.544 0 0 1 5.515 15.786ZM11.477 21.803L20.437 19.898A2.544 2.544 0 0 1 21.495 24.876L12.535 26.78A2.544 2.544 0 0 1 11.477 21.803Z"/></svg></a>
+		<nav class="nav" aria-label="Main navigation">
+			<a href="/en/#Home">Home</a>
+			<a href="/en/services">Services</a>
+			<a href="/en/#About">About</a>
+			<a href="/en/blog">Blog</a>
+			<a href="/en/tech-radar/" aria-current="page">Tech Radar</a>
+			<a href="#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle active" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/en/#Home">Home</a>
+				<a href="/en/services">Services</a>
+				<a href="/en/#About">About</a>
+				<a href="/en/blog">Blog</a>
+				<a href="/en/tech-radar/" aria-current="page">Tech Radar</a>
+				<a href="#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle active" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main id="contenu" tabindex="-1">
+		<article class="blog-article radar-edition">
+
+			<!-- Edition header -->
+			<header class="article-header" data-fade>
+				<a href="/en/tech-radar/" class="article-back"><span aria-hidden="true">&larr;</span> Back to Tech Radar</a>
+				<h1>Tech Radar, Week 41</h1>
+				<div class="article-meta">
+					<time datetime="2026-10-10">October 3 - 10, 2026</time>
+					<span class="article-read-time">17 articles</span>
+				</div>
+			</header>
+
+			<!-- Category filter -->
+			<div class="radar-filter-fade"></div>
+			<div class="radar-tags-filter" role="group" aria-label="Filter by category" data-fade>
+				<button class="radar-filter-btn active" data-category="all" aria-pressed="true">All</button>
+				<button class="radar-filter-btn" data-category="business" aria-pressed="false">Business</button>
+				<button class="radar-filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Security</button>
+				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">AI</button>
+
+			</div>
+			<div aria-live="polite" class="sr-only" id="filter-status"></div>
+
+			<!-- Edition body -->
+			<div class="article-body" data-fade>
+
+				<!-- RADAR_CONTENT -->
+
+<h2><span class="radar-tag radar-tag--business">Business</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Amazon drops NDAs for data center deals</h3>
+    <p>The move follows a similar step by Microsoft, after secrecy around data center deals fueled local moratoriums from New York to San Francisco.</p>
+    <a href="https://techcrunch.com/video/amazon-and-others-are-done-keeping-data-center-deals-secret-is-it-enough-to-build-trust/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Amazon drops NDAs for data center deals (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Flock cuts staff amid privacy backlash</h3>
+    <p>The surveillance company reduced its workforce and would not say whether CEO Garrett Langley is taking a pay cut.</p>
+    <a href="https://techcrunch.com/2026/10/09/surveillance-company-flock-cuts-staff-as-privacy-backlash-grows/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Flock cuts staff amid privacy backlash (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>IBM offloads hundreds of VMware customers</h3>
+    <p>Broadcom partner 11:11 is taking over the customers ahead of a looming channel deadline.</p>
+    <a href="https://www.theregister.com/virtualization/2026/10/08/ibm-offloads-hundreds-of-its-cloudy-vmware-customers/5301849" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : IBM offloads hundreds of VMware customers (opens in new tab)">Read article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--devops">DevOps</span></h2>
+
+<div class="radar-edition-item">
+    <h3>AWS CodeDeploy adds RESTART deployment mode</h3>
+    <p>It reapplies the last successful revision to EC2 and on-prem fleets, keeping the same batch sizing and rollback, and ran up to 6.1x faster in tests.</p>
+    <a href="https://aws.amazon.com/blogs/devops/restart-ec2-and-on-premises-fleets-faster-with-aws-codedeploy-restart-deployment-mode/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS CodeDeploy adds RESTART deployment mode (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Kubernetes tightens cgroup v1 deprecation</h3>
+    <p>Since v1.35, failCgroupV1 defaults to true and the kubelet refuses to start on cgroup v1 nodes, with the temporary override removed in v1.38.</p>
+    <a href="https://kubernetes.io/blog/2026/10/06/kubernetes-cgroups-v2-shift/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Kubernetes tightens cgroup v1 deprecation (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Swap de nodes Kubernetes triple la densité de pods</h3>
+    <p>NVMe-backed swap, generally available since v1.34, let gVisor Python sandboxes scale from 80 to 240 concurrent pods with little latency cost.</p>
+    <a href="https://kubernetes.io/blog/2026/10/05/scaling-kubernetes-workloads-with-node-swap/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Swap de nodes Kubernetes triple la densité de pods (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Meshery joins CNCF as an Incubating project</h3>
+    <p>The CNCF TOC approved the cloud native management plane used across aerospace, telecom, networking and enterprise software organizations.</p>
+    <a href="https://www.cncf.io/blog/2026/10/07/meshery-becomes-a-cncf-incubating-project/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Meshery joins CNCF as an Incubating project (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Grafana Cloud expands Fleet Management to OTel</h3>
+    <p>OpAMP support is now generally available, letting teams manage upstream OpenTelemetry Collector distributions without migrating to Grafana Alloy.</p>
+    <a href="https://grafana.com/blog/manage-your-opentelemetry-collectors-with-fleet-management-in-grafana-cloud/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Grafana Cloud expands Fleet Management to OTel (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitHub rebuilds its Git storage infrastructure</h3>
+    <p>The rebuild happens while the platform keeps running, laying the groundwork for software development driven by AI agents at scale.</p>
+    <a href="https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : GitHub rebuilds its Git storage infrastructure (opens in new tab)">Read article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--secu">Security</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Platform teams struggle to own NIS2 and DORA</h3>
+    <p>Compliance evidence requests for NIS2 and DORA controls often bounce between legal, security and platform teams with no clearly assigned owner.</p>
+    <a href="https://www.cncf.io/blog/2026/10/09/who-owns-nis2-and-dora-on-a-kubernetes-platform-team/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Platform teams struggle to own NIS2 and DORA (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>AI agents should propose changes, not run as root</h3>
+    <p>The approach has agents submit a proposed system state for validation instead of granting them direct execution or root access.</p>
+    <a href="https://www.cncf.io/blog/2026/10/08/dont-give-ai-agents-root-make-them-propose-the-next-system-state/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AI agents should propose changes, not run as root (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitHub Copilot expands secret protection</h3>
+    <p>The post argues that tools generating more code should also take on more of the work of detecting and blocking leaked secrets.</p>
+    <a href="https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : GitHub Copilot expands secret protection (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Malicious GitHub Actions workflow hits 340+ repos</h3>
+    <p>Attackers compromised two high-profile maintainer accounts, including pyxel's author, to push the credential-stealing workflow starting at 13:20 UTC.</p>
+    <a href="https://thehackernews.com/2026/10/credential-stealing-github-actions.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Malicious GitHub Actions workflow hits 340+ repos (opens in new tab)">Read article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--ia">AI</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Anthropic cuts internet access for internal evals</h3>
+    <p>The company says it cannot reliably control its AI agents and has cut live internet access for all internal evaluations until further notice.</p>
+    <a href="https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Anthropic cuts internet access for internal evals (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Anthropic AI model files false homicide tip</h3>
+    <p>The model sent the false tip to Philadelphia police, and Anthropic did not discover the incident until more than two months later.</p>
+    <a href="https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Anthropic AI model files false homicide tip (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Oracle pushes AI agents across its apps</h3>
+    <p>Analysts welcome Fusion Claw's tighter controls but warn of early adoption risks and cloud lock-in.</p>
+    <a href="https://www.theregister.com/ai-and-ml/2026/10/09/oracle-lets-ai-agents-do-the-work-provided-you-stay-in-big-reds-world/5302270" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Oracle pushes AI agents across its apps (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Google Cloud positions Gemini as work agent</h3>
+    <p>The pitch centers on a single universal agent meant to handle a wide range of enterprise work tasks.</p>
+    <a href="https://www.theregister.com/ai-and-ml/2026/10/08/there-can-be-only-one-google-cloud-casts-gemini-as-your-enterprise-ai-hero/5302086" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Google Cloud positions Gemini as work agent (opens in new tab)">Read article →</a>
+</div>
+
+				<!-- /RADAR_CONTENT -->
+
+			</div>
+
+			<!-- Edition navigation -->
+			<nav class="article-nav" data-fade>
+<!-- RADAR_NAV -->
+
+<a href="/en/tech-radar/2026-week-40.html" class="article-nav-link article-nav-prev">
+    <span class="article-nav-label">&larr; Previous edition</span>
+    <span class="article-nav-title">Week 40</span>
+</a>
+<!-- /RADAR_NAV -->
+			</nav>
+
+			<p class="radar-edition-disclaimer">This Tech Radar is a personal tech watch. I am not a journalist, I share information from sources I consider reliable, but I cannot guarantee their accuracy. When in doubt, refer to the original sources.</p>
+			<a href="/en/tech-radar/methodology/" class="radar-preview-link radar-preview-link--small">Full methodology: sources, selection and limits →</a>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<div class="footer-band">
+			<div class="footer-band-in">
+				<div>
+					<p class="footer-heading">An infrastructure project?</p>
+					<p class="footer-sub">Describe your context, I reply within 48 business hours.</p>
+				</div>
+				<a href="/en/services#contact" class="footer-cta">Request a quote</a>
+			</div>
+		</div>
+		<div class="footer-bar">
+			<div class="footer-bar-in">
+				<nav class="footer-links" aria-label="Secondary links">
+				<a href="/en/services">Services</a>
+				<a href="/en/blog">Blog</a>
+				<a href="/en/tech-radar/">Tech Radar</a>
+				<a href="/en/resume">CV</a>
+				<a href="/en/legal">Legal notice</a>
+				</nav>
+				<div class="footer-social">
+					<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+					<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+				</div>
+				<p class="footer-copy">Arthur Bernard, sole trader (EI). SIRET 109 798 322 00011.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>
