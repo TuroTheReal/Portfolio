@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<!--
+		SEO GUIDELINES, placeholders à remplir :
+		42             → numéro de semaine (ex: 12)
+		{{MONTH_FR}}         → nom du mois en français (ex: mars)
+		{{YEAR}}             → année (ex: 2026)
+		Tech Radar Semaine 42 — Business & Cloud (Octobre 2026)        → "Tech Radar, Semaine 42 ({{MONTH_FR}} {{YEAR}})", max 60 chars
+		Tech Radar Semaine 42, Anthropic annonce 16,8 Md$ de revenus au T3, AWS apporte S3 au Vercel Marketplace et plus. → "X articles : headline1, headline2, … et plus.", max 155 chars
+		2026-10-17         → ISO 8601 complet : YYYY-MM-DDT00:00:00Z
+		2026-week-42.html         → ex: 2026-week-12.html
+		20    → nombre total d'articles
+
+		Mois FR : Janvier, Février, Mars, Avril, Mai, Juin,
+		          Juillet, Août, Septembre, Octobre, Novembre, Décembre
+	-->
+	<meta name="description" content="Tech Radar Semaine 42, Anthropic annonce 16,8 Md$ de revenus au T3, AWS apporte S3 au Vercel Marketplace et plus.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Tech Radar Semaine 42 — Business & Cloud (Octobre 2026)</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Tech Radar Semaine 42 — Business & Cloud (Octobre 2026)">
+	<meta property="og:description" content="Tech Radar Semaine 42, Anthropic annonce 16,8 Md$ de revenus au T3, AWS apporte S3 au Vercel Marketplace et plus.">
+	<meta property="og:url" content="https://arthurbernard.dev/fr/tech-radar/2026-week-42.html">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta property="og:image:alt" content="Tech Radar, Semaine 42 par Arthur Bernard">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="article:published_time" content="2026-10-17">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Tech Radar Semaine 42 — Business & Cloud (Octobre 2026)">
+	<meta name="twitter:description" content="Tech Radar Semaine 42, Anthropic annonce 16,8 Md$ de revenus au T3, AWS apporte S3 au Vercel Marketplace et plus.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta name="twitter:image:alt" content="Tech Radar, Semaine 42 par Arthur Bernard">
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": "Tech Radar Semaine 42 — Business & Cloud (Octobre 2026)",
+		"description": "Tech Radar Semaine 42, Anthropic annonce 16,8 Md$ de revenus au T3, AWS apporte S3 au Vercel Marketplace et plus.",
+		"datePublished": "2026-10-17",
+		"dateModified": "2026-10-17",
+		"image": "https://arthurbernard.dev/assets/img/og-image.webp",
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"inLanguage": "fr",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/fr/tech-radar/2026-week-42.html"
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-42.html">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-42.html">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-42.html">
+
+	<link rel="canonical" href="https://arthurbernard.dev/fr/tech-radar/2026-week-42.html">
+	<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
+	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+	<link rel="manifest" href="/manifest.json">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.body.classList.add('light-theme');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#f0f1f2';}})()</script>
+
+	<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/fr/#Home" class="logo" aria-label="Arthur Bernard, accueil"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path fill="currentColor" d="M10.505 7.442L20.959 5.22A2.544 2.544 0 0 1 22.017 10.197L11.563 12.419A2.544 2.544 0 0 1 10.505 7.442ZM5.515 15.786L25.426 11.554A2.544 2.544 0 0 1 26.485 16.531L6.574 20.764A2.544 2.544 0 0 1 5.515 15.786ZM11.477 21.803L20.437 19.898A2.544 2.544 0 0 1 21.495 24.876L12.535 26.78A2.544 2.544 0 0 1 11.477 21.803Z"/></svg></a>
+		<nav class="nav" aria-label="Navigation principale">
+			<a href="/fr/#Home">Accueil</a>
+			<a href="/fr/services">Prestations</a>
+			<a href="/fr/#About">À propos</a>
+			<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/" aria-current="page">Tech Radar</a>
+			<a href="#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle active" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/fr/#Home">Accueil</a>
+				<a href="/fr/services">Prestations</a>
+				<a href="/fr/#About">À propos</a>
+				<a href="/fr/blog">Blog</a>
+				<a href="/fr/tech-radar/" aria-current="page">Tech Radar</a>
+				<a href="#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle active" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main id="contenu" tabindex="-1">
+		<article class="blog-article radar-edition">
+
+			<!-- En-tête édition -->
+			<header class="article-header" data-fade>
+				<a href="/fr/tech-radar/" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Tech Radar</a>
+				<h1>Tech Radar, Semaine 42</h1>
+				<div class="article-meta">
+					<time datetime="2026-10-17">10 - 17 Octobre 2026</time>
+					<span class="article-read-time">20 articles</span>
+				</div>
+			</header>
+
+			<!-- Filtre catégories -->
+			<div class="radar-filter-fade"></div>
+			<div class="radar-tags-filter" role="group" aria-label="Filtrer par catégorie" data-fade>
+				<button class="radar-filter-btn active" data-category="all" aria-pressed="true">Tous</button>
+				<button class="radar-filter-btn" data-category="business" aria-pressed="false">Business</button>
+				<button class="radar-filter-btn" data-category="cloud" aria-pressed="false">Cloud</button>
+				<button class="radar-filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+				<button class="radar-filter-btn" data-category="tech" aria-pressed="false">Tech</button>
+				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Sécurité</button>
+				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">IA</button>
+
+			</div>
+			<div aria-live="polite" class="sr-only" id="filter-status"></div>
+
+			<!-- Corps édition -->
+			<div class="article-body" data-fade>
+
+				<!-- RADAR_CONTENT -->
+
+<h2><span class="radar-tag radar-tag--business">Business</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Anthropic annonce 16,8 Md$ de revenus au T3</h3>
+    <p>Ce chiffre progresse de près de 50 % par rapport au T2, avant une IPO prévue, avec 1,70 $ de revenus pour chaque dollar dépensé en calcul.</p>
+    <a href="https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Anthropic annonce 16,8 Md$ de revenus au T3 (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Replit met fin à son partenariat avec Anthropic</h3>
+    <p>Le CEO cite plusieurs raisons dont le coût, après la signature d'un partenariat avec OpenAI en août.</p>
+    <a href="https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Replit met fin à son partenariat avec Anthropic (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Meta modifie ses CGU sur les redevances IA</h3>
+    <p>Des juristes avertissent que ces CGU simplifiées pourraient permettre à Meta d'éviter des millions de redevances IA.</p>
+    <a href="https://arstechnica.com/tech-policy/2026/10/meta-may-use-sweeping-new-commercial-tos-to-avoid-millions-in-ai-licensing-fees/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Meta modifie ses CGU sur les redevances IA (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Cloudflare rachète Deno et recrute son créateur</h3>
+    <p>Ryan Dahl, créateur de Node.js et Deno, rejoint Cloudflare pour développer son runtime open source Workers.</p>
+    <a href="https://www.theregister.com/devops/2026/10/16/nodejs-creator-ditches-deno-to-work-on-open-source-cloudflare-workers/5303662" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Cloudflare rachète Deno et recrute son créateur (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--cloud">Cloud</span></h2>
+
+<div class="radar-edition-item">
+    <h3>AWS apporte S3 au Vercel Marketplace</h3>
+    <p>S3 Tables et S3 Vectors y sont aussi disponibles nativement, y compris dans v0 by Vercel.</p>
+    <a href="https://aws.amazon.com/blogs/aws/amazon-s3-vercel-marketplace-v0/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS apporte S3 au Vercel Marketplace (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>AWS lance Lambda Web Functions</h3>
+    <p>Cette primitive serverless exécute nativement les frameworks HTTP, avec exécution multi-concurrente et distribution mondiale automatique.</p>
+    <a href="https://aws.amazon.com/blogs/aws/announcing-aws-lambda-web-functions-for-fast-consistent-web-app-performance-anywhere/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS lance Lambda Web Functions (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Microsoft détaille l'architecture du Maia 300</h3>
+    <p>La puce fonctionne comme une plateforme unique conçue pour l'inférence agentique à l'échelle du cloud.</p>
+    <a href="https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-maia-300-architecture/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Microsoft détaille l'architecture du Maia 300 (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--devops">DevOps</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Un plugin Headlamp trace l'admission Kueue</h3>
+    <p>Ce plugin alpha offre des vues en lecture seule des Workloads, LocalQueues et ClusterQueues pour expliquer pourquoi les Jobs restent en attente.</p>
+    <a href="https://kubernetes.io/blog/2026/10/14/tracing-kueue-admission-with-headlamp/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Un plugin Headlamp trace l'admission Kueue (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>n8n passe à l'échelle en production sur EKS</h3>
+    <p>La production exige des workers, des processeurs de webhook, PostgreSQL et Redis, au-delà du simple conteneur SQLite utilisé en démo.</p>
+    <a href="https://www.cncf.io/blog/2026/10/16/deploying-maintaining-and-migrating-production-n8n-on-eks/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : n8n passe à l'échelle en production sur EKS (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Grafana ajoute un mode cost-first à Adaptive Metrics</h3>
+    <p>Ce nouveau mode, disponible en GA, n'applique que les recommandations qui maintiennent ou réduisent les séries actives, aux côtés du mode coverage-first existant.</p>
+    <a href="https://grafana.com/blog/coverage-first-or-cost-first-two-ways-to-automatically-apply-adaptive-metrics-recommendations/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Grafana ajoute un mode cost-first à Adaptive Metrics (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab passe son serveur MCP en GA</h3>
+    <p>Disponible dans GitLab 19.5, il permet aux agents compatibles MCP d'exécuter du code, des merge requests et des pipelines sous les permissions existantes.</p>
+    <a href="https://about.gitlab.com/blog/mcp-server-ga/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitLab passe son serveur MCP en GA (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab publie la version 19.5</h3>
+    <p>Cette version regroupe des fonctionnalités en GA comme Secrets Manager, le serveur MCP et le support de Gemini 4 Argon.</p>
+    <a href="https://docs.gitlab.com/releases/19/gitlab-19-5-released/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitLab publie la version 19.5 (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--tech">Tech</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Postgres 19 reporte sa sortie à novembre</h3>
+    <p>Les développeurs reviennent sur jusqu'à 10 fonctionnalités après que des relecteurs IA ont trouvé plus de bugs que l'équipe ne pouvait en corriger.</p>
+    <a href="https://www.theregister.com/databases/2026/10/16/postgres-19-delayed-after-ai-reviewers-find-more-bugs-than-humans-can-fix/5303471" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Postgres 19 reporte sa sortie à novembre (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--secu">Sécurité</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Kyverno étend ses contrôles à l'exécution</h3>
+    <p>Ce projet CNCF diplômé ajoute des contrôles de sécurité à l'exécution pour les workloads IA, au-delà de son admission control existant.</p>
+    <a href="https://www.cncf.io/blog/2026/10/15/extending-kubernetes-policy-enforcement-to-runtime-security-for-ai-workloads/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Kyverno étend ses contrôles à l'exécution (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Une enquête révèle une faible confiance en l'IA</h3>
+    <p>Seuls 7 % des développeurs font confiance aux résultats de l'IA pour des décisions importantes, ce qui pousse à exécuter les agents en sandbox.</p>
+    <a href="https://www.docker.com/blog/stack-overflow-survey-2026-ai-agent-trust/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Une enquête révèle une faible confiance en l'IA (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Docker corrige une fuite de jetons sur Hub</h3>
+    <p>Le CVE-2026-105445 pouvait réattribuer des jetons d'accès personnels lors d'une conversion de compte en organisation, désormais corrigé.</p>
+    <a href="https://www.docker.com/blog/docker-hub-security-advisory-cve-2026-105445/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Docker corrige une fuite de jetons sur Hub (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitHub améliore son modèle de détection de secrets</h3>
+    <p>Ce classificateur contextuel augmente le taux d'acceptation pondéré de 11,5 % et réduit de 86 % le temps médian de scan.</p>
+    <a href="https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitHub améliore son modèle de détection de secrets (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--ia">IA</span></h2>
+
+<div class="radar-edition-item">
+    <h3>GitLab intègre Gemini 4 Argon à Duo Platform</h3>
+    <p>Lors de l'évaluation interne de GitLab, le modèle a complété 93,3 % des tâches de son benchmark d'ingénierie logicielle pour les travaux longs.</p>
+    <a href="https://about.gitlab.com/blog/gitlab-google-gemini-argon/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitLab intègre Gemini 4 Argon à Duo Platform (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Reflection AI lance Beam, modèle de 501B</h3>
+    <p>Ce modèle open-weight de 501 milliards de paramètres est conçu pour être auto-hébergé, personnalisé et mis à l'échelle sur sa propre infrastructure.</p>
+    <a href="https://huggingface.co/blog/reflection-beam" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Reflection AI lance Beam, modèle de 501B (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Meta lance le modèle Muse Spark Open</h3>
+    <p>Ce modèle frontière en open-weight utilise une architecture multimodale en mélange d'experts.</p>
+    <a href="https://huggingface.co/blog/meta-muse-spark-open" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Meta lance le modèle Muse Spark Open (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+				<!-- /RADAR_CONTENT -->
+
+			</div>
+
+			<!-- Navigation éditions -->
+			<nav class="article-nav" data-fade>
+<!-- RADAR_NAV -->
+
+<a href="/fr/tech-radar/2026-week-41.html" class="article-nav-link article-nav-prev">
+    <span class="article-nav-label">&larr; Édition précédente</span>
+    <span class="article-nav-title">Semaine 41</span>
+</a>
+<!-- /RADAR_NAV -->
+			</nav>
+
+			<p class="radar-edition-disclaimer">Ce Tech Radar est une veille personnelle. Je ne suis pas journaliste, je relaie des informations de sources que j'estime fiables, mais je ne garantis pas leur exactitude. En cas de doute, référez-vous aux sources originales.</p>
+			<a href="/fr/tech-radar/methodology/" class="radar-preview-link radar-preview-link--small">Méthodologie complète : sources, sélection et limites →</a>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<div class="footer-band">
+			<div class="footer-band-in">
+				<div>
+					<p class="footer-heading">Un projet d'infrastructure ?</p>
+					<p class="footer-sub">Décrivez votre contexte, je réponds sous 48 heures ouvrées.</p>
+				</div>
+				<a href="/fr/services#contact" class="footer-cta">Demander un devis</a>
+			</div>
+		</div>
+		<div class="footer-bar">
+			<div class="footer-bar-in">
+				<nav class="footer-links" aria-label="Liens secondaires">
+				<a href="/fr/services">Prestations</a>
+				<a href="/fr/blog">Blog</a>
+				<a href="/fr/tech-radar/">Tech Radar</a>
+				<a href="/fr/resume">CV</a>
+				<a href="/fr/legal">Mentions légales</a>
+				</nav>
+				<div class="footer-social">
+					<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+					<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+				</div>
+				<p class="footer-copy">Arthur Bernard, entrepreneur individuel (EI). SIRET 109 798 322 00011.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>
