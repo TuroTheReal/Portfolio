@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<!--
+		SEO GUIDELINES, placeholders to fill:
+		43             → week number (e.g. 12)
+		{{MONTH_EN}}         → month name in English (e.g. March)
+		{{YEAR}}             → year (e.g. 2026)
+		Tech Radar Week 43 — Business, Cloud & DevOps (October 2026)        → "Tech Radar, Week 43 ({{MONTH_EN}} {{YEAR}})", max 60 chars
+		Tech Radar Week 43, Court orders Meta to pay $25 billion, Microsoft details its digital sovereignty approach, AWS launches ECS Gateway and more. → "X articles: headline1, headline2, … and more.", max 155 chars
+		2026-10-24         → full ISO 8601: YYYY-MM-DDT00:00:00Z
+		2026-week-43.html         → e.g. 2026-week-12.html
+		16    → total number of articles
+	-->
+	<meta name="description" content="Tech Radar Week 43, Court orders Meta to pay $25 billion, Microsoft details its digital sovereignty approach, AWS launches ECS Gateway and more.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Tech Radar Week 43 — Business, Cloud & DevOps (October 2026)</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Tech Radar Week 43 — Business, Cloud & DevOps (October 2026)">
+	<meta property="og:description" content="Tech Radar Week 43, Court orders Meta to pay $25 billion, Microsoft details its digital sovereignty approach, AWS launches ECS Gateway and more.">
+	<meta property="og:url" content="https://arthurbernard.dev/en/tech-radar/2026-week-43.html">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:locale:alternate" content="fr_FR">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta property="og:image:alt" content="Tech Radar, Week 43 by Arthur Bernard">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="article:published_time" content="2026-10-24">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Tech Radar Week 43 — Business, Cloud & DevOps (October 2026)">
+	<meta name="twitter:description" content="Tech Radar Week 43, Court orders Meta to pay $25 billion, Microsoft details its digital sovereignty approach, AWS launches ECS Gateway and more.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta name="twitter:image:alt" content="Tech Radar, Week 43 by Arthur Bernard">
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": "Tech Radar Week 43 — Business, Cloud & DevOps (October 2026)",
+		"description": "Tech Radar Week 43, Court orders Meta to pay $25 billion, Microsoft details its digital sovereignty approach, AWS launches ECS Gateway and more.",
+		"datePublished": "2026-10-24",
+		"dateModified": "2026-10-24",
+		"image": "https://arthurbernard.dev/assets/img/og-image.webp",
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"inLanguage": "en",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/en/tech-radar/2026-week-43.html"
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-43.html">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-43.html">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-43.html">
+
+	<link rel="canonical" href="https://arthurbernard.dev/en/tech-radar/2026-week-43.html">
+	<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
+	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+	<link rel="manifest" href="/manifest.json">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.body.classList.add('light-theme');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#f0f1f2';}})()</script>
+
+	<a class="skip-link" href="#contenu">Skip to content</a>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/en/#Home" class="logo" aria-label="Arthur Bernard, home"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path fill="currentColor" d="M10.505 7.442L20.959 5.22A2.544 2.544 0 0 1 22.017 10.197L11.563 12.419A2.544 2.544 0 0 1 10.505 7.442ZM5.515 15.786L25.426 11.554A2.544 2.544 0 0 1 26.485 16.531L6.574 20.764A2.544 2.544 0 0 1 5.515 15.786ZM11.477 21.803L20.437 19.898A2.544 2.544 0 0 1 21.495 24.876L12.535 26.78A2.544 2.544 0 0 1 11.477 21.803Z"/></svg></a>
+		<nav class="nav" aria-label="Main navigation">
+			<a href="/en/#Home">Home</a>
+			<a href="/en/services">Services</a>
+			<a href="/en/#About">About</a>
+			<a href="/en/blog">Blog</a>
+			<a href="/en/tech-radar/" aria-current="page">Tech Radar</a>
+			<a href="#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle active" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/en/#Home">Home</a>
+				<a href="/en/services">Services</a>
+				<a href="/en/#About">About</a>
+				<a href="/en/blog">Blog</a>
+				<a href="/en/tech-radar/" aria-current="page">Tech Radar</a>
+				<a href="#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle active" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Toggle theme"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main id="contenu" tabindex="-1">
+		<article class="blog-article radar-edition">
+
+			<!-- Edition header -->
+			<header class="article-header" data-fade>
+				<a href="/en/tech-radar/" class="article-back"><span aria-hidden="true">&larr;</span> Back to Tech Radar</a>
+				<h1>Tech Radar, Week 43</h1>
+				<div class="article-meta">
+					<time datetime="2026-10-24">October 17 - 24, 2026</time>
+					<span class="article-read-time">16 articles</span>
+				</div>
+			</header>
+
+			<!-- Category filter -->
+			<div class="radar-filter-fade"></div>
+			<div class="radar-tags-filter" role="group" aria-label="Filter by category" data-fade>
+				<button class="radar-filter-btn active" data-category="all" aria-pressed="true">All</button>
+				<button class="radar-filter-btn" data-category="business" aria-pressed="false">Business</button>
+				<button class="radar-filter-btn" data-category="cloud" aria-pressed="false">Cloud</button>
+				<button class="radar-filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Security</button>
+				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">AI</button>
+
+			</div>
+			<div aria-live="polite" class="sr-only" id="filter-status"></div>
+
+			<!-- Edition body -->
+			<div class="article-body" data-fade>
+
+				<!-- RADAR_CONTENT -->
+
+<h2><span class="radar-tag radar-tag--business">Business</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Court orders Meta to pay $25 billion</h3>
+    <p>The New Mexico court cited 43 million privacy violations tied to the Cambridge Analytica scandal that surfaced in 2018.</p>
+    <a href="https://thehackernews.com/2026/10/meta-ordered-to-pay-25-billion-after.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Court orders Meta to pay $25 billion (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Daytona reaches unicorn status</h3>
+    <p>The agent cloud startup is valued at $1 billion, backed by FirstMark and angel investors including founders of Stripe and Datadog.</p>
+    <a href="https://techcrunch.com/2026/10/23/agent-cloud-startup-daytona-hits-1b-valuation-backed-by-firstmark-and-a-whos-who-of-angels/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Daytona reaches unicorn status (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>OpenAI pursues new funding round</h3>
+    <p>The round reportedly targets $30 billion at a $1.25 trillion valuation, which would be a record for a private company ahead of its IPO.</p>
+    <a href="https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : OpenAI pursues new funding round (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Anthropic investors post paper gains before IPO</h3>
+    <p>Early-stage and follow-on investors in the AI lab are sitting on substantial paper returns ahead of the planned public offering.</p>
+    <a href="https://techcrunch.com/2026/10/23/what-some-of-anthropics-backers-are-reportedly-worth-before-its-ipo/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Anthropic investors post paper gains before IPO (opens in new tab)">Read article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--cloud">Cloud</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Microsoft details its digital sovereignty approach</h3>
+    <p>The post outlines Azure controls that let governments and regulated industries keep critical systems under local oversight.</p>
+    <a href="https://blogs.microsoft.com/blog/2026/10/20/advancing-digital-sovereignty-with-greater-control-and-choice/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Microsoft details its digital sovereignty approach (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>G7 selects S3NS SecNumCloud offering</h3>
+    <p>The taxi company will host data from its AI-equipped fleet on the SecNumCloud-certified cloud, as announced on October 8.</p>
+    <a href="https://www.lemondeinformatique.fr/actualites/lire-g7-choisit-le-cloud-secnumcloud-de-s3ns-100847.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : G7 selects S3NS SecNumCloud offering (opens in new tab)">Read article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--devops">DevOps</span></h2>
+
+<div class="radar-edition-item">
+    <h3>AWS launches ECS Gateway</h3>
+    <p>The managed, account-level resource automatically provisions and manages ingress infrastructure for containerized ECS workloads.</p>
+    <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-ecs-gateway-a-fully-managed-ingress-solution-for-ecs-services/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS launches ECS Gateway (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Grafana launches Workflows for incident response</h3>
+    <p>The public preview automates incident steps, from paging responders to having Assistant draft a briefing.</p>
+    <a href="https://grafana.com/blog/spend-less-time-on-operational-busywork-and-resolve-incidents-faster-with-grafana-workflows/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Grafana launches Workflows for incident response (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Grafana decouples observability cost from volume</h3>
+    <p>Adaptive Telemetry's new volumetric and diversity sampling cut trace volume while keeping dropped traces queryable by ID for 24 hours.</p>
+    <a href="https://grafana.com/blog/cut-costs-keep-what-you-need-adaptive-telemetry/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Grafana decouples observability cost from volume (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Grafana Marketplace reaches general availability</h3>
+    <p>The plugin marketplace now offers more than 30 partner-built integrations, with a 14-day free trial for any Grafana Cloud user.</p>
+    <a href="https://grafana.com/blog/grafana-marketplace/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Grafana Marketplace reaches general availability (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab publishes AI-native engineering playbook</h3>
+    <p>The playbook argues coding is no longer the bottleneck, citing a survey where 85% of DevSecOps pros say AI shifted strain to review and validation.</p>
+    <a href="https://about.gitlab.com/blog/redesign-how-your-team-ships-software-with-ai-agents/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : GitLab publishes AI-native engineering playbook (opens in new tab)">Read article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--secu">Security</span></h2>
+
+<div class="radar-edition-item">
+    <h3>AWS Continuum automates code vulnerability fixes</h3>
+    <p>The now generally available service uses AI to find, validate and prioritize vulnerabilities, then opens pull requests with ready-to-review fixes.</p>
+    <a href="https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS Continuum automates code vulnerability fixes (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab patches critical RCE flaw</h3>
+    <p>The CVSS 10.0 flaw allows unauthenticated remote code execution on self-managed servers and affects every release since 2014.</p>
+    <a href="https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : GitLab patches critical RCE flaw (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>PHP ships emergency fix for critical flaws</h3>
+    <p>The out-of-cycle release addresses two undisclosed vulnerabilities scored 9.2 on CVSS v4.0, with details pending the official advisory.</p>
+    <a href="https://thehackernews.com/2026/10/php2shell-two-unpatched-critical-php.html" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : PHP ships emergency fix for critical flaws (opens in new tab)">Read article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--ia">AI</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Mistral launches Voxtral 3 and Timestral models</h3>
+    <p>Voxtral 3 handles transcription and speech synthesis, while Timestral targets time series forecasting without retraining.</p>
+    <a href="https://next.ink/263031/mistral-revient-sur-laudio-avec-voxtral-3-et-entre-dans-les-previsions-avec-timestral/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : Mistral launches Voxtral 3 and Timestral models (opens in new tab)">Read article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>AWS releases TorchNeuron for Trainium chips</h3>
+    <p>The open source project eases migrating model training to AWS Trainium chips, positioning itself as an alternative to Nvidia's CUDA.</p>
+    <a href="https://next.ink/262948/avec-torchneuron-amazon-veut-faciliter-lentrainement-des-modeles-sur-ses-puces-trainium/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Read article : AWS releases TorchNeuron for Trainium chips (opens in new tab)">Read article →</a>
+</div>
+
+				<!-- /RADAR_CONTENT -->
+
+			</div>
+
+			<!-- Edition navigation -->
+			<nav class="article-nav" data-fade>
+<!-- RADAR_NAV -->
+
+<a href="/en/tech-radar/2026-week-42.html" class="article-nav-link article-nav-prev">
+    <span class="article-nav-label">&larr; Previous edition</span>
+    <span class="article-nav-title">Week 42</span>
+</a>
+<!-- /RADAR_NAV -->
+			</nav>
+
+			<p class="radar-edition-disclaimer">This Tech Radar is a personal tech watch. I am not a journalist, I share information from sources I consider reliable, but I cannot guarantee their accuracy. When in doubt, refer to the original sources.</p>
+			<a href="/en/tech-radar/methodology/" class="radar-preview-link radar-preview-link--small">Full methodology: sources, selection and limits →</a>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<div class="footer-band">
+			<div class="footer-band-in">
+				<div>
+					<p class="footer-heading">An infrastructure project?</p>
+					<p class="footer-sub">Describe your context, I reply within 48 business hours.</p>
+				</div>
+				<a href="/en/services#contact" class="footer-cta">Request a quote</a>
+			</div>
+		</div>
+		<div class="footer-bar">
+			<div class="footer-bar-in">
+				<nav class="footer-links" aria-label="Secondary links">
+				<a href="/en/services">Services</a>
+				<a href="/en/blog">Blog</a>
+				<a href="/en/tech-radar/">Tech Radar</a>
+				<a href="/en/resume">CV</a>
+				<a href="/en/legal">Legal notice</a>
+				</nav>
+				<div class="footer-social">
+					<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+					<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+				</div>
+				<p class="footer-copy">Arthur Bernard, sole trader (EI). SIRET 109 798 322 00011.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>
