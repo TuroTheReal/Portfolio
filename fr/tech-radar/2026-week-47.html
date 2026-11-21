@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="theme-color" content="#121212">
+	<!--
+		SEO GUIDELINES, placeholders à remplir :
+		47             → numéro de semaine (ex: 12)
+		{{MONTH_FR}}         → nom du mois en français (ex: mars)
+		{{YEAR}}             → année (ex: 2026)
+		Tech Radar Semaine 47 — Business & Cloud (Novembre 2026)        → "Tech Radar, Semaine 47 ({{MONTH_FR}} {{YEAR}})", max 60 chars
+		Tech Radar Semaine 47, Bending Spoons rachète Mailchimp, AWS Lambda ajoute le support GPU aux Event Functions et plus. → "X articles : headline1, headline2, … et plus.", max 155 chars
+		2026-11-21         → ISO 8601 complet : YYYY-MM-DDT00:00:00Z
+		2026-week-47.html         → ex: 2026-week-12.html
+		22    → nombre total d'articles
+
+		Mois FR : Janvier, Février, Mars, Avril, Mai, Juin,
+		          Juillet, Août, Septembre, Octobre, Novembre, Décembre
+	-->
+	<meta name="description" content="Tech Radar Semaine 47, Bending Spoons rachète Mailchimp, AWS Lambda ajoute le support GPU aux Event Functions et plus.">
+	<meta name="author" content="Arthur Bernard">
+	<meta name="robots" content="index, follow">
+
+	<title>Tech Radar Semaine 47 — Business & Cloud (Novembre 2026)</title>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Tech Radar Semaine 47 — Business & Cloud (Novembre 2026)">
+	<meta property="og:description" content="Tech Radar Semaine 47, Bending Spoons rachète Mailchimp, AWS Lambda ajoute le support GPU aux Event Functions et plus.">
+	<meta property="og:url" content="https://arthurbernard.dev/fr/tech-radar/2026-week-47.html">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:site_name" content="Arthur Bernard">
+	<meta property="og:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta property="og:image:alt" content="Tech Radar, Semaine 47 par Arthur Bernard">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="article:published_time" content="2026-11-21">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Tech Radar Semaine 47 — Business & Cloud (Novembre 2026)">
+	<meta name="twitter:description" content="Tech Radar Semaine 47, Bending Spoons rachète Mailchimp, AWS Lambda ajoute le support GPU aux Event Functions et plus.">
+	<meta name="twitter:image" content="https://arthurbernard.dev/assets/img/og-image.webp">
+	<meta name="twitter:image:alt" content="Tech Radar, Semaine 47 par Arthur Bernard">
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": "Tech Radar Semaine 47 — Business & Cloud (Novembre 2026)",
+		"description": "Tech Radar Semaine 47, Bending Spoons rachète Mailchimp, AWS Lambda ajoute le support GPU aux Event Functions et plus.",
+		"datePublished": "2026-11-21",
+		"dateModified": "2026-11-21",
+		"image": "https://arthurbernard.dev/assets/img/og-image.webp",
+		"publisher": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"inLanguage": "fr",
+		"author": {
+			"@type": "Person",
+			"name": "Arthur Bernard",
+			"url": "https://arthurbernard.dev"
+		},
+		"mainEntityOfPage": "https://arthurbernard.dev/fr/tech-radar/2026-week-47.html"
+	}
+	</script>
+
+	<!-- Hreflang -->
+	<link rel="alternate" hreflang="en" href="https://arthurbernard.dev/en/tech-radar/2026-week-47.html">
+	<link rel="alternate" hreflang="fr" href="https://arthurbernard.dev/fr/tech-radar/2026-week-47.html">
+	<link rel="alternate" hreflang="x-default" href="https://arthurbernard.dev/en/tech-radar/2026-week-47.html">
+
+	<link rel="canonical" href="https://arthurbernard.dev/fr/tech-radar/2026-week-47.html">
+	<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/blog.css">
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
+	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+	<link rel="manifest" href="/manifest.json">
+
+</head>
+
+<body>
+	<script>(function(){var s=localStorage.getItem('theme');if(s==='light'||(!s&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.body.classList.add('light-theme');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#f0f1f2';}})()</script>
+
+	<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+	<!-- Header -->
+	<header class="header">
+		<a href="/fr/#Home" class="logo" aria-label="Arthur Bernard, accueil"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path fill="currentColor" d="M10.505 7.442L20.959 5.22A2.544 2.544 0 0 1 22.017 10.197L11.563 12.419A2.544 2.544 0 0 1 10.505 7.442ZM5.515 15.786L25.426 11.554A2.544 2.544 0 0 1 26.485 16.531L6.574 20.764A2.544 2.544 0 0 1 5.515 15.786ZM11.477 21.803L20.437 19.898A2.544 2.544 0 0 1 21.495 24.876L12.535 26.78A2.544 2.544 0 0 1 11.477 21.803Z"/></svg></a>
+		<nav class="nav" aria-label="Navigation principale">
+			<a href="/fr/#Home">Accueil</a>
+			<a href="/fr/services">Prestations</a>
+			<a href="/fr/#About">À propos</a>
+			<a href="/fr/blog">Blog</a>
+			<a href="/fr/tech-radar/" aria-current="page">Tech Radar</a>
+			<a href="#Contact">Contact</a>
+		</nav>
+		<div class="header-actions">
+			<button class="lang-toggle" data-lang="en">EN</button>
+			<span class="lang-sep" aria-hidden="true">|</span>
+			<button class="lang-toggle active" data-lang="fr">FR</button>
+			<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+		</div>
+		<button class="burger" aria-label="Menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><line class="line-top" x1="3" y1="11" x2="19" y2="11"/><line class="line-bottom" x1="3" y1="11" x2="19" y2="11"/></svg></button>
+	</header>
+
+	<!-- Slide panel mobile -->
+	<div class="overlay">
+		<div class="overlay-panel">
+			<nav aria-label="Menu">
+				<a href="/fr/#Home">Accueil</a>
+				<a href="/fr/services">Prestations</a>
+				<a href="/fr/#About">À propos</a>
+				<a href="/fr/blog">Blog</a>
+				<a href="/fr/tech-radar/" aria-current="page">Tech Radar</a>
+				<a href="#Contact">Contact</a>
+			</nav>
+			<div class="overlay-bottom">
+				<div class="overlay-lang">
+					<button class="lang-toggle" data-lang="en">EN</button>
+					<span class="lang-sep" aria-hidden="true">|</span>
+					<button class="lang-toggle active" data-lang="fr">FR</button>
+				</div>
+				<label class="switch" aria-label="Changer de thème"><input class="switch__input" type="checkbox" role="switch"><div class="switch__icon"></div><svg class="switch__sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle class="sun-core" cx="12" cy="12" r="6.5"/><line x1="12" y1="2" x2="12" y2="3" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="22" stroke-width="2.5" stroke-linecap="round"/><line x1="2" y1="12" x2="3" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="12" x2="22" y2="12" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="5.05" x2="5.76" y2="5.76" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="18.24" x2="18.95" y2="18.95" stroke-width="2.5" stroke-linecap="round"/><line x1="5.05" y1="18.95" x2="5.76" y2="18.24" stroke-width="2.5" stroke-linecap="round"/><line x1="18.24" y1="5.76" x2="18.95" y2="5.05" stroke-width="2.5" stroke-linecap="round"/></svg></label>
+			</div>
+		</div>
+	</div>
+
+	<main id="contenu" tabindex="-1">
+		<article class="blog-article radar-edition">
+
+			<!-- En-tête édition -->
+			<header class="article-header" data-fade>
+				<a href="/fr/tech-radar/" class="article-back"><span aria-hidden="true">&larr;</span> Retour au Tech Radar</a>
+				<h1>Tech Radar, Semaine 47</h1>
+				<div class="article-meta">
+					<time datetime="2026-11-21">14 - 21 Novembre 2026</time>
+					<span class="article-read-time">22 articles</span>
+				</div>
+			</header>
+
+			<!-- Filtre catégories -->
+			<div class="radar-filter-fade"></div>
+			<div class="radar-tags-filter" role="group" aria-label="Filtrer par catégorie" data-fade>
+				<button class="radar-filter-btn active" data-category="all" aria-pressed="true">Tous</button>
+				<button class="radar-filter-btn" data-category="business" aria-pressed="false">Business</button>
+				<button class="radar-filter-btn" data-category="cloud" aria-pressed="false">Cloud</button>
+				<button class="radar-filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+				<button class="radar-filter-btn" data-category="tech" aria-pressed="false">Tech</button>
+				<button class="radar-filter-btn" data-category="secu" aria-pressed="false">Sécurité</button>
+				<button class="radar-filter-btn" data-category="ia" aria-pressed="false">IA</button>
+
+			</div>
+			<div aria-live="polite" class="sr-only" id="filter-status"></div>
+
+			<!-- Corps édition -->
+			<div class="article-body" data-fade>
+
+				<!-- RADAR_CONTENT -->
+
+<h2><span class="radar-tag radar-tag--business">Business</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Bending Spoons rachète Mailchimp</h3>
+    <p>L'opération est évaluée à 3,68 milliards de dollars, bien en dessous des quelque 12 milliards déboursés par Intuit en 2021.</p>
+    <a href="https://techcrunch.com/2026/11/20/bending-spoons-buys-mailchimp-for-3-68-billion/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Bending Spoons rachète Mailchimp (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Fondateurs d'Anthropic encaissent près de 2 Md$ en IPO</h3>
+    <p>Au prix d'introduction relevé à 83 dollars l'action, chacun des sept fondateurs a empoché 280 millions de dollars, pour près de 105 milliards levés.</p>
+    <a href="https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Fondateurs d'Anthropic encaissent près de 2 Md$ en IPO (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>MongoDB rachète Firebolt</h3>
+    <p>L'opération réunit les workloads transactionnels et analytiques au sein d'une même plateforme de base de données.</p>
+    <a href="https://www.theregister.com/databases/2026/11/18/mongodb-snaps-up-firebolt-to-bring-transactions-and-analytics-under-one-roof/5310809" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : MongoDB rachète Firebolt (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--cloud">Cloud</span></h2>
+
+<div class="radar-edition-item">
+    <h3>AWS Lambda ajoute le support GPU aux Event Functions</h3>
+    <p>Les instances GPU G-series ciblent l'inférence ML, le traitement média et le rendu, facturées au tarif EC2 standard plus des frais de gestion.</p>
+    <a href="https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-gpu-instances-for-event-functions-on-lambda-managed-instances/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS Lambda ajoute le support GPU aux Event Functions (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Microsoft dévoile de nouvelles capacités Azure à Ignite</h3>
+    <p>De nouvelles capacités de calcul, stockage et réseau permettent d'exécuter des workloads IA en gardant le contrôle de l'infrastructure.</p>
+    <a href="https://azure.microsoft.com/en-us/blog/microsoft-ignite-2026-whats-new-in-azure-the-platform-purpose-built-for-ai/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Microsoft dévoile de nouvelles capacités Azure à Ignite (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Microsoft lance les VM Azure Cobalt 200</h3>
+    <p>Ces instances ciblent les applications cloud natives, les bases de données et les workloads d'IA agentique, avec de meilleures performances selon Microsoft.</p>
+    <a href="https://azure.microsoft.com/en-us/blog/azure-cobalt-200-vms-now-available-proven-on-real-workloads-and-built-for-the-agentic-era/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Microsoft lance les VM Azure Cobalt 200 (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>HCP ajoute le support IBMid et des fonctions de gouvernance</h3>
+    <p>La mise à jour étend la gestion des identités et les workflows d'administration pour les organisations qui exploitent les produits HashiCorp.</p>
+    <a href="https://www.hashicorp.com/blog/hcp-introduces-ibmid-support-and-new-enterprise-governance-capabilities" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : HCP ajoute le support IBMid et des fonctions de gouvernance (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--devops">DevOps</span></h2>
+
+<div class="radar-edition-item">
+    <h3>AWS CloudFormation StackSets ajoute des rôles personnalisés</h3>
+    <p>Des modèles de rôles personnalisés remplacent le rôle AdministratorAccess par défaut, pour limiter les permissions au moindre privilège.</p>
+    <a href="https://aws.amazon.com/blogs/devops/announcing-custom-execution-roles-for-aws-cloudformation-stacksets/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS CloudFormation StackSets ajoute des rôles personnalisés (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>AWS Transform accélère la modernisation continue</h3>
+    <p>Une nouvelle intégration AWS Health relie les événements de cycle de vie au code concerné, avec des correctifs livrés en une pull request par dépôt.</p>
+    <a href="https://aws.amazon.com/blogs/devops/whats-new-in-aws-transform-continuous-modernization-for-reinvent-2026/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : AWS Transform accélère la modernisation continue (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Un Agent Skill AWS réduit le MTTR des incidents DB</h3>
+    <p>La compétence encode le triage Aurora PostgreSQL en arbres de décision sur cinq modes de panne, réduisant le temps de résolution de 52 à 14 minutes.</p>
+    <a href="https://aws.amazon.com/blogs/devops/reducing-database-incident-mttr-by-73-with-a-custom-aws-devops-agent-skill/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Un Agent Skill AWS réduit le MTTR des incidents DB (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>British Airways modernise ses services Java avec AWS</h3>
+    <p>L'IA agentique et l'automatisation migrent plus de 250 services métier d'EC2 vers ECS conteneurisé et auto-scalé, avec Fargate et Graviton.</p>
+    <a href="https://aws.amazon.com/blogs/devops/how-british-airways-is-accelerating-the-modernization-of-its-java-services/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : British Airways modernise ses services Java avec AWS (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Kubernetes va retirer le backend IPVS de kube-proxy</h3>
+    <p>Le SIG Network prévoit la suppression en Kubernetes 1.40, après la dépréciation d'IPVS en 1.35, avec nftables ou iptables comme solutions de migration.</p>
+    <a href="https://kubernetes.io/blog/2026/11/16/ipvs-removal/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Kubernetes va retirer le backend IPVS de kube-proxy (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Argo CD ignore un hook de migration en auto-réparation</h3>
+    <p>Une fenêtre de synchronisation s'est fermée pendant l'auto-réparation, et Argo CD a signalé un succès alors que le hook de migration n'a jamais tourné.</p>
+    <a href="https://www.cncf.io/blog/2026/11/20/when-a-sync-window-closes-how-argo-cd-self-heal-skipped-the-migration-hook/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Argo CD ignore un hook de migration en auto-réparation (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--tech">Tech</span></h2>
+
+<div class="radar-edition-item">
+    <h3>GitHub lance Replica et un cadre d'accessibilité</h3>
+    <p>Ce sont deux nouveaux projets open source destinés à la collaboration et à l'inclusion dans la maintenance open source.</p>
+    <a href="https://github.blog/open-source/maintainers/the-best-things-in-open-source-are-built-together/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitHub lance Replica et un cadre d'accessibilité (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitHub crée l'Agent Host Protocol</h3>
+    <p>Le protocole ouvert garde les sessions d'agent accessibles entre éditeurs, applications, téléphones et le cloud.</p>
+    <a href="https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitHub crée l'Agent Host Protocol (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab publie la version 19.6</h3>
+    <p>La page de publication répertorie les fonctionnalités et correctifs inclus dans cette version, sans détails supplémentaires fournis.</p>
+    <a href="https://docs.gitlab.com/releases/19/gitlab-19-6-released/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitLab publie la version 19.6 (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>PostgreSQL 19 ajoute la cohérence read-your-writes</h3>
+    <p>La nouvelle commande WAIT FOR LSN permet à une session sur un standby d'attendre le rattrapage de la réplication avant de lire, avec un délai optionnel.</p>
+    <a href="https://simonwillison.net/2026/Nov/19/postgresql-19/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : PostgreSQL 19 ajoute la cohérence read-your-writes (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--secu">Sécurité</span></h2>
+
+<div class="radar-edition-item">
+    <h3>JFrog Curation bloque les paquets à risque dans CodeBuild</h3>
+    <p>Une violation de politique renvoie une erreur HTTP 403 qui fait échouer le build, empêchant la dépendance signalée d'atteindre l'image ou Amazon ECR.</p>
+    <a href="https://aws.amazon.com/blogs/devops/enforcing-zero-trust-dependency-policies-in-aws-codebuild-with-jfrog-curation/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : JFrog Curation bloque les paquets à risque dans CodeBuild (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>HashiCorp relie Vault Radar à la remédiation Vault</h3>
+    <p>Vault Radar détecte les secrets exposés sur tout le cycle de vie applicatif, puis Vault gère leur remédiation vers des identifiants gouvernés.</p>
+    <a href="https://www.hashicorp.com/blog/from-exposed-secrets-to-managed-credentials" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : HashiCorp relie Vault Radar à la remédiation Vault (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>Docker corrige Java4Shell et la faille NGINX</h3>
+    <p>Des images corrigées pour les deux failles sont désormais publiées dans le catalogue Docker Hardened Images.</p>
+    <a href="https://www.docker.com/blog/docker-patches-java4shell-and-the-nginx-http-2-with-docker-hardened-images/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Docker corrige Java4Shell et la faille NGINX (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<h2><span class="radar-tag radar-tag--ia">IA</span></h2>
+
+<div class="radar-edition-item">
+    <h3>Microsoft et Oracle connectent l'IA aux données métier</h3>
+    <p>De nouvelles intégrations permettent aux agents IA de raisonner sur les données critiques d'Oracle au sein des flux de travail d'entreprise.</p>
+    <a href="https://azure.microsoft.com/en-us/blog/microsoft-and-oracle-bring-agentic-ai-into-flow-of-enterprise-work/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : Microsoft et Oracle connectent l'IA aux données métier (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+<div class="radar-edition-item">
+    <h3>GitLab Duo Agent Platform double l'efficacité des crédits</h3>
+    <p>Moins de requêtes modèle par tâche, avec un cache de prompts optionnel, permettent aux crédits GitLab d'aller jusqu'à deux fois plus loin dès le 19 novembre.</p>
+    <a href="https://about.gitlab.com/blog/duo-agent-platform-does-more-per-gitlab-credit/" target="_blank" rel="noopener noreferrer" class="radar-edition-source" aria-label="Lire l'article : GitLab Duo Agent Platform double l'efficacité des crédits (s'ouvre dans un nouvel onglet)">Lire l'article →</a>
+</div>
+
+				<!-- /RADAR_CONTENT -->
+
+			</div>
+
+			<!-- Navigation éditions -->
+			<nav class="article-nav" data-fade>
+<!-- RADAR_NAV -->
+
+<a href="/fr/tech-radar/2026-week-46.html" class="article-nav-link article-nav-prev">
+    <span class="article-nav-label">&larr; Édition précédente</span>
+    <span class="article-nav-title">Semaine 46</span>
+</a>
+<!-- /RADAR_NAV -->
+			</nav>
+
+			<p class="radar-edition-disclaimer">Ce Tech Radar est une veille personnelle. Je ne suis pas journaliste, je relaie des informations de sources que j'estime fiables, mais je ne garantis pas leur exactitude. En cas de doute, référez-vous aux sources originales.</p>
+			<a href="/fr/tech-radar/methodology/" class="radar-preview-link radar-preview-link--small">Méthodologie complète : sources, sélection et limites →</a>
+
+		</article>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer" id="Contact">
+		<div class="footer-band">
+			<div class="footer-band-in">
+				<div>
+					<p class="footer-heading">Un projet d'infrastructure ?</p>
+					<p class="footer-sub">Décrivez votre contexte, je réponds sous 48 heures ouvrées.</p>
+				</div>
+				<a href="/fr/services#contact" class="footer-cta">Demander un devis</a>
+			</div>
+		</div>
+		<div class="footer-bar">
+			<div class="footer-bar-in">
+				<nav class="footer-links" aria-label="Liens secondaires">
+				<a href="/fr/services">Prestations</a>
+				<a href="/fr/blog">Blog</a>
+				<a href="/fr/tech-radar/">Tech Radar</a>
+				<a href="/fr/resume">CV</a>
+				<a href="/fr/legal">Mentions légales</a>
+				</nav>
+				<div class="footer-social">
+					<a href="https://www.linkedin.com/in/arthurbernard92" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+					<a href="https://github.com/TuroTheReal" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+				</div>
+				<p class="footer-copy">Arthur Bernard, entrepreneur individuel (EI). SIRET 109 798 322 00011.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../../assets/script.js" defer></script>
+
+</body>
+</html>
